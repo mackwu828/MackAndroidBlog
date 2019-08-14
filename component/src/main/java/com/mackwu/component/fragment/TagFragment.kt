@@ -1,4 +1,4 @@
-package com.mackwu.component.fragment.tag
+package com.mackwu.component.fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
