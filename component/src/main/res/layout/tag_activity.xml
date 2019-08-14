@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--
+    Must specify unique android:id, android:tag, or have a parent with an id for com.mackwu.component.fragment.tag.TagFragment
+    使用fragment标签时必须添加id属性
+    -->
+    <fragment
+        android:id="@+id/fragment_tag"
+        android:name="com.mackwu.component.fragment.tag.TagFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
