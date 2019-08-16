@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+    透明度变化
+    android:duration="1000" 动画持续时间
+    android:fromAlpha="1.0" 动画起始时透明度
+    android:toAlpha="0.0" 动画结束时透明度
+    android:interpolator="@android:anim/accelerate_decelerate_interpolator" 插值器。如加速插值器
+-->
+<alpha xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="1000"
+    android:fromAlpha="1.0"
+    android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+    android:toAlpha="0.0" />
