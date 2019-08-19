@@ -1,4 +1,4 @@
-package com.mackwu.view;
+package com.mackwu.tool;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
