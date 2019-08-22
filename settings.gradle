@@ -1,1 +1,1 @@
-include ':app', ':component', ':view'
+include  ':view', ':anim',  ':viewcustom', ':tool', ':activity', ':fragment', ':service', ':receiver', ':tv'

@@ -1,19 +1,51 @@
 # mackblog
 
 ## 目录
-* [组件](/component)
-    * [activity]()
-    * [BroadcastReceiver]()
-    * [Service]()
-    * [Content Provider]()
-    * [Fragment](/component/Fragment.md)
-    * [Application]()
+* [Activity](/activity)
+    * 生命周期
+    * 启动方式
+        * startActivity
+        * startActivityForResult
+        * 启动Activity的最佳方式
+        * 跳转到另一个进程的Activity
+        * 通过Uri跳转
+    * 启动模式
+        * Activity栈
+        * 查看Activity栈中的情况
+        * standard
+        * singleTop
+        * singleTask
+        * singleInstance
+    * Intent
+        * action、flags
+        * xx
+* [BroadcastReceiver](/receiver)
+* [Service](/service)
+* [Content Provider]()
+* [Fragment](/fragment)
+* [Application]()
 * [View](/view)
     * [TestView]()
     * [EditText]()
-* [自定义View]()
+    * [DrawerLayout]()
+* [自定义View](/viewcustom)
+    * [触屏事件](/viewcustom/触屏事件.md)
+    * [按键事件](/viewcustom/按键事件.md)
+    * [滑动](/viewcustom/滑动.md)
+    * [侧滑](/viewcustom/侧滑.md)
+    * [手势](/viewcustom/手势.md)   
 * [动画](/anim)
     * [逐帧动画](/anim/逐帧动画.md)
     * [补间动画](/anim/补间动画.md)
     * [属性动画](/anim/属性动画.md)
-* []()
+    * [Animation源码分析](/anim/Animation源码分析.md)
+* [网络]()
+* [异步]()
+* [图片]()
+* [性能优化]()
+* [TV](/tv)
+* [工具](/tool)
+    * [Maven介绍](/tool/Maven介绍.md)
+    * [如何上传library到jcenter](/tool/如何上传library到jcenter.md)
+
+    

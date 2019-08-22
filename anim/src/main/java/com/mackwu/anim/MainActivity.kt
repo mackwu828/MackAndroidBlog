@@ -19,12 +19,5 @@ class MainActivity : AppCompatActivity() {
         btn_tween.setOnClickListener { startActivity(Intent(this, TweenActivity::class.java)) }
         btn_interpolator.setOnClickListener { startActivity(Intent(this, InterpolatorActivity::class.java)) }
 
-
-        //
-        val animation = object : Animation(){
-            override fun applyTransformation(interpolatedTime: Float, t: Transformation?) {
-
-            }
-        }
     }
 }

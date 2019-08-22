@@ -1,4 +1,8 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
 
 android {
     compileSdkVersion 28
@@ -32,4 +36,29 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+
+ext {
+    bintrayRepo = 'android'
+    bintrayName = 'test'
+
+    publishedGroupId = 'com.mackwu.tool'
+    libraryName = 'tool'
+    artifact = 'tool'
+
+    libraryDescription = 'test for maven'
+
+    siteUrl = 'https://github.com/mackwu828/mackblog'
+    gitUrl = 'https://github.com/mackwu828/mackblog.git'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'mackwu'
+    developerName = 'mackwu'
+    developerEmail = 'mackwu828@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
 }

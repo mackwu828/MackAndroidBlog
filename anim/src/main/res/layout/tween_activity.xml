@@ -7,6 +7,50 @@
     android:orientation="vertical"
     tools:context=".tween.TweenActivity">
 
+    <!-- XML中 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="XML中实现" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_alpha_xml"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="透明度" />
+
+        <Button
+            android:id="@+id/btn_scale_xml"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="缩放" />
+
+        <Button
+            android:id="@+id/btn_translate_xml"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="位移" />
+
+        <Button
+            android:id="@+id/btn_rotate_xml"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="旋转" />
+    </LinearLayout>
+
+
+    <!-- 代码中 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="代码中实现" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -36,10 +80,12 @@
             android:text="旋转" />
     </LinearLayout>
 
+    <!-- -->
     <Button
         android:id="@+id/btn_anim_attr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="动画属性" />
 
 
@@ -47,6 +93,7 @@
         android:id="@+id/iv_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:src="@mipmap/ic_launcher" />
 
 </LinearLayout>
