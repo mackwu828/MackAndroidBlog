@@ -1,21 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.mackwu.tv">
+
+    <!-- 手机端通常有的一些硬件特性在tv端是没有的，所以需要在manifest中配置 -->
+    <!-- true app只运行在TV上，false可以运行在TV和phone上-->
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="true" />
+    <!-- 不需要触摸屏幕 -->
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
 
     <application
         android:allowBackup="true"
+        android:banner="@mipmap/ic_launcher"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+                <!-- 显示icon在普通桌面上 -->
                 <category android:name="android.intent.category.LAUNCHER" />
+                <!-- 显示icon在leanback桌面上 -->
+                <!-- manifest报红提示：Expecting an activity to have android.intent.category.LEANBACK_LAUNCHER intent filter，不需要加项目也可以允许，暂时忽略-->
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
