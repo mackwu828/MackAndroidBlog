@@ -25,10 +25,10 @@ class StartActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        btn_test.text = "启动服务"
+//        btn_test.text = "startService"
 //        btn_test.setOnClickListener { startService(Intent(this, StartService::class.java)) }
 
-        btn_test.text = "绑定服务"
+        btn_test.text = "bindService"
         btn_test.setOnClickListener { bindService(Intent(this, BindService::class.java), bindConnection, Service.BIND_AUTO_CREATE) }
     }
 

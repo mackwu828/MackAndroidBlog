@@ -19,6 +19,7 @@ import android.util.Log
  * onCreate -> onStartCommand -> onDestroy
  *
  * <h3>测试<h3/>
+ * @see StartActivity
  * 点击1次startService，执行了1次onCreate和onStartCommand
  * //    08-23 15:22:53.316 2604-2604/com.mackwu.service D/TAG: onCreate...
  * //    08-23 15:22:53.317 2604-2604/com.mackwu.service D/TAG: onStartCommand...

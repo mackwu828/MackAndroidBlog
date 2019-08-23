@@ -16,10 +16,21 @@ import android.widget.Toast
  *
  * 绑定服务
  *
- * 绑定服务的生命周期
+ * <h3>绑定服务的生命周期<h3>
  * onCreate -> onBind -> onUnbind -> onDestroy
  *
+ * <h3>扩展Binder类<h3/>
+ * 通过继承Binder类，只能与当前进程的其他组件进行交互，如果想要与其他进程进行交互，需要用Messenger或AIDL
+ *
+ * 绑定服务分为服务端和客户端。
+ * 服务端：指的就是Service。在Service中定义一个Binder对象，返回当前服务的实例，其他组件可以通过该实例调用服务的方法
+ * 客户端：指Activity等其他组件，用来绑定服务，绑定服务时需要传入ServiceConnection对象。当客户端与服务端连接成功时，
+ * 会回调到ServiceConnection的onServiceConnected方法中
+ * @see StartActivity
+ *
+ *
  * <h3>测试<h3/>
+ * @see StartActivity
  * 点击1次bindService，执行了1次onCreate和onBind
  * 08-23 16:37:50.982 2539-2539/com.mackwu.service D/TAG: onCreate...
  * 08-23 16:37:50.982 2539-2539/com.mackwu.service D/TAG: onBind...
