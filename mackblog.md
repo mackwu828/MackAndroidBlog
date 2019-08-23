@@ -8,7 +8,8 @@
         * startActivityForResult
         * 启动Activity的最佳方式
         * 跳转到另一个进程的Activity
-        * 通过Uri跳转
+            * exported=true
+            * getLaunchIntentForPackage
     * 启动模式
         * Activity栈
         * 查看Activity栈中的情况
@@ -17,10 +18,23 @@
         * singleTask
         * singleInstance
     * Intent
-        * action、flags
-        * xx
+        * action
+        * flags
+        * uri
 * [BroadcastReceiver](/receiver)
 * [Service](/service)
+    * 启动方式
+        * startService
+            * 生命周期
+            * onStartCommand的返回值
+        * bindService
+            * 生命周期
+            * 扩展Binder类
+        * 绑定另一个进程的Service
+            * Messenger
+            * AIDL
+    * IntentService
+    * 前台服务
 * [Content Provider]()
 * [Fragment](/fragment)
 * [Application]()
