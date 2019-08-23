@@ -19,11 +19,13 @@
             </intent-filter>
         </activity>
 
-
         <!-- start -->
-        <activity android:name=".start.StartAActivity" />
-        <activity android:name=".start.StartBActivity" />
-        <activity android:name=".start.StartProcessActivity" />
+        <activity android:name=".start.StartActivity" />
+        <activity android:name=".start.StartForResultActivity" />
+        <activity android:name=".start.StartBestActivity" />
+        <activity android:name=".start.SecondActivity" />
+
+
         <!-- launchMode -->
         <activity android:name=".launchmode.StandardActivity"
             android:launchMode="standard">
@@ -40,6 +42,12 @@
         <activity android:name=".launchmode.SingleInstanceActivity"
             android:launchMode="singleInstance"/>
 
+
+        <!-- ipc -->
+        <activity android:name=".ipc.IpcActivity" />
+
+        <!-- intent -->
+        <activity android:name=".intent.UriActivity" />
     </application>
 
 </manifest>

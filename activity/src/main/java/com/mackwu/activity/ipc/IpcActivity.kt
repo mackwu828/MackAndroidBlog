@@ -1,8 +1,7 @@
-package com.mackwu.activity.start
+package com.mackwu.activity.ipc
 
 import android.content.ComponentName
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.mackwu.activity.R
@@ -14,29 +13,31 @@ import kotlinx.android.synthetic.main.activity_main.*
  * <a href="mailto:wumengjiao828@163.com">Contact me</a>
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ================================================
+ *
+ * 跳转到另一个进程的Activity
  */
-class StartProcessActivity  : AppCompatActivity() {
+class IpcActivity  : AppCompatActivity() {
 
     companion object {
         private const val PACKAGE_NAME = "com.mackwu.service"
         private const val CLASS_NAME = "com.mackwu.service.MainActivity"
-        private const val URI_STR = "https://www.mackwu.com/test?query=xxx"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        btn_test.setOnClickListener { startProcessWithUri() }
+        btn_test.setOnClickListener { startWithLaunchIntent() }
     }
 
 
     /**
-     * 跳转到另一个进程的指定Activity
-     * 1. 需要知道另一个进程的包名
-     * 2. 需要知道Activity的类名，且Activity的exported属性要是true。类名不存在时或者exported=false时会报错
+     * 跳转到另一个进程指定的Activity
+     * 1. 包名
+     * 2. Activity名称
+     * 3，AndroidManifest中Activity的exported属性要是true
      */
-    private fun startProcess() {
+    private fun start() {
         try {
             val intent = Intent(Intent.ACTION_MAIN)
                     .apply { addCategory(Intent.CATEGORY_LAUNCHER) }
@@ -50,28 +51,18 @@ class StartProcessActivity  : AppCompatActivity() {
     }
 
     /**
-     * 跳转到另一个进程的主页面
-     * 需要知道另一个进程的包名。getLaunchIntentForPackage等同于设置action和category
+     * 跳转到另一个进程的MainActivity
+     * 1. 包名
+     * 2. 通过getLaunchIntentForPackage
      */
-    private fun startProcess2() {
+    private fun startWithLaunchIntent() {
         val intent = packageManager.getLaunchIntentForPackage(PACKAGE_NAME)
         intent?.run {
             // 默认的flags
-//            flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(this)
         }
     }
 
-
-    /**
-     * 跳转到另一个进程的主页面，并传递Uri参数
-     */
-    private fun startProcessWithUri() {
-        val intent = packageManager.getLaunchIntentForPackage(PACKAGE_NAME)
-        intent?.run {
-            data = Uri.parse(URI_STR)
-            startActivity(this)
-        }
-    }
     
 }
