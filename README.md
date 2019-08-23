@@ -1,13 +1,46 @@
 # mackblog
 
 ## 目录
-* [组件](/component)
-    * [Activity]()
-    * [BroadcastReceiver]()
-    * [Service]()
-    * [Content Provider]()
-    * [Fragment](/component/Fragment.md)
-    * [Application]()
+* [Activity](/activity)
+    * 生命周期
+    * 启动方式
+        * startActivity
+        * startActivityForResult
+        * 启动Activity的最佳方式
+    * 启动模式
+        * standard
+            * Activity栈
+            * adb命令查看Activity栈中的情况
+        * singleTop
+        * singleTask
+        * singleInstance
+    * Intent
+        * action
+        * flags
+        * uri
+    * 跳转到另一个进程的Activity
+        * exported=true
+        * getLaunchIntentForPackage
+* [BroadcastReceiver](/receiver)
+    * 启动方式
+* [Service](/service)
+    * 启动方式
+        * startService
+            * 生命周期
+            * onStartCommand的返回值
+        * bindService
+            * 生命周期
+            * 扩展Binder类
+    * 前台服务
+    * IntentService
+    * 绑定另一个进程的Service
+        * Messenger
+        * AIDL
+    * 服务保活
+        * sharedUserId
+* [Content Provider]()
+* [Fragment](/fragment)
+* [Application]()
 * [View](/view)
     * [TestView]()
     * [EditText]()
@@ -22,7 +55,26 @@
     * [逐帧动画](/anim/逐帧动画.md)
     * [补间动画](/anim/补间动画.md)
     * [属性动画](/anim/属性动画.md)
-* [网络]()
-* [异步]()
+    * [Animation源码分析](/anim/Animation源码分析.md)
+* [网络](/http)
+    * Json解析
+        * Gson
+    * XML解析
+        * pull解析
+    * Http
+        * Https
+        * OkHttp
+        * Retrofit
+    * 异步
+        * Handler
+        * 线程池
+        * RxJava2
 * [图片]()
 * [性能优化]()
+* [TV](/tv)
+    * Manifest配置
+    * leanback库
+* [工具](/tool)
+    * [Maven介绍](/tool/Maven介绍.md)
+    * [如何上传library到jcenter](/tool/如何上传library到jcenter.md)
+
