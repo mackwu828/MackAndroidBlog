@@ -42,15 +42,18 @@
 * [Fragment](/fragment)
 * [Application]()
 * [View](/view)
-    * [TestView]()
-    * [EditText]()
-    * [DrawerLayout]()
+    * TestView
+    * EditText
+    * DrawerLayout
 * [自定义View](/viewcustom)
-    * [触屏事件](/viewcustom/触屏事件.md)
-    * [按键事件](/viewcustom/按键事件.md)
-    * [滑动](/viewcustom/滑动.md)
-    * [侧滑](/viewcustom/侧滑.md)
-    * [手势](/viewcustom/手势.md)   
+    * 事件
+        * 触屏
+        * 多点触屏
+        * 按键
+    * 滑动
+        * 滑动的7种实现方式
+        * 侧滑
+    * 手势
 * [动画](/anim)
     * [逐帧动画](/anim/逐帧动画.md)
     * [补间动画](/anim/补间动画.md)
@@ -73,6 +76,7 @@
         * RxJava2
 * [图片]()
 * [性能优化]()
+    * ANR
 * [TV](/tv)
     * Manifest配置
     * leanback库
