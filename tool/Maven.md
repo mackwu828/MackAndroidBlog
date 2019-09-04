@@ -1,11 +1,5 @@
-## 目录
-* [什么是Maven](#什么是maven)
-* [jcenter和mavenCentral区别](#jcenter和mavencentral区别)
-* [gradle是如何从maven仓库上获取一个library的](#gradle是如何从maven仓库上获取一个library的)
 
-
-
-## 什么是maven
+## 什么是Maven
 如果你想在Android Studio中引入一个library，你只需在模块的build.gradle文件中添加如下一句话
 ```
 dependencies {
@@ -25,7 +19,7 @@ Maven是Apache开发的一个工具，提供了用于贡献library的文件服�
 
 
 
-## jcenter和mavencentral区别
+## jcenter和mavenCentral区别
 
 - jcenter是一个由bintray.com维护的Maven仓库
 ```
