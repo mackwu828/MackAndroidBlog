@@ -24,6 +24,7 @@ class ForegroundService : Service() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
+    @Suppress("DEPRECATION")
     override fun onCreate() {
         super.onCreate()
         Log.d("TAG", "onCreate...")

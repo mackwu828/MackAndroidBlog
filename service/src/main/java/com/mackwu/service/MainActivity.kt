@@ -10,7 +10,5 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val uri = intent.data
-        Toast.makeText(this, uri?.getQueryParameter("query"), Toast.LENGTH_SHORT).show()
     }
 }
