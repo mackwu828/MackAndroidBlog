@@ -19,23 +19,23 @@ import kotlinx.android.synthetic.main.activity_main.*
  */
 class BindActivity : AppCompatActivity() {
 
-    private val bindConnection = BindConnection()
+    private val myServiceConnection = MyServiceConnection()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         btn_test.text = "bindService"
-        btn_test.setOnClickListener { bindService(Intent(this, BindService::class.java), bindConnection, Service.BIND_AUTO_CREATE) }
+        btn_test.setOnClickListener { bindService(Intent(this, BindService::class.java), myServiceConnection, Service.BIND_AUTO_CREATE) }
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        // has leaked ServiceConnection com.mackwu.service.start.StartActivity$BindConnection@1a55a578 that was originally bound here
+        // has leaked ServiceConnection com.mackwu.service.start.StartActivity$MyServiceConnection@1a55a578 that was originally bound here
         // 需要在onDestroy解绑服务
-        unbindService(bindConnection)
+        unbindService(myServiceConnection)
     }
 
-    inner class BindConnection : ServiceConnection {
+    inner class MyServiceConnection : ServiceConnection {
 
         private var bindService: BindService? = null
 
@@ -51,7 +51,7 @@ class BindActivity : AppCompatActivity() {
          * @param service Service中onBind返回的IBinder对象
          */
         override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
-            val binder = service as BindService.LocalBinder
+            val binder = service as BindService.MyBinder
             bindService = binder.service
             // java.lang.Exception: denglibo Toast callstack! strTip=has bound Service
             bindService?.test()

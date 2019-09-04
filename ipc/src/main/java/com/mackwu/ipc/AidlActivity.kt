@@ -1,6 +1,9 @@
 package com.mackwu.ipc
 
+import android.content.ComponentName
+import android.content.ServiceConnection
 import android.os.Bundle
+import android.os.IBinder
 import android.support.v7.app.AppCompatActivity
 
 /**
@@ -11,6 +14,15 @@ import android.support.v7.app.AppCompatActivity
  * ================================================
  */
 class AidlActivity  : AppCompatActivity() {
+
+    private  val MyServiceConnection = object :ServiceConnection{
+        override fun onServiceDisconnected(name: ComponentName?) {
+
+        }
+
+        override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

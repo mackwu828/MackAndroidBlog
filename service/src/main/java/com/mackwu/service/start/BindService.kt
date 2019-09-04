@@ -43,7 +43,7 @@ import android.widget.Toast
  */
 class BindService: Service(){
 
-    private val binder = LocalBinder()
+    private val binder = MyBinder()
 
     override fun onCreate() {
         super.onCreate()
@@ -79,7 +79,7 @@ class BindService: Service(){
     /**
      * 扩展Binder类。只能与当前进程的组件进行交互
      */
-    inner class LocalBinder: Binder(){
+    inner class MyBinder: Binder(){
         // 返回当前服务的实例，其他组件可以通过该实例调用服务的方法
         val service = this@BindService
     }

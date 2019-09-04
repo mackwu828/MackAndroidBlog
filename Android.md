@@ -1,4 +1,4 @@
-# Android Blog
+# Android
 
 ## 目录
 * [Activity](/activity)
@@ -31,11 +31,11 @@
         * bindService
             * 生命周期
             * 扩展Binder类
-    * 前台服务
-    * IntentService
     * 绑定另一个进程的Service
         * Messenger
         * AIDL
+    * 前台服务
+    * IntentService
     * 服务保活
         * sharedUserId
 * [Content Provider]()
@@ -47,9 +47,9 @@
     * DrawerLayout
 * [自定义View](/viewcustom)
     * 事件
-        * 触屏
-        * 多点触屏
-        * 按键
+        * 触屏事件
+        * 多点触屏事件
+        * 按键事件
     * 滑动
         * 滑动的7种实现方式
         * 侧滑
@@ -74,15 +74,58 @@
         * Handler
         * 线程池
         * RxJava2
-* [图片]()
-* [性能优化]()
+* [图片](/image)
+* [性能优化](/performance)
     * ANR
+        * ANR超时时间
+        * ANR产生的原因
+        * 如何避免ANR
+        * 如何定位ANR
+        * 分析trace.txt
+        * ANR常见类型
+        * ANR分析工具
+            * TraceView
+    * 内存
+        * 内存泄漏
+        * 内存分析工具
+            * Android Profile
+            * Memory Monitor
+            * Heap Viewer
+            * LeakCanary
+    * 启动
+        * Activity启动
+        * APP启动
+    * 布局
 * [TV](/tv)
+    * 硬件
+        * 板卡
+        * 芯片
     * Manifest配置
     * leanback库
 * [工具](/tool)
-    * [Maven介绍](/tool/Maven介绍.md)
-    * [如何上传library到jcenter](/tool/如何上传library到jcenter.md)
-
+    * [Maven](/tool/Maven介绍.md)
+        * jcenter和mavenCentral区别
+        * gradle是如何从maven仓库上获取一个library的
+        * [如何上传library到jcenter](/tool/如何上传library到jcenter.md)
+    * [Jenkins](/tool/Jenkins.md)
+        * 什么是Jenkins
+        * 下载Jenkins
+        * 环境变量
+            * Java
+            * Android
+            * Gradle
+        * 全局工具
+            * JDK
+            * Gradle
+        * 凭据
+        * 新建任务
+            * 配置项目地址
+            * 配置构建命令
+            * 配置构建后结果出现在主页
+        * 多渠道
+        * 360加固
+        * 插件
+            * Git Parameter Plug-In
+        * 如何关联远程主机
 
     
