@@ -13,6 +13,7 @@
         android:name="android.hardware.touchscreen"
         android:required="false" />
 
+    <!-- 需要banner? -->
     <application
         android:allowBackup="true"
         android:banner="@mipmap/ic_launcher"
@@ -26,16 +27,23 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="landscape">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+                <!--&lt;!&ndash; 显示icon在普通桌面上 &ndash;&gt;-->
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+                <!--&lt;!&ndash; 显示icon在leanback桌面上 &ndash;&gt;-->
+                <!--&lt;!&ndash; manifest报红提示：Expecting an activity to have android.intent.category.LEANBACK_LAUNCHER intent filter，不需要加项目也可以允许，暂时忽略&ndash;&gt;-->
+                <!--<category android:name="android.intent.category.LEANBACK_LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+
+        <activity android:name=".leanback.HorActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <!-- 显示icon在普通桌面上 -->
                 <category android:name="android.intent.category.LAUNCHER" />
-                <!-- 显示icon在leanback桌面上 -->
-                <!-- manifest报红提示：Expecting an activity to have android.intent.category.LEANBACK_LAUNCHER intent filter，不需要加项目也可以允许，暂时忽略-->
                 <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
