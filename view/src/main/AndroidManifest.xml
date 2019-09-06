@@ -12,6 +12,20 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".MainActivity">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+
+        <!-- base -->
+        <activity android:name=".base.TextActivity" />
+        <activity android:name=".base.SpanActivity" />
+
+        <!-- md -->
+        <activity android:name=".md.DrawerActivity" />
+        <activity android:name=".md.CardActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,8 +33,10 @@
             </intent-filter>
         </activity>
 
-        <!-- md -->
-        <activity android:name=".md.DrawerActivity" />
+        <!-- -->
+        <activity android:name=".recycler.RecyclerActivity" >
+
+        </activity>
 
     </application>
 
