@@ -22,10 +22,7 @@
         <!-- base -->
         <activity android:name=".base.TextActivity" />
         <activity android:name=".base.SpanActivity" />
-
-        <!-- md -->
-        <activity android:name=".md.DrawerActivity" />
-        <activity android:name=".md.CardActivity">
+        <activity android:name=".base.VpActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,10 +30,12 @@
             </intent-filter>
         </activity>
 
-        <!-- -->
-        <activity android:name=".recycler.RecyclerActivity" >
+        <!-- md -->
+        <activity android:name=".md.DrawerActivity" />
+        <activity android:name=".md.CardActivity" />
 
-        </activity>
+        <!-- recycler -->
+        <activity android:name=".recycler.RecyclerActivity" />
 
     </application>
 
