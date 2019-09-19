@@ -1,4 +1,4 @@
-# Android
+# MackAndroidBlog
 
 ## 目录
 * [Activity](/activity)
@@ -21,8 +21,15 @@
     * 跳转到另一个进程的Activity
         * exported=true
         * getLaunchIntentForPackage
+    * Application
 * [BroadcastReceiver](/receiver)
-    * 启动方式
+    * 注册方式
+        * 静态注册
+        * 动态注册
+        * 优先级
+    * 发送方式
+        * sendBroadcast
+        * sendOrderedBroadcast
 * [Service](/service)
     * 启动方式
         * startService
@@ -36,15 +43,29 @@
         * AIDL
     * 前台服务
     * IntentService
-    * 服务保活
-        * sharedUserId
+    * 辅助功能服务(AccessibilityService)
+        * 系统属性
+            * 获取系
+            * 添加
+            * 监听
+        * 手动开启
+        * 自动开启
 * [Content Provider]()
 * [Fragment](/fragment)
-* [Application]()
 * [View](/view)
-    * TestView
-    * EditText
-    * DrawerLayout
+    * 基础
+        * TestView
+            * SpannableString
+        * EditText
+        * Button
+        * ViewPager
+            * ViewPager + ImageView
+            * ViewPager + Fragment
+    * MD
+        * DrawerLayout
+        * CardView
+    * RecyclerView
+    * android.R.id.content
 * [自定义View](/viewcustom)
     * 事件
         * 触屏事件
@@ -54,6 +75,9 @@
         * 滑动的7种实现方式
         * 侧滑
     * 手势
+    * 绘制
+    * 测量
+    * 布局
 * [动画](/anim)
     * [逐帧动画](/anim/逐帧动画.md)
     * [补间动画](/anim/补间动画.md)
@@ -75,6 +99,24 @@
         * 线程池
         * RxJava2
 * [图片](/image)
+* [适配](/adapt)
+    * 屏幕适配
+        * 基础
+            * 屏幕密度
+            * 分辨率
+        * 最小宽度限定符适配方案
+        * 今日头条适配方案
+    * 版本适配
+        * 6.0权限适配
+        * 7.0应用间共享权限
+        * 8.0
+            * 通知栏适配
+        * 9.0
+            * 私有变量？
+    * 多语言适配
+    * 状态栏
+        * 隐藏
+        * 沉浸式
 * [性能优化](/performance)
     * ANR
         * ANR超时时间
@@ -96,17 +138,16 @@
         * Activity启动
         * APP启动
     * 布局
-* [TV](/tv)
-    * 硬件
-        * 板卡
-        * 芯片
-    * Manifest配置
-    * leanback库
+* 安全
+    * 加解密
+    * 混淆
+    * 加固
+    * 反编译
 * [工具](/tool)
     * [Maven](/tool/Maven介绍.md)
+        * 什么是Maven
         * jcenter和mavenCentral区别
-        * gradle是如何从maven仓库上获取一个library的
-        * [如何上传library到jcenter](/tool/如何上传library到jcenter.md)
+        * 如何上传library到jcenter
     * [Jenkins](/tool/Jenkins.md)
         * 什么是Jenkins
         * 下载Jenkins
@@ -127,5 +168,41 @@
         * 插件
             * Git Parameter Plug-In
         * 如何关联远程主机
+    * 异常上报
+        * Bugly
+        * 友盟
+        * Flurry
+        * FireBase
+* [TV](/tv)
+    * 硬件
+        * 板卡
+            * 频线、电源、遥控板
+            * 金锐显(Cultraview)
+        * 芯片
+            * 晶晨半导体(Amlogic)
+            * 晨星半导体(MStar)
+    * Launcher
+        * 什么是Launcher
+        * 配置为Launcher
+        * LEANBACK_LAUNCHER？
+    * Leanback库
+        * HorizontalGridView
+        * VerticalGridView
+    * 获取系统权限
+        * 配置sharedUserId
+        * 系统签名
+    * 白名单？
+    * 信号源
+* [语音](/voice)
+    * 讯飞
+    * 亚马逊
+        * 授权
+    * google
+* [Kotlin](/kt)
+    * 基础
+        * for
+        * Array
+    * 函数
+* 设计模式
 
     

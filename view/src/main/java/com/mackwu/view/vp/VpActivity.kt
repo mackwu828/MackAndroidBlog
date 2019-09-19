@@ -1,4 +1,4 @@
-package com.mackwu.view.base
+package com.mackwu.view.vp
 
 import android.os.Bundle
 import android.support.v4.view.PagerAdapter
@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import com.mackwu.view.R
-import kotlinx.android.synthetic.main.base_activity_vp.*
+import kotlinx.android.synthetic.main.vp_activity.*
 
 /**
  * ================================================
@@ -31,9 +31,13 @@ import kotlinx.android.synthetic.main.base_activity_vp.*
  * 如果预加载个数是2，则会默认加载当前页面、左边2个页面和右边2个页面。
  * @see ViewPager.setOffscreenPageLimit
  *
- * <h2>ViewPager + Fragment</h2>
- * @see VpFragmentActivity
+ * <h2>设置当前页面</h2>
+ * @see ViewPager.setCurrentItem
+ * item表示位置
+ * smoothScroll表示是否流畅滑动：smoothScroll设置为true流畅滑动，比较流畅的换页是使用了动画。没设置或false，则闪一下就跳到第二个页面。
  *
+ * <h2>ViewPager + Fragment + Tab</h2>
+ * @see VpFTabActivity
  *
  * <h2>画廊/h2>
  * 画廊表示除了当前item，左右两个item都会显示一部分：https://blog.csdn.net/JM_beizi/article/details/51297605
@@ -44,7 +48,6 @@ import kotlinx.android.synthetic.main.base_activity_vp.*
  * setTag的作用？
  * FragmentPagerAdapter和FragmentStatePagerAdapter区别？
  * 懒加载：即只加载当前页面：https://www.jianshu.com/p/7a47907f49c2
- * 设置当前页面：viewpager.setCurrentItem(position, true) smoothScroll设置为true流畅滑动，比较流畅的换页是使用了动画。没设置或false，则闪一下就跳到第二个页面。
  * 从第0页跳转到第n页，不显示中间滑动的页面：自定义Scroller
  * 翻页动画：https://github.com/ToxicBakery/ViewPagerTransforms
  * ViewPager不能动态刷新UI，notifyDataSetChanged会失效：https://www.jianshu.com/p/80891d0185f7
@@ -57,7 +60,7 @@ class VpActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.base_activity_vp)
+        setContentView(R.layout.vp_activity)
 
         // 数据
         val resIds = intArrayOf(R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher)
@@ -95,6 +98,8 @@ class VpActivity : AppCompatActivity() {
 
         // 预加载个数是1
         view_pager.offscreenPageLimit = 1
+        // 设置item0为当前页面
+        view_pager.setCurrentItem(0, true)
     }
 
     class VpAdapter(private val list: List<View>) : PagerAdapter() {

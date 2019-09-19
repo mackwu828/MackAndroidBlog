@@ -22,7 +22,8 @@
         <!-- base -->
         <activity android:name=".base.TextActivity" />
         <activity android:name=".base.SpanActivity" />
-        <activity android:name=".base.VpActivity" >
+        <activity android:name=".vp.VpActivity" />
+        <activity android:name=".vp.VpFTabActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,4 +1,4 @@
-package com.mackwu.service
+package com.mackwu.service.intent
 
 import android.app.IntentService
 import android.app.Service

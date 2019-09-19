@@ -1,8 +1,9 @@
-package com.mackwu.service
+package com.mackwu.voice
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import android.provider.Settings
+import android.support.v4.app.Fragment
 
 class MainActivity : AppCompatActivity() {
 

@@ -12,30 +12,42 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".MainActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        </activity>
-
-        <!-- start -->
-        <service android:name=".start.StartService" />
-        <service android:name=".start.BindService" />
-        <service android:name=".ForegroundService" />
-
-        <!-- aidl -->
-        <service android:name=".ipc.BookService" />
-
-        <!-- activity -->
-        <activity android:name=".start.StartActivity" />
-        <activity android:name=".start.BindActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- service -->
+        <service android:name=".start.StartService" />
+        <service android:name=".start.BindService" />
+        <service android:name=".foreground.ForegroundService" />
+        <service android:name=".ipc.BookService" />
+        <!--
+            android:name="android.accessibilityservice.AccessibilityService" 声明辅助功能服务
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" 权限
+            android:label="xxx" 名称
+            android:resource="@xml/accessibilty_config" 配置
+        -->
+        <service
+            android:name=".access.AccessService"
+            android:label="accessibility test"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibilty_config"
+                />
+        </service>
+
+
+        <!-- activity -->
+        <activity android:name=".start.StartActivity" />
+        <activity android:name=".start.BindActivity"/>
+
     </application>
 
 </manifest>
