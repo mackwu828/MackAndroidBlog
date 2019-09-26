@@ -1,4 +1,4 @@
-package com.mackwu.fragment.fm
+package com.mackwu.fragment.fm.fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -11,7 +11,7 @@ import com.mackwu.fragment.R
  * @author wmj
  * @date 2019/7/19 18:01
  */
-class SettingFragment : Fragment(){
+class PromoteFragment : Fragment(){
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fm_fragment_setting, container, false)
