@@ -1,4 +1,4 @@
-package com.mackwu.activity.intent
+package com.mackwu.activity.ipc
 
 import android.net.Uri
 import android.os.Bundle
@@ -26,7 +26,7 @@ class UriActivity : AppCompatActivity() {
 
 
     /**
-     * 跳转到另一个进程的主页面，并传递Uri参数
+     * 跳转到另一个进程的MainActivity，并传递Uri参数
      */
     private fun startProcessWithUri() {
         val intent = packageManager.getLaunchIntentForPackage(PACKAGE_NAME)

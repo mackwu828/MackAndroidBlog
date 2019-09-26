@@ -23,11 +23,11 @@
         <activity android:name=".start.StartActivity" />
         <activity android:name=".start.StartForResultActivity" />
         <activity android:name=".start.StartBestActivity" />
-        <activity android:name=".start.SecondActivity" />
+        <activity android:name=".start.TargetActivity" />
 
 
         <!-- launchMode -->
-        <activity android:name=".launchmode.StandardActivity"
+        <activity android:name=".launchmode.LaunchModeActivity"
             android:launchMode="standard">
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN" />-->
@@ -47,7 +47,7 @@
         <activity android:name=".ipc.IpcActivity" />
 
         <!-- intent -->
-        <activity android:name=".intent.UriActivity" />
+        <activity android:name=".ipc.UriActivity" />
     </application>
 
 </manifest>

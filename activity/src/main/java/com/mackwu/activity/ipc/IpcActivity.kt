@@ -13,8 +13,9 @@ import kotlinx.android.synthetic.main.activity_main.*
  * <a href="mailto:wumengjiao828@163.com">Contact me</a>
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ================================================
- *
  * 跳转到另一个进程的Activity
+ *
+ * <>
  */
 class IpcActivity  : AppCompatActivity() {
 
