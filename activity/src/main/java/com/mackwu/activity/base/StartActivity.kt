@@ -1,4 +1,4 @@
-package com.mackwu.activity.start
+package com.mackwu.activity.base
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,24 +12,32 @@ import kotlinx.android.synthetic.main.activity_main.*
  * <a href="mailto:wumengjiao828@163.com">Contact me</a>
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ================================================
- * Activity的启动方式
- * 方式1：startActivity
- * 方式2：startActivityForResult
+ * Activity
+ * Activity是用户界面，负责和用户交互
  *
- * <h2>startActivity</h2>
- * startActivity(Intent(this, TargetActivity::class.java))
+ * <h2>生命周期</h2>
+ * @see LifecycleActivity
  *
- * <h2>startActivityForResult</h2>
- * startActivityForResult(Intent(this, TargetActivity::class.java), REQUEST_CODE)
+ * <h2>启动方式</h2>
+ * 启动方式1：startActivity
+ * @see startActivity(Intent intent)
+ *
+ * 启动方式2：startActivityForResult
+ * @see startActivityForResult(Intent intent, int requestCode)
+ * @see onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
  * 请求码requestCode
- *
  * 响应码resultCode
  * setResult
  *
- *
- * <h2>启动Activity的最佳方式</h2>
+ * 启动方式3：启动Activity的最佳方式
  * @see TargetActivity.start(context: Context, param: String)
  * 在目标activity中定义一个静态方法，参数是context和要传入的参数
+ *
+ * <h2>启动模式</h2>
+ * @see LaunchModeActivity
+ *
+ * <h2>跳转到另一个进程的Activity</h2>
+ * @see IpcActivity
  */
 class StartActivity : AppCompatActivity() {
 

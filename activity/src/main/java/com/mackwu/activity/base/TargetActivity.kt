@@ -1,4 +1,4 @@
-package com.mackwu.activity.start
+package com.mackwu.activity.base
 
 import android.content.Context
 import android.content.Intent

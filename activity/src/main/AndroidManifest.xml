@@ -20,34 +20,12 @@
         </activity>
 
         <!-- start -->
-        <activity android:name=".start.StartActivity" />
-        <activity android:name=".start.StartForResultActivity" />
-        <activity android:name=".start.StartBestActivity" />
-        <activity android:name=".start.TargetActivity" />
+        <activity android:name=".base.StartActivity" />
+        <activity android:name=".base.TargetActivity" />
+        <activity android:name=".base.LaunchModeActivity"
+            android:launchMode="standard"/>
+        <activity android:name=".base.IpcActivity" />
 
-
-        <!-- launchMode -->
-        <activity android:name=".launchmode.LaunchModeActivity"
-            android:launchMode="standard">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        </activity>
-        <activity android:name=".launchmode.SingleTopActivity"
-            android:launchMode="singleTop"/>
-        <activity android:name=".launchmode.SingleTaskActivity"
-            android:launchMode="singleTask"/>
-        <activity android:name=".launchmode.SingleInstanceActivity"
-            android:launchMode="singleInstance"/>
-
-
-        <!-- ipc -->
-        <activity android:name=".ipc.IpcActivity" />
-
-        <!-- intent -->
-        <activity android:name=".ipc.UriActivity" />
     </application>
 
 </manifest>
