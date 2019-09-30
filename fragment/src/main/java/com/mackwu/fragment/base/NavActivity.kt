@@ -1,13 +1,13 @@
-package com.mackwu.fragment.fm
+package com.mackwu.fragment.base
 
 import android.os.Bundle
 import android.support.v4.app.FragmentTransaction
 import android.support.v7.app.AppCompatActivity
 import com.mackwu.fragment.R
-import com.mackwu.fragment.fm.fragment.HomeFragment
-import com.mackwu.fragment.fm.fragment.PromoteFragment
-import com.mackwu.fragment.fm.fragment.UserFragment
-import kotlinx.android.synthetic.main.fm_activity_nav.*
+import com.mackwu.fragment.fragment.HomeFragment
+import com.mackwu.fragment.fragment.PromoteFragment
+import com.mackwu.fragment.fragment.UserFragment
+import kotlinx.android.synthetic.main.activity_nav.*
 
 /**
  * ===================================================
@@ -15,6 +15,9 @@ import kotlinx.android.synthetic.main.fm_activity_nav.*
  * <a href="mailto:wumengjiao828@163.com">Contact me</a>
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
+ * App主页面一般都是设计成Fragment + 底部导航栏。
+ * 底部导航栏1：LinearLayout + TextView + hide/show
+ * 底部导航栏2：LinearLayout + RadioButton + hide/show
  */
 class NavActivity : AppCompatActivity() {
 
@@ -24,7 +27,7 @@ class NavActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fm_activity_nav)
+        setContentView(R.layout.activity_nav)
 
         showFragment(0)
         tv_home.setOnClickListener { showFragment(0) }

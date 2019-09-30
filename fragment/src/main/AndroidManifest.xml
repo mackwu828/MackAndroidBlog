@@ -19,14 +19,18 @@
             <!--</intent-filter>-->
         </activity>
 
-        <activity android:name=".tag.TagActivity" />
-        <activity android:name=".fm.FmActivity" >
+
+        <activity android:name=".base.FragmentActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".base.NavActivity" />
+        <activity android:name=".base.BackStackActivity"/>
+        <activity android:name=".lifecycle.LifecycleActivity"/>
+
     </application>
 
 </manifest>

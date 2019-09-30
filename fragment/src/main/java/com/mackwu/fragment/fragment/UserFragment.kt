@@ -1,4 +1,4 @@
-package com.mackwu.fragment.fm.fragment
+package com.mackwu.fragment.fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -14,7 +14,7 @@ import com.mackwu.fragment.R
 class UserFragment : Fragment(){
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fm_fragment_user, container, false)
+        return inflater.inflate(R.layout.fragment_user, container, false)
     }
     
 }
