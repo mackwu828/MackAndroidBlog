@@ -8,20 +8,19 @@
         * startActivityForResult
         * 启动Activity的最佳方式
     * 启动模式
-        * standard
-            * Activity栈
-            * adb命令查看Activity栈中的情况
-        * singleTop
-        * singleTask
-        * singleInstance
-    * Intent
-        * action
-        * flags
-        * uri
+        * standard、singleTop、singleTask、singleInstance
+        * Activity栈    
+        * adb命令查看Activity栈中的情况
     * 跳转到另一个进程的Activity
-        * exported=true
-        * getLaunchIntentForPackage
+        * 跳转到另一个进程指定的Activity
+        * 跳转到另一个进程的MainActivity
+        * 跳转到另一个进程的MainActivity，并传递Uri参数
     * Application
+    * Setting
+        * 跳转到设置页面
+        * 获取系统属性
+        * 添加系统属性
+        * 监听系统属性变化
 * [BroadcastReceiver](/receiver)
     * 注册方式
         * 静态注册
@@ -31,27 +30,33 @@
         * sendBroadcast
         * sendOrderedBroadcast
 * [Service](/service)
+    * 生命周期
     * 启动方式
         * startService
-            * 生命周期
-            * onStartCommand的返回值
+        * onStartCommand的返回值
         * bindService
-            * 生命周期
-            * 扩展Binder类
     * 绑定另一个进程的Service
         * Messenger
         * AIDL
     * 前台服务
     * IntentService
     * 辅助功能服务(AccessibilityService)
-        * 系统属性
-            * 获取系
-            * 添加
-            * 监听
-        * 手动开启
-        * 自动开启
+        * 手动开启辅助功能
+        * 自动开启辅助功能
 * [Content Provider]()
 * [Fragment](/fragment)
+    * 生命周期
+    * 创建方式
+        * 在xml中使用Fragment
+        * 动态添加Fragment
+            * replace和remove
+            * hide和show
+    * 回退栈
+        * 获取回退栈中的实例个数
+        * 添加当前实例到回退栈
+        * 移除回退栈中的一个实例
+        * 移除回退栈中的所有实例
+    * Fragment + 底部导航栏
 * [View](/view)
     * 基础
         * TestView
@@ -83,6 +88,13 @@
     * [补间动画](/anim/补间动画.md)
     * [属性动画](/anim/属性动画.md)
     * [Animation源码分析](/anim/Animation源码分析.md)
+* 异步
+    * 线程
+    * 线程池
+    * AsyncTask
+    * Handler
+    * 框架
+        * RxJava2
 * [网络](/http)
     * Json解析
         * Gson
@@ -91,32 +103,39 @@
         * sax解析
         * pull解析。Android自带
     * Http
-        * Https
+    * Https
+    * 框架
         * OkHttp
         * Retrofit
-    * 异步
-        * Handler
-        * 线程池
-        * RxJava2
 * [图片](/image)
 * [适配](/adapt)
     * 屏幕适配
         * 基础
-            * 屏幕密度
+            * px
             * 分辨率
+            * 屏幕尺寸
+            * dpi
+            * dp
+            * dp存在的问题
+            * density
+            * 获取分辨率、dpi、density
+            * 适配核心问题
+        * 宽高限定符适配方案
         * 最小宽度限定符适配方案
         * 今日头条适配方案
     * 版本适配
-        * 6.0权限适配
-        * 7.0应用间共享权限
+        * 6.0
+            * 权限适配
+        * 7.0
+            * 应用间共享权限
         * 8.0
             * 通知栏适配
         * 9.0
             * 私有变量？
     * 多语言适配
     * 状态栏
-        * 隐藏
-        * 沉浸式
+        * 隐藏状态栏
+        * 沉浸式状态栏
 * [性能优化](/performance)
     * ANR
         * ANR超时时间
@@ -145,7 +164,6 @@
     * 反编译
 * [工具](/tool)
     * [Maven](/tool/Maven介绍.md)
-        * 什么是Maven
         * jcenter和mavenCentral区别
         * 如何上传library到jcenter
     * [Jenkins](/tool/Jenkins.md)
@@ -182,12 +200,14 @@
             * 晶晨半导体(Amlogic)
             * 晨星半导体(MStar)
     * Launcher
-        * 什么是Launcher
-        * 配置为Launcher
+        * 配置
         * LEANBACK_LAUNCHER？
     * Leanback库
         * HorizontalGridView
         * VerticalGridView
+    * 焦点控制
+        * focusable和focusableInTouchMode
+        * duplicateParentState
     * 获取系统权限
         * 配置sharedUserId
         * 系统签名
@@ -196,13 +216,24 @@
 * [语音](/voice)
     * 讯飞
     * 亚马逊
-        * 授权
+        * 注册和登录
+        * [Login with Amazon for TVs and Other Devices](https://developer.amazon.com/zh/docs/login-with-amazon/minitoc-lwa-other-devices.html)
+            * 创建安全配置文件
+            * 获取user_code和verification_uri
+            * 根据verification_uri校验user_code
+            * 获取access_token
+        * [Alexa voice service](https://developer.amazon.com/alexa/console/avs/home)
+            * 创建项目
     * google
 * [Kotlin](/kt)
     * 基础
         * for
         * Array
     * 函数
+* [工具类](/util)   
+    * LogExt
+    * ActivityExt
+    * NetworkExt []()
 * 设计模式
 
     
