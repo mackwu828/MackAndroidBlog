@@ -27,9 +27,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".base.NavActivity" />
+        <activity android:name=".base.NavActivity"/>
         <activity android:name=".base.BackStackActivity"/>
-        <activity android:name=".lifecycle.LifecycleActivity"/>
 
     </application>
 

@@ -3,4 +3,17 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <!-- 透明 -->
+    <color name="transparent">#00000000</color>
+
+    <!-- 红色 -->
+    <color name="red">#D81B60</color>
+
+    <!-- 黄色 -->
+    <color name="yellow">#FFDD3D</color>
+
+    <!-- 蓝色-->
+    <color name="blue">#56C4F5</color>
+
 </resources>

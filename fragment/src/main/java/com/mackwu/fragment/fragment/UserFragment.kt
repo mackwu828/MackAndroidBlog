@@ -8,8 +8,11 @@ import android.view.ViewGroup
 import com.mackwu.fragment.R
 
 /**
- * @author wmj
- * @date 2019/7/19 18:01
+ * ===================================================
+ * Created by MackWu on 2019/7/19 18:01
+ * <a href="mailto:wumengjiao828@163.com">Contact me</a>
+ * <a href="https://github.com/mackwu828">Follow me</a>
+ * ===================================================
  */
 class UserFragment : Fragment(){
 

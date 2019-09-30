@@ -1,13 +1,14 @@
 package com.mackwu.fragment.base
 
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentTransaction
 import android.support.v7.app.AppCompatActivity
 import com.mackwu.fragment.R
 import com.mackwu.fragment.fragment.HomeFragment
 import com.mackwu.fragment.fragment.PromoteFragment
 import com.mackwu.fragment.fragment.UserFragment
-import kotlinx.android.synthetic.main.activity_nav.*
+import kotlinx.android.synthetic.main.activity_fragment.*
 
 /**
  * ===================================================
@@ -15,72 +16,61 @@ import kotlinx.android.synthetic.main.activity_nav.*
  * <a href="mailto:wumengjiao828@163.com">Contact me</a>
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
+ * Fragment + 底部导航栏
  * App主页面一般都是设计成Fragment + 底部导航栏。
- * 底部导航栏1：LinearLayout + TextView + hide/show
- * 底部导航栏2：LinearLayout + RadioButton + hide/show
+ *
+ * <h2>底部导航栏1：LinearLayout + TextView + hide/show</h2>
+ *
+ * <h2>底部导航栏2：LinearLayout + RadioButton + hide/show</h2>
  */
 class NavActivity : AppCompatActivity() {
 
-    private var homeFragment: HomeFragment? = null
-    private var promoteFragment: PromoteFragment? = null
-    private var userFragment: UserFragment? = null
+    private var currentFragment = Fragment()
+    private var homeFragment = HomeFragment()
+    private var promoteFragment = PromoteFragment()
+    private var userFragment = UserFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_nav)
+        setContentView(R.layout.activity_fragment)
 
-        showFragment(0)
-        tv_home.setOnClickListener { showFragment(0) }
-        tv_promote.setOnClickListener { showFragment(1) }
-        tv_user.setOnClickListener { showFragment(2) }
+        tv_home.setOnClickListener {
+            setDefaultStyle()
+            tv_home.isSelected = true
+            showFragment(homeFragment)
+        }
+        tv_promote.setOnClickListener {
+            setDefaultStyle()
+            tv_promote.isSelected = true
+            showFragment(promoteFragment)
+        }
+        tv_user.setOnClickListener {
+            setDefaultStyle()
+            tv_user.isSelected = true
+            showFragment(userFragment)
+        }
+        tv_home.performClick()
     }
 
     /**
      * show Fragment
      */
-    private fun showFragment(position: Int) {
+    private fun showFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
-        hideAllFragment(transaction)
-
-        // 主页面
-        when (position) {
-            0 -> {
-                if (null == homeFragment) {
-                    homeFragment = HomeFragment()
-                    transaction.add(R.id.fl_container, homeFragment!!, HomeFragment::class.java.simpleName)
-                } else {
-                    transaction.show(homeFragment!!)
-                }
-            }
-            1 -> {
-                if (null == promoteFragment) {
-                    promoteFragment = PromoteFragment()
-                    transaction.add(R.id.fl_container, promoteFragment!!, PromoteFragment::class.java.simpleName)
-                } else {
-                    transaction.show(promoteFragment!!)
-                }
-            }
-            2 -> {
-                if (null == userFragment) {
-                    userFragment = UserFragment()
-                    transaction.add(R.id.fl_container, userFragment!!, UserFragment::class.java.simpleName)
-                } else {
-                    transaction.show(userFragment!!)
-                }
-            }
+        transaction.hide(currentFragment)
+        currentFragment = fragment
+        if (!fragment.isAdded) {
+            transaction.add(R.id.fl_container, fragment)
+        } else {
+            transaction.show(fragment)
         }
         transaction.commit()
     }
 
-    /**
-     * hide all fragment
-     */
-    private fun hideAllFragment(transaction: FragmentTransaction) {
-        transaction.run {
-            homeFragment?.run { hide(this) }
-            userFragment?.run { hide(this) }
-            promoteFragment?.run { hide(this) }
-        }
+    private fun setDefaultStyle() {
+        tv_home.isSelected = false
+        tv_promote.isSelected = false
+        tv_user.isSelected = false
     }
 
 }
