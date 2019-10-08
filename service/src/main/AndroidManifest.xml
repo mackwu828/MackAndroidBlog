@@ -31,7 +31,7 @@
             android:resource="@xml/accessibilty_config" 配置
         -->
         <service
-            android:name=".access.AccessService"
+            android:name=".accessibility.AccessService"
             android:label="accessibility test"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>

@@ -44,6 +44,12 @@ object SwManager {
                     bigDecimal.setScale(2, BigDecimal.ROUND_HALF_UP).toFloat()
                     sb.append(String.format("   <dimen name=\"dp_%2\$d\">%3$.2fdp</dimen>\r\n", "", i, dpValue))
                 }
+                for (i in 1..120) {
+                    val spValue = i / designWidth.toFloat() * sw
+                    val bigDecimal = BigDecimal(spValue.toDouble())
+                    bigDecimal.setScale(2, BigDecimal.ROUND_HALF_UP).toFloat()
+                    sb.append(String.format("   <dimen name=\"sp_%2\$d\">%3$.2fsp</dimen>\r\n", "", i, spValue))
+                }
                 sb.append("</resources>\r\n")
                 fos.write(sb.toString().toByteArray())
                 fos.flush()

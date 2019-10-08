@@ -21,7 +21,8 @@ import kotlinx.android.synthetic.main.base_activity_span.*
  * SpannableString可以在字符序列基础上对指定的字符进行润饰，在开发中，TextView可以通过setText(CharSequence)传入SpannableString作为参数，
  * 来达到显示不同样式文字的效果
  *
- * 通过SpannableString的setSpan(Object what, int start, int end, int flags)方法来进行设置
+ * <h2>setSpan</h2>
+ * 样式通过SpannableString的setSpan(Object what, int start, int end, int flags)方法来进行设置
  * what：对SpannableString进行润色的各种Span；
  * int：需要润色文字段开始的下标
  * end：需要润色文字段结束的下标
@@ -32,8 +33,8 @@ import kotlinx.android.synthetic.main.base_activity_span.*
  *  SPAN_EXCLUSIVE_EXCLUSIVE：不包括开始下标，也不包括结束下标
  *
  * <h2>Span类型</h2>
- * ForegroundColorSpan
- * BackgroundColorSpan
+ * ForegroundColorSpan: 字体样式
+ * BackgroundColorSpan: 背景样式
  * ClickableSpan
  * MaskFilterSpan
  */

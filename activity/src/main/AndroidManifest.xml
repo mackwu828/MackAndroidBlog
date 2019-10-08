@@ -20,11 +20,11 @@
         </activity>
 
         <!-- start -->
-        <activity android:name=".base.StartActivity" />
-        <activity android:name=".base.TargetActivity" />
-        <activity android:name=".base.LaunchModeActivity"
+        <activity android:name=".start.StartActivity" />
+        <activity android:name=".start.TargetActivity" />
+        <activity android:name=".launchmode.LaunchModeActivity"
             android:launchMode="standard"/>
-        <activity android:name=".base.IpcActivity" />
+        <activity android:name=".ipc.IpcActivity" />
 
     </application>
 

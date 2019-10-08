@@ -31,9 +31,9 @@ import kotlinx.android.synthetic.main.activity_main.*
  * 计算公式：(1dp/设计图宽度)*sw => 1dp对应sw/设计图宽度dp
  * 如设计图尺寸=375x667，sw=360dp => (1/375)*360=0.96dp => 1dp对应0.96dp
  * 定义一个values-sw300dp的文件夹，根据公式进行赋值
- * <dimen name="dp_0">0.00dp</dimen>
  * <dimen name="dp_1">0.96dp</dimen>
  * <dimen name="dp_2">1.92dp</dimen>
+ * <dimen name="dp_3">2.88dp</dimen>
  * ...
  *
  * 计算3：dp转px
@@ -67,11 +67,13 @@ class SwActivity : AppCompatActivity() {
         btn_test.setOnClickListener {
             val text = "dpi: $dpi, \n" +
                     "宽高: ${screenWidth}x$screenHeight, \n" +
-                    "sw计算公式: $realWidth/($dpi/160)=${(realWidth / (dpi / 160f)).toInt()}dp, \n" +
+                    "设计图宽度: ${SwManager.DESIGN_WIDTH}, \n" +
+                    "计算出来的sw: $realWidth/($dpi/160)=${(realWidth / (dpi / 160f)).toInt()}dp, \n" +
                     "实际使用的sw: ${resources.getString(R.string.base_dpi)}，\n" +
                     "dp换算px公式：1dp=${resources.getString(R.string.base_dpi).replace("dp", "")}/${SwManager.DESIGN_WIDTH}*($dpi/160)=" +
                     (resources.getString(R.string.base_dpi).replace("dp", "").toFloat() / SwManager.DESIGN_WIDTH) * (dpi / 160f) + "px, \n" +
-                    "btn_test.width: ${btn_test.width}px"
+                    "btn_test.width: ${btn_test.width}px, \n" +
+                    "btn_test.textSize: ${btn_test.textSize}px"
             Log.d("TAG", text)
             tv_test.text = text
         }

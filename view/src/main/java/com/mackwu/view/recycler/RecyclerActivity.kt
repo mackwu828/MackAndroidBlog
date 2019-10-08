@@ -29,6 +29,12 @@ import kotlinx.android.synthetic.main.recycler_activity.*
  * <h2>分割线</h2>
  *
  * <h2>动画</h2>
+ *
+ * <h2>滚动条</h2>
+ * 滚动条方向：android:scrollbars="vertical"
+ * 滚动条宽度：android:scrollbarSize="5dp"
+ * 滚动条颜色：android:scrollbarThumbVertical="@color/white"
+ *
  */
 class RecyclerActivity : AppCompatActivity() {
 
@@ -51,7 +57,7 @@ class RecyclerActivity : AppCompatActivity() {
         recycler_view.layoutManager = layoutManager
         recycler_view.adapter = adapter
         recycler_view.addItemDecoration(dividerItemDecoration)
-        recycler_view.itemAnimator = itemAnimator
+//        recycler_view.itemAnimator = itemAnimator
     }
 
     class RecyclerAdapter : RecyclerView.Adapter<ViewHolder>() {

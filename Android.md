@@ -15,12 +15,6 @@
         * 跳转到另一个进程指定的Activity
         * 跳转到另一个进程的MainActivity
         * 跳转到另一个进程的MainActivity，并传递Uri参数
-    * Application
-    * Setting
-        * 跳转到设置页面
-        * 获取系统属性
-        * 添加系统属性
-        * 监听系统属性变化
 * [BroadcastReceiver](/receiver)
     * 注册方式
         * 静态注册
@@ -49,14 +43,16 @@
     * 创建方式
         * 在xml中使用Fragment
         * 动态添加Fragment
-            * replace和remove
-            * hide和show
+            * replace
+            * add、hide、show
+    * Fragment + 底部导航栏
     * 回退栈
         * 获取回退栈中的实例个数
         * 添加当前实例到回退栈
         * 移除回退栈中的一个实例
         * 移除回退栈中的所有实例
-    * Fragment + 底部导航栏
+        * 如果回退栈中已经没有实例了，则退出activity
+    * commit和commitAllowingStateLoss的区别
 * [View](/view)
     * 基础
         * TestView
@@ -108,6 +104,16 @@
         * OkHttp
         * Retrofit
 * [图片](/image)
+* [其他](/other)
+    * Application
+    * Setting
+        * 跳转到设置页面
+        * 获取系统属性
+        * 添加系统属性
+        * 监听系统属性变化
+    * 计时器
+        * CountDownTimer
+        * handler
 * [适配](/adapt)
     * 屏幕适配
         * 基础

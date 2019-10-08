@@ -1,1 +1,1 @@
-include  ':view', ':anim',  ':viewcustom', ':tool', ':activity', ':fragment', ':service', ':receiver', ':tv', ':http', ':image', ':performance', ':adapt', ':kt', ':ipc', ':security', ':voice', ':async', ':util'
+include  ':view', ':anim',  ':viewcustom', ':tool', ':activity', ':fragment', ':service', ':receiver', ':tv', ':http', ':image', ':performance', ':adapt', ':kt', ':ipc', ':security', ':voice', ':async', ':util', ':other'
