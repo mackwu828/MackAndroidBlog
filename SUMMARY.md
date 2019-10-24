@@ -178,6 +178,35 @@
     * 混淆
     * 加固
     * 反编译
+* [工具](/tool)
+    * [Maven](/tool/Maven介绍.md)
+        * jcenter和mavenCentral区别
+        * 如何上传library到jcenter
+    * [Jenkins](/tool/Jenkins.md)
+        * 什么是Jenkins
+        * 下载Jenkins
+        * 环境变量
+            * Java
+            * Android
+            * Gradle
+        * 全局工具
+            * JDK
+            * Gradle
+        * 凭据
+        * 新建任务
+            * 配置项目地址
+            * 配置构建命令
+            * 配置构建后结果出现在主页
+        * 多渠道
+        * 360加固
+        * 插件
+            * Git Parameter Plug-In
+        * 如何关联远程主机
+    * 异常上报
+        * Bugly
+        * 友盟
+        * Flurry
+        * FireBase
 * [TV](/tv)
     * 硬件
         * 板卡
@@ -220,10 +249,52 @@
         * 新建项目
     * Youtube Data API v3
     * [Google Assistant API](https://developers.google.com/assistant/)
+* [Kotlin](/kt)
+    * 基础
+        * 变量
+        * 基本类型
+        * 数组
+        * 字符串
+        * 控制语句
+        * 可空性
+        * 解构声明
+    * 属性
+    * 类
+        * 构造函数
+        * 初始化块
+        * 创建对象
+        * 伴生对象
+        * 数据类
+        * 枚举类
+        * 单例类
+        * 密封类？
+        * 嵌套类？
+    * 继承
+        * 类默认不能被继承
+        * 重写
+        * 抽象
+        * 接口
+    * 函数
+        * 作用域函数
+        * 扩展函数
+        * 内联函数
+        * 函数类型
+        * 高阶函数
+        * lambda表达式
+    * 线程安全
+    * 泛型    
+    * 协程
+        * 协程构建器
+            * launch
+            * runBlocking
+            * async
+        * 挂起函数
+            * delay
+            * suspend修饰函数
+        * 协程调度器
+    * kotlin-android-extensions
 * [工具类](/util)   
     * LogExt
     * ActivityExt
     * NetworkExt []()
 * 设计模式
-
-    
