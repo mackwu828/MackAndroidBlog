@@ -250,6 +250,7 @@
     * Youtube Data API v3
     * [Google Assistant API](https://developers.google.com/assistant/)
 * [Kotlin](/kt)
+    * [资料](/kt/资料.md)
     * 基础
         * 变量
         * 基本类型
@@ -258,6 +259,7 @@
         * 控制语句
         * 可空性
         * 解构声明
+        * kotlin-android-extensions
     * 属性
     * 类
         * 构造函数
@@ -292,7 +294,6 @@
             * delay
             * suspend修饰函数
         * 协程调度器
-    * kotlin-android-extensions
 * [工具类](/util)   
     * LogExt
     * ActivityExt
