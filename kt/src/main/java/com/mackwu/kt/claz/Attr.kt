@@ -51,7 +51,14 @@ package com.mackwu.kt.claz
  */
 class Attr {
 
-    val person: Person = Person()
+    var person: Person = Person()
+    var person2: Person = Person()
+
+    fun test() {
+        person = Person()
+
+    }
+
 
     // 属性类型可以省略，编译器会自动推断
 //    val person = Person()
@@ -76,11 +83,9 @@ class Attr {
 //        }
 //    var xxx: Person? = null
 
-
-    fun test() {
-        // 通过成员引用判断lateinit是否初始化
+    // 通过成员引用判断lateinit是否初始化
 //        ::person.isInitialized
-    }
+
 }
 
 fun main() {
