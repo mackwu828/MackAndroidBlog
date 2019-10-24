@@ -1,0 +1,302 @@
+# MackAndroidBlog
+
+## 目录
+* [Activity](/activity)
+    * 生命周期
+    * 启动方式
+        * startActivity
+        * startActivityForResult
+        * 启动Activity的最佳方式
+    * 启动模式
+        * standard、singleTop、singleTask、singleInstance
+        * Activity栈    
+        * adb命令查看Activity栈中的情况
+    * 跳转到另一个进程的Activity
+        * 包名+类名
+        * 自定义action
+        * getLaunchIntentForPackage
+        * DeepLink
+* [BroadcastReceiver](/receiver)
+    * 注册方式
+        * 静态注册
+        * 动态注册
+        * 优先级
+    * 发送方式
+        * sendBroadcast
+        * sendOrderedBroadcast
+* [Service](/service)
+    * 生命周期
+    * 启动方式
+        * startService
+        * onStartCommand的返回值
+        * bindService
+    * 绑定另一个进程的Service
+        * Messenger
+        * AIDL
+    * 前台服务
+    * IntentService
+    * 辅助功能服务(AccessibilityService)
+        * 手动开启辅助功能
+        * 自动开启辅助功能
+* [Content Provider]()
+* [Fragment](/fragment)
+    * 生命周期
+    * 创建方式
+        * 在xml中使用Fragment
+        * 动态添加Fragment
+            * replace
+            * add、hide、show
+    * Fragment + 底部导航栏
+    * 回退栈
+        * 获取回退栈中的实例个数
+        * 添加当前实例到回退栈
+        * 移除回退栈中的一个实例
+        * 移除回退栈中的所有实例
+        * 如果回退栈中已经没有实例了，则退出activity
+    * commit和commitAllowingStateLoss的区别
+* [View](/view)
+    * 基础
+        * TestView
+            * SpannableString
+        * EditText
+        * Button
+        * ViewPager
+            * ViewPager + ImageView
+            * ViewPager + Fragment
+    * MD
+        * DrawerLayout
+        * CardView
+    * RecyclerView
+    * android.R.id.content
+* [自定义View](/viewcustom)
+    * 事件
+        * 触屏事件
+        * 多点触屏事件
+        * 按键事件
+    * 滑动
+        * 滑动的7种实现方式
+        * 侧滑
+    * 手势
+    * 绘制
+    * 测量
+    * 布局
+* [动画](/anim)
+    * [逐帧动画](/anim/逐帧动画.md)
+    * [补间动画](/anim/补间动画.md)
+    * [属性动画](/anim/属性动画.md)
+    * [Animation源码分析](/anim/Animation源码分析.md)
+* 异步
+    * 进程
+    * 线程
+    * 线程池
+    * AsyncTask
+    * Handler
+    * 框架
+        * RxJava2
+* [网络](/http)
+    * Json
+        * Json语法
+        * 序列化和反序列化
+        * Json生成
+        * Json解析
+        * Gson
+        * FastJson
+    * Xml
+        * dom解析
+        * sax解析
+        * pull解析。Android自带
+    * Http
+        * Http1.0、Http1.1、Http2.0
+        * Https
+    * OkHttp
+    * Retrofit
+* [图片](/image)
+* [其他](/other)
+    * Application
+    * Setting
+        * 跳转到设置页面
+        * 获取系统属性
+        * 添加系统属性
+        * 监听系统属性变化
+    * 计时器
+        * CountDownTimer
+        * handler
+    * 获取系统权限
+        * 配置sharedUserId
+        * 系统签名
+* [适配](/adapt)
+    * 屏幕适配
+        * 基础
+            * px
+            * 分辨率
+            * 屏幕尺寸
+            * dpi
+            * dp
+            * dp存在的问题
+            * density
+            * 获取分辨率、dpi、density
+            * 适配核心问题
+        * 宽高限定符适配方案
+        * 最小宽度限定符适配方案
+        * 今日头条适配方案
+    * 版本适配
+        * 6.0
+            * 权限适配
+        * 7.0
+            * 应用间共享权限
+        * 8.0
+            * 通知栏适配
+        * 9.0
+            * 私有变量？
+    * 多语言适配
+    * 状态栏
+        * 隐藏状态栏
+        * 沉浸式状态栏
+* [性能优化](/performance)
+    * ANR
+        * ANR超时时间
+        * ANR产生的原因
+        * 如何避免ANR
+        * 如何定位ANR
+        * 分析trace.txt
+        * ANR常见类型
+        * ANR分析工具
+            * TraceView
+    * 内存
+        * 内存泄漏
+        * 内存分析工具
+            * Android Profile
+            * Memory Monitor
+            * Heap Viewer
+            * LeakCanary
+    * 启动
+        * Activity启动
+        * APP启动
+    * 布局
+* 安全
+    * 加解密
+    * 混淆
+    * 加固
+    * 反编译
+* [工具](/tool)
+    * [Maven](/tool/Maven介绍.md)
+        * jcenter和mavenCentral区别
+        * 如何上传library到jcenter
+    * [Jenkins](/tool/Jenkins.md)
+        * 什么是Jenkins
+        * 下载Jenkins
+        * 环境变量
+            * Java
+            * Android
+            * Gradle
+        * 全局工具
+            * JDK
+            * Gradle
+        * 凭据
+        * 新建任务
+            * 配置项目地址
+            * 配置构建命令
+            * 配置构建后结果出现在主页
+        * 多渠道
+        * 360加固
+        * 插件
+            * Git Parameter Plug-In
+        * 如何关联远程主机
+    * 异常上报
+        * Bugly
+        * 友盟
+        * Flurry
+        * FireBase
+* [TV](/tv)
+    * 硬件
+        * 板卡
+            * 频线、电源、遥控板
+            * 金锐显(Cultraview)
+        * 芯片
+            * 晶晨半导体(Amlogic)
+            * 晨星半导体(MStar)
+    * Launcher
+        * 配置
+        * LEANBACK_LAUNCHER？
+    * Leanback库
+        * HorizontalGridView
+        * VerticalGridView
+    * 焦点控制
+        * focusable和focusableInTouchMode
+        * duplicateParentState
+    * 信号源
+* [音视频](/media)
+    * 录音
+    * 亚马逊
+        * 注册和登录
+        * [Login with Amazon for TVs and Other Devices](https://developer.amazon.com/zh/docs/login-with-amazon/minitoc-lwa-other-devices.html)
+            * 创建安全配置文件
+            * 获取user_code和verification_uri
+            * 根据verification_uri校验user_code
+            * 获取access_token
+        * [Alexa voice service](https://developer.amazon.com/alexa/console/avs/home)
+            * 创建项目
+* [Google](/google)
+    * [Google Cloud Platform](https://console.cloud.google.com/project)
+        * 新建项目
+        * 启用API
+            * Youtube Data API v3
+            * Google Assistant API
+        * 创建凭据
+        * 配额
+    * [Google Play Console](https://play.google.com/apps/publish/)
+        * 注册和登录
+        * 新建项目
+    * Youtube Data API v3
+    * [Google Assistant API](https://developers.google.com/assistant/)
+* [Kotlin](/kt)
+    * 基础
+        * 变量
+        * 基本类型
+        * 数组
+        * 字符串
+        * 控制语句
+        * 可空性
+        * 解构声明
+    * 属性
+    * 类
+        * 构造函数
+        * 初始化块
+        * 创建对象
+        * 伴生对象
+        * 数据类
+        * 枚举类
+        * 单例类
+        * 密封类？
+        * 嵌套类？
+    * 继承
+        * 类默认不能被继承
+        * 重写
+        * 抽象
+        * 接口
+    * 函数
+        * 作用域函数
+        * 扩展函数
+        * 内联函数
+        * 函数类型
+        * 高阶函数
+        * lambda表达式
+    * 线程安全
+    * 泛型    
+    * 协程
+        * 协程构建器
+            * launch
+            * runBlocking
+            * async
+        * 挂起函数
+            * delay
+            * suspend修饰函数
+        * 协程调度器
+    * kotlin-android-extensions
+* [工具类](/util)   
+    * LogExt
+    * ActivityExt
+    * NetworkExt []()
+* 设计模式
+
+    
