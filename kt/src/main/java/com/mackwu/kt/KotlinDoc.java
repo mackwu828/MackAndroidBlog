@@ -27,6 +27,7 @@ package com.mackwu.kt;
  *
  *“projections are not allowed for immediate arguments of a supertype” Kotlin Android Studio？
  * https://stackoverflow.com/questions/44058972/projections-are-not-allowed-for-immediate-arguments-of-a-supertype-kotlin-andr
+ *
  */
 class KotlinDoc{
 
