@@ -10,8 +10,7 @@ import com.mackwu.http.R
  * <a href="mailto:wumengjiao828@163.com">Contact me</a>
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ================================================
- *
- * <h2>pull解析</h2>
+ * pull解析
  * pull解析内置于Android系统中，也是官方解析布局文件所使用的方式。
  * 优点：使用方便，效率高
  * 缺点：

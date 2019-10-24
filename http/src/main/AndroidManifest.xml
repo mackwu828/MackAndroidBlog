@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.mackwu.http">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
@@ -21,16 +22,23 @@
             <!--</intent-filter>-->
         </activity>
 
+        <!-- json -->
+        <activity android:name=".json.JsonActivity" />
+        <activity android:name=".json.GsonActivity" />
+
         <!-- xml -->
-        <activity android:name=".xml.DomActivity" >
+        <activity android:name=".xml.DomActivity"/>
+        <activity android:name=".xml.SaxActivity" />
+        <activity android:name=".xml.PullActivity" />
+
+        <!-- okhttp -->
+        <activity android:name=".okhttp.OkHttpActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".xml.SaxActivity" />
-        <activity android:name=".xml.PullActivity" />
     </application>
 
 </manifest>

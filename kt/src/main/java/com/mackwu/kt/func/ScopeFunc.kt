@@ -3,7 +3,7 @@ package com.mackwu.kt.func
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import com.mackwu.kt.bean.Person
+import com.mackwu.kt.claz.Person
 
 /**
  * ===================================================
@@ -44,8 +44,6 @@ import com.mackwu.kt.bean.Person
  * T.run 可以替代 run 和 with，如果不能省略 this 时使用 T.let，想要返回值用 T.also
  * T.apply 用来链式调用
  */
-class ScopeFunc
-
 private fun runTest() {
     run {
         println("my name is wmj")
@@ -74,6 +72,9 @@ private fun withTest() {
 
 private fun tRunTest() {
     // T.run 用 this 操作对象，this可以省略，和 with 作用一样
+    person.run {
+
+    }
     person.run {
         name = ""
         age = 30

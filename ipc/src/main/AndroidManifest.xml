@@ -12,23 +12,33 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name=".MainActivity" >
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        </activity>
-
-
-        <activity android:name=".UriActivity">
+        <activity android:name=".MainActivity">
             <!--<intent-filter>-->
             <!--<action android:name="android.intent.action.MAIN" />-->
 
             <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
+        </activity>
 
-            <!-- 通过Uri启动 -->
+
+        <!-- activity -->
+        <activity
+            android:name=".activity.TargetActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.mackwu.ipc.action.TARGET" />
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.DeepLinkActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
             <intent-filter>
                 <data android:scheme="http" />
                 <data android:scheme="https" />
@@ -36,12 +46,14 @@
                 <data android:path="/test" />
 
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".AidlActivity" />
+        <!-- aidl -->
+        <activity android:name=".aidl.AidlActivity" />
 
     </application>
 

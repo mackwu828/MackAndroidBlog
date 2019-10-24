@@ -4,12 +4,11 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.mackwu.http.R
+import com.mackwu.http.xml.bean.UserBean
 import kotlinx.android.synthetic.main.activity_main.*
 import org.w3c.dom.Document
 import org.w3c.dom.Element
-import org.w3c.dom.Node
 import java.io.InputStream
-import java.lang.Exception
 import javax.xml.parsers.DocumentBuilderFactory
 
 /**
@@ -18,13 +17,10 @@ import javax.xml.parsers.DocumentBuilderFactory
  * <a href="mailto:wumengjiao828@163.com">Contact me</a>
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ================================================
- * Xml解析方式有3种：dom、sax、pull
- *
- * <h2>dom解析</h2>
+ * dom解析
  * dom解析是把整个XML文档当成一个对象来处理，会先把整个文档读入到内存里，生成一个树结构。
  * 优点：1.由于整棵树在内存中，因此可以对xml文档随机访问 2.可以对xml文档进行修改操作c、较sax，dom使用也更简单。
  * 缺点：1.整个文档必须一次性解析完 2.由于整个文档都需要载入内存，对于大文档成本高
- *
  */
 class DomActivity : AppCompatActivity() {
 
@@ -67,7 +63,6 @@ class DomActivity : AppCompatActivity() {
                     for (j in 0 until length) {
                         when (item(j).nodeName) {
                             "name" -> userBean.name = item(j).firstChild.nodeValue
-                            "password" -> userBean.password = item(j).firstChild.nodeValue
                             "age" -> userBean.age = item(j).firstChild.nodeValue
                         }
                     }

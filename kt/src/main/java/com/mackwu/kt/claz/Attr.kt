@@ -1,9 +1,5 @@
 package com.mackwu.kt.claz
 
-import android.os.Handler
-import com.mackwu.kt.base.Null
-import com.mackwu.kt.bean.Person
-
 /**
  * ===================================================
  * Created by MackWu on 2019/10/18 18:44
@@ -26,7 +22,7 @@ import com.mackwu.kt.bean.Person
  * val person: Person // 编译器报错Property must be initialized or be abstract
  *
  * 如果不想在声明的时候初始化，怎么办？
- * 1. 声明为可空对象。如 var person: Person? = null [Null]
+ * 1. 声明为可空对象。如 var person: Person? = null
  * 2. 延迟初始化对象。如 lateinit var person: Person
  *
  * <h2>延迟初始化</h2>
@@ -55,7 +51,7 @@ import com.mackwu.kt.bean.Person
  */
 class Attr {
 
-//    val person: Person = Person()
+    val person: Person = Person()
 
     // 属性类型可以省略，编译器会自动推断
 //    val person = Person()

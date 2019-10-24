@@ -12,9 +12,10 @@
         * Activity栈    
         * adb命令查看Activity栈中的情况
     * 跳转到另一个进程的Activity
-        * 跳转到另一个进程指定的Activity
-        * 跳转到另一个进程的MainActivity
-        * 跳转到另一个进程的MainActivity，并传递Uri参数
+        * 包名+类名
+        * 自定义action
+        * getLaunchIntentForPackage
+        * DeepLink
 * [BroadcastReceiver](/receiver)
     * 注册方式
         * 静态注册
@@ -85,6 +86,7 @@
     * [属性动画](/anim/属性动画.md)
     * [Animation源码分析](/anim/Animation源码分析.md)
 * 异步
+    * 进程
     * 线程
     * 线程池
     * AsyncTask
@@ -92,17 +94,22 @@
     * 框架
         * RxJava2
 * [网络](/http)
-    * Json解析
+    * Json
+        * Json语法
+        * 序列化和反序列化
+        * Json生成
+        * Json解析
         * Gson
-    * xml解析
+        * FastJson
+    * Xml
         * dom解析
         * sax解析
         * pull解析。Android自带
     * Http
-    * Https
-    * 框架
-        * OkHttp
-        * Retrofit
+        * Http1.0、Http1.1、Http2.0
+        * Https
+    * OkHttp
+    * Retrofit
 * [图片](/image)
 * [其他](/other)
     * Application
@@ -114,6 +121,9 @@
     * 计时器
         * CountDownTimer
         * handler
+    * 获取系统权限
+        * 配置sharedUserId
+        * 系统签名
 * [适配](/adapt)
     * 屏幕适配
         * 基础
@@ -168,35 +178,6 @@
     * 混淆
     * 加固
     * 反编译
-* [工具](/tool)
-    * [Maven](/tool/Maven介绍.md)
-        * jcenter和mavenCentral区别
-        * 如何上传library到jcenter
-    * [Jenkins](/tool/Jenkins.md)
-        * 什么是Jenkins
-        * 下载Jenkins
-        * 环境变量
-            * Java
-            * Android
-            * Gradle
-        * 全局工具
-            * JDK
-            * Gradle
-        * 凭据
-        * 新建任务
-            * 配置项目地址
-            * 配置构建命令
-            * 配置构建后结果出现在主页
-        * 多渠道
-        * 360加固
-        * 插件
-            * Git Parameter Plug-In
-        * 如何关联远程主机
-    * 异常上报
-        * Bugly
-        * 友盟
-        * Flurry
-        * FireBase
 * [TV](/tv)
     * 硬件
         * 板卡
@@ -214,13 +195,9 @@
     * 焦点控制
         * focusable和focusableInTouchMode
         * duplicateParentState
-    * 获取系统权限
-        * 配置sharedUserId
-        * 系统签名
-    * 白名单？
     * 信号源
-* [语音](/voice)
-    * 讯飞
+* [音视频](/media)
+    * 录音
     * 亚马逊
         * 注册和登录
         * [Login with Amazon for TVs and Other Devices](https://developer.amazon.com/zh/docs/login-with-amazon/minitoc-lwa-other-devices.html)
@@ -230,12 +207,19 @@
             * 获取access_token
         * [Alexa voice service](https://developer.amazon.com/alexa/console/avs/home)
             * 创建项目
-    * google
-* [Kotlin](/kt)
-    * 基础
-        * for
-        * Array
-    * 函数
+* [Google](/google)
+    * [Google Cloud Platform](https://console.cloud.google.com/project)
+        * 新建项目
+        * 启用API
+            * Youtube Data API v3
+            * Google Assistant API
+        * 创建凭据
+        * 配额
+    * [Google Play Console](https://play.google.com/apps/publish/)
+        * 注册和登录
+        * 新建项目
+    * Youtube Data API v3
+    * [Google Assistant API](https://developers.google.com/assistant/)
 * [工具类](/util)   
     * LogExt
     * ActivityExt

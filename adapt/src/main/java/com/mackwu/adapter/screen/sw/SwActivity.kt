@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.mackwu.adapter.R
-import com.mackwu.adapter.screen.dpi
-import com.mackwu.adapter.screen.screenHeight
-import com.mackwu.adapter.screen.screenWidth
+import com.mackwu.adapter.util.dpi
+import com.mackwu.adapter.util.screenHeight
+import com.mackwu.adapter.util.screenWidth
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -15,7 +15,6 @@ import kotlinx.android.synthetic.main.activity_main.*
  * <a href="mailto:wumengjiao828@163.com">Contact me</a>
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ================================================
- *
  * 最小宽度限定符适配方案、smallestWidth适配，或者叫sw限定符适配
  * <a href="https://www.jianshu.com/p/a4b8e4c5d9b0">作者：拉丁吴</a>
  *

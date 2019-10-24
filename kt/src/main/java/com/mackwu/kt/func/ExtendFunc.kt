@@ -1,7 +1,6 @@
 package com.mackwu.kt.func
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 
 /**
@@ -11,13 +10,14 @@ import android.content.Intent
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  * 扩展函数
- * 扩展一个类的新功能而无需继承该类或者使用像装饰者这样的设计模式
+ * 为一个类定义一个新的函数，这个新增的函数就像类中的其他函数一样调用。一般定义为顶层函数，可以替代Java中的工具类
+ * "fun 类名.函数名(参数列表)"  如 fun Activity.startActivity(cls: Class<*>)
  *
- * "fun 接收者.函数名(参数列表)" 接收者可以是类名、伴生对象
+ *
+ * <h2>扩展属性</h2>
+ * "fun 接收者.属性名(参数列表)"
  */
- class ExtendFunc
-
-
+// 扩展Activity的跳转
 fun Activity.startActivity(cls: Class<*>){
     startActivity(Intent(this, cls))
 }

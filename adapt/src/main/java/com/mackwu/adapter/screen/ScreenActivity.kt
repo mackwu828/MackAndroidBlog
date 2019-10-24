@@ -2,6 +2,8 @@ package com.mackwu.adapter.screen
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.mackwu.adapter.screen.wh.WhActivity
+import com.mackwu.adapter.screen.sw.SwActivity
 
 
 /**
@@ -10,6 +12,7 @@ import android.support.v7.app.AppCompatActivity
  * <a href="mailto:wumengjiao828@163.com">Contact me</a>
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ====================================================
+ * 屏幕适配
  *
  * <h2>px</h2>
  * 真实像素单位，构成影像的基本单位。对应分辨率，如1920*1080，单位就是px
@@ -42,17 +45,24 @@ import android.support.v7.app.AppCompatActivity
  * 计算公式：density=dpi/160、density=px/dp
  *
  * <h2>获取分辨率、dpi、density</h2>
- * @see ScreenExt
+ * [screenWidth]
+ * [screenHeight]
+ * [dpi]
+ * [density]
  *
  * <h2>适配核心问题</h2>
  * 1.适配的效率，即把设计图转化为App界面的过程是否高效
  * 2.如何保证实现UI界面在不同尺寸和分辨率的手机中UI的一致性
+ *
+ * <h2>屏幕适配方案</h2>
+ * 宽高限定符方案 [WhActivity]
+ * 最小宽度限定符方案 [SwActivity]
+ * 今日头条适配方案：
  */
 class ScreenActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(com.mackwu.adapter.R.layout.activity_main)
-
     }
 }

@@ -1,4 +1,4 @@
-package com.zeasn.alexa.util
+package com.mackwu.util
 
 import android.app.Activity
 import android.content.Intent
@@ -26,22 +26,23 @@ fun addActivity(activity: Activity) {
 /**
  * 结束activity
  */
-fun finishActivity(activity: Activity) {
-    activityStack.remove(activity)
-    activity.finish()
+fun finishActivity(activity: Activity?) {
+    if (activity != null) {
+        activityStack.remove(activity)
+        activity.finish()
+    }
 }
 
 /**
  * 结束activity
  */
 fun finishActivity(cls: Class<*>) {
-    activityStack.run {
-        for (activity in this) {
-            if (activity.javaClass == cls) {
-                activity.finish()
-                remove(activity)
-                return
-            }
+    val iterator = activityStack.iterator()
+    while (iterator.hasNext()) {
+        val activity = iterator.next() as Activity
+        if (activity.javaClass == cls) {
+            iterator.remove()
+            activity.finish()
         }
     }
 }
@@ -50,23 +51,17 @@ fun finishActivity(cls: Class<*>) {
  * 结束所有activity
  */
 fun finishAllActivity() {
-    activityStack.run {
-        for (activity in this) {
-            activity.finish()
-        }
-        clear()
+    for (activity in activityStack) {
+        activity.finish()
     }
+    activityStack.clear()
 }
 
 fun finishAllActivityWithoutCls(cls: Class<*>) {
-    activityStack.run {
-        for (activity in this) {
-            if (activity.javaClass != cls) {
-                activity.finish()
-            }
-        }
-        clear()
+    for (activity in activityStack) {
+        if (activity.javaClass != cls) activity.finish()
     }
+    activityStack.clear()
 }
 
 /**

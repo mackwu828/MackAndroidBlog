@@ -15,6 +15,7 @@ package com.mackwu.kt;
  *
  * Kotlin Github:
  * <a href="https://github.com/JetBrains/kotlin">Kotlin Github官网</a>
+ * <a href="https://github.com/android/android-ktx">Kotlin扩展函数</a>
  * <a href="https://github.com/dbacinski/Design-Patterns-In-Kotlin">Kotlin设计模式</a>
  *
  *

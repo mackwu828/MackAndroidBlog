@@ -38,7 +38,7 @@ package com.mackwu.kt.claz
 
 // 在类名后面声明的构造函数叫做主构造函数，在类中声明的构造函数叫做次构造函数
 class Student constructor(name: String) { // 主构造函数
-    constructor(name: String, age: Int) : this(name) // 次构造函数
+    constructor(name: String, age: Int) : this("xxx") // 次构造函数
 }
 
 // 主构造函数默认是public的，这时constructor可以省略
@@ -58,9 +58,14 @@ class Student5{
     }
 }
 
+object Student6{
+
+}
+
 fun main() {
     // kotlin中没有new关键字，直接调用构造函数创建对象
-    val student = Student("xxx")
+    val student = Student("xx")
+    student.toString()
 }
 
  
