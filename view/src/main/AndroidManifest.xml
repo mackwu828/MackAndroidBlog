@@ -35,11 +35,11 @@
         <activity android:name=".md.CardActivity" />
 
         <!-- vp -->
-        <activity android:name=".vp.VpActivity" />
-        <activity android:name=".vp.VpFTabActivity" />
+        <activity android:name=".base.VpActivity" />
+        <activity android:name=".base.VpFTabActivity" />
 
         <!-- recycler -->
-        <activity android:name=".recycler.RecyclerActivity" >
+        <activity android:name=".base.RecyclerActivity" >
 
         </activity>
 

@@ -1,0 +1,14 @@
+    * 生命周期
+    * 启动方式
+        * startActivity
+        * startActivityForResult
+        * 启动Activity的最佳方式
+    * 启动模式
+        * standard、singleTop、singleTask、singleInstance
+        * Activity栈    
+        * adb命令查看Activity栈中的情况
+    * 跳转到另一个进程的Activity
+        * 包名+类名
+        * 自定义action
+        * getLaunchIntentForPackage
+        * DeepLink
