@@ -46,6 +46,3 @@ class Person20 constructor(name: String) { // 主构造函数
 //    NORTH(0),
 //    SOUTH(1),
 //}
-
-
- 

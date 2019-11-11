@@ -13,6 +13,38 @@ import com.mackwu.kt.bean.Person
 /**
  * 无需new直接创建对象
  */
-fun main() {
+fun Obj1() {
     val person = Person()
+}
+
+
+/**
+ * 匿名对象
+ */
+interface Obj
+fun Obj2() {
+    val a = object : Obj{
+
+    }
+    val b = object {
+
+    }
+}
+
+
+/**
+ * 单例对象
+ */
+object Obj3
+
+
+/**
+ * 伴生对象
+ * 直接用类名调用内部的属性和函数
+ */
+class Obj4{
+
+    companion object {
+        const val TAG = "Obj"
+    }
 }

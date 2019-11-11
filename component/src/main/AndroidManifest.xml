@@ -49,9 +49,9 @@
         <!-- activity -->
         <activity android:name=".activity.StartActivity" />
         <activity android:name=".activity.TargetActivity" />
-        <activity android:name=".activity.LaunchModeActivity"
-            android:launchMode="standard"/>
-        <activity android:name=".activity.IpcActivity" >
+        <activity android:name=".activity.LaunchModeActivity"/>
+        <activity android:name=".activity.IpcActivity" />
+        <activity android:name=".provider.ProviderActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

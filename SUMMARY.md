@@ -2,68 +2,44 @@
 
 ## 目录
 * [组件](/component)
-    * Activity
-        * 生命周期
-        * 启动方式
-        * 启动模式
-    * BroadcastReceiver
-        * 生命周期
-        * 注册方式
-        * 发送方式
-    * Service
-        * 生命周期
-        * 启动方式
-        * AIDL
-        * Messenger
-        * IntentService
-        * ForegroundService
-        * AccessibilityService
-    * ContentProvider
-    * [Fragment](/component/src/main/java/com/mackwu/component/fragment)
-        * 生命周期
-        * 创建方式
-        * 回退栈
-        * commit和commitAllowingStateLoss的区别
+    * [Activity](/component/md/Activity.md)
+    * [BroadcastReceiver](/component/md/BroadcastReceiver.md)
+    * [Service](/component/md/Service.md)
+    * [ContentProvider](/component/md/ContentProvider.md)
+    * [Fragment](/component/md/Fragment.md)
+    * Application
+    * SQLite
     * 其他
-        * Application
         * Setting
 * [View](/view)
     * 基础
-        * TestView
-        * EditText
+        * [TestView](/view/md/TextView.md)
+        * [EditText](/view/md/EditText.md)
         * Button
         * ViewPager
         * RecyclerView
     * MD
         * DrawerLayout
         * CardView
-    * 自定义View
-        * 触屏事件
-        * 按键事件
-        * 滑动的7种实现方式
-        * 侧滑
-        * 手势
-        * 绘制
-        * 测量
-        * 布局
+    * 滑动
+    * 绘制
+    * 测量
+    * 布局
 * [动画](/anim)
     * [逐帧动画](/anim/逐帧动画.md)
     * [补间动画](/anim/补间动画.md)
     * [属性动画](/anim/属性动画.md)
     * [Animation源码分析](/anim/Animation源码分析.md)
-* [异步](/async)
-    * 基础
-        * 线程
-        * 线程池
+* [异步和网络](/http)
+    * 线程
+    * 线程池
     * AsyncTask
     * Handler
-    * RxJava2
-* [网络](/http)
-    * 基础
-        * Json
-        * Xml
-        * Http
-        * Https
+    * RxJava2    
+    * Json
+    * Xml
+    * Http
+    * Https
     * Gson
     * OkHttp
     * Retrofit
@@ -154,18 +130,18 @@
 * [Kotlin](/kt)
     * [资料](/kt/资料.md)
     * 基础
-        * [变量](/kt/basic/变量.md)
-        * [基本类型](/kt/basic/基本类型.md)
-        * [数组](/kt/basic/数组.md)
-        * [字符串](/kt/basic/字符串.md)
-        * [控制语句](/kt/basic/控制语句.md)
-        * [可空性](/kt/basic/可空性.md)
-        * [解构声明](/kt/basic/解构声明.md)
-        * [安卓扩展插件](/kt/basic/安卓扩展插件.md)
-    * [属性](/kt/属性.md)
-    * [类](/kt/类.md)
-    * [继承](/kt/继承.md)
-    * [对象](/kt/对象.md)
+        * [变量](/kt/md/base/变量.md)
+        * [基本类型](/kt/md/base/基本类型.md)
+        * [数组](/kt/md/base/数组.md)
+        * [字符串](/kt/md/base/字符串.md)
+        * [控制语句](/kt/md/base/控制语句.md)
+        * [可空性](/kt/md/base/可空性.md)
+        * [解构声明](/kt/md/base/解构声明.md)
+        * [安卓扩展插件](/kt/md/base/安卓扩展插件.md)
+    * [属性](/kt/md/属性.md)
+    * [类](/kt/md/类.md)
+    * [继承](/kt/md/继承.md)
+    * [对象](/kt/md/对象.md)
     * 函数
         * 作用域函数
         * 扩展函数
@@ -173,8 +149,7 @@
         * 函数类型
         * 高阶函数
         * lambda表达式
-    * 线程安全
-    * 泛型    
+    * [泛型](/kt/md/泛型.md)    
     * 协程
         * 协程构建器
         * 挂起函数

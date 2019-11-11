@@ -1,5 +1,7 @@
 package com.mackwu.kt.`fun`
 
+import kotlin.math.roundToInt
+
 /**
  * ===================================================
  * Created by MackWu on 2019/10/15 18:02
@@ -81,6 +83,11 @@ fun main() {
     sum3(b = 10, a= 2)
     // 如果函数参数有默认值，可以混用位置参数与命名参数，但是位置参数需要在前
     sum3(10, 11)
+
+
+    val a = "1"
+    val b = a.toFloat()
+    println(b)
 }
 
 fun sum(a: Int, b: Int): Int {
@@ -92,6 +99,9 @@ fun sum2(a: Int, b: Int) = a + b
 
 // 函数参数可以有默认值
 fun sum3(a: Int = 1, b: Int = 2) = a + b
+
+
+
 
 
 

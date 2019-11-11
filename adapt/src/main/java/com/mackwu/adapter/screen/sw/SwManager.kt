@@ -15,7 +15,7 @@ object SwManager {
 
     // 设计图宽度或高度。取较小的那一个。填dp或者px都可以
 //    const val DESIGN_WIDTH = 375
-    const val DESIGN_WIDTH = 750
+    const val DESIGN_WIDTH = 1080
     private const val ABSOLUTE_PATH = "C:\\Android\\workspace\\MackAndroidBlog\\adapt\\src\\main\\res"
 
     enum class SwType {

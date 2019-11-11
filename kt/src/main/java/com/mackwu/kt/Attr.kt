@@ -37,15 +37,15 @@ class Attr2 {
 
 
 /**
- * 属性必须要在声明的时候初始化，或者延迟初始化，否则编译器会报错。
+ * 属性一般需要在声明的时候初始化，否则编译器会报错。
  */
 class Attr10 {
     // val person: Person // 编译器报错Property must be initialized or be abstract
 }
 
 /**
- * 可空类型迟初始化
- * 将属性类型声明为可空类型，并初始化为null
+ * 如果不想在属性声明的时候初始化，可以延迟初始化属性
+ * 可空类型迟初始化，将属性类型声明为可空类型，并初始化为null
  */
 class Attr11 {
     var person2: Person? = null // 将属性类型声明为可空类型，并初始化为null
