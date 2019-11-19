@@ -23,8 +23,8 @@
         </activity>
 
         <!-- json -->
-        <activity android:name=".json.JsonActivity" />
-        <activity android:name=".json.GsonActivity" />
+        <activity android:name=".JsonActivity" />
+        <activity android:name=".GsonActivity" />
 
         <!-- xml -->
         <activity android:name=".xml.DomActivity"/>

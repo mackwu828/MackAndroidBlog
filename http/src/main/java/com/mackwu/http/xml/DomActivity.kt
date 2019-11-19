@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.mackwu.http.R
-import com.mackwu.http.xml.bean.UserBean
+import com.mackwu.http.bean.User
 import kotlinx.android.synthetic.main.activity_main.*
 import org.w3c.dom.Document
 import org.w3c.dom.Element
@@ -50,11 +50,11 @@ class DomActivity : AppCompatActivity() {
         // 获取user节点列表
         val nodeList = root.getElementsByTagName("user")
         // 初始化
-        val userList = arrayListOf<UserBean>()
+        val userList = arrayListOf<User>()
         for (i in 0 until nodeList.length) {
             // 获取单个user节点
             val element = nodeList.item(i) as Element
-            val userBean = UserBean()
+            val userBean = User()
             element.run {
                 // 获取节点属性
                 userBean.id = getAttribute("id")

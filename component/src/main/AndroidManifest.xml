@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.mackwu.component">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,20 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:name=".ComponentApp"
         tools:ignore="GoogleAppIndexingWarning">
-
-        <!-- 静态注册，在Manifest中注册，广播会跟随程序的生命周期，直到程序被销毁 -->
-        <!--<receiver android:name=".register.MyReceiver" >-->
-        <!--<intent-filter>-->
-        <!--<action android:name="com.mackwu.component.receiver.MyReceiver" />-->
-        <!--</intent-filter>-->
-        <!--</receiver>-->
-        <!--<receiver android:name=".battery.PowerReceiver">-->
-        <!--<intent-filter>-->
-        <!--<action android:name="android.intent.action.ACTION_POWER_CONNECTED" />-->
-        <!--<action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />-->
-        <!--</intent-filter>-->
-        <!--</receiver>-->
 
         <!-- service -->
         <!--
@@ -45,12 +36,32 @@
                 />
         </service>
 
+        <!-- receiver -->
+        <!-- 静态注册，在Manifest中注册，广播会跟随程序的生命周期，直到程序被销毁 -->
+        <!--<receiver android:name=".register.MyReceiver" >-->
+        <!--<intent-filter>-->
+        <!--<action android:name="com.mackwu.component.receiver.MyReceiver" />-->
+        <!--</intent-filter>-->
+        <!--</receiver>-->
+        <!--<receiver android:name=".battery.PowerReceiver">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.intent.action.ACTION_POWER_CONNECTED" />-->
+        <!--<action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />-->
+        <!--</intent-filter>-->
+        <!--</receiver>-->
+
+        <!-- provider -->
+        <provider
+            android:authorities="com.mackwu.component.provider.StudentProvider"
+            android:name=".provider.StudentProvider" />
+
 
         <!-- activity -->
         <activity android:name=".activity.StartActivity" />
         <activity android:name=".activity.TargetActivity" />
         <activity android:name=".activity.LaunchModeActivity"/>
         <activity android:name=".activity.IpcActivity" />
+        <activity android:name=".db.DbActivity" />
         <activity android:name=".provider.ProviderActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

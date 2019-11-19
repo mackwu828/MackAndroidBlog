@@ -11,26 +11,45 @@ import android.database.sqlite.SQLiteOpenHelper
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-class DbHelper(
-        val context: Context,
-        val name: String = "test.db",
-        val version: Int = 1
-): SQLiteOpenHelper(context, name, null, version) {
+class DbHelper(context: Context) : SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION) {
 
     /**
      * 创建表
      */
     override fun onCreate(db: SQLiteDatabase) {
-        val sql = "create table if not exists $name (Id integer primary key, CustomName text, OrderPrice integer, Country text)"
-        db.execSQL(sql)
+        db.execSQL(CREATE_STUDENT)
+//        db.execSQL(CREATE_COMMENT)
     }
 
     /**
      * 更新表
      */
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        val sql = "DROP TABLE IF EXISTS $name"
-        db.execSQL(sql)
+        db.execSQL(DROP_STUDENT)
         onCreate(db)
     }
+
+    companion object {
+        private const val DB_NAME = "test.db"
+        private const val DB_VERSION = 1
+
+        /**
+         * table name
+         */
+        const val STUDENT_TABLE_NAME = "student"
+        const val COMMENT_TABLE_NAME = "comment"
+
+        /**
+         * create table sql
+         */
+        private const val CREATE_STUDENT = "create table if not exists $STUDENT_TABLE_NAME (id integer primary key autoincrement, name text, age integer, sex text)"
+        private const val CREATE_COMMENT = "create table if not exists $COMMENT_TABLE_NAME (id integer primary key autoincrement, content text)"
+
+        /**
+         * drop table sql
+         */
+        private const val DROP_STUDENT = "DROP TABLE IF EXISTS $STUDENT_TABLE_NAME"
+        private const val DROP_COMMENT = "DROP TABLE IF EXISTS $COMMENT_TABLE_NAME"
+    }
+
 }

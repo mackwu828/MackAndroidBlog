@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<actions>
+    <action intentName="actions.intent.CREATE_TAXI_RESERVATION">
+        <fulfillment urlTemplate="http://my-taxi.com/order{?dropoffLocation}">
+            <parameter-mapping
+                intentParameter="taxiReservation.dropoffLocation.name"
+                urlParameter="dropoffLocation"/>
+        </fulfillment>
+    </action>
+</actions>

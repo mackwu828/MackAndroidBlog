@@ -22,7 +22,6 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:background="@drawable/main_selector_home"
             android:text="HOME" />
 
         <TextView
@@ -31,7 +30,6 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:background="@drawable/main_selector_promote"
             android:text="Promote" />
 
         <TextView
@@ -40,7 +38,6 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:background="@drawable/main_selector_user"
             android:text="USER" />
     </LinearLayout>
 

@@ -6,10 +6,10 @@
     * [BroadcastReceiver](/component/md/BroadcastReceiver.md)
     * [Service](/component/md/Service.md)
     * [ContentProvider](/component/md/ContentProvider.md)
-    * [Fragment](/component/md/Fragment.md)
-    * Application
-    * SQLite
     * 其他
+        * [Fragment](/component/md/Fragment.md)
+        * Application
+        * SQLite
         * Setting
 * [View](/view)
     * 基础
@@ -21,31 +21,30 @@
     * MD
         * DrawerLayout
         * CardView
+    * Leanback
     * 滑动
     * 绘制
     * 测量
     * 布局
+    * 图片压缩方式
+    * Glide
 * [动画](/anim)
     * [逐帧动画](/anim/逐帧动画.md)
     * [补间动画](/anim/补间动画.md)
     * [属性动画](/anim/属性动画.md)
     * [Animation源码分析](/anim/Animation源码分析.md)
 * [异步和网络](/http)
-    * 线程
-    * 线程池
-    * AsyncTask
-    * Handler
-    * RxJava2    
-    * Json
-    * Xml
-    * Http
-    * Https
-    * Gson
-    * OkHttp
-    * Retrofit
-* [图片](/image)
-    * 图片压缩方式
-    * Glide
+    * 异步
+        * 线程
+        * Handler
+        * [RxJava](/http/md/RxJava.md)
+    * 网络
+        * Xml
+        * Json
+        * Gson
+        * Http
+        * OkHttp
+        * Retrofit
 * [适配](/adapt)
     * 屏幕适配
         * 屏幕适配基础
@@ -60,73 +59,22 @@
     * 多语言适配
     * 状态栏适配
 * [性能优化](/performance)
-    * ANR
-        * ANR超时时间
-        * ANR产生的原因
-        * 如何避免ANR
-        * 如何定位ANR
-        * 分析trace.txt
-        * ANR常见类型
-        * ANR分析工具
-            * TraceView
-    * 内存
-        * 内存泄漏
-        * 内存分析工具
-            * Android Profile
-            * Memory Monitor
-            * Heap Viewer
-            * LeakCanary
-    * 启动
-        * Activity启动
-        * APP启动
-    * 布局
-* 安全
-    * 加解密
-    * 混淆
-    * 加固
-    * 反编译
-* [工具](/tool)
-    * [Maven](/tool/Maven介绍.md)
+    * ANR优化
+    * 内存优化
+    * 启动优化
+    * 布局优化
+* [多媒体](/media)
+    * 语音
+    * 视频
+* [未整理](/unknown)
+
+* [开源集成](/opensource)
+    * [Maven](/opensource/md/maven/Maven.md)
     * Jenkins
-        * 什么是Jenkins
-        * 下载Jenkins
-        * 环境变量
-        * 全局工具
-        * 凭据
-        * 新建任务
-        * 多渠道
-        * 360加固
-        * 插件
-        * 如何关联远程主机
-    * 异常上报
-        * Bugly
-        * 友盟
-        * Flurry
-        * FireBase
-    * [Google Cloud Platform](https://console.cloud.google.com/project)
-    * [Google Play Console](https://play.google.com/apps/publish/)
-    * Youtube Data API v3
-    * [Google Assistant API](https://developers.google.com/assistant/)
-* [TV](/tv)
-    * 硬件基础
-        * [板卡](/tv/板卡.md)
-        * [芯片](/tv/芯片.md)
-    * Launcher
-    * Leanback
-    * 焦点控制
-    * 信号源
-    * 系统权限
-* [音视频](/media)
-    * 录音
+    * Bugly
+    * 友盟
     * 亚马逊
-        * 注册和登录
-        * [Login with Amazon for TVs and Other Devices](https://developer.amazon.com/zh/docs/login-with-amazon/minitoc-lwa-other-devices.html)
-            * 创建安全配置文件
-            * 获取user_code和verification_uri
-            * 根据verification_uri校验user_code
-            * 获取access_token
-        * [Alexa voice service](https://developer.amazon.com/alexa/console/avs/home)
-            * 创建项目
+    * Google
 * [Kotlin](/kt)
     * [资料](/kt/资料.md)
     * 基础
@@ -154,4 +102,3 @@
         * 协程构建器
         * 挂起函数
         * 协程调度器
-* 设计模式
