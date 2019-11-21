@@ -2,8 +2,6 @@ package com.mackwu.adapter.screen
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.mackwu.adapter.screen.wh.WhActivity
-import com.mackwu.adapter.screen.sw.SwActivity
 
 
 /**

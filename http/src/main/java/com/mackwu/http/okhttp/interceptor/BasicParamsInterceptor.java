@@ -1,4 +1,4 @@
-package com.mackwu.http.okhttp;
+package com.mackwu.http.okhttp.interceptor;
 
 import android.text.TextUtils;
 

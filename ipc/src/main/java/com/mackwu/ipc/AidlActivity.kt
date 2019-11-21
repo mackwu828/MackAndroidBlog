@@ -1,4 +1,4 @@
-package com.mackwu.ipc.aidl
+package com.mackwu.ipc
 
 import android.content.ComponentName
 import android.content.ServiceConnection

@@ -2,6 +2,7 @@ package com.mackwu.http
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.mackwu.http.R
 
 /**
  * ===================================================

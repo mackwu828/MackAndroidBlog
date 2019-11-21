@@ -13,6 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:name=".HttpApp"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".MainActivity">
             <!--<intent-filter>-->
@@ -24,7 +25,7 @@
 
         <!-- json -->
         <activity android:name=".JsonActivity" />
-        <activity android:name=".GsonActivity" />
+        <activity android:name=".gson.GsonActivity" />
 
         <!-- xml -->
         <activity android:name=".xml.DomActivity"/>

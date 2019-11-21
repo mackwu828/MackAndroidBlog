@@ -1,16 +1,17 @@
 # MackAndroidBlog
 
 ## 目录
-* [组件](/component)
+* [Component](/component)
     * [Activity](/component/md/Activity.md)
     * [BroadcastReceiver](/component/md/BroadcastReceiver.md)
     * [Service](/component/md/Service.md)
     * [ContentProvider](/component/md/ContentProvider.md)
+    * [Fragment](/component/md/Fragment.md)
+    * SQLite
     * 其他
-        * [Fragment](/component/md/Fragment.md)
-        * Application
-        * SQLite
-        * Setting
+        * URI
+        * 透明度
+        * 路径
 * [View](/view)
     * 基础
         * [TestView](/view/md/TextView.md)
@@ -28,20 +29,20 @@
     * 布局
     * 图片压缩方式
     * Glide
-* [动画](/anim)
+* [Anim](/anim)
     * [逐帧动画](/anim/逐帧动画.md)
     * [补间动画](/anim/补间动画.md)
     * [属性动画](/anim/属性动画.md)
     * [Animation源码分析](/anim/Animation源码分析.md)
 * [异步和网络](/http)
+    * Xml
+    * Json
+        * Gson
     * 异步
         * 线程
         * Handler
         * [RxJava](/http/md/RxJava.md)
     * 网络
-        * Xml
-        * Json
-        * Gson
         * Http
         * OkHttp
         * Retrofit
@@ -58,6 +59,7 @@
         * Android9.0适配
     * 多语言适配
     * 状态栏适配
+    * 渠道适配
 * [性能优化](/performance)
     * ANR优化
     * 内存优化
@@ -66,8 +68,6 @@
 * [多媒体](/media)
     * 语音
     * 视频
-* [未整理](/unknown)
-
 * [开源集成](/opensource)
     * [Maven](/opensource/md/maven/Maven.md)
     * Jenkins
@@ -76,7 +76,7 @@
     * 亚马逊
     * Google
 * [Kotlin](/kt)
-    * [资料](/kt/资料.md)
+    * [资料](/kt/md/资料.md)
     * 基础
         * [变量](/kt/md/base/变量.md)
         * [基本类型](/kt/md/base/基本类型.md)

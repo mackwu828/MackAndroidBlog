@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.mackwu.component.R
+import com.mackwu.component.activity.start.TargetActivity.Companion.start
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -14,33 +15,9 @@ import kotlinx.android.synthetic.main.activity_main.*
  * <a href="mailto:wumengjiao828@163.com">Contact me</a>
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ================================================
- * 跳转到另一个进程的Activity
- *
- * <h2>包名+类名</h2>
- * 要求1：需要知道另一个进程的包名
- * 要求2：需要知道另一个进程的Activity名称，且Activity的exported属性要是true
- * @see start
- *
- * 异常1：另一个进程的Activity名称不存在时
- * Unable to find explicit activity class {com.google.android.youtube.tv/com.google.android.youtube.UrlActivity}
- * 异常2：另一个进程的Activity的exported属性不是true时
- * Permission Denial: starting Intent ... not exported from uid 10066
- *
- * <h2>自定义action</h2>
- * 要求1：需要知道另一个进程的activity中自定义的action名称，且Activity的exported属性要是true
- * @see startWithAction
- *
- * <h2>getLaunchIntentForPackage</h2>
- * 通过getLaunchIntentForPackage会跳转到另一个进程的<category android:name="android.intent.category.LAUNCHER" />的activity
- * 要求1：需要知道另一个进程的包名
- * @see startWithLaunchIntent
- *
- * <h2>DeepLink</h2>
- * 使用URL SCHEMES
- * @see startWithDeepLink
- *
+ * 启动另一个进程的Activity
  */
-class IpcActivity  : AppCompatActivity() {
+class IpcActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,18 +26,23 @@ class IpcActivity  : AppCompatActivity() {
         btn_test.setOnClickListener { start() }
     }
 
+    /**
+     * 通过包名和类名启动
+     */
     private fun start() {
         try {
-            val intent = Intent(Intent.ACTION_MAIN)
-                    .apply { addCategory(Intent.CATEGORY_LAUNCHER) }
-                    .apply { component = ComponentName("com.mackwu.ipc", "com.mackwu.ipc.activity.TargetActivity") }
+            val intent = Intent().apply { component = ComponentName("com.mackwu.ipc", "com.mackwu.ipc.MainActivity") }
             startActivity(intent)
         } catch (e: Exception) {
+            // 如果启动的包名或者类名不存在时，会报错。Unable to find explicit activity class {com.mackwu.ipc/com.mackwu.ipc.MainActivity}
             e.printStackTrace()
         }
     }
 
-    private fun startWithAction() {
+    /**
+     * 通过action启动
+     */
+    private fun start2() {
         try {
             val intent = Intent("com.mackwu.ipc.action.TARGET")
             startActivity(intent)
@@ -69,15 +51,24 @@ class IpcActivity  : AppCompatActivity() {
         }
     }
 
-    private fun startWithLaunchIntent() {
+
+    /**
+     * 通过包名和getLaunchIntentForPackage启动
+     * 会启动另一个进程的主activity
+     */
+    private fun start3() {
         val intent = packageManager.getLaunchIntentForPackage("com.mackwu.ipc")
         intent?.run {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(this)
         }
     }
 
-    private fun startWithDeepLink() {
+
+    /**
+     * deepLink
+     * 使用URL SCHEMES
+     */
+    private fun deepLink() {
         try {
             val intent = Intent()
                     .apply { action = Intent.ACTION_MAIN }

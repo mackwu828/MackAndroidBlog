@@ -1,4 +1,4 @@
-package com.mackwu.adapter.screen.sw
+package com.mackwu.adapter.screen
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity

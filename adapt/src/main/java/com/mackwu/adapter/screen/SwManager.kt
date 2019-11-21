@@ -1,4 +1,4 @@
-package com.mackwu.adapter.screen.sw
+package com.mackwu.adapter.screen
 
 import java.io.File
 import java.io.FileOutputStream
@@ -75,7 +75,7 @@ object SwManager {
      * @param designWidth 设计图宽度或高度。取较小的那一个。填dp或者px都可以
      */
     fun makeAllDimens(designWidth: Int) {
-        val swTypes = SwType.values()
+        val swTypes = SwManager.SwType.values()
         for (swType in swTypes) {
             val sw = swType.getSw()
             // 生成文件夹。如values-sw300dp
@@ -88,8 +88,8 @@ object SwManager {
                 val fos = FileOutputStream(file.absolutePath + File.separator + "dimens.xml")
                 val sb = StringBuilder()
                 sb.append("<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n")
-                sb.append("<resources>\r\n")
-                sb.append(String.format("   <string name=\"base_dpi\">%ddp</string>\r\n", sw))
+                        .append("<resources>\r\n")
+                        .append(String.format("   <string name=\"base_dpi\">%ddp</string>\r\n", sw))
                 for (i in -50..1920) {
                     val dpValue = i / designWidth.toFloat() * sw
                     val bigDecimal = BigDecimal(dpValue.toDouble())

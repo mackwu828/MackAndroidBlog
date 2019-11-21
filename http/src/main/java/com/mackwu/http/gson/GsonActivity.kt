@@ -1,10 +1,11 @@
-package com.mackwu.http
+package com.mackwu.http.gson
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.mackwu.http.R
 import com.mackwu.http.bean.User
 import kotlinx.android.synthetic.main.activity_main.*
 

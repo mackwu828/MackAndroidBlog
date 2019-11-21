@@ -57,12 +57,28 @@
 
 
         <!-- activity -->
-        <activity android:name=".activity.StartActivity" />
-        <activity android:name=".activity.TargetActivity" />
-        <activity android:name=".activity.LaunchModeActivity"/>
+        <activity android:name=".MainActivity">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity android:name=".activity.start.StartActivity" />
+        <activity android:name=".activity.start.TargetActivity" />
+        <activity android:name=".activity.start.StartForResultActivity" />
+        <activity android:name=".activity.start.StartBestActivity" />
+        <activity android:name=".activity.LaunchModeActivity"
+            android:launchMode="standard"/>
+        <activity android:name=".activity.LifecycleActivity" />
         <activity android:name=".activity.IpcActivity" />
         <activity android:name=".db.DbActivity" />
-        <activity android:name=".provider.ProviderActivity">
+        <activity android:name=".provider.ProviderActivity"/>
+
+        <!-- other -->
+        <activity android:name=".other.SettingActivity" />
+        <activity android:name=".other.TimerActivity" />
+        <activity android:name=".other.PathActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

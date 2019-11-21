@@ -1,4 +1,4 @@
-package com.mackwu.component.activity
+package com.mackwu.component.activity.start
 
 import android.content.Context
 import android.content.Intent
@@ -21,9 +21,6 @@ class TargetActivity  : AppCompatActivity() {
     }
 
     companion object {
-        /**
-         * 启动Activity的最佳方式
-         */
         fun start(context: Context, param: String){
             val intent = Intent(context, TargetActivity::class.java)
             intent.putExtra("param", param)

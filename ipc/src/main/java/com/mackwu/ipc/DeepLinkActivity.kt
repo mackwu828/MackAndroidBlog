@@ -1,4 +1,4 @@
-package com.mackwu.ipc.activity
+package com.mackwu.ipc
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity

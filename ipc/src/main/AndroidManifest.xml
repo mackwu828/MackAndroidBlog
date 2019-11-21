@@ -12,33 +12,22 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name=".MainActivity">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
-
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        </activity>
-
 
         <!-- activity -->
         <activity
-            android:name=".activity.TargetActivity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="com.mackwu.ipc.action.TARGET" />
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".activity.DeepLinkActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="com.mackwu.ipc.action.TARGET" />
             </intent-filter>
+        </activity>
 
+        <activity
+            android:name=".DeepLinkActivity"
+            android:exported="true">
             <intent-filter>
                 <data android:scheme="http" />
                 <data android:scheme="https" />
@@ -51,9 +40,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
-
-        <!-- aidl -->
-        <activity android:name=".aidl.AidlActivity" />
+        <activity android:name=".AidlActivity" />
 
     </application>
 

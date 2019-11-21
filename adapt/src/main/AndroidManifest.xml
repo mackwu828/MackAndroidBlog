@@ -19,7 +19,7 @@
         </activity>
 
         <!-- 屏幕适配 -->
-        <activity android:name="com.mackwu.adapter.screen.sw.SwActivity" >
+        <activity android:name="com.mackwu.adapter.screen.SwActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
