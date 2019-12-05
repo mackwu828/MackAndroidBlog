@@ -10,7 +10,7 @@ import android.util.Log
  * ===================================================
  */
 
-private const val TAG = "accu-services"
+private const val TAG = "xxx"
 private const val HEAD = " ### "
 //private val logDebug = BuildConfig.LOG_DEBUG
 private val logDebug = true

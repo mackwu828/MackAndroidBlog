@@ -8,10 +8,6 @@
     * [ContentProvider](/component/md/ContentProvider.md)
     * [Fragment](/component/md/Fragment.md)
     * SQLite
-    * 其他
-        * URI
-        * 透明度
-        * 路径
 * [View](/view)
     * 基础
         * [TestView](/view/md/TextView.md)
@@ -34,18 +30,16 @@
     * [补间动画](/anim/补间动画.md)
     * [属性动画](/anim/属性动画.md)
     * [Animation源码分析](/anim/Animation源码分析.md)
-* [异步和网络](/http)
+* [网络](/http)
     * Xml
     * Json
-        * Gson
-    * 异步
-        * 线程
-        * Handler
-        * [RxJava](/http/md/RxJava.md)
-    * 网络
-        * Http
-        * OkHttp
-        * Retrofit
+    * Gson
+    * 线程
+    * Handler
+    * [RxJava](/http/md/RxJava.md)
+    * Http
+    * OkHttp
+    * Retrofit
 * [适配](/adapt)
     * 屏幕适配
         * 屏幕适配基础

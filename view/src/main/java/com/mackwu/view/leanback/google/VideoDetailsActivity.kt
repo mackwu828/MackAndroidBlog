@@ -1,8 +1,8 @@
-package com.mackwu.tv.google
+package com.mackwu.view.leanback.google
 
 import android.os.Bundle
 import android.support.v4.app.FragmentActivity
-import com.mackwu.tv.R
+import com.mackwu.view.R
 
 /**
  * ================================================

@@ -14,6 +14,13 @@ class ComponentApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        app = this
+
+        //
         StudentDao.init(this)
+    }
+
+    companion object {
+        lateinit var app: ComponentApp
     }
 }

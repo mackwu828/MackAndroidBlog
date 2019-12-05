@@ -1,8 +1,10 @@
 package com.mackwu.view
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.mackwu.view.R
+import kotlinx.android.synthetic.main.activity_text_view.*
 
 /**
  * ================================================
@@ -10,13 +12,12 @@ import com.mackwu.view.R
  * <a href="mailto:wumengjiao828@163.com">Contact me</a>
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ================================================
- *
- * TextView
  */
 class TextViewActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_text_view)
+        tv_test.isSelected = true
     }
 }

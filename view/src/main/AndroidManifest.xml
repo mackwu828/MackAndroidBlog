@@ -20,13 +20,15 @@
         </activity>
 
         <!-- base -->
-        <activity android:name=".TextViewActivity" />
-        <activity android:name=".EditTextActivity" >
+        <activity android:name=".TextViewActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".EditTextActivity" >
+
         </activity>
         <activity android:name=".SpanActivity" />
         <activity android:name=".ActionBarActivity" />

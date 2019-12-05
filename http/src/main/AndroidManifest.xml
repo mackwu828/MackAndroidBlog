@@ -16,30 +16,21 @@
         android:name=".HttpApp"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".MainActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        </activity>
-
-        <!-- json -->
-        <activity android:name=".JsonActivity" />
-        <activity android:name=".gson.GsonActivity" />
-
-        <!-- xml -->
-        <activity android:name=".xml.DomActivity"/>
-        <activity android:name=".xml.SaxActivity" />
-        <activity android:name=".xml.PullActivity" />
-
-        <!-- okhttp -->
-        <activity android:name=".okhttp.OkHttpActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- xml -->
+        <activity android:name=".xml.DomActivity"/>
+        <activity android:name=".xml.SaxActivity" />
+        <activity android:name=".xml.PullActivity" />
+
+        <!-- json -->
+        <activity android:name=".gson.GsonActivity" />
+
     </application>
 
 </manifest>

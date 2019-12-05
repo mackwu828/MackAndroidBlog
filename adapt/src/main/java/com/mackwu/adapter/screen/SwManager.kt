@@ -14,8 +14,8 @@ import java.math.BigDecimal
 object SwManager {
 
     // 设计图宽度或高度。取较小的那一个。填dp或者px都可以
-//    const val DESIGN_WIDTH = 375
-    const val DESIGN_WIDTH = 1080
+//    const val DESIGN_WIDTH = 1080
+    const val DESIGN_WIDTH = 540
     private const val ABSOLUTE_PATH = "C:\\Android\\workspace\\MackAndroidBlog\\adapt\\src\\main\\res"
 
     enum class SwType {
@@ -33,6 +33,7 @@ object SwManager {
         SW_480,
         SW_520,
         SW_533,
+        SW_540,
         SW_560,
         SW_592,
         SW_600,

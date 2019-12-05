@@ -1,7 +1,6 @@
 package com.mackwu.kt.util
 
 import android.app.Activity
-import android.app.Service
 import android.content.Intent
 import android.net.Uri
 import android.provider.Settings
@@ -34,9 +33,6 @@ fun finishActivity(activity: Activity?) {
     }
 }
 
-/**
- * 结束activity
- */
 fun finishActivity(cls: Class<*>) {
     val iterator = activityStack.iterator()
     while (iterator.hasNext()) {
@@ -58,7 +54,7 @@ fun finishAllActivity() {
     activityStack.clear()
 }
 
-fun finishAllActivityWithoutCls(cls: Class<*>) {
+fun finishAllActivity(cls: Class<*>) {
     for (activity in activityStack) {
         if (activity.javaClass != cls) activity.finish()
     }
@@ -84,6 +80,10 @@ fun Activity.startActivityCls(cls: Class<*>) {
     startActivity(Intent(this, cls))
 }
 
+fun Fragment.startActivityCls(cls: Class<*>) {
+    startActivity(Intent(activity, cls))
+}
+
 fun Activity.startActivityClsForResult(cls: Class<*>, requestCode: Int) {
     startActivityForResult(Intent(this, cls), requestCode)
 }
@@ -102,15 +102,3 @@ fun Activity.startSettingActivity() {
 fun Activity.startGpsActivity() {
     startActivityForResult(Intent().apply { action = Settings.ACTION_LOCATION_SOURCE_SETTINGS }, 0x01)
 }
-
-fun Fragment.startActivityCls(cls: Class<*>) {
-    startActivity(Intent(activity, cls))
-}
-
-fun Service.startActivityCls(cls: Class<*>) {
-    startActivity(Intent(this, cls))
-}
-
-
-
-

@@ -1,15 +1,12 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
-//apply plugin: 'com.github.dcendents.android-maven'
-//apply plugin: 'com.jfrog.bintray'
 
 android {
     compileSdkVersion 28
 
-
     defaultConfig {
-        applicationId "com.mackwu.tool"
+        applicationId "com.mackwu.opensource"
         minSdkVersion 15
         targetSdkVersion 28
         versionCode 1
@@ -41,28 +38,4 @@ dependencies {
     //
     implementation 'com.tencent.bugly:crashreport:2.6.6'
     implementation 'com.tencent.bugly:nativecrashreport:3.6.0'
-}
-
-ext {
-    bintrayRepo = 'android'
-    bintrayName = 'test'
-
-    publishedGroupId = 'com.mackwu.tool'
-    libraryName = 'tool'
-    artifact = 'tool'
-
-    libraryDescription = 'test for maven'
-
-    siteUrl = 'https://github.com/mackwu828/mackblog'
-    gitUrl = 'https://github.com/mackwu828/mackblog.git'
-
-    libraryVersion = '1.0.0'
-
-    developerId = 'mackwu'
-    developerName = 'mackwu'
-    developerEmail = 'mackwu828@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
 }

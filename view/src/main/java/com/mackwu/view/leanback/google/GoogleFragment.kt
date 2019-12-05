@@ -16,7 +16,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
-import com.mackwu.tv.R
+import com.mackwu.view.R
+import com.mackwu.view.leanback.google.VideoDetailsActivity
 
 /**
  * ================================================
@@ -39,9 +40,9 @@ class GoogleFragment : BrowseSupportFragment() {
         //
         isHeadersTransitionOnBackEnabled = true
         // 设置导航栏颜色
-        brandColor = ContextCompat.getColor(activity!!, R.color.main_color)
+        brandColor = ContextCompat.getColor(activity!!, R.color.colorAccent)
         // 设置搜索颜色
-        searchAffordanceColor = ContextCompat.getColor(activity!!, R.color.pale_orange)
+        searchAffordanceColor = ContextCompat.getColor(activity!!, R.color.colorAccent)
 
 
         // BrowseSupportFragment左边是header导航栏，右边是rows列表

@@ -2,6 +2,7 @@ package com.mackwu.component
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
