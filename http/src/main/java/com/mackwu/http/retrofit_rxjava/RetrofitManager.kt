@@ -28,7 +28,7 @@ object RetrofitManager {
     private val serviceMap = hashMapOf<String, Any>()
 
     fun init(context: Context){
-        init(context, true, "")
+        init(context, true, "https://xxx")
     }
 
     fun init(context: Context, logDebug: Boolean, baseUrl: String) {

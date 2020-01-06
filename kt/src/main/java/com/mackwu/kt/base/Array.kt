@@ -7,30 +7,38 @@ package com.mackwu.kt.base
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ================================================
  * 数组
- *
- * <h2>创建数组</h2>
- * 创建数组方式一：库函数[arrayOf]
- * arrayOf(1, 2, 3)
- * arrayOf("java", "kotlin")
- *
- * 创建数组方式二：
- * [intArrayOf] intArrayOf(1, 2, 3)
- * [longArrayOf] longArrayOf(1L, 2L, 3L)
- * [floatArrayOf] floatArrayOf(1f, 2f, 3f)
- * [doubleArrayOf] doubleArrayOf(1.0, 2.02, 3.03333)
- * [booleanArrayOf] booleanArrayOf(false, true)
- *
- * 创建数组方式三：
- * 库函数[arrayOfNulls]用来创建一个指定大小，所有元素都是空的数组
- * arrayOfNulls<Int>(5)
- *
- *
- * <h2>数组赋值</h2>
- * 成员函数get()与set()按照运算符重载约定会转变为[]
- * val intArray = arrayOf(1, 2, 3)
- * intArray[0] = 4
  */
-fun main() {
+fun array1() {
+    val intArray = arrayOf(1, 2, 3)
+    val longArray = arrayOf(1L, 2L, 3L)
+    val floatArray = arrayOf(1f, 2f, 3f)
+    val strArray = arrayOf("java", "kotlin")
+}
+
+fun array2(){
+    val intArray = intArrayOf(1, 2, 3)
+    val longArray = longArrayOf(1L, 2L, 3L)
+    val floatArray = floatArrayOf(1f, 2f, 3f)
+}
+
+/**
+ * 指定数组大小。
+ */
+fun array10(){
+    val intArray = IntArray(10)
+}
+
+/**
+ * 指定数组大小。可空
+ */
+fun array11(){
+    val arrayOfNulls = arrayOfNulls<Int>(10)
+}
+
+/**
+ * 成员函数get()与set()按照运算符重载约定会转变为[]
+ */
+fun array20(){
     val intArray = arrayOf(1, 2, 3)
     intArray[0] = 4
 }

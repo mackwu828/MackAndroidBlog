@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.mackwu.component">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -12,13 +13,13 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
 
     <application
+        android:name=".ComponentApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name=".ComponentApp"
         tools:ignore="GoogleAppIndexingWarning">
 
         <!-- service -->
@@ -37,8 +38,7 @@
             </intent-filter>
             <meta-data
                 android:name="android.accessibilityservice"
-                android:resource="@xml/accessibilty_config"
-                />
+                android:resource="@xml/accessibilty_config" />
         </service>
 
         <!-- receiver -->
@@ -57,39 +57,37 @@
 
         <!-- provider -->
         <provider
-            android:authorities="com.mackwu.component.provider.StudentProvider"
-            android:name=".provider.StudentProvider" />
-
+            android:name=".provider.StudentProvider"
+            android:authorities="com.mackwu.component.provider.StudentProvider" />
 
         <!-- activity -->
         <activity android:name=".MainActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        </activity>
-        <activity android:name=".activity.start.StartActivity" />
-        <activity android:name=".activity.start.TargetActivity" />
-        <activity android:name=".activity.start.StartForResultActivity" />
-        <activity android:name=".activity.start.StartBestActivity" />
-        <activity android:name=".activity.LaunchModeActivity"
-            android:launchMode="standard"/>
-        <activity android:name=".activity.LifecycleActivity" />
-        <activity android:name=".activity.IpcActivity" />
-        <activity android:name=".db.DbActivity" />
-        <activity android:name=".provider.ProviderActivity"/>
-
-        <!-- other -->
-        <activity android:name=".other.SettingActivity" />
-        <activity android:name=".other.TimerActivity" />
-        <activity android:name=".other.JmDnsActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.StartActivity" />
+        <activity android:name=".activity.TargetActivity" />
+        <activity
+            android:name=".activity.LaunchModeActivity"
+            android:launchMode="standard" />
+        <activity android:name=".activity.LifecycleActivity" />
+        <activity android:name=".db.DbActivity" />
+        <activity android:name=".provider.StudentActivity" />
+        <activity android:name=".provider.WeatherActivity" >
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+
+        <!-- other -->
+        <activity android:name=".other.SettingActivity" />
+        <activity android:name=".other.TimerActivity" />
+        <activity android:name=".other.JmDnsActivity" />
     </application>
 
 </manifest>

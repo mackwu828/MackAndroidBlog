@@ -1,7 +1,6 @@
 package com.mackwu.adapter
 
 import android.app.Application
-import com.mackwu.adapter.core.OkHttpManager
 
 /**
  * ===================================================
@@ -14,6 +13,5 @@ class AdaptApp: Application() {
 
     override fun onCreate() {
         super.onCreate()
-        OkHttpManager.init(this)
     }
 }

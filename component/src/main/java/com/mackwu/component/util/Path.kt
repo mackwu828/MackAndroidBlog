@@ -1,6 +1,8 @@
 package com.mackwu.component.util
 
-import java.io.File
+import android.content.Context
+import android.os.Environment
+import android.util.Log
 
 /**
  * ===================================================
@@ -9,24 +11,38 @@ import java.io.File
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-private val file = File("mack.pcm")
+/**
+ * 判断sd卡是否被挂载。
+ */
+val isSDCardMounted: Boolean
+    get() = Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED
 
-fun main() {
-    val file = File("mack.pcm")
-    println(file.path)
+/**
+ * 外置存储：/storage、/sdcard
+ *
+ * Environment.getExternalStorageState(): mounted。用来判断sd卡是否被挂载。
+ * Environment.getExternalStorageDirectory(): /storage/emulated/0
+ * Environment.getExternalStorageDirectory(): /storage/emulated/0/Download
+ */
+fun externalPath() {
+    Log.d("TAG", """
+         
+        ${Environment.getExternalStorageState()}
+        ${Environment.getExternalStorageDirectory().absolutePath}
+        ${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath}
+    """.trimIndent())
+}
 
-//    // 获取项目路径。C:\Android\workspace\MackAndroidBlog
-//    println(File("").canonicalPath)
-//    // C:\Android\workspace\MackAndroidBlog
-//    println(System.getProperty("user.dir"))
-//
-//    // 获取类的工程路径。C:\Android\workspace\MackAndroidBlog\component\build\tmp\kotlin-classes\debug\com\mackwu\component\other
-//    println(File(MainActivity::class.java.getResource("")?.path))
-//
-//    // 获取类加载的根路径。C:\Android\android-sdk\platforms\android-28\data\res
-//    println(File(MainActivity::class.java.getResource("/")?.path))
-//    // C:\Android\android-sdk\platforms\android-28\data\res
-//    println(File(MainActivity::class.java.classLoader?.getResource("")?.path))
-//    // file:/C:/Android/android-sdk/platforms/android-28/data/res/
-//    println(MainActivity::class.java.classLoader?.getResource(""))
+/**
+ * 内置存储路径：data/
+ *
+ * filesDir.absolutePath：
+ * cacheDir.absolutePath：
+ */
+fun Context.buildInPath(){
+    Log.d("TAG", """
+         
+        ${filesDir.absolutePath}
+        ${cacheDir.absolutePath}
+    """.trimIndent())
 }

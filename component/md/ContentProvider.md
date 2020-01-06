@@ -5,7 +5,10 @@ ContentProvider用uri来标识其他应用要访问的数据。
 其他应用通过ContentResolver来访问ContentProvider提供的数据。
 ContentResolver通过uri来定位要访问的数据
 
-生命周期
+## 资料
+
+
+## 生命周期
 
 
 ## 注册

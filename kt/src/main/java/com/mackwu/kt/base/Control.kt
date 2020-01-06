@@ -1,5 +1,7 @@
 package com.mackwu.kt.base
 
+import java.io.*
+
 /**
  * ================================================
  * Created by MackWu on 2019/8/27 11:10
@@ -9,48 +11,20 @@ package com.mackwu.kt.base
  * 控制语句
  *
  *
- * <h2>if</h2>
- * if可以作为表达式，即它会返回一个值，可以赋值给变量或函数。if作为表达式时，需要有else分支
- * val max = if(a > b) a else b
- * @see ifTest1
- * fun max(a: Int, b: Int): Int = if (a > b) a else b
- * @see ifTest2
+
  *
  *
  * <h2>when</h2>
- * when取代了switch操作符，when的参数可以是任意类型
- * when也可以作为表达式。when作为表达式时，需要有else分支
- * when的分支条件可以用逗号合并
- * when的分支条件可以是表达式
- * @see whenTest
- *     when (x) {
- *          1 -> print("x == 1")
- *          2 -> print("x == 2")
- *          else -> print("x is neither 1 nor 2")
- *      }
+
  *
  *
  * <h2>for循环</h2>
  * @see forTest
- * 升序。
- * for (i in 0..10) { print("$i ") } // 输出0 1 2 3 4 5 6 7 8 9 10
- * 升序，不包括末尾元素。
- * for (i in 0 until 10) { print("$i ") } // 输出0 1 2 3 4 5 6 7 8 9
- * 降序。
- * for (i in 10 downTo 0) { print("$i ") } // 输出10 9 8 7 6 5 4 3 2 1 0
- * 自定义歩长。
- * for (i in 0..10 step 2) { print("$i ") } // 输出0 2 4 6 8 10
+
  *
  *
  * <h2>for循环遍历集合</h2>
- * val list = arrayOf("java", "kotlin", "c")
- * 遍历方式一：
- * for (i in 0 until list.size) { print(list[i] + " ") } // 输出java kotlin c
- * 遍历方式二：
- * for (i in list.indices) { print(list[i] + " ") } // 输出java kotlin c
- * 遍历方法三：解构声明
- * for (str in list) { print("$str ") } // 输出java kotlin c
- * for ((i, str) in list.withIndex()) { print("$i$str ") } // 输出0java 1kotlin 2c
+
  *
  *
  * <h2>while循环</h2>
@@ -61,41 +35,56 @@ package com.mackwu.kt.base
  * break: 终止循环
  * continue: 继续下一次最近的循环
  */
-fun main() {
-    forTest()
-}
-
 
 /**
- * if
+ * if可以作为表达式，赋值给变量或函数。作为表达式时，需要有else分支
  */
-private fun ifTest1(a: Int, b: Int) {
+fun if1(a: Int, b: Int) {
     val max = if (a > b) a else b
 }
 
-private fun ifTest2(a: Int, b: Int): Int = if (a > b) a else b
+/**
+ * 表达式函数体
+ */
+fun if2(a: Int, b: Int): Int = if (a > b) a else b
 
 
 /**
- * when
+ * when替代java中的switch，参数可以是任意类型
  */
-fun whenTest(x: Int) {
+fun when1(x: Int) {
     when (x) {
         1 -> print("x == 1")
         2 -> print("x == 2")
     }
 
+}
+
+/**
+ * when可以作为表达式，赋值给变量或函数。作为表达式时，需要有else分支
+ */
+fun when2(x: Int) {
     val a = when (x) {
         1 -> print("x == 1")
         2 -> print("x == 2")
         else -> print("x is neither 1 nor 2")
     }
+}
 
+/**
+ * when的分支条件可以用逗号合并
+ */
+fun when3(x: Int) {
     when (x) {
         1, 2 -> print("x == 1 or x == 2")
         else -> print("x is neither 1 nor 2")
     }
+}
 
+/**
+ * when的分支条件可以是表达式
+ */
+fun when4(x: Int) {
     when (x) {
         in 1..10 -> print("x is in 1..10")
         else -> print("none of the above")
@@ -104,16 +93,118 @@ fun whenTest(x: Int) {
 
 
 /**
- * for
+ * for。升序
  */
-private fun forTest() {
+fun for1() {
+    // 输出0 1 2 3 4 5 6 7 8 9 10
+    for (i in 0..10) {
+        print("$i ")
+    }
+}
+
+/**
+ * for。升序，不包括末尾元素
+ */
+fun for2() {
+    // 输出0 1 2 3 4 5 6 7 8 9
+    for (i in 0 until 10) {
+        print("$i ")
+    }
+}
+
+/**
+ * for。升序，自定义歩长
+ */
+fun for4() {
+    // 自定义歩长。输出0 2 4 6 8 10
+    for (i in 0..10 step 2) {
+        print("$i ")
+    }
+}
+
+/**
+ * for。降序
+ */
+fun for3() {
+    // 输出10 9 8 7 6 5 4 3 2 1 0
+    for (i in 10 downTo 0) {
+        print("$i ")
+    }
+}
+
+
+/**
+ * for循环遍历。用 "0 .. list.size -1"、"0 until list.size"，编译器都会提示用结构声明的语法
+ */
+fun for10() {
+    val list = arrayOf("java", "kotlin", "c")
+    for (i in 0 until list.size) {
+        print(list[i] + " ")
+    }
+}
+
+/**
+ * for循环遍历。根据下标
+ */
+fun for11() {
+    val list = arrayOf("java", "kotlin", "c")
+    for (i in list.indices) {
+        print(list[i] + " ")
+    }
+}
+
+/**
+ * for循环遍历。解构声明
+ */
+fun for12() {
     val list = arrayOf("java", "kotlin", "c")
     for (str in list) {
-        if ("kotlin" == str) {
-            return
-        }
         print("$str ")
     }
-    println()
-    print("end...")
+    for ((i, str) in list.withIndex()) {
+        print("$i$str ")
+    }
+}
+
+/**
+ * while
+ */
+fun while1() {
+    while (true) {
+
+    }
+}
+
+/**
+ * 与java不同，while循环条件不能用等式。因为在kotlin中等式不是一个表达式。可以用also扩展函数
+ */
+fun while2(input: InputStream, output: OutputStream) {
+    try {
+        val buf = ByteArray(1024)
+        var len: Int
+//        while ((len = fis.read(buf)) != -1)
+        while ((input.read(buf).also { len = it }) != -1) {
+            output.write(buf, 0, len)
+            output.flush()
+        }
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+}
+
+/**
+ * while break
+ */
+fun while3(input: InputStream, output: OutputStream){
+    try {
+        val buf = ByteArray(1024)
+        while (true) {
+            val len = input.read(buf)
+            if (len <= 0) break
+            output.write(buf, 0, len)
+            output.flush()
+        }
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
 }

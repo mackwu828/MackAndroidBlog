@@ -1,11 +1,9 @@
 package com.mackwu.component.provider
 
-import android.app.SearchManager.QUERY
 import android.content.ContentProvider
 import android.content.ContentValues
 import android.content.UriMatcher
 import android.database.Cursor
-import android.database.MatrixCursor
 import android.net.Uri
 import android.util.Log
 import com.mackwu.component.db.StudentDao
@@ -66,8 +64,5 @@ class StudentProvider : ContentProvider() {
         private const val AUTHORITY = "com.mackwu.component.provider.StudentProvider" // 在AndroidManifest.xml中配置的authorities
         private const val PATH = "query"
         private const val MATCH_CODE = 0x01
-        val STUDENT_URI = Uri.parse("content://$AUTHORITY/$PATH")
-
-        val ERROR_URI = Uri.parse("content://$AUTHORITY/xxx")
     }
 }

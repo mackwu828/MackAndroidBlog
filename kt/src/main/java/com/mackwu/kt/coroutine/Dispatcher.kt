@@ -8,20 +8,32 @@ import kotlinx.coroutines.*
  * <a href="mailto:wumengjiao828@163.com">Contact me</a>
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
- * 协程调度器
- * 决定协程所在的线程或线程池。
- * 它可以指定协程运行于特定的一个线程、一个线程池或者不指定任何线程（这样协程就会运行于当前线程）
- *
- *
  */
+fun main() {
+    test1()
+}
 
-private fun dispatcherTest() = runBlocking {
-    // 默认Dispatchers.Default。其指定的线程为共有的线程池
-    launch (Dispatchers.Default){  }
-    // 不指定线程
-    launch (Dispatchers.Unconfined){  }
-    // 主线程
-    launch (Dispatchers.Main){  }
-    // IO线程
-    launch (Dispatchers.IO){  }
+/**
+ * 协程调度器
+ * 协程调度器可以将协程限制在一个特定的线程执行、或将它分派到一个线程池，亦或是让它不受限地运行。
+ */
+private fun test1() = runBlocking {
+    // 运行在父协程的上下文中，即 runBlocking 主协程
+    launch { println("main runBlocking : I'm working in thread ${Thread.currentThread().name}") }
+    // 将会获取默认调度器。
+    launch(Dispatchers.Default) { println("Default : I'm working in thread ${Thread.currentThread().name}") }
+    // 不受限的运行在主线程中。
+    launch(Dispatchers.Unconfined) { println("Unconfined : I'm working in thread ${Thread.currentThread().name}") }
+    // 将使它获得一个新的线程
+    launch(newSingleThreadContext("MyOwnThread")) { println("newSingleThreadContext: I'm working in thread ${Thread.currentThread().name}") }
+
+//    Unconfined : I'm working in thread main
+//    Default : I'm working in thread DefaultDispatcher-worker-1
+//    newSingleThreadContext: I'm working in thread MyOwnThread
+//    main runBlocking : I'm working in thread main
+
+    // 限制在主线程
+//    launch(Dispatchers.Main) { }
+    // 限制在IO线程
+//    launch(Dispatchers.IO) { }
 }

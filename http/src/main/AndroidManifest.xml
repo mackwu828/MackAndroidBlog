@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name=".HttpApp"
+        android:name=".other.HttpApp"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -24,12 +24,12 @@
         </activity>
 
         <!-- xml -->
-        <activity android:name=".xml.DomActivity"/>
-        <activity android:name=".xml.SaxActivity" />
-        <activity android:name=".xml.PullActivity" />
+        <activity android:name=".other.DomActivity"/>
+        <activity android:name=".other.SaxActivity" />
+        <activity android:name=".other.PullActivity" />
 
         <!-- json -->
-        <activity android:name=".gson.GsonActivity" />
+        <activity android:name=".other.GsonActivity" />
 
     </application>
 

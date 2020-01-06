@@ -2,12 +2,15 @@
 
 ## 目录
 * [Component](/component)
-    * [Activity](/component/md/Activity.md)
+    * Activity
+        * [Activity生命周期](/component/md/activity/Activity生命周期.md)
+        * [Activity启动方式](/component/md/activity/Activity启动方式.md)
+        * [Activity启动模式](/component/md/activity/Activity启动模式.md)
+        * [启动另一个进程的Activity](/component/md/activity/启动另一个进程的Activity.md)
+        * [DeepLink](/component/md/activity/DeepLink.md)
     * [BroadcastReceiver](/component/md/BroadcastReceiver.md)
     * [Service](/component/md/Service.md)
     * [ContentProvider](/component/md/ContentProvider.md)
-    * [Fragment](/component/md/Fragment.md)
-    * SQLite
 * [View](/view)
     * 基础
         * [TestView](/view/md/TextView.md)
@@ -15,14 +18,16 @@
         * Button
         * ViewPager
         * RecyclerView
+        * WebView
     * MD
         * DrawerLayout
         * CardView
     * Leanback
-    * 滑动
-    * 绘制
-    * 测量
-    * 布局
+    * 自定义View
+        * 滑动
+        * 绘制
+        * 测量
+        * 布局
     * 图片压缩方式
     * Glide
 * [Anim](/anim)
@@ -31,15 +36,13 @@
     * [属性动画](/anim/属性动画.md)
     * [Animation源码分析](/anim/Animation源码分析.md)
 * [网络](/http)
-    * Xml
-    * Json
-    * Gson
-    * 线程
-    * Handler
     * [RxJava](/http/md/RxJava.md)
-    * Http
     * OkHttp
     * Retrofit
+    * JetPack
+        * Lifecycle
+        * LiveData
+        * ViewModel
 * [适配](/adapt)
     * 屏幕适配
         * 屏幕适配基础
@@ -60,8 +63,17 @@
     * 启动优化
     * 布局优化
 * [多媒体](/media)
-    * 语音
+    * 音频
+        * 音频基础
+        * 录制音频
+            * AudioRecord录制音频
+        * [播放音频](/media/md/播放音频.md)
+            * SoundPool播放音频
+            * MediaPlayer播放音频
     * 视频
+        * 录制视频
+        * 播放视频
+            * MediaPlayer播放视频
 * [开源集成](/opensource)
     * [Maven](/opensource/md/maven/Maven.md)
     * Jenkins
@@ -79,11 +91,13 @@
         * [控制语句](/kt/md/base/控制语句.md)
         * [可空性](/kt/md/base/可空性.md)
         * [解构声明](/kt/md/base/解构声明.md)
-        * [安卓扩展插件](/kt/md/base/安卓扩展插件.md)
-    * [属性](/kt/md/属性.md)
-    * [类](/kt/md/类.md)
-    * [继承](/kt/md/继承.md)
-    * [对象](/kt/md/对象.md)
+        * IO流
+    * 类和对象
+        * [属性](/kt/md/属性.md)
+        * [类](/kt/md/类.md)
+        * [继承](/kt/md/继承.md)
+        * [对象](/kt/md/对象.md)
+        * [泛型](/kt/md/泛型.md)  
     * 函数
         * 作用域函数
         * 扩展函数
@@ -91,8 +105,8 @@
         * 函数类型
         * 高阶函数
         * lambda表达式
-    * [泛型](/kt/md/泛型.md)    
     * 协程
         * 协程构建器
         * 挂起函数
         * 协程调度器
+    * 设计模式
