@@ -1,4 +1,4 @@
-package com.mackwu.component.activity
+package com.mackwu.component.activity.lifecycle
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity

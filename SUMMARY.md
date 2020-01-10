@@ -67,7 +67,7 @@
         * 音频基础
         * 录制音频
             * AudioRecord录制音频
-        * [播放音频](/media/md/播放音频.md)
+        * 播放音频
             * SoundPool播放音频
             * MediaPlayer播放音频
     * 视频

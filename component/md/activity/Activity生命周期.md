@@ -6,7 +6,22 @@
 
 ## onCreate
 
-## 
+## onStart
+
+## onResume
+
+## onPause
+
+## onStop
+
+## onDestroy
+
+
+
+## onRestart
+
+## onSaveInstanceState
+## onRestoreInstanceState
 
 
 

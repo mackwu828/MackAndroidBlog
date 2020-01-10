@@ -1,6 +1,6 @@
 package com.mackwu.kt.`fun`
 
-import com.mackwu.kt.bean.Person
+import com.mackwu.kt.claz.Person
 
 
 /**

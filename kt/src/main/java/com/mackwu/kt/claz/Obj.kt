@@ -1,7 +1,5 @@
 package com.mackwu.kt.claz
 
-import com.mackwu.kt.bean.Person
-
 /**
  * ===================================================
  * Created by MackWu on 2019/10/25 18:38

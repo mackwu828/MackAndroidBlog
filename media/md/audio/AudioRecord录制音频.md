@@ -1,8 +1,7 @@
 
-
-## AudioRecord录制音频
 AudioRecord是Android系统提供的用于实现录音的功能类
-## 初始化
+
+## 初始化AudioRecord
 ```
     /**
      * 初始化AudioRecord

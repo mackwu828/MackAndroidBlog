@@ -1,34 +1,28 @@
-package com.mackwu.http.jetpack.lifecycle
+package com.mackwu.http
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.mackwu.http.R
+import com.mackwu.http.retrofit_rxjava.ApiHelper
+import com.mackwu.http.retrofit_rxjava.RetrofitManager
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
  * ===================================================
- * Created by MackWu on 2019/12/23 19:09
+ * Created by MackWu on 2020/1/6 19:05
  * <a href="mailto:wumengjiao828@163.com">Contact me</a>
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-
-/**
- * AppCompatActivity的父类SupportActivity已经实现了LifecycleOwner，创建了lifecycleRegistry
- */
-class LifecycleActivity2  : AppCompatActivity(){
-
-    private val myLifecycleObserver = MyLifecycleObserver()
+class SecondActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        lifecycle.addObserver(myLifecycleObserver)
-    }
+        btn_test.setOnClickListener {
 
-    override fun onDestroy() {
-        super.onDestroy()
-        lifecycle.removeObserver(myLifecycleObserver)
+            ApiHelper.getIp {}
+        }
     }
 }

@@ -11,7 +11,7 @@ object ApiHelper {
 
     private val ipApi = RetrofitManager.getApi(IpApi::class.java)
 
-    fun getIp() {
-        ipApi.getIp().subscribeNext { }
+    fun getIp(onNext: () -> Unit) {
+        ipApi.getIp().subscribeNext { onNext.invoke() }
     }
 }

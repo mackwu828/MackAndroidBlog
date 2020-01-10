@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.mackwu.component.R
 import com.mackwu.component.util.*
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_start.*
 
 /**
@@ -30,10 +29,9 @@ class StartActivity : AppCompatActivity() {
         btn_start_best.setOnClickListener { TargetActivity.start(this, "xxx") }
 
         // 启动另一个进程的Activity
-        btn_start_package.setOnClickListener { startPackage("com.mackwu.demo", "com.mackwu.demo.TargetActivity") }
+        btn_start_package.setOnClickListener { startPackage("com.mackwu.demo", "com.mackwu.demo.MainActivity") }
         btn_action.setOnClickListener { startAction("com.mackwu.action.TARGET") }
-        btn_launch.setOnClickListener { startLaunch("com.mackwu.demo") }
-        btn_deep_link.setOnClickListener { startDeepLink("com.mackwu.demo", "com.mackwu.demo.MainActivity", "") }
+        btn_launch.setOnClickListener { startLaunch("com.mackwu.xxx") }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

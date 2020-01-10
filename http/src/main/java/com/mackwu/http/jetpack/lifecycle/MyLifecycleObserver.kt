@@ -14,16 +14,38 @@ import android.util.Log
  */
 class MyLifecycleObserver : LifecycleObserver {
 
-    private val TAG = "LifecycleObserver"
-
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-    fun onCreate(){
-        Log.d(TAG, "onCreate...")
+    fun onCreate() {
+        Log.d("TAG", "LifecycleObserver onCreate...")
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+    fun onStart(){
+        Log.d("TAG", "LifecycleObserver onStart...")
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    fun onResume(){
+        Log.d("TAG", "LifecycleObserver onResume...")
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
+    fun onPause(){
+        Log.d("TAG", "LifecycleObserver onPause...")
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+    fun onStop(){
+        Log.d("TAG", "LifecycleObserver onStop...")
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    fun onDestroy(){
-        Log.d(TAG, "onDestroy...")
+    fun onDestroy() {
+        Log.d("TAG", "LifecycleObserver onDestroy...")
     }
 
+    @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
+    fun onAny() {
+//        Log.d("TAG", "LifecycleObserver onAny...")
+    }
 }

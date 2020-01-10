@@ -36,6 +36,23 @@ class RcActivity : AppCompatActivity() {
 }
 
 
+class RcActivity10 : AppCompatActivity(), CoroutineScope {
+    override val coroutineContext: CoroutineContext
+        get() = Dispatchers.Main
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        launch { val job1 = RetrofitManager.getApi(IpApi::class.java).getIp() }
+        launch { RetrofitManager.getApi(IpApi::class.java).getIp() }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        cancel()
+    }
+}
+
+
 /**
  * 用MainScope代替GlobalScope的使用
  * 只需要调用mainScope.cancel，就会cancel掉所有使用mainScope启动的所有协程
@@ -56,21 +73,7 @@ class RcActivity2 : AppCompatActivity() {
 }
 
 
-class RcActivity10 : AppCompatActivity(), CoroutineScope {
-    override val coroutineContext: CoroutineContext
-        get() = Dispatchers.Main
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        launch { RetrofitManager.getApi(IpApi::class.java).getIp() }
-        launch { RetrofitManager.getApi(IpApi::class.java).getIp() }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        cancel()
-    }
-}
 
 /**
  * 实现CoroutineScope

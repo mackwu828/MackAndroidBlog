@@ -1,7 +1,7 @@
 package com.mackwu.kt.`fun`
 
 import android.content.Context
-import com.mackwu.kt.bean.Person
+import com.mackwu.kt.claz.Person
 
 /**
  * ===================================================

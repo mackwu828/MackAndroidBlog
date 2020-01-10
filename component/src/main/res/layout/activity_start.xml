@@ -40,7 +40,7 @@
         android:id="@+id/btn_start_package"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="通过包名和类名启动" />
+        android:text="通过包名和Activity名称启动" />
 
     <Button
         android:id="@+id/btn_action"
@@ -53,11 +53,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="通过LaunchIntent" />
-
-    <Button
-        android:id="@+id/btn_deep_link"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="使用DeepLink" />
 
 </LinearLayout>

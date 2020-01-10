@@ -62,27 +62,27 @@
 
         <!-- activity -->
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".activity.StartActivity" />
-        <activity android:name=".activity.TargetActivity" />
-        <activity
-            android:name=".activity.LaunchModeActivity"
-            android:launchMode="standard" />
-        <activity android:name=".activity.LifecycleActivity" />
-        <activity android:name=".db.DbActivity" />
-        <activity android:name=".provider.StudentActivity" />
-        <activity android:name=".provider.WeatherActivity" >
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->
 
 <!--                <category android:name="android.intent.category.LAUNCHER" />-->
 <!--            </intent-filter>-->
         </activity>
+        <activity android:name=".activity.StartActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.TargetActivity" />
+        <activity
+            android:name=".activity.LaunchModeActivity"
+            android:launchMode="standard" />
+        <activity android:name=".activity.lifecycle.LifecycleActivity" />
+        <activity android:name=".db.DbActivity" />
+        <activity android:name=".provider.StudentActivity" />
+        <activity android:name=".provider.WeatherActivity" />
 
         <!-- other -->
         <activity android:name=".other.SettingActivity" />

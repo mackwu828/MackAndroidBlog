@@ -1,6 +1,19 @@
 
 DeepLink
+```
 
+/**
+ * 通过DeepLink启动另一个进程的Activity
+ */
+fun Activity.startDeepLink(packageName: String, activityName: String, uriString: String) {
+        val intent = Intent()
+                .apply { action = Intent.ACTION_MAIN }
+                .apply { addCategory(Intent.CATEGORY_LAUNCHER) }
+                .apply { component = ComponentName(packageName, activityName) }
+                .apply { data = Uri.parse(uriString) } //"https://www.mackwu.com/test?query=xxx"
+        startActivity(intent)
+}
+```
 
 ```
         <activity
