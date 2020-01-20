@@ -1,7 +1,7 @@
 package com.mackwu.view.leanback.google
 
 import android.os.Bundle
-import android.support.v4.app.FragmentActivity
+import androidx.fragment.app.FragmentActivity
 import com.mackwu.view.R
 
 /**
@@ -11,7 +11,7 @@ import com.mackwu.view.R
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ================================================
  */
-class VideoDetailsActivity: FragmentActivity() {
+class VideoDetailsActivity: androidx.fragment.app.FragmentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

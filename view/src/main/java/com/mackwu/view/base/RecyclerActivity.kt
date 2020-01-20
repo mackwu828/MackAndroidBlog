@@ -1,8 +1,8 @@
 package com.mackwu.view.base
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.*
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.*
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,15 +43,15 @@ class RecyclerActivity : AppCompatActivity() {
         setContentView(R.layout.recycler_activity)
 
         // 布局管理器。设置为线性的布局
-        val layoutManager = LinearLayoutManager(this)
+        val layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
         // 默认垂直
-        layoutManager.orientation = LinearLayoutManager.VERTICAL
+        layoutManager.orientation = androidx.recyclerview.widget.LinearLayoutManager.VERTICAL
         // adapter
         val adapter = RecyclerAdapter()
         // 分割线
-        val dividerItemDecoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
+        val dividerItemDecoration = androidx.recyclerview.widget.DividerItemDecoration(this, androidx.recyclerview.widget.DividerItemDecoration.VERTICAL)
         // 动画
-        val itemAnimator = DefaultItemAnimator()
+        val itemAnimator = androidx.recyclerview.widget.DefaultItemAnimator()
 
         // recycler_view
         recycler_view.layoutManager = layoutManager
@@ -60,7 +60,7 @@ class RecyclerActivity : AppCompatActivity() {
 //        recycler_view.itemAnimator = itemAnimator
     }
 
-    class RecyclerAdapter : RecyclerView.Adapter<ViewHolder>() {
+    class RecyclerAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<ViewHolder>() {
 
         private val list = listOf("Java", "Kotlin", "Android")
 
@@ -79,7 +79,7 @@ class RecyclerActivity : AppCompatActivity() {
 
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         val tvTest = itemView.findViewById(R.id.tv_test) as TextView
     }
 }

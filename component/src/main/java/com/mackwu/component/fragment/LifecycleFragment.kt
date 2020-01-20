@@ -2,7 +2,7 @@ package com.mackwu.component.fragment
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -31,9 +31,9 @@ import com.mackwu.component.R
  * 09-30 01:21:24.229 4020-4020/com.mackwu.fragment D/TAG: onDestroy...
  * 09-30 01:21:24.229 4020-4020/com.mackwu.fragment D/TAG: onDetach...
  */
-class LifecycleFragment : Fragment() {
+class LifecycleFragment : androidx.fragment.app.Fragment() {
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         Log.d("TAG", "onAttach...")
     }

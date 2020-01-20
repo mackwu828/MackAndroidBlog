@@ -2,11 +2,11 @@ package com.mackwu.component.fragment.fragment
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.mackwu.component.R
 
 /**
@@ -31,7 +31,7 @@ import com.mackwu.component.R
  */
 class HomeFragment : Fragment() {
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         Log.d("HomeFragment", "onAttach...")
     }

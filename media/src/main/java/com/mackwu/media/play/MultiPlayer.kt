@@ -16,6 +16,10 @@ import java.util.concurrent.Executors
  * ===================================================
  */
 class MultiPlayer private constructor(private val context: Context) : BasePlayer(context), MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener, AudioManager.OnAudioFocusChangeListener, MediaPlayer.OnSeekCompleteListener {
+    override val duration: Int
+        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
+    override val currentPosition: Int
+        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
 
     private val executorService = Executors.newFixedThreadPool(20)
     private var currentPlayer: MediaPlayer? = null
@@ -61,7 +65,6 @@ class MultiPlayer private constructor(private val context: Context) : BasePlayer
 
                 state = PlayState.PREPARED
                 listener?.onPrepared()
-                listener?.onDuration(currentPlayer?.duration ?: 0)
 
                 state = PlayState.PLAYING
                 currentPlayer?.start()

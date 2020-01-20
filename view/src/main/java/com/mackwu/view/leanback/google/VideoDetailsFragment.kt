@@ -1,7 +1,7 @@
 package com.mackwu.tv.google
 
 import android.os.Bundle
-import android.support.v17.leanback.app.DetailsSupportFragment
+import androidx.leanback.app.DetailsSupportFragment
 
 /**
  * ================================================

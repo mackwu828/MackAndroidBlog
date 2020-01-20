@@ -1,7 +1,7 @@
 package com.mackwu.http.other
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import com.mackwu.http.R
 import com.mackwu.http.bean.User

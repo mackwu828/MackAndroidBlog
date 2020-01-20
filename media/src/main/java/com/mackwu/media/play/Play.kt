@@ -12,7 +12,7 @@ interface Play : Source {
     /**
      * 播放状态
      */
-    var state: PlayState
+    val state: PlayState
 
     /**
      * 数据源总时长

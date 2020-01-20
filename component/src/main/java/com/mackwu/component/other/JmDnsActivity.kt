@@ -1,7 +1,7 @@
 package com.mackwu.component.other
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.mackwu.component.R
 import com.mackwu.component.util.addServiceListener
 import com.mackwu.component.util.removeServiceListener

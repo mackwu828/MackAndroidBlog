@@ -1,7 +1,5 @@
 package com.mackwu.media.play
 
-import android.media.MediaPlayer
-
 /**
  * ===================================================
  * Created by MackWu on 2020/1/7 19:09

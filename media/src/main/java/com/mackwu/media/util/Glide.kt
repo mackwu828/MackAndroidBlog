@@ -1,8 +1,8 @@
 package com.mackwu.media.util
 
 import android.content.Context
-import android.support.annotation.DrawableRes
-import android.support.v4.app.Fragment
+import androidx.annotation.DrawableRes
+import androidx.fragment.app.Fragment
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -57,6 +57,6 @@ fun Context.clearGlideMemory() = Glide.get(this).clearMemory()
 /**
  *  *  *  *  *  *  *  *  *  *  *  *  *  *  Fragment *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
  */
-fun Fragment.loadImage(url: String, imageView: ImageView, placeholder: Int) = activity?.loadImage(url, imageView, placeholder)
+fun androidx.fragment.app.Fragment.loadImage(url: String, imageView: ImageView, placeholder: Int) = activity?.loadImage(url, imageView, placeholder)
 
-fun Fragment.loadRoundImage(url: String, imageView: ImageView, placeholder: Int) = activity?.loadRoundImage(url, imageView, placeholder)
+fun androidx.fragment.app.Fragment.loadRoundImage(url: String, imageView: ImageView, placeholder: Int) = activity?.loadRoundImage(url, imageView, placeholder)

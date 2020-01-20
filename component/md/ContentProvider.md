@@ -15,7 +15,7 @@ ContentResolver通过uri来定位要访问的数据
 authorities唯一标识ContentProvider，其他的应用可以通过authorities获取他提供的数据。默认android:exported="true"，可以被其他应用使用
 ```xml
         <provider
-            android:authorities="com.mackwu.component.provider.StudentProvider"
+            android:authorities="com.mackwu.component.provider.student.StudentProvider"
             android:name=".provider.StudentProvider" />
 ```
 

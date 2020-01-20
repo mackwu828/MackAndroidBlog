@@ -1,9 +1,9 @@
 package com.mackwu.component.fragment
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v7.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import com.mackwu.component.R
 import com.mackwu.component.fragment.fragment.HomeFragment
@@ -101,7 +101,7 @@ class BackStackActivity : AppCompatActivity() {
         Log.d("TAG", "onDestroy...")
     }
 
-    private fun replaceFragment(fragment: Fragment) {
+    private fun replaceFragment(fragment: androidx.fragment.app.Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fl_container, fragment)
         transaction.commit()
@@ -111,7 +111,7 @@ class BackStackActivity : AppCompatActivity() {
         Log.d("TAG", "backStackEntryCount: ${supportFragmentManager.backStackEntryCount}")
     }
 
-    private fun replaceFragmentAddToBackStack(fragment: Fragment) {
+    private fun replaceFragmentAddToBackStack(fragment: androidx.fragment.app.Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fl_container, fragment)
         // 添加到回退栈

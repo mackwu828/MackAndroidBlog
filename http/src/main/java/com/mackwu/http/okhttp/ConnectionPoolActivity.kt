@@ -1,7 +1,7 @@
 package com.mackwu.http.okhttp
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.mackwu.http.R
 import okhttp3.ConnectionPool
 import okhttp3.OkHttpClient

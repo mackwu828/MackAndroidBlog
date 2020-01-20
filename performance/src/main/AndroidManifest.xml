@@ -20,7 +20,8 @@
         </activity>
 
         <!-- -->
-        <activity android:name=".anr.AnrActivity" >
+        <activity android:name=".anr.AnrActivity" />
+        <activity android:name=".memory.MemoryActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

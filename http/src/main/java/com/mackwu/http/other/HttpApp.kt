@@ -2,7 +2,7 @@ package com.mackwu.http.other
 
 import android.app.Application
 import com.mackwu.http.okhttp.OkHttpManager
-import com.mackwu.http.retrofit_rxjava.RetrofitManager
+import com.mackwu.http.okhttp_retrofit_rxjava.RetrofitManager
 
 /**
  * ===================================================
@@ -17,6 +17,6 @@ class HttpApp: Application() {
         super.onCreate()
         OkHttpManager.init(this)
         RetrofitManager.init(this)
-        com.mackwu.http.retrofit_coroutines.RetrofitManager.init(this)
+        com.mackwu.http.okhttp_retrofit_coroutines.RetrofitManager.init(this)
     }
 }

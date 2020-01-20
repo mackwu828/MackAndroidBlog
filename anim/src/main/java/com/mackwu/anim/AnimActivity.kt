@@ -1,7 +1,7 @@
 package com.mackwu.anim
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.ViewGroup
 import android.view.animation.Animation

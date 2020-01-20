@@ -1,7 +1,7 @@
 package com.mackwu.adapter.statusbar
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.view.Window
 import android.view.WindowManager
 import com.mackwu.adapter.R

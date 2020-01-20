@@ -1,10 +1,10 @@
 package com.mackwu.view.leanback
 
 import android.os.Bundle
-import android.support.v17.leanback.widget.ArrayObjectAdapter
-import android.support.v17.leanback.widget.ItemBridgeAdapter
-import android.support.v17.leanback.widget.Presenter
-import android.support.v7.app.AppCompatActivity
+import androidx.leanback.widget.ArrayObjectAdapter
+import androidx.leanback.widget.ItemBridgeAdapter
+import androidx.leanback.widget.Presenter
+import androidx.appcompat.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

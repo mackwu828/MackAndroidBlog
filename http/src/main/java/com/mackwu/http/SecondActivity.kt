@@ -1,10 +1,8 @@
 package com.mackwu.http
 
-import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import com.mackwu.http.retrofit_rxjava.ApiHelper
-import com.mackwu.http.retrofit_rxjava.RetrofitManager
+import androidx.appcompat.app.AppCompatActivity
+import com.mackwu.http.okhttp_retrofit_rxjava.ApiHelper
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -18,11 +16,8 @@ class SecondActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_second)
 
-        btn_test.setOnClickListener {
-
-            ApiHelper.getIp {}
-        }
+        btn_test.setOnClickListener { ApiHelper.getIp {} }
     }
 }

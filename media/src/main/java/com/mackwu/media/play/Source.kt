@@ -22,15 +22,6 @@ interface Source {
     val sourceChild: String
 
     /**
-     * 添加数据源
-     */
-    fun addSource(input: InputStream): Play
-
-    fun addSource(sourceBytes: ByteArray): Play
-
-    fun addSource(sourcePath: String): Play
-
-    /**
      * 设置数据源
      */
     fun setSource(input: InputStream): Play

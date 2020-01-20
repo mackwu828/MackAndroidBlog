@@ -3,7 +3,7 @@ package com.mackwu.component.util
 import android.app.Activity
 import android.app.Service
 import android.content.Context
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.widget.Toast
 
 /**
@@ -21,7 +21,7 @@ fun Activity.toast(text: String, duration: Int = Toast.LENGTH_SHORT): Toast {
     return Toast.makeText(this, text, duration).apply { show() }
 }
 
-fun Fragment.toast(text: String, duration: Int = Toast.LENGTH_SHORT): Toast {
+fun androidx.fragment.app.Fragment.toast(text: String, duration: Int = Toast.LENGTH_SHORT): Toast {
     return Toast.makeText(activity, text, duration).apply { show() }
 }
 

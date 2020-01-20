@@ -3,10 +3,10 @@ package com.mackwu.component.fragment
 import android.os.Bundle
 import android.os.Handler
 import android.preference.PreferenceFragment
-import android.support.v4.app.DialogFragment
-import android.support.v4.app.Fragment
-import android.support.v4.app.ListFragment
-import android.support.v7.app.AppCompatActivity
+import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.ListFragment
+import androidx.appcompat.app.AppCompatActivity
 import com.mackwu.component.R
 import com.mackwu.component.fragment.fragment.HomeFragment
 import com.mackwu.component.fragment.fragment.PromoteFragment
@@ -119,7 +119,7 @@ import kotlinx.android.synthetic.main.activity_fragment.*
  */
 class FragmentActivity : AppCompatActivity() {
 
-    private var currentFragment = Fragment()
+    private var currentFragment = androidx.fragment.app.Fragment()
     private var homeFragment = HomeFragment()
     private var promoteFragment = PromoteFragment()
 
@@ -136,7 +136,7 @@ class FragmentActivity : AppCompatActivity() {
     /**
      * replace Fragment
      */
-    private fun replaceFragment(fragment: Fragment) {
+    private fun replaceFragment(fragment: androidx.fragment.app.Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fl_container, fragment)
         transaction.commit()
@@ -145,7 +145,7 @@ class FragmentActivity : AppCompatActivity() {
     /**
      * show Fragment
      */
-    private fun showFragment(fragment: Fragment) {
+    private fun showFragment(fragment: androidx.fragment.app.Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.hide(currentFragment)
         currentFragment = fragment
@@ -158,7 +158,7 @@ class FragmentActivity : AppCompatActivity() {
     }
 
 
-    private fun delayReplaceFragment(fragment: Fragment) {
+    private fun delayReplaceFragment(fragment: androidx.fragment.app.Fragment) {
         // 立即按返回键。java.lang.IllegalStateException: Can not perform this action after onSaveInstanceState
         Handler().postDelayed({
             val transaction = supportFragmentManager.beginTransaction()

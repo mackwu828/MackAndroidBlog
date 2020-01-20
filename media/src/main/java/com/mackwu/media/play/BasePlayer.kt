@@ -37,8 +37,10 @@ abstract class BasePlayer(private val context: Context) : Play {
         return this
     }
 
-    override fun addSource(input: InputStream): Play {
-        logD(TAG, "addSource...")
+    override fun setSource(input: InputStream): Play {
+        logD(TAG, "setSource...")
+        // clear
+        sourceQueue.clear()
 
         // 文件夹
         logD(TAG, "sourceDirPath: $sourceDirPath")
@@ -63,31 +65,13 @@ abstract class BasePlayer(private val context: Context) : Play {
         return this
     }
 
-    override fun addSource(sourceBytes: ByteArray): Play {
-        addSource(sourceBytes.inputStream())
-        return this
-    }
-
-    override fun addSource(sourcePath: String): Play {
-        addSource(File(sourcePath).inputStream())
-        return this
-    }
-
-    override fun setSource(input: InputStream): Play {
-        sourceQueue.clear()
-        addSource(input)
-        return this
-    }
-
     override fun setSource(sourceBytes: ByteArray): Play {
-        sourceQueue.clear()
-        addSource(sourceBytes)
+        setSource(sourceBytes.inputStream())
         return this
     }
 
     override fun setSource(sourcePath: String): Play {
-        sourceQueue.clear()
-        addSource(sourcePath)
+        setSource(File(sourcePath).inputStream())
         return this
     }
 

@@ -2,11 +2,11 @@ package com.mackwu.view.vp
 
 import android.graphics.Color
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
-import android.support.v4.view.ViewPager
-import android.support.v7.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
+import androidx.viewpager.widget.ViewPager
+import androidx.appcompat.app.AppCompatActivity
 import com.mackwu.view.R
 import com.mackwu.view.vp.fragment.HomeFragment
 import com.mackwu.view.vp.fragment.PromoteFragment
@@ -30,7 +30,7 @@ class VpFTabActivity : AppCompatActivity() {
         val fragments = listOf(HomeFragment(), PromoteFragment(), UserFragment())
         val adapter = VpFragmentPagerAdapter(supportFragmentManager, fragments)
         view_pager.adapter = adapter
-        view_pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        view_pager.addOnPageChangeListener(object : androidx.viewpager.widget.ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(p0: Int) {
             }
 
@@ -63,8 +63,8 @@ class VpFTabActivity : AppCompatActivity() {
         tv_user.setBackgroundColor(Color.WHITE)
     }
 
-    class VpFragmentPagerAdapter(fm: FragmentManager, private val fragments: List<Fragment>) : FragmentPagerAdapter(fm) {
-        override fun getItem(position: Int): Fragment {
+    class VpFragmentPagerAdapter(fm: androidx.fragment.app.FragmentManager, private val fragments: List<androidx.fragment.app.Fragment>) : androidx.fragment.app.FragmentPagerAdapter(fm) {
+        override fun getItem(position: Int): androidx.fragment.app.Fragment {
             return fragments[position]
         }
 

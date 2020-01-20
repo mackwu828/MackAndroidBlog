@@ -1,9 +1,9 @@
 package com.mackwu.view.vp
 
 import android.os.Bundle
-import android.support.v4.view.PagerAdapter
-import android.support.v4.view.ViewPager
-import android.support.v7.app.AppCompatActivity
+import androidx.viewpager.widget.PagerAdapter
+import androidx.viewpager.widget.ViewPager
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
@@ -74,7 +74,7 @@ class VpActivity : AppCompatActivity() {
         val adapter = VpAdapter(imageList)
         view_pager.adapter = adapter
         // 滑动监听
-        view_pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        view_pager.addOnPageChangeListener(object : androidx.viewpager.widget.ViewPager.OnPageChangeListener {
             /**
              * @param state state=1表示正在滑动，state=2表示滑动完毕，state=0表示什么都没做
              */
@@ -102,7 +102,7 @@ class VpActivity : AppCompatActivity() {
         view_pager.setCurrentItem(0, true)
     }
 
-    class VpAdapter(private val list: List<View>) : PagerAdapter() {
+    class VpAdapter(private val list: List<View>) : androidx.viewpager.widget.PagerAdapter() {
 
         /**
          * 是否使用缓存。true, 使用缓存，false调用instantiateItem方法创建一个新的对象

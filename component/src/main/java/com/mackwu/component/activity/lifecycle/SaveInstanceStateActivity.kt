@@ -2,7 +2,7 @@ package com.mackwu.component.activity.lifecycle
 
 import android.os.Bundle
 import android.os.PersistableBundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.mackwu.component.R
 
 /**
@@ -19,7 +19,7 @@ class SaveInstanceStateActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    override fun onSaveInstanceState(outState: Bundle?) {
+    override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
     }
 

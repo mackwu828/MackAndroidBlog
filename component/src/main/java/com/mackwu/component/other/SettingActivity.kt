@@ -5,7 +5,7 @@ import android.database.ContentObserver
 import android.os.Bundle
 import android.os.Handler
 import android.provider.Settings
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
 import com.mackwu.component.R
 import kotlinx.android.synthetic.main.activity_main.*

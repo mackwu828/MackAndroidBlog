@@ -1,6 +1,6 @@
 package com.mackwu.http.jetpack
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 
 /**
  * ===================================================

@@ -7,7 +7,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.provider.Settings
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 
 /**
  * ===================================================
@@ -23,7 +23,7 @@ import android.support.v4.app.Fragment
  */
 fun Activity.startActivityCls(cls: Class<*>) = startActivity(Intent(this, cls))
 
-fun Fragment.startActivityCls(cls: Class<*>) = startActivity(Intent(activity, cls))
+fun androidx.fragment.app.Fragment.startActivityCls(cls: Class<*>) = startActivity(Intent(activity, cls))
 
 /**
  * 在Service中跳转Activity需要添加FLAG_ACTIVITY_NEW_TASK。

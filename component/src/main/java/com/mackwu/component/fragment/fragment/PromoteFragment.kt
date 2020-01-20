@@ -2,7 +2,7 @@ package com.mackwu.component.fragment.fragment
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -18,7 +18,7 @@ import com.mackwu.component.R
  */
 class PromoteFragment : Fragment(){
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         Log.d("PromoteFragment", "onAttach...")
     }
