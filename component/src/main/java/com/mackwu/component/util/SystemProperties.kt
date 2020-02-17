@@ -1,7 +1,6 @@
 package com.mackwu.component.util
 
 import android.annotation.SuppressLint
-import java.lang.Exception
 import java.util.*
 
 /**
@@ -13,7 +12,7 @@ import java.util.*
  */
 /**
  * 获取系统属性
- * @param key 系统属性key
+ * @param key 系统属性键
  * @param defaultValue 默认值
  */
 @SuppressLint("PrivateApi")
@@ -28,7 +27,12 @@ fun getSystemProp(key: String, defaultValue: String): String {
     return ""
 }
 
-@SuppressLint("PrivateApi")
+/**
+ * 设置系统属性
+ * @param key 系统属性键
+ * @param value 系统属性值
+ */
+@SuppressLint("PrivateApi", "DiscouragedPrivateApi")
 fun setSystemProp(key: String, value: String) {
     try {
         val systemProperties = Class.forName("android.os.SystemProperties")

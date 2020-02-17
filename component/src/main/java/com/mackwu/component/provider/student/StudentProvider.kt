@@ -6,7 +6,7 @@ import android.content.UriMatcher
 import android.database.Cursor
 import android.net.Uri
 import android.util.Log
-import com.mackwu.component.db.StudentDao
+import com.mackwu.component.other.db.StudentDao
 
 /**
  * ===================================================

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- 启动Activity -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="启动Activity" />
+
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="start" />
+
+    <Button
+        android:id="@+id/btn_start_for_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="start_for_result" />
+
+    <Button
+        android:id="@+id/btn_start_best"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="start_best" />
+
+
+    <!--  启动另一个进程的Activity  -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:text="启动另一个进程的Activity" />
+
+    <Button
+        android:id="@+id/btn_start_package"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="通过包名和Activity名称启动" />
+
+    <Button
+        android:id="@+id/btn_action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="通过action" />
+
+    <Button
+        android:id="@+id/btn_launch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="通过LaunchIntent" />
+
+</LinearLayout>

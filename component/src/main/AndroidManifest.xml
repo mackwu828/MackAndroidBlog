@@ -23,6 +23,9 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <!-- service -->
+        <service
+            android:name=".service.RemoteService"
+            android:process=":service" />
         <!--
             android:name="android.accessibilityservice.AccessibilityService" 声明辅助功能服务
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" 权限
@@ -30,7 +33,7 @@
             android:resource="@xml/accessibilty_config" 配置
         -->
         <service
-            android:name=".service.AccessService"
+            android:name=".service.access.AccessService"
             android:label="accessibility test"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
@@ -61,27 +64,34 @@
             android:authorities="com.mackwu.component.provider.student.StudentProvider" />
 
         <!-- activity -->
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".activity.TestActivity" />
+        <activity android:name=".activity.TargetActivity" />
+        <activity
+            android:name=".activity.LaunchModeActivity"
+            android:launchMode="standard" />
+        <activity android:name=".activity.lifecycle.LifecycleActivity" />
+        <activity
+            android:name=".activity.NonFullActivity"
+            android:theme="@style/Theme.NonFullActivity" />
+        <activity android:name="com.mackwu.component.other.db.DbActivity" />
+        <activity android:name=".other.SettingActivity" />
+        <activity android:name=".other.TimerActivity" />
+        <activity android:name=".other.JmDnsActivity" />
+
+        <!--        -->
+        <activity android:name=".service.TestServiceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.StartActivity"/>
-        <activity android:name=".activity.TargetActivity" />
-        <activity
-            android:name=".activity.LaunchModeActivity"
-            android:launchMode="standard" />
-        <activity android:name=".activity.lifecycle.LifecycleActivity" />
-        <activity android:name=".db.DbActivity" />
+
+        <!--        -->
         <activity android:name=".provider.student.StudentActivity" />
         <activity android:name=".provider.weather.WeatherActivity" />
 
-        <!-- other -->
-        <activity android:name=".other.SettingActivity" />
-        <activity android:name=".other.TimerActivity" />
-        <activity android:name=".other.JmDnsActivity" />
     </application>
 
 </manifest>

@@ -3,8 +3,8 @@ package com.mackwu.component.activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.mackwu.component.R
+import com.mackwu.component.activity.lifecycle.LifecycleActivity
 
 /**
  * ================================================
@@ -13,7 +13,7 @@ import com.mackwu.component.R
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ================================================
  */
-class TargetActivity  : AppCompatActivity() {
+class TargetActivity : LifecycleActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +21,7 @@ class TargetActivity  : AppCompatActivity() {
     }
 
     companion object {
-        fun start(context: Context, param: String){
+        fun start(context: Context, param: String) {
             val intent = Intent(context, TargetActivity::class.java)
             intent.putExtra("param", param)
             context.startActivity(intent)

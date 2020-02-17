@@ -1,53 +1,63 @@
 package com.mackwu.component.activity.lifecycle
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
-import com.mackwu.component.R
+import androidx.appcompat.app.AppCompatActivity
 
 /**
  * ===================================================
- * Created by MackWu on 2019/9/30 14:16
+ * Created by MackWu on 2020/1/20 16:34
  * <a href="mailto:wumengjiao828@163.com">Contact me</a>
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-class LifecycleActivity : AppCompatActivity() {
+open class LifecycleActivity : AppCompatActivity() {
+
+    protected val currentClassName = javaClass.simpleName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        Log.d("TAG", "onCreate...")
+        Log.d(currentClassName, "onCreate...")
     }
 
     override fun onStart() {
         super.onStart()
-        Log.d("TAG", "onStart...")
+        Log.d(currentClassName, "onStart...")
     }
 
     override fun onResume() {
         super.onResume()
-        Log.d("TAG", "onResume...")
+        Log.d(currentClassName, "onResume...")
     }
 
     override fun onPause() {
         super.onPause()
-        Log.d("TAG", "onPause...")
+        Log.d(currentClassName, "onPause...")
     }
 
     override fun onStop() {
         super.onStop()
-        Log.d("TAG", "onStop...")
+        Log.d(currentClassName, "onStop...")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.d("TAG", "onDestroy...")
+        Log.d(currentClassName, "onDestroy...")
     }
 
     override fun onRestart() {
         super.onRestart()
-        Log.d("TAG", "onRestart...")
+        Log.d(currentClassName, "onRestart...")
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        Log.d(currentClassName, "onSaveInstanceState...")
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+        Log.d(currentClassName, "onRestoreInstanceState...")
     }
 
 }

@@ -26,8 +26,7 @@ fun copy(input: InputStream, destFile: File, bufferSize: Int = 1024) = input.use
  * @param bufferSize 缓存大小默认1024个字节
  */
 fun copy(sourceFile: File, destFile: File, bufferSize: Int = 1024) = copy(sourceFile.inputStream(), destFile, bufferSize)
-
-fun copy2(sourceFile: File, destFile: File, bufferSize: Int = 1024) = sourceFile.copyTo(destFile, false, bufferSize)
+fun copyTo(sourceFile: File, destFile: File, bufferSize: Int = 1024) = sourceFile.copyTo(destFile, false, bufferSize)
 
 
 /**
