@@ -7,6 +7,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.appcompat.app.AppCompatActivity
 import com.mackwu.adapter.R
+import com.mackwu.adapter.version.install.AssetApkInstaller
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -25,7 +26,7 @@ class Android7Activity : AppCompatActivity() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 0x01)
         }
-        btn_test.setOnClickListener { AssetApkInstaller.installAssetApk(this, "inform_tool.aac") }
+//        btn_test.setOnClickListener { AssetApkInstaller.installAssetApk(this, "inform_tool.aac") }
     }
 
 

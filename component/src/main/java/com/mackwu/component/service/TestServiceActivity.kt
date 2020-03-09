@@ -5,7 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.mackwu.component.R
-import com.mackwu.component.service.lifecycle.LifecycleService
+import com.mackwu.component.util.startActionService
+import com.mackwu.component.util.startServiceCls
+import com.mackwu.component.util.stopServiceCls
 import com.mackwu.service.start.BindService
 import kotlinx.android.synthetic.main.activity_test_service.*
 
@@ -24,16 +26,18 @@ class TestServiceActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test_service)
 
-        val intent = Intent(this, RemoteService::class.java)
         // 启动服务
-        btn_start_service.setOnClickListener { startService(intent) }
-        // 结束服务
-        btn_stop_service.setOnClickListener { stopService(intent) }
+        btn_start_service.setOnClickListener { startServiceCls(TestService::class.java) }
+        // 停止服务
+        btn_stop_service.setOnClickListener { stopServiceCls(TestService::class.java) }
 
         // 绑定服务
         btn_bind_service.setOnClickListener { bindService(Intent(this, BindService::class.java), serviceConnection, Service.BIND_AUTO_CREATE) }
         // 解绑服务
         btn_unbind_service.setOnClickListener { unbindService(serviceConnection) }
+
+        // 通过action启动服务
+        btn_start_action.setOnClickListener { startActionService("com.mackwu.demo", "com.mackwu.action.TARGET_SERVICE") }
     }
 
 }

@@ -1,6 +1,7 @@
 package com.mackwu.kt.pattern.singleton
 
 import android.content.Context
+import com.mackwu.kt.pattern.singleton.holder.SingletonHolder
 
 /**
  * ===================================================

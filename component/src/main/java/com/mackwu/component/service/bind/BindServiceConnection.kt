@@ -3,6 +3,7 @@ package com.mackwu.component.service
 import android.content.ComponentName
 import android.content.ServiceConnection
 import android.os.IBinder
+import com.mackwu.component.service.bind.MyBinder
 import com.mackwu.service.start.BindService
 
 /**
@@ -28,7 +29,7 @@ class BindServiceConnection : ServiceConnection {
      * @param service Service中onBind返回的IBinder对象
      */
     override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
-        val binder = service as BindService.MyBinder
+        val binder = service as MyBinder
         bindService = binder.service
         // java.lang.Exception: denglibo Toast callstack! strTip=has bound Service
         bindService?.test()

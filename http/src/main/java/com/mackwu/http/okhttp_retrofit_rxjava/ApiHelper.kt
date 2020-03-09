@@ -1,5 +1,7 @@
 package com.mackwu.http.okhttp_retrofit_rxjava
 
+import com.mackwu.http.bean.Ip
+
 /**
  * ===================================================
  * Created by MackWu on 2019/12/11 15:32
@@ -11,7 +13,7 @@ object ApiHelper {
 
     private val ipApi = RetrofitManager.getApi(IpApi::class.java)
 
-    fun getIp(onNext: () -> Unit) {
-        ipApi.getIp().subscribeNext { onNext.invoke() }
+    fun getIp(onNext: (ip: Ip) -> Unit) {
+        ipApi.getIp().subscribeNext { ip -> onNext.invoke(ip) }
     }
 }

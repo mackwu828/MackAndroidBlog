@@ -10,7 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.mackwu.view.R
-import kotlinx.android.synthetic.main.leanback_activity_hor.*
+import kotlinx.android.synthetic.main.activity_hor.*
 
 /**
  * ================================================
@@ -27,7 +27,7 @@ class HorActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.leanback_activity_hor)
+        setContentView(R.layout.activity_hor)
 
         //
 //        horizontal_grid_view.setNumRows(3)
@@ -44,7 +44,7 @@ class HorActivity : AppCompatActivity() {
     class HorPresenter: Presenter(){
 
         override fun onCreateViewHolder(viewGroup: ViewGroup): ViewHolder {
-            val inflate = LayoutInflater.from(viewGroup.context).inflate(R.layout.leanback_item_hor, viewGroup, false)
+            val inflate = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_hor, viewGroup, false)
             return ViewHolder(inflate)
         }
 

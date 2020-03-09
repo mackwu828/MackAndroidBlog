@@ -33,7 +33,11 @@
         <activity android:name=".other.GsonActivity" />
 
         <!--    jet pack    -->
-        <activity android:name=".jetpack.lifecycle.LifecycleActivity" />
+        <activity android:name=".jetpack.lifecycle.TestLifecycleActivity" />
+        <activity android:name=".jetpack.livedata.TestLiveDataActivity" />
+        <activity android:name=".jetpack.vm.TestViewModelActivity" >
+
+        </activity>
     </application>
 
 </manifest>

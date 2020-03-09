@@ -15,23 +15,6 @@ import android.util.Log
 open class LifecycleService: Service(){
 
     /**
-     * 绑定服务时调用
-     * @return 返回扩展的binder对象
-     */
-    override fun onBind(intent: Intent?): IBinder? {
-        Log.d("TAG", "onBind...")
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    /**
-     * 解绑服务时调用
-     */
-    override fun onUnbind(intent: Intent?): Boolean {
-        Log.d("TAG", "onUnbind...")
-        return super.onUnbind(intent)
-    }
-
-    /**
      * 在服务第一次创建时调用
      */
     override fun onCreate() {
@@ -59,6 +42,23 @@ open class LifecycleService: Service(){
     override fun onDestroy() {
         super.onDestroy()
         Log.d("TAG", "onDestroy...")
+    }
+
+    /**
+     * 绑定服务时调用
+     * @return 返回扩展的binder对象
+     */
+    override fun onBind(intent: Intent?): IBinder? {
+        Log.d("TAG", "onBind...")
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    /**
+     * 解绑服务时调用
+     */
+    override fun onUnbind(intent: Intent?): Boolean {
+        Log.d("TAG", "onUnbind...")
+        return super.onUnbind(intent)
     }
 
 }

@@ -53,6 +53,7 @@ object OkHttpManager {
                         onFailure?.invoke(call, IOException("body is null"))
                         return
                     }
+                    Log.d("TAG", body.string())
                     onResponse?.invoke(body.string())
                     return
                 }
@@ -60,6 +61,8 @@ object OkHttpManager {
             }
 
             override fun onFailure(call: Call, e: IOException) {
+                e.printStackTrace()
+                Log.d("TAG",  e.message)
                 onFailure?.invoke(call, e)
             }
         })

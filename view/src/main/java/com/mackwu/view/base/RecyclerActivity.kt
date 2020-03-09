@@ -2,13 +2,12 @@ package com.mackwu.view.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.*
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.mackwu.view.R
-import kotlinx.android.synthetic.main.recycler_activity.*
+import kotlinx.android.synthetic.main.activity_recycler.*
 
 /**
  * ================================================
@@ -40,7 +39,7 @@ class RecyclerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.recycler_activity)
+        setContentView(R.layout.activity_recycler)
 
         // 布局管理器。设置为线性的布局
         val layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
@@ -65,7 +64,7 @@ class RecyclerActivity : AppCompatActivity() {
         private val list = listOf("Java", "Kotlin", "Android")
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            val itemView = LayoutInflater.from(parent.context).inflate(R.layout.recycler_item, parent, false)
+            val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_recycler, parent, false)
             return ViewHolder(itemView)
         }
 

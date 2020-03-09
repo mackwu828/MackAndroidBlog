@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import com.mackwu.adapter.R
+import com.mackwu.adapter.version.install.AssetApkInstaller
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -28,13 +29,13 @@ class Android8Activity : AppCompatActivity() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 0x01)
         }
-        btn_test.setOnClickListener { AssetApkInstaller.requestPackageInstalls(this, assetName = "inform_tool.aac") }
+//        btn_test.setOnClickListener { AssetApkInstaller.requestPackageInstalls(this, assetName = "inform_tool.aac") }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         Log.d("TAG", "onActivityResult...  requestCode: $requestCode, resultCode: $resultCode")
-        if (resultCode == Activity.RESULT_OK && requestCode == AssetApkInstaller.INSTALL_REQUEST_CODE) {
-            AssetApkInstaller.requestPackageInstalls(this, assetName = "inform_tool.aac")
-        }
+//        if (resultCode == Activity.RESULT_OK && requestCode == AssetApkInstaller.INSTALL_REQUEST_CODE) {
+//            AssetApkInstaller.requestPackageInstalls(this, assetName = "inform_tool.aac")
+//        }
     }
 }

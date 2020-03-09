@@ -34,16 +34,10 @@
         <activity android:name=".base.RecyclerActivity" />
         <activity android:name=".base.WebViewActivity" >
         </activity>
-        <activity android:name=".base.X5Activity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".vp.VpActivity" />
-        <activity android:name=".vp.VpFTabActivity" />
+        <activity android:name=".base.X5Activity"/>
+        <activity android:name="com.mackwu.view.base.vp.VpActivity" />
+        <activity android:name="com.mackwu.view.base.vp.VpFTabActivity" />
+        <activity android:name=".base.DialogActivity" />
 
         <!-- md -->
         <activity android:name=".md.DrawerActivity" />

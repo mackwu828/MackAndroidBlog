@@ -29,9 +29,9 @@ class TestActivity : AppCompatActivity() {
         btn_start_best.setOnClickListener { TargetActivity.start(this, "xxx") }
 
         // 启动另一个进程的Activity
-        btn_start_package.setOnClickListener { startPackage("com.mackwu.demo", "com.mackwu.demo.MainActivity") }
-        btn_action.setOnClickListener { startAction("com.mackwu.action.TARGET") }
-        btn_launch.setOnClickListener { startLaunch("com.mackwu.xxx") }
+        btn_start_package.setOnClickListener { startPackageActivity("com.mackwu.demo", "com.mackwu.demo.MainActivity") }
+        btn_action.setOnClickListener { startActionActivity("com.mackwu.action.TARGET_ACTIVITY") }
+        btn_launch.setOnClickListener { startLaunchActivity("com.mackwu.xxx") }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

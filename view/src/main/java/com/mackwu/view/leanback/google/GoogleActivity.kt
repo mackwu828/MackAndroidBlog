@@ -1,7 +1,6 @@
 package com.mackwu.view.leanback.google
 
 import android.os.Bundle
-import androidx.fragment.app.FragmentActivity
 import com.mackwu.view.R
 
 /**
@@ -15,6 +14,6 @@ class GoogleActivity: androidx.fragment.app.FragmentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.google_activity)
+        setContentView(R.layout.activity_google)
     }
 }

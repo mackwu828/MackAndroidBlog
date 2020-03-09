@@ -17,6 +17,6 @@ class DrawerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.md_activity_drawer)
+        setContentView(R.layout.activity_drawer)
     }
 }
