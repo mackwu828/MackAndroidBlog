@@ -3,6 +3,7 @@ package com.mackwu.component.activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.mackwu.component.R
 import com.mackwu.component.activity.lifecycle.LifecycleActivity
 
@@ -13,7 +14,7 @@ import com.mackwu.component.activity.lifecycle.LifecycleActivity
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ================================================
  */
-class TargetActivity : LifecycleActivity() {
+class TargetActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

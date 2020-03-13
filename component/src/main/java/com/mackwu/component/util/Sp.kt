@@ -1,6 +1,7 @@
 package com.mackwu.component.util
 
 import android.content.Context
+import android.preference.PreferenceManager
 
 /**
  * ===================================================
@@ -13,7 +14,7 @@ private val Context.spName
     get() = packageName + "_preferences"
 
 private val Context.sp
-    get() = getSharedPreferences(spName, Context.MODE_PRIVATE)
+    get() = PreferenceManager.getDefaultSharedPreferences(this)
 
 /**
  * 保存数据

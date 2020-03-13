@@ -68,15 +68,16 @@
 * [多媒体](/media)
     * 音频
         * 音频基础
-        * 录制音频
-            * AudioRecord录制音频
-        * 播放音频
-            * SoundPool播放音频
-            * MediaPlayer播放音频
+        * 音频录制
+            * AudioRecord
+        * 音频播放
+            * SoundPool
+            * MediaPlayer
     * 视频
-        * 录制视频
-        * 播放视频
-            * MediaPlayer播放视频
+        * 视频录制
+        * 视频播放
+            * MediaPlayer
+    * exoPlayer
 * [开源集成](/opensource)
     * [Maven](/opensource/md/maven/Maven.md)
     * Jenkins

@@ -7,28 +7,18 @@ package com.mackwu.media.util
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-open class SingletonHolder<out T, in A>(creator: (A) -> T) {
+open class SingletonHolder<out T, in A>(private val constructor: (A) -> T) {
 
-    private var creator: ((A) -> T)? = creator
-    @Volatile private var instance: T? = null
+    @Volatile
+    private var instance: T? = null
 
     fun getInstance(arg: A): T {
-        val i = instance
-        if (i != null) {
-            return i
-        }
-
-        return synchronized(this) {
-            val i2 = instance
-            if (i2 != null) {
-                i2
-            } else {
-                val created = creator!!(arg)
-                instance = created
-                creator = null
-                created
+        return when {
+            instance != null -> instance!!
+            else -> synchronized(this) {
+                if (instance == null) instance = constructor(arg)
+                instance!!
             }
         }
     }
-
 }

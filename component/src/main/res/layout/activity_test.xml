@@ -1,57 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <!-- 启动Activity -->
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="启动Activity" />
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="start" />
+        <!-- 启动方式 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="启动方式：基础" />
 
-    <Button
-        android:id="@+id/btn_start_for_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="start_for_result" />
+        <Button
+            android:id="@+id/btn_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="start" />
 
-    <Button
-        android:id="@+id/btn_start_best"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="start_best" />
+        <Button
+            android:id="@+id/btn_start_for_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="start_for_result" />
 
 
-    <!--  启动另一个进程的Activity  -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_height="wrap_content"
-        android:text="启动另一个进程的Activity" />
+        <Button
+            android:id="@+id/btn_start_best"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="启动Activity的最佳方式" />
 
-    <Button
-        android:id="@+id/btn_start_package"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="通过包名和Activity名称启动" />
 
-    <Button
-        android:id="@+id/btn_action"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="通过action" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="启动方式：启动另一个进程的Activity" />
 
-    <Button
-        android:id="@+id/btn_launch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="通过LaunchIntent" />
+        <Button
+            android:id="@+id/btn_start_package"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="通过包名和Activity名称启动" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/btn_start_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="通过action" />
+
+        <Button
+            android:id="@+id/btn_start_launch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="通过LaunchIntent" />
+
+        <!--    样式    -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="样式" />
+
+        <Button
+            android:id="@+id/btn_non_full"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="非全屏" />
+
+        <Button
+            android:id="@+id/btn_no_status_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="无状态栏" />
+    </LinearLayout>
+</ScrollView>

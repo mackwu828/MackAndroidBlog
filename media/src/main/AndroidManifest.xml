@@ -25,7 +25,7 @@
 <!--            </intent-filter>-->
         </activity>
 
-        <activity android:name="com.mackwu.media.play.PlayActivity">
+        <activity android:name="com.mackwu.media.audio.play.PlayActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

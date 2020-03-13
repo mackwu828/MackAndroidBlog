@@ -67,8 +67,13 @@
             android:authorities="com.mackwu.component.provider.student.StudentProvider" />
 
         <!-- activity -->
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".activity.TestActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".activity.TargetActivity" />
         <activity
             android:name=".activity.LaunchModeActivity"
@@ -77,19 +82,14 @@
         <activity
             android:name=".activity.NonFullActivity"
             android:theme="@style/Theme.NonFullActivity" />
-        <activity android:name="com.mackwu.component.other.db.DbActivity" />
-        <activity android:name=".other.SettingActivity" />
-        <activity android:name=".other.TimerActivity" />
-        <activity android:name=".other.JmDnsActivity" />
+        <activity android:name="com.mackwu.component.db.DbActivity" />
+        <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.TimerActivity" />
+        <activity android:name=".activity.JmDnsActivity" />
+        <activity android:name=".activity.NoStatusBarActivity" />
 
         <!--        -->
-        <activity android:name=".service.TestServiceActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".service.TestServiceActivity" />
 
         <!--        -->
         <activity android:name=".provider.student.StudentActivity" />

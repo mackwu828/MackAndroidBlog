@@ -13,10 +13,9 @@ import java.math.BigDecimal
  */
 object SwManager {
 
-    // 设计图宽度或高度。取较小的那一个。填dp或者px都可以
-//    const val DESIGN_WIDTH = 1080
-    const val DESIGN_WIDTH = 540
-    private const val ABSOLUTE_PATH = "C:\\Android\\workspace\\MackAndroidBlog\\adapt\\src\\main\\res"
+    // 设计图宽度或高度。取较小的那一个。填dp或者px都可以。
+    const val DESIGN_WIDTH = 540 // 1920x1080  960x540
+    private const val ABSOLUTE_PATH = "C:\\Android\\workspace\\SimpleSmartYouTube\\app\\src\\main\\res"
 
     enum class SwType {
         SW_240,

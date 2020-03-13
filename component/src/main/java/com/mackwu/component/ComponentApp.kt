@@ -1,7 +1,7 @@
 package com.mackwu.component
 
 import android.app.Application
-import com.mackwu.component.other.db.StudentDao
+import com.mackwu.component.db.StudentDao
 
 /**
  * ===================================================
