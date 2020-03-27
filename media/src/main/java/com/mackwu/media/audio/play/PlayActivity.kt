@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.audio_activity_play.*
  */
 class PlayActivity : AppCompatActivity() {
 
-    private val player: Play = Player.getInstance(this)
+    private val player: IPlayer = Player.getInstance(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

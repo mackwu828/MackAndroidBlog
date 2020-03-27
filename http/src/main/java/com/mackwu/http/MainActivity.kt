@@ -1,50 +1,23 @@
 package com.mackwu.http
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.mackwu.http.jetpack.lifecycle.TestLifecycleActivity
+import com.mackwu.http.jetpack.livedata.TestLiveDataActivity
+import com.mackwu.http.jetpack.viewmodel.TestViewModelActivity
+import com.mackwu.http.util.startActivityCls
 import kotlinx.android.synthetic.main.activity_test.*
-import okhttp3.*
-import okhttp3.logging.HttpLoggingInterceptor
-import java.io.IOException
 
 
-class MainActivity : AppCompatActivity(){
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
 
-        val okHttpClient = OkHttpClient.Builder().build()
-
-        btn_dev.setOnClickListener {
-            Log.d("TAG", "btn_dev...")
-            val url = "https://dev-smarttv.zeasn.tv/BluePortServlets/test/ping"
-            val request = Request.Builder().url(url).build()
-            okHttpClient.newCall(request).enqueue(object : Callback{
-                override fun onFailure(call: Call, e: IOException) {
-                    e.printStackTrace()
-                }
-
-                override fun onResponse(call: Call, response: Response) {
-                    Log.d("TAG", response.body()?.string())
-                }
-            })
-        }
-
-        btn_pro.setOnClickListener {
-            Log.d("TAG", "btn_pro...")
-            val url = "https://smarttv.zeasn.tv/BluePortServlets/test/ping"
-            val request = Request.Builder().url(url).build()
-            okHttpClient.newCall(request).enqueue(object : Callback{
-                override fun onFailure(call: Call, e: IOException) {
-                    e.printStackTrace()
-                }
-
-                override fun onResponse(call: Call, response: Response) {
-                    Log.d("TAG", response.body()?.string())
-                }
-            })
-        }
+        // jetpack
+        btn_lifecycle.setOnClickListener { startActivityCls(TestLifecycleActivity::class.java) }
+        btn_live_data.setOnClickListener { startActivityCls(TestLiveDataActivity::class.java) }
+        btn_view_model.setOnClickListener { startActivityCls(TestViewModelActivity::class.java) }
     }
 }

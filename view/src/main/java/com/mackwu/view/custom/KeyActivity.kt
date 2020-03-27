@@ -30,7 +30,6 @@ class KeyActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        btn_test.visibility = View.GONE
     }
 
     override fun dispatchKeyEvent(event: KeyEvent): Boolean {

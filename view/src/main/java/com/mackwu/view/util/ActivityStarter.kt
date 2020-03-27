@@ -1,4 +1,4 @@
-package com.mackwu.component.util
+package com.mackwu.view.util
 
 import android.app.Activity
 import android.app.Service

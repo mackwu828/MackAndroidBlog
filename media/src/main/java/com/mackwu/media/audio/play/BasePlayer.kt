@@ -17,7 +17,7 @@ import java.io.InputStream
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-abstract class BasePlayer(private val context: Context) : Play {
+abstract class BasePlayer(private val context: Context) : IPlayer {
 
     protected val handler = Handler(Looper.getMainLooper())
     protected val sourceQueue = arrayListOf<File>()
@@ -32,12 +32,12 @@ abstract class BasePlayer(private val context: Context) : Play {
     override val sourceChild: String
         get() = System.currentTimeMillis().toString() + ".mp3"
 
-    override fun setPlayListener(listener: PlayListener?): Play {
+    override fun setPlayListener(listener: PlayListener?): IPlayer {
         this.listener = listener
         return this
     }
 
-    override fun setSource(input: InputStream): Play {
+    override fun setSource(input: InputStream): IPlayer {
         logD(TAG, "setSource...")
         // clear
         sourceQueue.clear()
@@ -65,12 +65,12 @@ abstract class BasePlayer(private val context: Context) : Play {
         return this
     }
 
-    override fun setSource(sourceBytes: ByteArray): Play {
+    override fun setSource(sourceBytes: ByteArray): IPlayer {
         setSource(sourceBytes.inputStream())
         return this
     }
 
-    override fun setSource(sourcePath: String): Play {
+    override fun setSource(sourcePath: String): IPlayer {
         setSource(File(sourcePath).inputStream())
         return this
     }

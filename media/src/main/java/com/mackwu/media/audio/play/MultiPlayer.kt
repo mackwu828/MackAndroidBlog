@@ -4,6 +4,7 @@ import android.content.Context
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.PowerManager
+import com.mackwu.media.util.SingletonHolder
 import com.mackwu.media.util.logD
 import java.util.concurrent.Executors
 

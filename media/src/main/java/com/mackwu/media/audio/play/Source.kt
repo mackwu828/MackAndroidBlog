@@ -24,11 +24,11 @@ interface Source {
     /**
      * 设置数据源
      */
-    fun setSource(input: InputStream): Play
+    fun setSource(input: InputStream): IPlayer
 
-    fun setSource(sourceBytes: ByteArray): Play
+    fun setSource(sourceBytes: ByteArray): IPlayer
 
-    fun setSource(sourcePath: String): Play
+    fun setSource(sourcePath: String): IPlayer
 
     /**
      * 清除数据源

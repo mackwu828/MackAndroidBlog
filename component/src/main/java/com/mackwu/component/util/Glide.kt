@@ -1,9 +1,8 @@
-package com.mackwu.media.util
+package com.mackwu.component.util
 
 import android.content.Context
-import androidx.annotation.DrawableRes
-import androidx.fragment.app.Fragment
 import android.widget.ImageView
+import androidx.annotation.DrawableRes
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.CenterCrop

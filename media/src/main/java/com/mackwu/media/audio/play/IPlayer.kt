@@ -7,7 +7,7 @@ package com.mackwu.media.audio.play
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-interface Play : Source {
+interface IPlayer : Source {
 
     /**
      * 播放状态
@@ -57,5 +57,5 @@ interface Play : Source {
     /**
      * 设置监听
      */
-    fun setPlayListener(listener: PlayListener?): Play
+    fun setPlayListener(listener: PlayListener?): IPlayer
 }

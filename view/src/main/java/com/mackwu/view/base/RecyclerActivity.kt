@@ -1,11 +1,13 @@
 package com.mackwu.view.base
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.mackwu.view.R
 import kotlinx.android.synthetic.main.activity_recycler.*
 
@@ -42,13 +44,13 @@ class RecyclerActivity : AppCompatActivity() {
         setContentView(R.layout.activity_recycler)
 
         // 布局管理器。设置为线性的布局
-        val layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
+        val layoutManager = LinearLayoutManager(this)
         // 默认垂直
-        layoutManager.orientation = androidx.recyclerview.widget.LinearLayoutManager.VERTICAL
+        layoutManager.orientation = LinearLayoutManager.VERTICAL
         // adapter
         val adapter = RecyclerAdapter()
         // 分割线
-        val dividerItemDecoration = androidx.recyclerview.widget.DividerItemDecoration(this, androidx.recyclerview.widget.DividerItemDecoration.VERTICAL)
+        val dividerItemDecoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
         // 动画
         val itemAnimator = androidx.recyclerview.widget.DefaultItemAnimator()
 

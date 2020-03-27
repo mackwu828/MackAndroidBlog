@@ -1,4 +1,4 @@
-package com.mackwu.http.jetpack.vm
+package com.mackwu.http.jetpack.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

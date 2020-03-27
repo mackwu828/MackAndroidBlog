@@ -19,11 +19,11 @@
         android:name=".ViewApp"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".MainActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <!-- base -->
@@ -32,7 +32,7 @@
         <activity android:name=".base.SpanActivity" />
         <activity android:name=".base.ActionBarActivity" />
         <activity android:name=".base.RecyclerActivity" />
-        <activity android:name=".base.WebViewActivity" >
+        <activity android:name=".base.webview.WebViewActivity" >
         </activity>
         <activity android:name=".base.X5Activity"/>
         <activity android:name="com.mackwu.view.base.vp.VpActivity" />

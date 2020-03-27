@@ -14,10 +14,10 @@ interface MultiSource {
     /**
      * 添加数据源
      */
-    fun addSource(input: InputStream): Play
+    fun addSource(input: InputStream): IPlayer
 
-    fun addSource(sourceBytes: ByteArray): Play
+    fun addSource(sourceBytes: ByteArray): IPlayer
 
-    fun addSource(sourcePath: String): Play
+    fun addSource(sourcePath: String): IPlayer
 
 }

@@ -1,4 +1,4 @@
-package com.mackwu.component.util
+package com.mackwu.http.util
 
 import android.app.Activity
 import android.app.Service

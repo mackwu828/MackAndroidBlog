@@ -12,9 +12,12 @@ import com.mackwu.component.BuildConfig
  */
 
 private const val TAG = "mack"
-private const val HEAD = BuildConfig.FLAVOR + "_" + BuildConfig.VERSION_CODE + " ### "
-//private val logDebug = BuildConfig.LOG_DEBUG
+
+private const val HEAD = TAG + "_" + BuildConfig.VERSION_CODE + " ### "
+//private const val HEAD = BuildConfig.FLAVOR + "_" + BuildConfig.VERSION_CODE + " ### "
+
 private val logDebug = true
+//private val logDebug = BuildConfig.LOG_DEBUG
 
 
 fun logD(msg: String) {

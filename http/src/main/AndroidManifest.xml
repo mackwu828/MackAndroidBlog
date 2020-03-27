@@ -22,7 +22,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SecondActivity" />
 
         <!-- xml -->
         <activity android:name=".other.DomActivity" />
@@ -32,10 +31,10 @@
         <!-- json -->
         <activity android:name=".other.GsonActivity" />
 
-        <!--    jet pack    -->
+        <!--    jetpack    -->
         <activity android:name=".jetpack.lifecycle.TestLifecycleActivity" />
         <activity android:name=".jetpack.livedata.TestLiveDataActivity" />
-        <activity android:name=".jetpack.vm.TestViewModelActivity" >
+        <activity android:name=".jetpack.viewmodel.TestViewModelActivity" >
 
         </activity>
     </application>

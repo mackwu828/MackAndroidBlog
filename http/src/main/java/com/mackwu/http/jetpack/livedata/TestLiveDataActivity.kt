@@ -1,14 +1,10 @@
 package com.mackwu.http.jetpack.livedata
 
-import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
-import androidx.lifecycle.Transformations
+import androidx.lifecycle.*
 import com.mackwu.http.R
-import com.mackwu.http.SecondActivity
 import com.mackwu.http.bean.User
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -21,21 +17,45 @@ import kotlinx.android.synthetic.main.activity_main.*
  */
 class TestLiveDataActivity : AppCompatActivity() {
 
+    private val liveData = object : MutableLiveData<String>() {
+        override fun onActive() {
+            super.onActive()
+            Log.d("TAG", "onActive...")
+        }
+
+        override fun onInactive() {
+            super.onInactive()
+            Log.d("TAG", "onInactive...")
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val userLiveData = UserLiveData()
-        userLiveData.observe(this, Observer { user -> btn_test.text = user.name })
+        // MutableLiveData
+        val userLiveData = MutableLiveData<User>()
+        // Observer
+        val userObserver = Observer<User> { user -> btn_test.text = user.name }
+        // observe
+        userLiveData.observe(this, userObserver)
 
-        // 转换 LiveData
-        val userName = Transformations.map(userLiveData) { user -> user.name }
-        userName.observe(this, Observer {  })
+        // Transformations#map()
+        val userNameLiveData = Transformations.map(userLiveData) { user -> user.name }
+        val userNameObserver = Observer<String> { userName -> btn_test.text = userName }
+        userNameLiveData.observe(this, userNameObserver)
 
-        Transformations.switchMap(userLiveData){ user -> MutableLiveData<String>() }
+        // MediatorLiveData
+        val mediatorLiveData = MediatorLiveData<User>()
+        val changeObserver = Observer<User> { value -> btn_test.text = value.name }
+        mediatorLiveData.addSource(userLiveData){ userLiveData.value = User("", "a", "")}
+        mediatorLiveData.addSource(userLiveData){ userLiveData.value = User("", "b", "")}
+        mediatorLiveData.observe(this, changeObserver)
 
+        // Transformations#switchMap()
+        Transformations.switchMap(userLiveData) { user -> MutableLiveData<String>() }
 
+        // 改变数据
         btn_test.setOnClickListener { userLiveData.value = User("", "xxx", "") }
     }
 }

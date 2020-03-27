@@ -15,7 +15,7 @@ import java.io.FileOutputStream
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-class AudioRecorder {
+class Recorder {
 
     // 音频源。MediaRecorder.AudioSource.DEFAULT 默认声音、MediaRecorder.AudioSource.MIC 麦克风声音，通常用这个、MediaRecorder.AudioSource.VOICE_UPLINK 通话上行声音
     private val audioSource = MediaRecorder.AudioSource.MIC
@@ -26,21 +26,21 @@ class AudioRecorder {
     // 编码制式。采集来的数据使用PCM编码。android支持的采样大小16bit 或者8bit。采样大小越大，那么信息量越多，音质也越高。
     // 现在主流的采样大小都是16bit，在低质量的语音传输的时候8bit已经足够了。AudioFormat.ENCODING_PCM_16BIT、AudioFormat.ENCODING_PCM_8BIT
     private val audioFormat = AudioFormat.ENCODING_PCM_16BIT
-    // 采集数据缓冲区大小。AudioRecord.getMinBufferSize(int sampleRateInHz, int channelConfig, int audioFormat)参数同上
+    // 采集数据缓冲区大小。IRecorder.getMinBufferSize(int sampleRateInHz, int channelConfig, int audioFormat)参数同上
     private val bufferSizeInBytes = AudioRecord.getMinBufferSize(sampleRateInHz, channelConfig, audioFormat)
     /**
      * 初始化AudioRecord
-     * AudioRecord(int audioSource, int sampleRateInHz, int channelConfig, int audioFormat, int bufferSizeInBytes)
+     * IRecorder(int audioSource, int sampleRateInHz, int channelConfig, int audioFormat, int bufferSizeInBytes)
      * audioSource：音频源。MediaRecorder.AudioSource.DEFAULT 默认声音、MediaRecorder.AudioSource.MIC 麦克风声音，通常用这个、MediaRecorder.AudioSource.VOICE_UPLINK 通话上行声音
      * sampleRateInHz：采样率。每秒钟能够采样的次数，采样率越高，音质越高。给出的实例是44100、22050、11025但不限于这几个参数。例如要采集低质量的音频就可以使用4000、8000等低采样率。
      * channelConfig：声道。android支持双声道立体声和单声道。AudioFormat.CHANNEL_IN_MONO单声道、AudioFormat.CHANNEL_IN_STEREO立体声
      * audioFormat：编码制式。采集来的数据使用PCM编码。android支持的采样大小16bit 或者8bit。采样大小越大，那么信息量越多，音质也越高。
      * 现在主流的采样大小都是16bit，在低质量的语音传输的时候8bit已经足够了。AudioFormat.ENCODING_PCM_16BIT、AudioFormat.ENCODING_PCM_8BIT
-     * bufferSizeInBytes：采集数据缓冲区大小。AudioRecord.getMinBufferSize(int sampleRateInHz, int channelConfig, int audioFormat)参数同上
+     * bufferSizeInBytes：采集数据缓冲区大小。IRecorder.getMinBufferSize(int sampleRateInHz, int channelConfig, int audioFormat)参数同上
      */
     private val audioRecord = AudioRecord(audioSource, sampleRateInHz, channelConfig, audioFormat, bufferSizeInBytes)
     // 录音状态
-    private var state = AudioRecordState.STOP
+    private var state = RecordState.STOP
 
     /**
      * 开始录音
@@ -79,9 +79,9 @@ class AudioRecorder {
         Thread {
             try {
                 when (state) {
-                    AudioRecordState.RECORDING -> {
+                    RecordState.RECORDING -> {
                     }
-                    AudioRecordState.STOP -> {
+                    RecordState.STOP -> {
                     }
                 }
                 // 开始录音
@@ -90,7 +90,7 @@ class AudioRecorder {
                 val file = File(Environment.getExternalStorageDirectory(), "recording.pcm")
                 val fos = FileOutputStream(file)
                 val buffer = ByteArray(bufferSizeInBytes)
-                while (state == AudioRecordState.RECORDING) {
+                while (state == RecordState.RECORDING) {
                     val read = audioRecord.read(buffer, 0, buffer.size)
                     if (read != AudioRecord.ERROR_INVALID_OPERATION) {
                         fos.write(buffer)
@@ -102,7 +102,7 @@ class AudioRecorder {
                         stopRecording()
                     }
                 }
-                if (state == AudioRecordState.STOP) {
+                if (state == RecordState.STOP) {
                     fos.close()
                     onAudioSaved.invoke(file)
                 }

@@ -6,6 +6,7 @@ import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Build
 import android.os.PowerManager
+import com.mackwu.media.util.SingletonHolder
 import com.mackwu.media.util.logD
 
 

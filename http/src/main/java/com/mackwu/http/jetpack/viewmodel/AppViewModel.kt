@@ -1,4 +1,4 @@
-package com.mackwu.http.jetpack.vm
+package com.mackwu.http.jetpack.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
