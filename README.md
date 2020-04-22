@@ -30,8 +30,6 @@
         * 绘制
         * 测量
         * 布局
-    * 图片压缩方式
-    * Glide
 * [Anim](/anim)
     * [逐帧动画](/anim/逐帧动画.md)
     * [补间动画](/anim/补间动画.md)
@@ -47,6 +45,7 @@
         * ViewModel
         * Navigation、Paging、Room、WorkManger、数据绑定
 * [适配](/adapt)
+    * [Android版本号与API级别对应关系表](https://blog.csdn.net/qq_31841675/article/details/82746616)
     * 屏幕适配
         * 屏幕适配基础
         * 宽高限定符适配方案
@@ -88,29 +87,12 @@
 * [Kotlin](/kt)
     * [资料](/kt/md/资料.md)
     * 基础
-        * [变量](/kt/md/base/变量.md)
-        * [基本类型](/kt/md/base/基本类型.md)
-        * [数组](/kt/md/base/数组.md)
-        * [字符串](/kt/md/base/字符串.md)
-        * [控制语句](/kt/md/base/控制语句.md)
-        * [可空性](/kt/md/base/可空性.md)
-        * [解构声明](/kt/md/base/解构声明.md)
-        * IO流
-    * 类和对象
-        * [属性](/kt/md/属性.md)
-        * [类](/kt/md/类.md)
-        * [继承](/kt/md/继承.md)
-        * [对象](/kt/md/对象.md)
-        * [泛型](/kt/md/泛型.md)  
+        * [Kotlin基础：变量](/kt/md/基础/Kotlin基础：变量.md)
+    * 类
+        * [Kotlin类：基础](/kt/md/类/Kotlin类：基础.md)
+        * [Kotlin类：属性](/kt/md/类/Kotlin类：属性.md)
+        * [Kotlin类：对象](/kt/md/类/Kotlin类：对象.md)
+        * [Kotlin类：继承](/kt/md/类/Kotlin类：继承.md)
     * 函数
-        * 作用域函数
-        * 扩展函数
-        * 内联函数
-        * 函数类型
-        * 高阶函数
-        * lambda表达式
     * 协程
-        * 协程构建器
-        * 挂起函数
-        * 协程调度器
     * 设计模式

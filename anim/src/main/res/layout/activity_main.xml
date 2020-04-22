@@ -6,17 +6,42 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btn_tween"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="补间动画" />
+        <Button
+            android:id="@+id/btn_tween"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="补间动画" />
 
-    <Button
-        android:id="@+id/btn_interpolator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="差值器" />
+        <Button
+            android:id="@+id/btn_interpolator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="差值器" />
+    </LinearLayout>
+
+    <!--  动画实例  -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_water_ripple"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="水波纹" />
+
+        <Button
+            android:id="@+id/btn_dots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点点点" />
+
+    </LinearLayout>
+
 
 </LinearLayout>

@@ -1,14 +1,10 @@
 package com.mackwu.component.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentManager
 import com.mackwu.component.R
-import com.mackwu.component.fragment.fragment.HomeFragment
-import com.mackwu.component.fragment.fragment.PromoteFragment
-import com.mackwu.component.fragment.fragment.UserFragment
 import kotlinx.android.synthetic.main.activity_fragment.*
 
 /**

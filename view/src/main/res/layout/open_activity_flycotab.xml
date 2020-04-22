@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--
+        指示器
+        app:tl_indicator_color 显示器颜色
+        app:tl_indicator_height 显示器高度
+        app:tl_indicator_width 显示器固定宽度
+        app:tl_indicator_width_equal_title 显示器与标题一样长
+
+        tab字体颜色、大小、间距等
+        tl_textUnselectColor 字体未选中颜色
+        tl_textSelectColor 字体选中颜色
+        tl_textBold 字体加粗
+        tl_tab_padding tab的paddingLeft和paddingRight
+        tl_tab_space_equal tab大小等分
+        tl_tab_width tab固定大小
+
+        tab之间分割线
+        tl_divider_color 分割线颜色
+        tl_divider_width 分割线宽度
+        tl_divider_padding 分割线的paddingTop和paddingBottom
+
+        tab下的布下划线
+        tl_underline_color 下划线颜色
+        tl_underline_height 下划线高度
+
+        图标
+        tl_iconWidth 宽
+        tl_iconHeight 高
+        tl_iconMargin 图标和文字间距
+    -->
+    <com.flyco.tablayout.SlidingTabLayout
+        android:id="@+id/sliding_tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorAccent"
+        app:tl_indicator_height="2dp"
+        app:tl_indicator_width="10dp"
+        app:tl_tab_space_equal="true" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

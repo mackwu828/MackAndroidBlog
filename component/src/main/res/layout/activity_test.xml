@@ -1,80 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+    <include layout="@layout/include_smart_tab" />
 
-        <!-- 启动方式 -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="启动方式：基础" />
-
-        <Button
-            android:id="@+id/btn_start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="start" />
-
-        <Button
-            android:id="@+id/btn_start_for_result"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="start_for_result" />
-
-
-        <Button
-            android:id="@+id/btn_start_best"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="启动Activity的最佳方式" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="启动方式：启动另一个进程的Activity" />
-
-        <Button
-            android:id="@+id/btn_start_package"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="通过包名和Activity名称启动" />
-
-        <Button
-            android:id="@+id/btn_start_action"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="通过action" />
-
-        <Button
-            android:id="@+id/btn_start_launch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="通过LaunchIntent" />
-
-        <!--    样式    -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="样式" />
-
-        <Button
-            android:id="@+id/btn_non_full"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="非全屏" />
-
-        <Button
-            android:id="@+id/btn_no_status_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="无状态栏" />
-    </LinearLayout>
-</ScrollView>
+</LinearLayout>

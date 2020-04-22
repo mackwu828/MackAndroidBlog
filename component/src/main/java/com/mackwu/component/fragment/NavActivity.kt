@@ -1,12 +1,9 @@
 package com.mackwu.component.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.mackwu.component.R
-import com.mackwu.component.fragment.fragment.HomeFragment
-import com.mackwu.component.fragment.fragment.PromoteFragment
-import com.mackwu.component.fragment.fragment.UserFragment
 import kotlinx.android.synthetic.main.activity_fragment.*
 
 /**
@@ -24,7 +21,7 @@ import kotlinx.android.synthetic.main.activity_fragment.*
  */
 class NavActivity : AppCompatActivity() {
 
-    private var currentFragment = androidx.fragment.app.Fragment()
+    private var currentFragment = Fragment()
     private var homeFragment = HomeFragment()
     private var promoteFragment = PromoteFragment()
     private var userFragment = UserFragment()

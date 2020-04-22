@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
 
     <application
@@ -74,26 +75,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--   activity for base   -->
         <activity android:name=".activity.TargetActivity" />
         <activity
             android:name=".activity.LaunchModeActivity"
             android:launchMode="standard" />
         <activity android:name=".activity.lifecycle.LifecycleActivity" />
-        <activity
-            android:name=".activity.NonFullActivity"
-            android:theme="@style/Theme.NonFullActivity" />
-        <activity android:name="com.mackwu.component.db.DbActivity" />
-        <activity android:name=".activity.SettingActivity" />
-        <activity android:name=".activity.TimerActivity" />
-        <activity android:name=".activity.JmDnsActivity" />
-        <activity android:name=".activity.NoStatusBarActivity" />
 
-        <!--        -->
+        <!--    activity for service    -->
         <activity android:name=".service.TestServiceActivity" />
 
-        <!--        -->
+        <!--    activity for provider    -->
         <activity android:name=".provider.student.StudentActivity" />
         <activity android:name=".provider.weather.WeatherActivity" />
+
+        <!--   basic   -->
+        <activity
+            android:name=".other.NonFullActivity"
+            android:theme="@style/Theme.NonFullActivity" />
+        <activity android:name=".other.db.DbActivity" />
+        <activity android:name=".other.SettingActivity" />
+        <activity android:name=".other.TimerActivity" />
+        <activity android:name=".other.JmDnsActivity" />
+        <activity android:name=".other.NoStatusBarActivity" />
+        <activity android:name=".other.floatwindow.FloatWindowActivity" />
+
 
     </application>
 

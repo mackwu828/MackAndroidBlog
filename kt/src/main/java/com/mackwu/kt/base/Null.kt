@@ -1,6 +1,6 @@
 package com.mackwu.kt.base
 
-import com.mackwu.kt.claz.Person
+import com.mackwu.kt.Person
 
 
 /**
@@ -32,11 +32,11 @@ fun main() {
     val person: Person? = null
 
     // 可空的对象要用安全调用操作符?.调用，表示非空时调用，否则返回null
-    person?.name
+//    person?.name
 
     // ?: 如果person不为空，使用person，否则使用Person("", 22)
     // 相当于 if (null != person) person else Person("", 22)
-    val xxx = person ?: Person("", 22)
+//    val xxx = person ?: Person("", 22)
 
 
     // !! 表示变量不能为空

@@ -61,6 +61,6 @@ class ScreenActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(com.mackwu.adapter.R.layout.activity_main)
+        setContentView(com.mackwu.adapter.R.layout.activity_a)
     }
 }

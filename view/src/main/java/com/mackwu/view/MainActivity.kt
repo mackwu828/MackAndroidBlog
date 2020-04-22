@@ -2,8 +2,9 @@ package com.mackwu.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.mackwu.view.base.webview.WebViewActivity
-import com.mackwu.view.util.startActivityCls
+import com.mackwu.view.util.initSmartTab
+import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter
+import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -12,6 +13,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        btn_webview.setOnClickListener { startActivityCls(WebViewActivity::class.java) }
+        initSmartTab { creator ->
+            creator.add("basic", BasicFragment::class.java)
+            creator.add("opensource", OpenSourceFragment::class.java)
+        }
     }
 }

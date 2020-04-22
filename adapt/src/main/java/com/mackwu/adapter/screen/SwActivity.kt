@@ -7,7 +7,7 @@ import com.mackwu.adapter.R
 import com.mackwu.adapter.util.dpi
 import com.mackwu.adapter.util.screenHeight
 import com.mackwu.adapter.util.screenWidth
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_a.*
 
 /**
  * ================================================
@@ -59,7 +59,7 @@ class SwActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_a)
 
 
         val realWidth = if (screenWidth > screenHeight) screenHeight else screenWidth

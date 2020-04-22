@@ -1,1 +1,1 @@
-include ':component', ':view', ':anim', ':http', ':adapt', ':performance', ':media', ':opensource', ':kt'
+include ':component', ':view', ':anim', ':http', ':adapt', ':performance', ':media', ':kt'

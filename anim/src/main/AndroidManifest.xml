@@ -12,14 +12,6 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".MainActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        </activity>
-
-        <activity android:name=".AnimActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,9 +19,15 @@
             </intent-filter>
         </activity>
 
+        <!--        -->
+        <activity android:name=".sample.TransformActivity" />
+        <activity android:name=".sample.WaterRippleActivity" />
+        <activity android:name=".sample.DotsActivity" />
+
         <!-- tween -->
         <activity android:name=".tween.TweenActivity" />
         <activity android:name=".tween.InterpolatorActivity" />
+
 
     </application>
 

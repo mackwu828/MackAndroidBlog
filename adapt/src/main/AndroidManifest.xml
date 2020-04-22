@@ -29,21 +29,17 @@
 
         <!--   activity    -->
         <activity android:name=".MainActivity">
-            <!--            <intent-filter>-->
-            <!--                <action android:name="android.intent.action.MAIN" />-->
-            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-            <!--            </intent-filter>-->
-        </activity>
-
-        <activity android:name="com.mackwu.adapter.screen.SwActivity" />
-        <activity android:name=".version.Android7Activity">
-        </activity>
-        <activity android:name=".version.Android8Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--    screen    -->
+        <activity android:name="com.mackwu.adapter.screen.SwActivity" />
+
+        <!--    permission    -->
+        <activity android:name=".version.PermissionActivity" />
     </application>
 
 </manifest>
