@@ -5,6 +5,10 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
 
+/**
+ * 比真实日期少了一天
+ */
+@Deprecated()
 public class JalaliCalendar extends Calendar {
     public static int gregorianDaysInMonth[] = {31, 28, 31, 30, 31,
             30, 31, 31, 30, 31, 30, 31};

@@ -9,7 +9,7 @@ import com.mackwu.component.util.startActionService
 import com.mackwu.component.util.startServiceCls
 import com.mackwu.component.util.stopServiceCls
 import com.mackwu.service.start.BindService
-import kotlinx.android.synthetic.main.activity_test_service.*
+import kotlinx.android.synthetic.main.activity_service.*
 
 /**
  * ================================================
@@ -24,7 +24,7 @@ class TestServiceActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_test_service)
+        setContentView(R.layout.activity_service)
 
         // 启动服务
         btn_start_service.setOnClickListener { startServiceCls(TestService::class.java) }

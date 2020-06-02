@@ -1,5 +1,7 @@
 package com.mackwu.kt.generic
 
+import com.mackwu.kt.generic.bean.GenericData
+
 /**
  * ===================================================
  * Created by MackWu on 2020/4/21 10:42
@@ -7,5 +9,4 @@ package com.mackwu.kt.generic
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-class GenericClass<T> {
-}
+class GenericClass<T : GenericData>(val data: T)

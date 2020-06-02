@@ -1,6 +1,8 @@
 package com.mackwu.component.util.date
 
+import android.util.Log
 import java.util.*
+
 
 /**
  * ===================================================
@@ -19,7 +21,7 @@ val year: Int
     get() = calendar.get(Calendar.YEAR)
 
 /**
- * 月
+ * 月。注：月返回0-11。需要加1
  */
 val month: Int
     get() = calendar.get(Calendar.MONTH) + 1
@@ -34,6 +36,7 @@ val day: Int
  * 获取波斯历
  */
 fun getJalaliDate(): String {
+    Log.d("TAG", "$year, $month, $day")
     return JalaliCalendar.gregorianToJalali(JalaliCalendar.YearMonthDate(year, month, day)).toString()
 }
 

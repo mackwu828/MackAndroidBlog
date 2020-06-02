@@ -8,7 +8,7 @@ import android.provider.Settings
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
 import com.mackwu.component.R
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_test.*
 
 /**
  * ================================================
@@ -39,7 +39,7 @@ class SettingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_test)
 
         btn_test.setOnClickListener { startActivity(Intent(Settings.ACTION_SETTINGS)) }
 //        // 获取系统属性

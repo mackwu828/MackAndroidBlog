@@ -22,7 +22,7 @@ class TimerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_test)
 
         val countDownTimer = object : CountDownTimer(60_000, 1000){
             /**

@@ -20,7 +20,7 @@ class StudentActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_test)
 
         // registerContentObserver
         contentResolver.registerContentObserver(Uri.parse(studentUri), true, studentObserver)

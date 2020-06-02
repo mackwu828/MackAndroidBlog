@@ -1,15 +1,18 @@
 package com.mackwu.component
 
+import android.util.Log
 import com.mackwu.component.activity.TargetActivity
 import com.mackwu.component.fragment.base.SimpleBaseFragment
 import com.mackwu.component.util.*
+import com.mackwu.component.util.date.PersianCalendarAlgorithm
+import com.mackwu.component.util.date.getJalaliDate
 import kotlinx.android.synthetic.main.fragment_activity.*
 
 /**
  * ===================================================
  * Created by MackWu on 2020/4/17 10:31
  * <a href="mailto:wumengjiao828@163.com">Contact me</a>
- * <a href="https://github.com/mackwu828">Follow me</a>
+ * <a href="">Follow me</a>
  * ===================================================
  */
 class ActivityFragment : SimpleBaseFragment() {
@@ -17,6 +20,8 @@ class ActivityFragment : SimpleBaseFragment() {
     override val layoutId: Int = R.layout.fragment_activity
 
     override fun initView() {
+
+        btn_test.setOnClickListener { Log.d("TAG", PersianCalendarAlgorithm.getInstance(activity).jalaliDate) }
 
         // 启动方式：基础
         btn_start.setOnClickListener { startActivityCls(TargetActivity::class.java) }

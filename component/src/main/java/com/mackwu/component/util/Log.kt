@@ -1,7 +1,6 @@
 package com.mackwu.component.util
 
 import android.util.Log
-import com.mackwu.component.BuildConfig
 
 /**
  * ===================================================
@@ -13,25 +12,22 @@ import com.mackwu.component.BuildConfig
 
 private const val TAG = "mack"
 
-private const val HEAD = TAG + "_" + BuildConfig.VERSION_CODE + " ### "
-//private const val HEAD = BuildConfig.FLAVOR + "_" + BuildConfig.VERSION_CODE + " ### "
-
+private const val HEAD = " ### "
 private val logDebug = true
 //private val logDebug = BuildConfig.LOG_DEBUG
-
 
 fun logD(msg: String) {
     if (logDebug) Log.d(TAG, HEAD + msg)
 }
 
-fun logD(tag: String, msg: String) {
-    if (logDebug) Log.d(tag, HEAD + msg)
+fun logD(head: String, msg: String) {
+    if (logDebug) Log.d(TAG, head + HEAD + msg)
 }
 
 fun logE(msg: String) {
     if (logDebug) Log.e(TAG, HEAD + msg)
 }
 
-fun logE(tag: String, msg: String) {
-    if (logDebug) Log.d(tag, HEAD + msg)
+fun logE(head: String, msg: String) {
+    if (logDebug) Log.d(TAG, head + HEAD + msg)
 }

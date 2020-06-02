@@ -3,19 +3,27 @@ package com.mackwu.component.util
 import android.app.Activity
 import android.content.Context
 
-// 分辨率：屏幕宽度。单位px
+/**
+ * 屏幕宽度。单位px
+ */
 val Activity.screenWidth
     get() = windowManager.defaultDisplay.width
 
-// 分辨率：屏幕高度。单位px
+/**
+ * 屏幕高度。单位px
+ */
 val Activity.screenHeight
     get() = windowManager.defaultDisplay.height
 
-// dpi
+/**
+ *  dpi
+ */
 val Context.dpi
     get() = resources.displayMetrics.densityDpi
 
-// density
+/**
+ * density
+ */
 val Context.density
     get() = resources.displayMetrics.density
 

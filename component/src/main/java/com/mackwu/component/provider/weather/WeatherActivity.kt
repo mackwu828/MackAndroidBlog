@@ -19,7 +19,7 @@ class WeatherActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_test)
         // registerContentObserver
         // "content://cn.zeasn.weather.query.query"
         contentResolver.registerContentObserver(Uri.parse("content://cn.zeasn.weather.observer/query"), true, weatherObserver)

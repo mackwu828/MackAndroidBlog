@@ -1,5 +1,7 @@
 package com.mackwu.kt.generic.java;
 
+import com.mackwu.kt.generic.bean.GenericData;
+
 /**
  * ===================================================
  * Created by MackWu on 2020/4/21 10:42
@@ -7,7 +9,7 @@ package com.mackwu.kt.generic.java;
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-public class GenericClass<T> {
+public class GenericClass<T extends GenericData> {
 
     private T data;
 

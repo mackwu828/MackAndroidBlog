@@ -4,8 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.mackwu.view.R
-import com.mackwu.view.basic.fragment.HomeFragment
-import com.mackwu.view.basic.fragment.UserFragment
 import com.mackwu.view.basic.viewpager.CustomFragmentStatePagerAdapter
 import kotlinx.android.synthetic.main.open_activity_flycotab.*
 

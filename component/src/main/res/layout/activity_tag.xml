@@ -9,7 +9,7 @@
     -->
     <fragment
         android:id="@+id/fragment_tag"
-        android:name="com.mackwu.component.fragment.fragment.HomeFragment"
+        android:name="com.mackwu.component.fragment.HomeFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

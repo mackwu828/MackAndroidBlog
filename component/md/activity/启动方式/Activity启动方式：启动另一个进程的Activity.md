@@ -22,6 +22,7 @@ fun Activity.startPackageActivity(packageName: String, activityName: String) = t
 
 异常2：Activity不存在时会出现 android.content.ActivityNotFoundException: Unable to find explicit activity class ... have you declared this activity in your AndroidManifest.xml?  
 
+注：关于exported属性，如果activity标签里有设置了intent-filter标签的话，exported属性默认是true
 
 ## 通过action启动
 ```

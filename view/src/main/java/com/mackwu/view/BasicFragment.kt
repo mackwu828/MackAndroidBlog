@@ -1,6 +1,9 @@
 package com.mackwu.view
 
+import com.mackwu.view.basic.recycler.RecyclerActivity
 import com.mackwu.view.util.SimpleBaseFragment
+import com.mackwu.view.util.startActivityCls
+import kotlinx.android.synthetic.main.fragment_basic.*
 
 /**
  * ===================================================
@@ -14,6 +17,7 @@ class BasicFragment : SimpleBaseFragment() {
     override val layoutId: Int = R.layout.fragment_basic
 
     override fun initView() {
+        btn_recycler_view.setOnClickListener { startActivityCls(RecyclerActivity::class.java) }
     }
 
 }

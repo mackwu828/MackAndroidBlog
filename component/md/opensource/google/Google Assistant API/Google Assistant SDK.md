@@ -1,9 +1,0 @@
-SDK附带了Python参考示例代码，可用于在硬件上进行原型设计，如Raspberry Pi。如果你要使用其他平台，可以利用 gRPC API。
-
-gRPC是一种“高性能，开源通用的远程过程调用(RPC)框架”，它使用Google协议缓冲区作为接口描述语言(IDL)，用于描述服务接口以及所交换消息的结构，然后编译此IDL以生成特定于语言的客户端和服务器存根。
-
-使用协议编译器“protoc”为您的API生成客户端和服务器存根，就可以做到不关注语言，开箱即用。
-
-
-## 
-[](https://developers.google.com/assistant/discovery)

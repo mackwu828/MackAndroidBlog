@@ -1,7 +1,7 @@
 package com.mackwu.component.fragment
 
 import com.mackwu.component.R
-import com.mackwu.component.fragment.base.TransactionBaseFragment
+import com.mackwu.component.fragment.base.SimpleBaseFragment
 
 /**
  * ===================================================
@@ -10,19 +10,19 @@ import com.mackwu.component.fragment.base.TransactionBaseFragment
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-class HomeFragment : TransactionBaseFragment() {
+class HomeFragment : SimpleBaseFragment() {
     override val layoutId: Int = R.layout.fragment_home
     override fun initView() {
     }
 }
 
-class PromoteFragment : TransactionBaseFragment() {
+class PromoteFragment : SimpleBaseFragment() {
     override val layoutId: Int = R.layout.fragment_promote
     override fun initView() {
     }
 }
 
-class UserFragment : TransactionBaseFragment() {
+class UserFragment : SimpleBaseFragment() {
     override val layoutId: Int = R.layout.fragment_user
     override fun initView() {
     }

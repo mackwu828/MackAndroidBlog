@@ -9,8 +9,8 @@ package com.mackwu.kt.generic.java;
  */
 public class GenericMethod {
 
-    public static <T extends Number> double add(T a, T b) {
-        return a.doubleValue() + b.doubleValue();
+    public <T> void show(T t) {
+        System.out.println(t.toString());
     }
 
 }

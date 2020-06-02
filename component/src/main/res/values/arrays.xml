@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="persianmonth">
+        <item>Far</item>
+        <item>Ord</item>
+        <item>Kho</item>
+        <item>Tir</item>
+        <item>Mor</item>
+        <item>Sha</item>
+        <item>Meh</item>
+        <item>Aba</item>
+        <item>Aza</item>
+        <item>Dey</item>
+        <item>Bah</item>
+        <item>Esf</item>
+    </string-array>
+
+    <string-array name="persianweek">
+        <item>Shanbeh</item>
+        <item>Yekshanbeh</item>
+        <item>Doshanbeh</item>
+        <item>Seshanbeh</item>
+        <item>Chaharshanbeh</item>
+        <item>Panjshanbeh</item>
+        <item>Jom\'eh</item>
+    </string-array>
+</resources>

@@ -114,3 +114,8 @@ fun Activity.startUriWeb(uriString: String) = startActivity(Intent().apply {
     action = "android.intent.action.VIEW"
     data = Uri.parse(uriString)
 })
+
+/**
+ * 启动卸载页面
+ */
+fun Context.startUninstallActivity(packageName: String) = startActivity(Intent(Intent.ACTION_DELETE).apply { data = Uri.parse("package:$packageName") })

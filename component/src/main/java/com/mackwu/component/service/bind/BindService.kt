@@ -6,8 +6,6 @@ import android.os.Binder
 import android.os.IBinder
 import android.util.Log
 import android.widget.Toast
-import com.mackwu.component.service.bind.MyBinder
-import com.mackwu.component.service.lifecycle.LifecycleService
 
 /**
  * ================================================
@@ -45,7 +43,7 @@ import com.mackwu.component.service.lifecycle.LifecycleService
  */
 class BindService : Service() {
 
-    private val binder = MyBinder(this)
+    private val binder = LocalBinder(this)
 
     override fun onCreate() {
         super.onCreate()
@@ -71,4 +69,9 @@ class BindService : Service() {
         Toast.makeText(applicationContext, "has bound Service", Toast.LENGTH_SHORT).show()
     }
 
+    /**
+     * 扩展Binder类。只能与当前进程的组件进行交互。
+     * 持有服务的实例，其他组件可以通过该实例调用服务的方法。
+     */
+    class LocalBinder(val service: BindService) : Binder()
 }

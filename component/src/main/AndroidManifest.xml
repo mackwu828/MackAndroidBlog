@@ -13,6 +13,9 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
+    <uses-feature
+        android:name="android.hardware.usb.host"
+        android:required="true" />
 
     <application
         android:name=".ComponentApp"
@@ -89,7 +92,12 @@
         <activity android:name=".provider.student.StudentActivity" />
         <activity android:name=".provider.weather.WeatherActivity" />
 
-        <!--   basic   -->
+        <!--   activity for jetpack    -->
+        <activity android:name=".jetpack.lifecycle.TestLifecycleActivity" />
+        <activity android:name=".jetpack.livedata.TestLiveDataActivity" />
+        <activity android:name=".jetpack.viewmodel.TestViewModelActivity" />
+
+        <!--   other   -->
         <activity
             android:name=".other.NonFullActivity"
             android:theme="@style/Theme.NonFullActivity" />
@@ -99,7 +107,14 @@
         <activity android:name=".other.JmDnsActivity" />
         <activity android:name=".other.NoStatusBarActivity" />
         <activity android:name=".other.floatwindow.FloatWindowActivity" />
-
+        <activity android:name=".other.usb.UsbActivity">
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+            </intent-filter>
+            <!--            <meta-data-->
+            <!--                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"-->
+            <!--                android:resource="@xml/device_filter" />-->
+        </activity>
 
     </application>
 

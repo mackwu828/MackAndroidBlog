@@ -21,11 +21,10 @@ fun Activity.toast(text: String, duration: Int = Toast.LENGTH_SHORT): Toast {
     return Toast.makeText(this, text, duration).apply { show() }
 }
 
-fun androidx.fragment.app.Fragment.toast(text: String, duration: Int = Toast.LENGTH_SHORT): Toast {
+fun Fragment.toast(text: String, duration: Int = Toast.LENGTH_SHORT): Toast {
     return Toast.makeText(activity, text, duration).apply { show() }
 }
 
 fun Service.toast(text: String, duration: Int = Toast.LENGTH_SHORT): Toast {
     return Toast.makeText(this, text, duration).apply { show() }
 }
-

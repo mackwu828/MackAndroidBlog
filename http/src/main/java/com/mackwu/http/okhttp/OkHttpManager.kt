@@ -124,3 +124,9 @@ object OkHttpManager {
     }
 
 }
+
+fun main() {
+    OkHttpManager.get("http://www.baidu.com"){
+        println(it)
+    }
+}

@@ -7,9 +7,18 @@ package com.mackwu.kt
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-open class Person {
+class Person {
 
-    open var name: String = ""
+    fun set(action: IAction) {
 
+    }
+}
+
+fun main() {
+    val person = Person()
+    person.set(object : IAction{
+        override fun doSomething() {
+        }
+    })
 }
 
