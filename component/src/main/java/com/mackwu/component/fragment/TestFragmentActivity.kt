@@ -2,13 +2,11 @@ package com.mackwu.component.fragment
 
 import android.os.Bundle
 import android.preference.PreferenceFragment
-import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.ListFragment
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.ListFragment
 import com.mackwu.component.R
-import com.mackwu.component.fragment.HomeFragment
-import com.mackwu.component.fragment.PromoteFragment
 
 /**
  * ================================================
@@ -118,8 +116,6 @@ import com.mackwu.component.fragment.PromoteFragment
 class TestFragmentActivity : AppCompatActivity() {
 
     private var currentFragment = Fragment()
-    private var homeFragment = HomeFragment()
-    private var promoteFragment = PromoteFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

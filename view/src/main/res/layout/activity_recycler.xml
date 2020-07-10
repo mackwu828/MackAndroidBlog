@@ -4,12 +4,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
+    <com.mackwu.view.basic.recycler.MyRecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbarSize="5dp"
-        android:scrollbarThumbVertical="@color/white"
-        android:scrollbars="vertical" />
+        android:layout_height="match_parent" />
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/recycler_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:scrollbarSize="5dp"-->
+<!--        android:scrollbarThumbVertical="@color/white"-->
+<!--        android:scrollbars="vertical" />-->
 
 </LinearLayout>

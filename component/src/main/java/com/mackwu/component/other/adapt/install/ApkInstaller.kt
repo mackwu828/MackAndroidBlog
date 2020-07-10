@@ -8,7 +8,7 @@ import android.os.Build
 import android.os.Environment
 import android.provider.Settings
 import androidx.core.content.FileProvider
-import com.mackwu.component.util.logD
+import com.mackwu.component.util.kt.logD
 import java.io.File
 
 /**

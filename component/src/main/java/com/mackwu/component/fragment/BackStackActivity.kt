@@ -3,6 +3,7 @@ package com.mackwu.component.fragment
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.mackwu.component.R
 import kotlinx.android.synthetic.main.activity_fragment.*
@@ -74,9 +75,9 @@ import kotlinx.android.synthetic.main.activity_fragment.*
  */
 class BackStackActivity : AppCompatActivity() {
 
-    private val homeFragment = HomeFragment()
-    private val promoteFragment = PromoteFragment()
-    private val userFragment = UserFragment()
+    private val homeFragment = Fragment()
+    private val promoteFragment = Fragment()
+    private val userFragment = Fragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

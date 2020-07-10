@@ -17,6 +17,6 @@ class HttpApp: Application() {
         super.onCreate()
         OkHttpManager.init(this)
         RetrofitManager.init(this)
-        com.mackwu.http.okhttp_retrofit_coroutines.RetrofitManager.init(this)
+        com.mackwu.http.other.okhttp_retrofit_coroutines.RetrofitManager.init(this)
     }
 }

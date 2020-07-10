@@ -3,7 +3,7 @@ package com.mackwu.component.other
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.mackwu.component.R
-import com.mackwu.component.util.setNonFullActivity
+import com.mackwu.component.util.kt.setNonFullActivity
 
 /**
  * ===================================================

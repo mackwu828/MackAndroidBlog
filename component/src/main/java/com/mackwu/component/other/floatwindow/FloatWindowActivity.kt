@@ -1,7 +1,8 @@
 package com.mackwu.component.other.floatwindow
 
+import android.os.Bundle
 import com.mackwu.component.R
-import com.mackwu.component.activity.base.BaseActivity
+import com.mackwu.component.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_flow_window.*
 
 /**
@@ -15,9 +16,12 @@ class FloatWindowActivity : BaseActivity() {
 
     private val floatWindow = FloatWindow(this)
 
-    override val layoutId: Int = R.layout.activity_flow_window
+    override fun getLayoutId(): Int = R.layout.activity_flow_window
 
-    override fun initView() {
+    override fun initView(savedInstanceState: Bundle?) {
         btn_show_float_window.setOnClickListener { floatWindow.show() }
+    }
+
+    override fun initData(savedInstanceState: Bundle?) {
     }
 }

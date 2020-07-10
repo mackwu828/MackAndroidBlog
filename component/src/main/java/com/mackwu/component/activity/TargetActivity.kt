@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.mackwu.component.R
-import com.mackwu.component.activity.lifecycle.LifecycleActivity
 
 /**
  * ================================================

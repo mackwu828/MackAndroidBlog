@@ -1,10 +1,12 @@
 package com.mackwu.view.basic.recycler
 
 import android.os.Bundle
+import android.util.Log
+import android.view.KeyEvent
 import androidx.appcompat.app.AppCompatActivity
 import com.mackwu.view.R
-import com.mackwu.view.util.initGridRecyclerView
-import com.mackwu.view.util.initVerticalRecyclerView
+import com.mackwu.view.util.setVerticalStyle
+import kotlinx.android.synthetic.main.activity_recycler.*
 
 /**
  * ================================================
@@ -34,15 +36,23 @@ import com.mackwu.view.util.initVerticalRecyclerView
  */
 class RecyclerActivity : AppCompatActivity() {
 
+    // list
+    private val list = listOf("Java", "Kotlin", "Android", "Python")
+
+    // adapter
+    private val adapter = RecyclerAdapter(list)
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler)
 
-        // adapter
-        val list = listOf("Java", "Kotlin", "Android", "Python")
-        val adapter = RecyclerAdapter(list)
-        // RecyclerView
-        initGridRecyclerView(adapter, 2)
+        recycler_view.setVerticalStyle(this, adapter)
+    }
+
+    override fun dispatchKeyEvent(event: KeyEvent?): Boolean {
+        Log.d("TAG", "Activity dispatchKeyEvent...")
+        return super.dispatchKeyEvent(event)
     }
 
 }

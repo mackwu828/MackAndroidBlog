@@ -22,9 +22,9 @@ import kotlinx.android.synthetic.main.activity_fragment.*
 class NavActivity : AppCompatActivity() {
 
     private var currentFragment = Fragment()
-    private var homeFragment = HomeFragment()
-    private var promoteFragment = PromoteFragment()
-    private var userFragment = UserFragment()
+    private var homeFragment = Fragment()
+    private var promoteFragment = Fragment()
+    private var userFragment = Fragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

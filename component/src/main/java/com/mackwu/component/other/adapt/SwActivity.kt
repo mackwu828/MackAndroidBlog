@@ -1,12 +1,10 @@
 package com.mackwu.component.other.adapt
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.mackwu.component.R
-import com.mackwu.component.util.dpi
-import com.mackwu.component.util.screenHeight
-import com.mackwu.component.util.screenWidth
+import com.mackwu.component.util.kt.screenHeight
+import com.mackwu.component.util.kt.screenWidth
 import kotlinx.android.synthetic.main.activity_test.*
 
 /**

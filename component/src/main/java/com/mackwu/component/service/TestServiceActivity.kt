@@ -5,9 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.mackwu.component.R
-import com.mackwu.component.util.startActionService
-import com.mackwu.component.util.startServiceCls
-import com.mackwu.component.util.stopServiceCls
+import com.mackwu.component.util.kt.startActionService
+import com.mackwu.component.util.kt.startServiceCls
+import com.mackwu.component.util.kt.stopServiceCls
 import com.mackwu.service.start.BindService
 import kotlinx.android.synthetic.main.activity_service.*
 

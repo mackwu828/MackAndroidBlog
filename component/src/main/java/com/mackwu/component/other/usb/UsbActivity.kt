@@ -1,11 +1,12 @@
 package com.mackwu.component.other.usb
 
 import android.hardware.usb.UsbManager
+import android.os.Bundle
 import android.util.Log
 import com.mackwu.component.R
-import com.mackwu.component.activity.base.BaseActivity
-import com.mackwu.component.util.registerReceiver
-import com.mackwu.component.util.usbManager
+import com.mackwu.component.base.BaseActivity
+import com.mackwu.component.util.kt.registerReceiver
+import com.mackwu.component.util.kt.usbManager
 import kotlinx.android.synthetic.main.activity_test.*
 
 /**
@@ -15,13 +16,13 @@ import kotlinx.android.synthetic.main.activity_test.*
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-class UsbActivity: BaseActivity() {
+class UsbActivity : BaseActivity() {
 
     private val usbReceiver = UsbReceiver()
 
-    override val layoutId: Int = R.layout.activity_test
+    override fun getLayoutId(): Int = R.layout.activity_test
 
-    override fun initView() {
+    override fun initView(savedInstanceState: Bundle?) {
         // register usb Receiver
         registerReceiver(usbReceiver, UsbManager.ACTION_USB_ACCESSORY_ATTACHED, UsbManager.ACTION_USB_ACCESSORY_DETACHED)
 
@@ -32,6 +33,10 @@ class UsbActivity: BaseActivity() {
                 Log.d("TAG", device.toString())
             }
         }
+    }
+
+    override fun initData(savedInstanceState: Bundle?) {
+
     }
 
     override fun onDestroy() {

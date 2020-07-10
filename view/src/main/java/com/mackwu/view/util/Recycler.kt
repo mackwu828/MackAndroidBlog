@@ -1,8 +1,9 @@
 package com.mackwu.view.util
 
-import android.app.Activity
-import androidx.recyclerview.widget.*
-import kotlinx.android.synthetic.main.activity_recycler.*
+import android.content.Context
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 /**
  * ===================================================
@@ -18,28 +19,28 @@ import kotlinx.android.synthetic.main.activity_recycler.*
  */
 
 /**
- * init vertical recycler view
+ * set vertical style
  */
-fun Activity.initVerticalRecyclerView(adapter: RecyclerView.Adapter<*>) {
-    recycler_view.layoutManager = LinearLayoutManager(this).apply { orientation = LinearLayoutManager.VERTICAL } // 布局管理器。线性布局，竖直方向
-    recycler_view.setHasFixedSize(true)
-    recycler_view.adapter = adapter
+fun RecyclerView.setVerticalStyle(context: Context, adapter: RecyclerView.Adapter<*>) {
+    layoutManager = LinearLayoutManager(context).apply { orientation = LinearLayoutManager.VERTICAL } // 布局管理器。线性布局，竖直方向
+    setHasFixedSize(true)
+    this.adapter = adapter
 }
 
 /**
- * init horizontal recycler view
+ * set horizontal style
  */
-fun Activity.initHorizontalRecyclerView(adapter: RecyclerView.Adapter<*>) {
-    recycler_view.layoutManager = LinearLayoutManager(this).apply { orientation = LinearLayoutManager.HORIZONTAL }
-    recycler_view.setHasFixedSize(true)
-    recycler_view.adapter = adapter
+fun RecyclerView.setHorizontalStyle(context: Context, adapter: RecyclerView.Adapter<*>) {
+    layoutManager = LinearLayoutManager(context).apply { orientation = LinearLayoutManager.HORIZONTAL }
+    setHasFixedSize(true)
+    this.adapter = adapter
 }
 
 /**
- * init
+ * set grid style
  */
-fun Activity.initGridRecyclerView(adapter: RecyclerView.Adapter<*>, spanCount: Int) {
-    recycler_view.layoutManager = GridLayoutManager(this, spanCount).apply {
+fun RecyclerView.setGridStyle(context: Context, adapter: RecyclerView.Adapter<*>, spanCount: Int) {
+    layoutManager = GridLayoutManager(context, spanCount).apply {
         spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int = when (position) {
                 0 -> 2
@@ -48,6 +49,6 @@ fun Activity.initGridRecyclerView(adapter: RecyclerView.Adapter<*>, spanCount: I
             }
         }
     }
-    recycler_view.setHasFixedSize(true)
-    recycler_view.adapter = adapter
+    setHasFixedSize(true)
+    this.adapter = adapter
 }

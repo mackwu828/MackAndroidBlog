@@ -1,5 +1,6 @@
 package com.mackwu.view
 
+import com.mackwu.view.basic.recycler.TestActivity
 import com.mackwu.view.basic.recycler.RecyclerActivity
 import com.mackwu.view.util.SimpleBaseFragment
 import com.mackwu.view.util.startActivityCls
@@ -17,6 +18,7 @@ class BasicFragment : SimpleBaseFragment() {
     override val layoutId: Int = R.layout.fragment_basic
 
     override fun initView() {
+        btn_test.setOnClickListener { startActivityCls(TestActivity::class.java) }
         btn_recycler_view.setOnClickListener { startActivityCls(RecyclerActivity::class.java) }
     }
 

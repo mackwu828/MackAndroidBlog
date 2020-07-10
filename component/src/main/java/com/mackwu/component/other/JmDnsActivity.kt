@@ -3,8 +3,8 @@ package com.mackwu.component.other
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.mackwu.component.R
-import com.mackwu.component.util.addServiceListener
-import com.mackwu.component.util.removeServiceListener
+import com.mackwu.component.util.kt.addServiceListener
+import com.mackwu.component.util.kt.removeServiceListener
 import kotlinx.android.synthetic.main.activity_test.*
 
 /**

@@ -18,26 +18,31 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Main2Activity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- base -->
+        </activity>
+
+        <!-- base -->
+        <activity android:name=".basic.recycler.TestActivity" />
         <activity android:name=".basic.TextViewActivity" />
         <activity android:name=".basic.EditTextActivity" />
         <activity android:name=".basic.SpanActivity" />
         <activity android:name=".basic.ActionBarActivity" />
         <activity android:name=".basic.recycler.RecyclerActivity" />
         <activity android:name=".basic.webview.WebViewActivity" />
-        <activity android:name=".opensource.X5Activity" />
         <activity android:name=".basic.viewpager.VpActivity" />
         <activity android:name=".basic.viewpager.VpFTabActivity" />
-        <activity android:name=".basic.DialogActivity" /> <!-- md -->
+        <activity android:name=".basic.DialogActivity" />
+
+        <!-- md -->
         <activity android:name=".basic.md.DrawerActivity" />
-        <activity android:name=".basic.md.CardActivity" /> <!-- open source -->
+        <activity android:name=".basic.md.CardActivity" />
+
+        <!-- open source -->
         <activity android:name=".opensource.FlycoTabActivity" />
     </application>
 

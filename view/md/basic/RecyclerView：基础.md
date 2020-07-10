@@ -7,8 +7,6 @@
 fun Activity.initVerticalRecyclerView(adapter: RecyclerView.Adapter<*>) {
     // 布局管理器。线性布局，竖直方向
     recycler_view.layoutManager = LinearLayoutManager(this).apply { orientation = LinearLayoutManager.VERTICAL }
-    // ？
-    recycler_view.setHasFixedSize(true)
     // 设置adapter
     recycler_view.adapter = adapter
 }

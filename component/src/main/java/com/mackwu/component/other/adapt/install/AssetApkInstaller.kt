@@ -1,7 +1,7 @@
 package com.mackwu.component.other.adapt.install
 
 import android.content.Context
-import com.mackwu.component.util.logD
+import com.mackwu.component.util.kt.logD
 import java.io.File
 import java.util.concurrent.Executors
 

@@ -5,11 +5,9 @@ import android.content.Context
 import android.content.Intent
 import android.hardware.usb.UsbDevice
 import android.hardware.usb.UsbManager
-import android.opengl.EGLSurface
 import android.util.Log
-import android.widget.Toast
-import com.mackwu.component.util.ACTION_USB_PERMISSION
-import com.mackwu.component.util.toast
+import com.mackwu.component.util.kt.ACTION_USB_PERMISSION
+import com.mackwu.component.util.kt.toast
 
 /**
  * ===================================================
