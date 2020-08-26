@@ -4,10 +4,9 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.mackwu.component.R;
-import com.mackwu.component.base.BaseActivity;
+import com.mackwu.xmvc.BaseActivity;
 
 /**
  * ===================================================

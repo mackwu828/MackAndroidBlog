@@ -1,7 +1,6 @@
 package com.mackwu.anim.sample
 
 import com.mackwu.anim.R
-import com.mackwu.anim.util.BaseActivity
 
 /**
  * ===================================================

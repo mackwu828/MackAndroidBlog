@@ -3,11 +3,10 @@ package com.mackwu.component.jetpack;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
-import androidx.lifecycle.Observer;
 
 import com.mackwu.component.R;
-import com.mackwu.component.base.BaseActivity;
 import com.mackwu.component.bean.User;
+import com.mackwu.xmvc.BaseActivity;
 
 /**
  * ===================================================

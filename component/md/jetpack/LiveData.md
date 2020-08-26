@@ -1,4 +1,12 @@
 
+
+
+##
+LiveData实现事件总线
+https://tech.meituan.com/2018/07/26/android-livedatabus.html
+
+
+##
 LiveData的数据发生改变时，会自动通知所有观察者。  
 
 

@@ -1,8 +1,6 @@
 package com.mackwu.http.other
 
 import android.app.Application
-import com.mackwu.http.okhttp.OkHttpManager
-import com.mackwu.http.okhttp_retrofit_rxjava.RetrofitManager
 
 /**
  * ===================================================
@@ -11,12 +9,9 @@ import com.mackwu.http.okhttp_retrofit_rxjava.RetrofitManager
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-class HttpApp: Application() {
+class HttpApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        OkHttpManager.init(this)
-        RetrofitManager.init(this)
-        com.mackwu.http.other.okhttp_retrofit_coroutines.RetrofitManager.init(this)
     }
 }

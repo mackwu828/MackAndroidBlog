@@ -23,7 +23,7 @@ import android.view.WindowManager
  * @param dimAmount Activity之外部分透明程度
  * @param isTouchOutside 响应activity对窗口之外的触摸消息
  */
-fun Activity.setNonFullActivity(width: Int, height: Int, x: Int = 0, y: Int = 0, dimAmount: Float = 0.5f, isTouchOutside: Boolean = false) {
+fun Activity.setNotFullActivity(width: Int, height: Int, x: Int = 0, y: Int = 0, dimAmount: Float = 0.5f, isTouchOutside: Boolean = false) {
     val attributes = window.attributes
     attributes.width = width
     attributes.height = height

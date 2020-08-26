@@ -1,17 +1,14 @@
 package com.mackwu.component;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import androidx.lifecycle.Observer;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
-import com.mackwu.component.base.BaseFragment;
-import com.mackwu.component.bean.User;
-import com.mackwu.component.jetpack.LifecycleActivity;
-import com.mackwu.component.jetpack.LiveDataActivity;
 import com.mackwu.component.jetpack.UserLiveData;
-import com.mackwu.component.jetpack.ViewModelActivity;
-import com.mackwu.component.util.ActivityStartUtil;
+import com.mackwu.xmvc.BaseFragment;
 
 /**
  * ===================================================
@@ -31,16 +28,13 @@ public class JetpackFragment extends BaseFragment {
     }
 
     @Override
-    public void initView(View view) {
-        btnLifeCycle = view.findViewById(R.id.btn_lifecycle);
+    public void initView(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
-        //
-        btnLifeCycle.setOnClickListener(v -> ActivityStartUtil.startActivity(this, LifecycleActivity.class));
-        view.findViewById(R.id.btn_view_model).setOnClickListener(v -> ActivityStartUtil.startActivity(this, ViewModelActivity.class));
-        view.findViewById(R.id.btn_live_data).setOnClickListener(v -> ActivityStartUtil.startActivity(this, LiveDataActivity.class));
-
-        //
-        userLiveData = UserLiveData.getInstance();
-        userLiveData.observe(this, user -> btnLifeCycle.setText(user.getName()));
     }
+
+    @Override
+    public void initData(@Nullable Bundle savedInstanceState) {
+
+    }
+
 }

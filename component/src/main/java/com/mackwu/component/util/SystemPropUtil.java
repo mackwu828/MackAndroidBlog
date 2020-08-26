@@ -27,13 +27,7 @@ public final class SystemPropUtil {
             Class systemProperties = Class.forName("android.os.SystemProperties");
             Method getProp = systemProperties.getDeclaredMethod("get", String.class, String.class);
             return (String) getProp.invoke(systemProperties, key, defaultValue);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
+        } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
         return "";
@@ -54,13 +48,7 @@ public final class SystemPropUtil {
             Class systemProperties = Class.forName("android.os.SystemProperties");
             Method setProp = systemProperties.getDeclaredMethod("set", String.class, String.class);
             setProp.invoke(systemProperties, key, value);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
+        } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
     }

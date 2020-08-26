@@ -2,8 +2,6 @@ package com.mackwu.component.jetpack;
 
 import androidx.lifecycle.ViewModel;
 
-import com.mackwu.component.util.LogUtil;
-
 /**
  * ===================================================
  * Created by MackWu on 2020/6/30 11:50
@@ -19,6 +17,5 @@ public class UserViewModel extends ViewModel {
     @Override
     protected void onCleared() {
         super.onCleared();
-        LogUtil.d("onCleared...");
     }
 }

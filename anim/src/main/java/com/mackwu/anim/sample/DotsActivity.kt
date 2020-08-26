@@ -1,9 +1,6 @@
 package com.mackwu.anim.sample
 
 import com.mackwu.anim.R
-import com.mackwu.anim.util.BaseActivity
-import com.mackwu.anim.util.startDotsAnim
-import kotlinx.android.synthetic.main.activity_dots.*
 
 /**
  * ===================================================

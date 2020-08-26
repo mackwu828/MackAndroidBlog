@@ -27,7 +27,7 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <!-- service -->
-        <service android:name=".service.TestService">
+        <service android:name=".service.other.TestService">
             <intent-filter android:priority="1000">
                 <action android:name="com.mackwu.component.ACTION_SERVICE" />
             </intent-filter>
@@ -39,7 +39,7 @@
             android:resource="@xml/accessibilty_config" 配置
         -->
         <service
-            android:name=".service.AccessService"
+            android:name=".service.other.AccessService"
             android:label="accessibility test"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
@@ -79,37 +79,18 @@
         </activity>
 
         <!--   activity   -->
-        <activity android:name=".activity.TargetActivity" />
-        <activity
-            android:name=".activity.LaunchModeActivity"
-            android:launchMode="standard" />
-        <activity android:name=".activity.LifecycleActivity" />
-
-        <!--    activity for service    -->
-        <activity android:name=".service.TestServiceActivity" />
-
-        <!--    activity for provider    -->
+        <activity android:name="com.mackwu.component.ui.other.TargetActivity" />
+        <activity android:name="com.mackwu.component.ui.other.LaunchModeActivity" />
+        <activity android:name="com.mackwu.component.ui.other.LifecycleActivity" />
+        <activity android:name=".service.other.TestServiceActivity" />
         <activity android:name=".provider.student.StudentActivity" />
         <activity android:name=".provider.weather.WeatherActivity" />
-
-        <!--   activity for fragment    -->
-        <activity android:name=".fragment.FragmentActivity" />
-
-        <!--   activity for jetpack    -->
-        <activity android:name=".jetpack.LifecycleActivity" />
         <activity android:name=".jetpack.ViewModelActivity" />
         <activity android:name=".jetpack.LiveDataActivity" />
-
-        <!--   other   -->
-        <activity
-            android:name=".other.NonFullActivity"
-            android:theme="@style/Theme.NonFullActivity" />
         <activity android:name=".other.db.DbActivity" />
         <activity android:name=".other.SettingActivity" />
         <activity android:name=".other.TimerActivity" />
-        <activity android:name=".other.JmDnsActivity" />
         <activity android:name=".other.NoStatusBarActivity" />
-        <activity android:name=".other.floatwindow.FloatWindowActivity" />
         <activity android:name=".other.usb.UsbActivity">
             <intent-filter>
                 <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
@@ -118,7 +99,7 @@
             <!--                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"-->
             <!--                android:resource="@xml/device_filter" />-->
         </activity>
-        <activity android:name=".HandlerActivity" />
+        <activity android:name=".ui.FragmentActivity" />
 
     </application>
 

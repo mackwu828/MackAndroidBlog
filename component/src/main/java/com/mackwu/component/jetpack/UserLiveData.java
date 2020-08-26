@@ -1,10 +1,8 @@
 package com.mackwu.component.jetpack;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.mackwu.component.bean.User;
-import com.mackwu.component.util.LogUtil;
 
 /**
  * ===================================================
@@ -26,12 +24,10 @@ public class UserLiveData extends MutableLiveData<User> {
 
     @Override
     protected void onActive() {
-        LogUtil.d("onActive...");
     }
 
     @Override
     protected void onInactive() {
-        LogUtil.d("onInactive...");
     }
 
 }

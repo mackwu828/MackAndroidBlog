@@ -1,14 +1,17 @@
 package com.mackwu.component;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 
-import com.mackwu.component.base.BaseActivity;
+import com.mackwu.xmvc.BaseActivity;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
+
+import butterknife.BindView;
 
 /**
  * ===================================================
@@ -19,9 +22,10 @@ import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
  */
 public class MainActivity extends BaseActivity {
 
-    private FragmentPagerItemAdapter adapter;
-    private ViewPager viewPager;
-    private SmartTabLayout smartTabLayout;
+    @BindView(R.id.smart_tab_layout)
+    SmartTabLayout smartTabLayout;
+    @BindView(R.id.view_pager)
+    ViewPager viewPager;
 
     @Override
     public int getLayoutId() {
@@ -30,17 +34,16 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initView(@Nullable final Bundle savedInstanceState) {
-        //
-        viewPager = findViewById(R.id.view_pager);
-        smartTabLayout = findViewById(R.id.smart_tab_layout);
-
-        //
+        // data
         FragmentPagerItems fragmentPagerItems = FragmentPagerItems.with(this)
-                .add("Activity", ActivityFragment.class)
+                .add("Activity", BasicFragment.class)
                 .add("Jetpack", JetpackFragment.class)
                 .create();
-        adapter = new FragmentPagerItemAdapter(getSupportFragmentManager(), fragmentPagerItems);
+        // adapter
+        FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(getSupportFragmentManager(), fragmentPagerItems);
+        // viewPager
         viewPager.setAdapter(adapter);
+        // smartTabLayout
         smartTabLayout.setViewPager(viewPager);
     }
 

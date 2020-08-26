@@ -4,9 +4,9 @@ import android.hardware.usb.UsbManager
 import android.os.Bundle
 import android.util.Log
 import com.mackwu.component.R
-import com.mackwu.component.base.BaseActivity
 import com.mackwu.component.util.kt.registerReceiver
 import com.mackwu.component.util.kt.usbManager
+import com.mackwu.xmvc.BaseActivity
 import kotlinx.android.synthetic.main.activity_test.*
 
 /**

@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.mackwu.view">
+    package="com.mackwu.view"
+    tools:ignore="MissingLeanbackLauncher">
+
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="false" />
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -10,7 +21,6 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
-        android:name=".ViewApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -27,16 +37,9 @@
         </activity>
 
         <!-- base -->
-        <activity android:name=".basic.recycler.TestActivity" />
         <activity android:name=".basic.TextViewActivity" />
         <activity android:name=".basic.EditTextActivity" />
-        <activity android:name=".basic.SpanActivity" />
-        <activity android:name=".basic.ActionBarActivity" />
         <activity android:name=".basic.recycler.RecyclerActivity" />
-        <activity android:name=".basic.webview.WebViewActivity" />
-        <activity android:name=".basic.viewpager.VpActivity" />
-        <activity android:name=".basic.viewpager.VpFTabActivity" />
-        <activity android:name=".basic.DialogActivity" />
 
         <!-- md -->
         <activity android:name=".basic.md.DrawerActivity" />
