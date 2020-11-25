@@ -1,6 +1,0 @@
-
-
-addTextChangedListener监听用户输入状态
-setOnEditorActionListener
-
-软键盘

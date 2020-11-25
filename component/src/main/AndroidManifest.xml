@@ -12,6 +12,9 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
 
     <uses-feature
         android:name="android.hardware.usb.host"
@@ -32,12 +35,6 @@
                 <action android:name="com.mackwu.component.ACTION_SERVICE" />
             </intent-filter>
         </service>
-        <!--
-            android:name="android.accessibilityservice.AccessibilityService" 声明辅助功能服务
-            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" 权限
-            android:label="xxx" 名称
-            android:resource="@xml/accessibilty_config" 配置
-        -->
         <service
             android:name=".service.other.AccessService"
             android:label="accessibility test"
@@ -49,6 +46,23 @@
                 android:name="android.accessibilityservice"
                 android:resource="@xml/accessibilty_config" />
         </service>
+        <service
+            android:name=".service.MyDreamService"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="Screensaver"
+            android:permission="android.permission.BIND_DREAM_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.dreams.DreamService" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data
+                android:name="android.service.dream"
+                android:resource="@xml/dream_config" />
+        </service>
+
+        <service android:name="com.zlw.main.recorderlib.recorder.RecordService" />
 
         <!-- receiver -->
         <!-- 静态注册，在Manifest中注册，广播会跟随程序的生命周期，直到程序被销毁 -->
@@ -69,7 +83,7 @@
             android:name=".provider.student.StudentProvider"
             android:authorities="com.mackwu.component.provider.student.StudentProvider" />
 
-        <!-- main activity -->
+        <!--   activity   -->
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -77,29 +91,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!--   activity   -->
-        <activity android:name="com.mackwu.component.ui.other.TargetActivity" />
-        <activity android:name="com.mackwu.component.ui.other.LaunchModeActivity" />
-        <activity android:name="com.mackwu.component.ui.other.LifecycleActivity" />
-        <activity android:name=".service.other.TestServiceActivity" />
+        <activity android:name=".SecondActivity" />
         <activity android:name=".provider.student.StudentActivity" />
         <activity android:name=".provider.weather.WeatherActivity" />
-        <activity android:name=".jetpack.ViewModelActivity" />
-        <activity android:name=".jetpack.LiveDataActivity" />
         <activity android:name=".other.db.DbActivity" />
         <activity android:name=".other.SettingActivity" />
         <activity android:name=".other.TimerActivity" />
         <activity android:name=".other.NoStatusBarActivity" />
-        <activity android:name=".other.usb.UsbActivity">
-            <intent-filter>
-                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
-            </intent-filter>
-            <!--            <meta-data-->
-            <!--                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"-->
-            <!--                android:resource="@xml/device_filter" />-->
-        </activity>
         <activity android:name=".ui.FragmentActivity" />
+        <activity android:name=".ui.LottieActivity" />
+        <activity android:name=".ui.WifiActivity" />
+        <activity android:name=".ui.ScreensaverActivity" />
 
     </application>
 

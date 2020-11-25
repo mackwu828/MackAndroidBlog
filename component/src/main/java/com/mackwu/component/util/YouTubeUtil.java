@@ -31,20 +31,20 @@ public final class YouTubeUtil {
      */
     public static void start(Context context, String videoId, boolean isYouTubeFirst, YouTubeInstallListener listener){
         if (isYouTubeFirst) {
-            if (PackageUtil.isInstalled(context, YOUTUBE_PACKAGE)) {
+            if (PackageUtil.isAppInstalled(context, YOUTUBE_PACKAGE)) {
                 startYoutube(context, videoId);
                 return;
             }
-            if (PackageUtil.isInstalled(context, SMART_YOUTUBE_PACKAGE)) {
+            if (PackageUtil.isAppInstalled(context, SMART_YOUTUBE_PACKAGE)) {
                 startSmartYoutube(context, videoId);
                 return;
             }
         } else {
-            if (PackageUtil.isInstalled(context, SMART_YOUTUBE_PACKAGE)) {
+            if (PackageUtil.isAppInstalled(context, SMART_YOUTUBE_PACKAGE)) {
                 startSmartYoutube(context, videoId);
                 return;
             }
-            if (PackageUtil.isInstalled(context, YOUTUBE_PACKAGE)) {
+            if (PackageUtil.isAppInstalled(context, YOUTUBE_PACKAGE)) {
                 startYoutube(context, videoId);
                 return;
             }

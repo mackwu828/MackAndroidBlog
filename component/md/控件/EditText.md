@@ -1,0 +1,6 @@
+
+
+如何监听用户输入状态？addTextChangedListener
+如何监听Action按钮？setOnEditorActionListener
+如何隐藏和显示软键盘？
+如何隐藏和显示密码？

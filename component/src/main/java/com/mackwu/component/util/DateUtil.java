@@ -1,12 +1,14 @@
 package com.mackwu.component.util;
 
 import android.content.Context;
+import android.provider.Settings;
 import android.text.format.DateFormat;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Locale;
 
 /**
@@ -40,6 +42,13 @@ public final class DateUtil {
     }
 
     /**
+     * 获取星期几
+     */
+    public static int getWeek() {
+        return getCalendar().get(Calendar.DAY_OF_WEEK);
+    }
+
+    /**
      * 获取日
      */
     public static int getDay() {
@@ -54,13 +63,6 @@ public final class DateUtil {
     }
 
     /**
-     * 获取时。判断是否是24小时制。
-     */
-    public static int getHour(Context context) {
-        return DateFormat.is24HourFormat(context) ? getCalendar().get(Calendar.HOUR_OF_DAY) : getCalendar().get(Calendar.HOUR);
-    }
-
-    /**
      * 获取分
      */
     public static int getMinute() {
@@ -68,27 +70,94 @@ public final class DateUtil {
     }
 
     /**
-     * 格式转换。int转2位数
+     * int补0。
+     * 如: intToStr(1)  1 => 01
      */
-    public static String format(int time) {
-        return String.format(Locale.getDefault(), "%02d", time);
+    public static String intComplement0(int i) {
+        return String.format(Locale.getDefault(), "%02d", i);
     }
 
     /**
-     * 时间字符串格式转换
+     * 是否24小时制
+     */
+    public static boolean is24HourFormat(Context context) {
+        return DateFormat.is24HourFormat(context);
+    }
+
+    /**
+     * 设置24/12小时制。
+     * 命令行：settings put system time_12_24 24
+     * settings get system time_12_24
+     * 注：需要系统权限
+     */
+    public static void setHourFormat(Context context, boolean is24HourFormat) {
+        Settings.System.putString(context.getContentResolver(), Settings.System.TIME_12_24, is24HourFormat ? "24" : "12");
+    }
+
+    /**
+     * 是否是am
+     */
+    public static boolean isAm() {
+        GregorianCalendar gregorianCalendar = new GregorianCalendar();
+        return gregorianCalendar.get(GregorianCalendar.AM_PM) == Calendar.AM;
+    }
+
+    /**
+     * 时间单位：AM或者PM
+     */
+    public static String getTimeUnit() {
+        return isAm() ? "AM" : "PM";
+    }
+
+
+    /**
+     * 时间戳转日期字符串。
+     * 例子：stampToDateStr(System.currentTimeMillis(), "yyyy-MM-dd HH:mm:ss")
+     * 结果：2020-11-18 15:24:07
      *
-     * @param sourceTime    源时间字符串
+     * @param time    时间戳。如System.currentTimeMillis()
+     * @param pattern 时间戳格式。如 yyyy-MM-dd HH:mm:ss
+     */
+    public static String stampToDateStr(long time, String pattern) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern, Locale.getDefault());
+        return simpleDateFormat.format(time);
+    }
+
+    /**
+     * 日期字符串转时间戳。
+     * 例子：
+     *
+     * @param dateStr 日期字符串
+     * @param pattern 格式
+     */
+    public static long dateStrToStamp(String dateStr, String pattern) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern, Locale.getDefault());
+        try {
+            Date date = simpleDateFormat.parse(dateStr);
+            if (date != null) return date.getTime();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+
+    /**
+     * 日期字符串格式转换。
+     * 例子：dateStrFormat("21:03", "HH:mm", Locale.getDefault(), "hh:mm aa", Locale.ENGLISH)
+     * 结果：09:05 PM
+     *
+     * @param sourceDateStr 源时间字符串。如21:03
      * @param sourcePattern 源时间格式
      * @param sourceLocale  源语言
      * @param destPattern   目标时间格式
      * @param destLocale    目标语言
-     * @return 目标时间字符串
      */
-    public static String format(String sourceTime, String sourcePattern, Locale sourceLocale, String destPattern, Locale destLocale) {
+    public static String dateStrFormat(String sourceDateStr, String sourcePattern, Locale sourceLocale, String destPattern, Locale destLocale) {
         try {
             SimpleDateFormat sourceFormat = new SimpleDateFormat(sourcePattern, sourceLocale);
             SimpleDateFormat destFormat = new SimpleDateFormat(destPattern, destLocale);
-            Date sourceDate = sourceFormat.parse(sourceTime);
+            Date sourceDate = sourceFormat.parse(sourceDateStr);
             if (sourceDate != null) {
                 return destFormat.format(sourceDate);
             }
@@ -98,16 +167,22 @@ public final class DateUtil {
         return "";
     }
 
-    public static void formatHourMinute(){
-        String sourceTime = format(getHour()) + ":" + format(getMinute());
-        System.out.println(sourceTime);
-        System.out.println(format(sourceTime, "HH:mm", Locale.getDefault(), "hh:mm aa", Locale.ENGLISH));
+    /**
+     * 小时分钟字符串格式转换。
+     * 例子：当前时间 => 24小时制：21:05、12小时制：09:05 PM
+     */
+    public static String hourMinuteDateStrFormat(Context context) {
+        String sourceTime = intComplement0(getHour()) + ":" + intComplement0(getMinute());
+        if (DateFormat.is24HourFormat(context)) {
+            return sourceTime;
+        }
+        return dateStrFormat(sourceTime, "HH:mm", Locale.getDefault(), "hh:mm aa", Locale.ENGLISH);
     }
 
     public static void main(String[] args) {
-        String sourceTime = format(getHour()) + ":" + format(getMinute());
-        System.out.println(sourceTime);
-        System.out.println(format(sourceTime, "HH:mm", Locale.getDefault(), "hh:mm aa", Locale.ENGLISH));
+        System.out.println(dateStrToStamp("2020-11-18 15:24:07", "yyyy-MM-dd HH:mm:ss"));
+        long a = System.currentTimeMillis() - dateStrToStamp("2020-11-18 15:24:07", "yyyy-MM-dd HH:mm:ss");
+        System.out.println(a / 1000 / 60 / 60 / 24);
     }
 
 }

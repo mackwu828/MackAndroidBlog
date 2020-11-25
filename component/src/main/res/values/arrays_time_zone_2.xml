@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="america_time_zone_names" >
+        <item>Denver</item>
+        <item>Costa_Rica</item> 
+        <item>Chicago</item>
+        <item>Mexico_City</item>   
+        <item>Regina</item> 
+        <item>Anchorage</item>
+        <item>Los_Angeles</item> 
+        <item>Tijuana</item>
+        <item>Phoenix</item>  
+        <item>Chihuahua</item>  
+        <item>Bogota</item>
+        <item>New_York</item>   
+        <item>Caracas</item>
+        <item>Barbados</item>
+        <item>Manaus</item> 
+        <item>Santiago</item>
+        <item>St_Johns</item>  
+        <item>Sao_Paulo</item>
+        <item>Godthab</item>
+        <item>Montevideo</item>  
+        <item>Argentina/Buenos_Aires</item>
+    </string-array>
+
+
+</resources>

@@ -1,10 +1,12 @@
 package com.mackwu.component.util;
 
-import android.app.Activity;
-import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.provider.Settings;
 
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentActivity;
+
+import com.mackwu.xmvc.util.LogUtil;
 
 /**
  * ===================================================
@@ -15,18 +17,35 @@ import androidx.core.content.ContextCompat;
  */
 public final class PermissionUtil {
 
-    /**
-     * check self permission
-     */
-    public static void checkSelfPermission(Context context, String permission) {
-        ContextCompat.checkSelfPermission(context, permission);
+    public static final int SYSTEM_ALERT_WINDOW_REQUEST_CODE = 0x01;
+
+    public interface OnPermissionGrantedListener {
+        void OnPermissionGranted();
     }
 
     /**
-     * request permissions
+     * 申请悬浮窗权限。
+     * Android6.0(包括6.0)以上需要申请悬浮窗权限
      */
-    public static void requestPermissions(Activity activity, String[] permissions, int requestCode) {
-        ActivityCompat.requestPermissions(activity, permissions, requestCode);
+    public static void requestSystemAlertWindow(FragmentActivity activity, OnPermissionGrantedListener listener) {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            if (canDrawOverlays(activity)) {
+                if (listener != null) listener.OnPermissionGranted();
+            } else {
+                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+                intent.setData(Uri.parse("package:" + activity.getPackageName()));
+                activity.startActivityForResult(intent, SYSTEM_ALERT_WINDOW_REQUEST_CODE);
+            }
+        }
+    }
+
+    public static boolean canDrawOverlays(FragmentActivity activity) {
+        boolean canDrawOverlays = true;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            canDrawOverlays = Settings.canDrawOverlays(activity);
+        }
+        LogUtil.d("canDrawOverlays: " + canDrawOverlays);
+        return canDrawOverlays;
     }
 
 }

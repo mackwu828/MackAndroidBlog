@@ -1,98 +1,21 @@
 # MackAndroidBlog
 
-## 目录
-* [Component](/component)
-    * Activity
-        * 生命周期
-            * [Activity生命周期：基础](/component/md/activity/生命周期/Activity生命周期：基础.md)
-        * 启动方式     
-            * [Activity启动方式：基础](/component/md/activity/启动方式/Activity启动方式：基础.md)
-            * [Activity启动方式：启动另一个进程的Activity](/component/md/activity/启动方式/Activity启动方式：启动另一个进程的Activity.md)
-        * [启动模式](/component/md/activity/Activity启动模式.md)
-        * ActivityLifecycleCallbacks、Activity启动流程、Activity管理机制
-    * BroadcastReceiver
-    * Service
-    * ContentProvider
-* [View](/view)
-    * 基础
-        * [TestView](/view/md/TextView.md)
-        * [EditText](/view/md/EditText.md)
-        * Button
-        * ViewPager
-        * RecyclerView
-        * WebView
-    * MD
-        * DrawerLayout
-        * CardView
-    * Leanback
-    * 自定义View
-        * 滑动
-        * 绘制
-        * 测量
-        * 布局
-* [Anim](/anim)
-    * [逐帧动画](/anim/逐帧动画.md)
-    * [补间动画](/anim/补间动画.md)
-    * [属性动画](/anim/属性动画.md)
-    * [Animation源码分析](/anim/Animation源码分析.md)
-* [网络](/http)
-    * [RxJava](/http/md/RxJava.md)
-    * OkHttp
-    * Retrofit
-    * JetPack
-        * Lifecycle
-        * LiveData
-        * ViewModel
-        * Navigation、Paging、Room、WorkManger、数据绑定
-* [适配](/adapt)
-    * [Android版本号与API级别对应关系表](https://blog.csdn.net/qq_31841675/article/details/82746616)
-    * 屏幕适配
-        * 屏幕适配基础
-        * 宽高限定符适配方案
-        * 最小宽度限定符适配方案
-        * 今日头条适配方案
-    * 版本适配
-        * Android6.0适配
-        * Android7.0适配
-        * Android8.0适配
-        * Android9.0适配
-    * 多语言适配
-    * 状态栏适配
-    * 渠道适配
-* [性能优化](/performance)
-    * ANR优化
-    * 内存优化
-    * 启动优化
-    * 布局优化
-* [多媒体](/media)
-    * 音频
-        * 音频基础
-        * 音频录制
-            * AudioRecord
-        * 音频播放
-            * SoundPool
-            * MediaPlayer
-    * 视频
-        * 视频录制
-        * 视频播放
-            * MediaPlayer
-    * exoPlayer
-* [开源集成](/opensource)
-    * [Maven](/opensource/md/maven/Maven.md)
-    * Jenkins
-    * Bugly
-    * 友盟
-    * 亚马逊
-    * Google
-* [Kotlin](/kt)
-    * [资料](/kt/md/资料.md)
-    * 基础
-        * [Kotlin基础：变量](/kt/md/基础/Kotlin基础：变量.md)
-    * 类
-        * [Kotlin类：基础](/kt/md/类/Kotlin类：基础.md)
-        * [Kotlin类：属性](/kt/md/类/Kotlin类：属性.md)
-        * [Kotlin类：对象](/kt/md/类/Kotlin类：对象.md)
-        * [Kotlin类：继承](/kt/md/类/Kotlin类：继承.md)
-    * 函数
-    * 协程
-    * 设计模式
+## 四大组件
+### Activity
+### BroadcastReceiver
+### Service
+### ContentProvider
+
+## View
+
+## 动画
+
+## 图片
+
+## 网络
+
+## 适配
+
+## 性能优化
+
+## 多媒体

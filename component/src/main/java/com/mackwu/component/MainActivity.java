@@ -1,17 +1,16 @@
 package com.mackwu.component;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
-import androidx.viewpager.widget.ViewPager;
 
+import com.bumptech.glide.Glide;
 import com.mackwu.xmvc.BaseActivity;
-import com.ogaclejapan.smarttablayout.SmartTabLayout;
-import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
-import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * ===================================================
@@ -22,10 +21,8 @@ import butterknife.BindView;
  */
 public class MainActivity extends BaseActivity {
 
-    @BindView(R.id.smart_tab_layout)
-    SmartTabLayout smartTabLayout;
-    @BindView(R.id.view_pager)
-    ViewPager viewPager;
+    @BindView(R.id.iv_test)
+    ImageView ivTest;
 
     @Override
     public int getLayoutId() {
@@ -34,22 +31,22 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initView(@Nullable final Bundle savedInstanceState) {
-        // data
-        FragmentPagerItems fragmentPagerItems = FragmentPagerItems.with(this)
-                .add("Activity", BasicFragment.class)
-                .add("Jetpack", JetpackFragment.class)
-                .create();
-        // adapter
-        FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(getSupportFragmentManager(), fragmentPagerItems);
-        // viewPager
-        viewPager.setAdapter(adapter);
-        // smartTabLayout
-        smartTabLayout.setViewPager(viewPager);
+//        ActivityStartUtil.startActivity(this, LottieActivity.class);
+        Glide.with(this)
+                .asGif()
+                .load(R.raw.music_loading)
+                .into(ivTest);
     }
 
     @Override
     public void initData(@Nullable final Bundle savedInstanceState) {
+    }
 
+    public void start(View view) {
+    }
+
+    @OnClick(R.id.btn_test)
+    public void onBtnTestClicked() {
     }
 
 }

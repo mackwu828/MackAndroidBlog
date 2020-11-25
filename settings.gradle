@@ -1,2 +1,2 @@
 include ':xmvc'
-include ':component', ':view', ':anim', ':http', ':media', ':java_kt'
+include ':component', ':view', ':http', ':java_kt'
