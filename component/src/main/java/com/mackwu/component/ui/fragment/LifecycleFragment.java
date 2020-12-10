@@ -10,7 +10,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.mackwu.xmvc.BaseFragment;
+import com.mackwu.mvvm.fragment.BaseFragment;
+
 
 /**
  * ===================================================

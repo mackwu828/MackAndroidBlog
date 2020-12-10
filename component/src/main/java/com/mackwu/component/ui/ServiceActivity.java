@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 
 import com.mackwu.component.R;
 import com.mackwu.component.service.MyService;
-import com.mackwu.xmvc.BaseActivity;
+import com.mackwu.mvvm.BaseActivity;
 
 /**
  * ===================================================
@@ -45,5 +45,10 @@ public class ServiceActivity extends BaseActivity {
 
         Intent intent = new Intent(this, MyService.class);
         bindService(intent, serviceConnection, Service.BIND_AUTO_CREATE);
+    }
+
+    @Override
+    public void initData(@Nullable Bundle savedInstanceState) {
+
     }
 }

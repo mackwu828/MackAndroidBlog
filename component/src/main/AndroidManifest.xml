@@ -27,6 +27,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:name=".ComponentApp"
         tools:ignore="GoogleAppIndexingWarning">
 
         <!-- service -->
@@ -84,14 +85,14 @@
             android:authorities="com.mackwu.component.provider.student.StudentProvider" />
 
         <!--   activity   -->
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SecondActivity" />
+        <activity android:name=".ui.SecondActivity" />
         <activity android:name=".provider.student.StudentActivity" />
         <activity android:name=".provider.weather.WeatherActivity" />
         <activity android:name=".other.db.DbActivity" />

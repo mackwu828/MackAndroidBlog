@@ -6,9 +6,8 @@ import android.view.WindowManager;
 import androidx.annotation.Nullable;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.airbnb.lottie.LottieDrawable;
 import com.mackwu.component.R;
-import com.mackwu.xmvc.BaseActivity;
+import com.mackwu.mvvm.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -35,6 +34,11 @@ public class LottieActivity extends BaseActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
+    @Override
+    public void initData(@Nullable Bundle savedInstanceState) {
+
+    }
+
     @OnClick(R.id.btn_start)
     public void onBtnStartClicked() {
         startAnimation("listening.json");
@@ -52,7 +56,7 @@ public class LottieActivity extends BaseActivity {
      */
     private void startAnimation(final String assetName) {
         lottieAnimationView.setAnimation(assetName);
-        lottieAnimationView.setRepeatCount(LottieDrawable.INFINITE);
+//        lottieAnimationView.setRepeatCount(LottieDrawable.INFINITE);
         lottieAnimationView.playAnimation();
     }
 

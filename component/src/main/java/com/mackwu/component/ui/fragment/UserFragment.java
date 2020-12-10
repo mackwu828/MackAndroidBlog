@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.mackwu.component.R;
-import com.mackwu.xmvc.BaseFragment;
+import com.mackwu.mvvm.fragment.BaseFragment;
 
 /**
  * ===================================================
@@ -24,6 +24,11 @@ public class UserFragment extends BaseFragment {
 
     @Override
     public void initView(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+    }
+
+    @Override
+    public void initData(@Nullable Bundle savedInstanceState) {
 
     }
 }

@@ -1,2 +1,4 @@
-include ':xmvc'
-include ':component', ':view', ':http', ':java_kt'
+include ':component', ':http', ':java_kt'
+
+include ':mvvm'
+project(':mvvm').projectDir = new File(settingsDir, '../MVVM/mvvm')

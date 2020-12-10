@@ -1,13 +1,13 @@
 
 
+什么是LiveData？LiveData的数据发生改变时，会自动通知所有观察者。  
+LiveData注册观察者后是否需要解除注册？不需要
+LiveData如何实现事件总线？https://tech.meituan.com/2018/07/26/android-livedatabus.html
+
+
 
 ##
-LiveData实现事件总线
-https://tech.meituan.com/2018/07/26/android-livedatabus.html
 
-
-##
-LiveData的数据发生改变时，会自动通知所有观察者。  
 
 
 ```
@@ -45,7 +45,7 @@ LiveData的数据发生改变时，会自动通知所有观察者。
 //        Transformations.switchMap(userLiveData) { user -> MutableLiveData<String>() }
 ```
 
-## MutableLiveData
+MutableLiveData
 ```
         val userLiveData = MutableLiveData<User>()
         // Observer
@@ -56,7 +56,7 @@ LiveData的数据发生改变时，会自动通知所有观察者。
         btn_test.setOnClickListener { userLiveData.value = User("", "xxx", "") }
 ```
 
-## Transformations#map()
+Transformations#map()
 ```
         val userNameLiveData = Transformations.map(userLiveData) { user -> user.name }
         val userNameObserver = Observer<String> { userName -> btn_test.text = userName }

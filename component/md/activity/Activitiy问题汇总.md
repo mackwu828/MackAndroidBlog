@@ -1,4 +1,15 @@
 
+Activity启动方式
+Activity启动模式
+Activity生命周期
+DeepLink是什么？
+如何设置无标题的Activity？
+如何设置非全屏的Activity？
+如何隐藏状态栏？
+如何获取根布局？
+
+
+
 ## 如何获取根布局？
 ```
         View view = LayoutInflater.from(this).inflate(R.layout.layout_test, null);
