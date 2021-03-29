@@ -3,6 +3,7 @@ package com.mackwu.component.ui.livedata;
 import androidx.lifecycle.MutableLiveData;
 
 import com.mackwu.component.bean.User;
+import com.mackwu.base.util.LogUtil;
 
 /**
  * ===================================================
@@ -13,21 +14,16 @@ import com.mackwu.component.bean.User;
  */
 public class UserLiveData extends MutableLiveData<User> {
 
-    private static UserLiveData userLiveData;
+    private static UserLiveData instance;
+
+    private UserLiveData() {
+    }
 
     public static UserLiveData getInstance() {
-        if (userLiveData == null) {
-            userLiveData = new UserLiveData();
+        if (instance == null) {
+            instance = new UserLiveData();
         }
-        return userLiveData;
-    }
-
-    @Override
-    protected void onActive() {
-    }
-
-    @Override
-    protected void onInactive() {
+        return instance;
     }
 
 }

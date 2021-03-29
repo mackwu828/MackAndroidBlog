@@ -9,9 +9,7 @@ import android.os.IBinder;
 
 import androidx.annotation.Nullable;
 
-import com.mackwu.component.R;
-import com.mackwu.component.service.MyService;
-import com.mackwu.mvvm.BaseActivity;
+import com.mackwu.component.core.MyService;
 
 /**
  * ===================================================
@@ -20,9 +18,9 @@ import com.mackwu.mvvm.BaseActivity;
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-public class ServiceActivity extends BaseActivity {
+public class ServiceActivity extends BaseTestActivity {
 
-    private ServiceConnection serviceConnection = new ServiceConnection() {
+    private final ServiceConnection serviceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             MyService.MyBinder binder = (MyService.MyBinder) service;
@@ -36,19 +34,9 @@ public class ServiceActivity extends BaseActivity {
     };
 
     @Override
-    public int getLayoutId() {
-        return R.layout.activity_test;
-    }
-
-    @Override
     public void initView(@Nullable Bundle savedInstanceState) {
-
         Intent intent = new Intent(this, MyService.class);
         bindService(intent, serviceConnection, Service.BIND_AUTO_CREATE);
     }
 
-    @Override
-    public void initData(@Nullable Bundle savedInstanceState) {
-
-    }
 }

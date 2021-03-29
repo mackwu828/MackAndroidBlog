@@ -1,6 +1,5 @@
 package com.mackwu.component;
 
-import javax.xml.transform.Source;
 
 /**
  * ===================================================
@@ -12,10 +11,6 @@ import javax.xml.transform.Source;
 public class JavaTest {
 
     public static void main(String[] args) {
-        String mac = "7C:25:DA:DD:FB:DF";
-        mac = mac.replaceAll(":", "").replaceAll("%3A", "");
-        StringBuilder stringBuilder = new StringBuilder(mac);
-        stringBuilder.insert(6, "fffe");
-        System.out.println(stringBuilder.toString());
     }
+
 }

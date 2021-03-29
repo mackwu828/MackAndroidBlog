@@ -10,32 +10,27 @@
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission
-        android:name="android.permission.WRITE_SETTINGS"
-        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.BATTERY_STATS"/>
 
     <uses-feature
         android:name="android.hardware.usb.host"
         android:required="true" />
 
     <application
+        android:name=".ComponentApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name=".ComponentApp"
         tools:ignore="GoogleAppIndexingWarning">
 
         <!-- service -->
-        <service android:name=".service.other.TestService">
-            <intent-filter android:priority="1000">
-                <action android:name="com.mackwu.component.ACTION_SERVICE" />
-            </intent-filter>
-        </service>
         <service
             android:name=".service.other.AccessService"
             android:label="accessibility test"
@@ -48,7 +43,7 @@
                 android:resource="@xml/accessibilty_config" />
         </service>
         <service
-            android:name=".service.MyDreamService"
+            android:name=".core.MyDreamService"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
             android:label="Screensaver"
@@ -81,11 +76,14 @@
 
         <!-- provider -->
         <provider
-            android:name=".provider.student.StudentProvider"
-            android:authorities="com.mackwu.component.provider.student.StudentProvider" />
+            android:name=".other.provider.student.StudentProvider"
+            android:authorities="com.mackwu.component.other.provider.student.StudentProvider" />
 
         <!--   activity   -->
-        <activity android:name=".ui.MainActivity">
+        <!--   main   -->
+        <activity
+            android:name=".ui.MainActivity"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -93,16 +91,25 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.SecondActivity" />
-        <activity android:name=".provider.student.StudentActivity" />
-        <activity android:name=".provider.weather.WeatherActivity" />
-        <activity android:name=".other.db.DbActivity" />
-        <activity android:name=".other.SettingActivity" />
-        <activity android:name=".other.TimerActivity" />
-        <activity android:name=".other.NoStatusBarActivity" />
+        <activity android:name=".ui.ThirdActivity" />
         <activity android:name=".ui.FragmentActivity" />
-        <activity android:name=".ui.LottieActivity" />
+        <activity android:name=".ui.TestActivity" />
+
+        <!--    widget    -->
+        <activity android:name=".ui.widget.ViewActivity" />
+        <activity android:name=".ui.widget.TextViewActivity" />
+        <activity
+            android:name=".ui.widget.EditTextActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity android:name=".ui.widget.WebActivity" />
+        <activity android:name=".ui.widget.AgentWebActivity" />
+        <activity android:name=".ui.widget.LottieActivity" />
+
+        <!--    other    -->
+        <activity android:name=".ui.WindowActivity" />
         <activity android:name=".ui.WifiActivity" />
-        <activity android:name=".ui.ScreensaverActivity" />
+        <activity android:name=".ui.HandlerActivity" />
+
 
     </application>
 

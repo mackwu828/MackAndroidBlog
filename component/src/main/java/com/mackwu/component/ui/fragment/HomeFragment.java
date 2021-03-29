@@ -6,8 +6,9 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.mackwu.component.R;
-import com.mackwu.mvvm.fragment.BaseFragment;
+import com.mackwu.base.fragment.BaseFragment;
+import com.mackwu.base.viewmodel.BaseViewModel;
+import com.mackwu.component.databinding.FragmentHomeBinding;
 
 /**
  * ===================================================
@@ -16,19 +17,11 @@ import com.mackwu.mvvm.fragment.BaseFragment;
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-public class HomeFragment extends BaseFragment {
-    @Override
-    public int getLayoutId() {
-        return R.layout.fragment_home;
-    }
+public class HomeFragment extends BaseFragment<BaseViewModel, FragmentHomeBinding> {
 
     @Override
     public void initView(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
     }
 
-    @Override
-    public void initData(@Nullable Bundle savedInstanceState) {
-
-    }
 }

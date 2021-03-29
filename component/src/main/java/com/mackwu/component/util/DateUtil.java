@@ -56,9 +56,16 @@ public final class DateUtil {
     }
 
     /**
-     * 获取时
+     * 获取时。12小时制
      */
-    public static int getHour() {
+    public static int getHour12HourFormat() {
+        return getCalendar().get(Calendar.HOUR);
+    }
+
+    /**
+     * 获取时。24小时制
+     */
+    public static int getHour24HourFormat() {
         return getCalendar().get(Calendar.HOUR_OF_DAY);
     }
 
@@ -82,6 +89,13 @@ public final class DateUtil {
      */
     public static boolean is24HourFormat(Context context) {
         return DateFormat.is24HourFormat(context);
+    }
+
+    /**
+     * 是否12小时制
+     */
+    public static boolean is12HourFormat(Context context) {
+        return !DateFormat.is24HourFormat(context);
     }
 
     /**
@@ -109,6 +123,34 @@ public final class DateUtil {
         return isAm() ? "AM" : "PM";
     }
 
+
+    /**
+     * 获取时间分钟。
+     * 例子：当前时间 => 24小时制：21:05、12小时制：09:05 PM
+     *
+     * @param isHourComplement0 小时是否补0
+     * @param isShowTimeUnit    是否显示AM、PM
+     */
+    public static String getHourMinute(Context context, boolean isHourComplement0, boolean isShowTimeUnit) {
+        if (DateFormat.is24HourFormat(context)) {
+            String hourStr = String.valueOf(getHour24HourFormat());
+            if (isHourComplement0) {
+                hourStr = intComplement0(getHour24HourFormat());
+            }
+            return hourStr + ":" + intComplement0(getMinute());
+        } else {
+            String hourStr = String.valueOf(getHour12HourFormat());
+            if (isHourComplement0) {
+                hourStr = intComplement0(getHour12HourFormat());
+            }
+            if (isShowTimeUnit) {
+                String timeUnit = isAm() ? "AM" : "PM";
+                return hourStr + ":" + intComplement0(getMinute()) + " " + timeUnit;
+            } else {
+                return hourStr + ":" + intComplement0(getMinute());
+            }
+        }
+    }
 
     /**
      * 时间戳转日期字符串。
@@ -167,22 +209,10 @@ public final class DateUtil {
         return "";
     }
 
-    /**
-     * 小时分钟字符串格式转换。
-     * 例子：当前时间 => 24小时制：21:05、12小时制：09:05 PM
-     */
-    public static String hourMinuteDateStrFormat(Context context) {
-        String sourceTime = intComplement0(getHour()) + ":" + intComplement0(getMinute());
-        if (DateFormat.is24HourFormat(context)) {
-            return sourceTime;
-        }
-        return dateStrFormat(sourceTime, "HH:mm", Locale.getDefault(), "hh:mm aa", Locale.ENGLISH);
-    }
-
-    public static void main(String[] args) {
-        System.out.println(dateStrToStamp("2020-11-18 15:24:07", "yyyy-MM-dd HH:mm:ss"));
-        long a = System.currentTimeMillis() - dateStrToStamp("2020-11-18 15:24:07", "yyyy-MM-dd HH:mm:ss");
-        System.out.println(a / 1000 / 60 / 60 / 24);
-    }
+//    public static void main(String[] args) {
+//        System.out.println(dateStrToStamp("2020-11-18 15:24:07", "yyyy-MM-dd HH:mm:ss"));
+//        long a = System.currentTimeMillis() - dateStrToStamp("2020-11-18 15:24:07", "yyyy-MM-dd HH:mm:ss");
+//        System.out.println(a / 1000 / 60 / 60 / 24);
+//    }
 
 }

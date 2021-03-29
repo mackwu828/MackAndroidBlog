@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name" translatable="false">component</string>
-
     <string name="hello">hello</string>
 </resources>

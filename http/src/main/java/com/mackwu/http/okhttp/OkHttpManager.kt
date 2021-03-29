@@ -62,7 +62,7 @@ object OkHttpManager {
 
             override fun onFailure(call: Call, e: IOException) {
                 e.printStackTrace()
-                Log.d("TAG",  e.message)
+                Log.d("TAG",  e.message ?: "")
                 onFailure?.invoke(call, e)
             }
         })

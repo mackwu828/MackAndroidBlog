@@ -1,7 +1,9 @@
 package com.mackwu.component;
 
 import android.app.Application;
+import android.content.Context;
 
+import com.mackwu.base.util.LogUtil;
 import com.tencent.mmkv.MMKV;
 
 /**
@@ -13,9 +15,20 @@ import com.tencent.mmkv.MMKV;
  */
 public class ComponentApp extends Application {
 
+    public ComponentApp() {
+        LogUtil.d("ComponentApp constructor");
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
         MMKV.initialize(this);
+        LogUtil.d("ComponentApp onCreate");
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        LogUtil.d("ComponentApp attachBaseContext");
     }
 }

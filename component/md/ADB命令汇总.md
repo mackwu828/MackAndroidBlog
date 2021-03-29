@@ -4,15 +4,19 @@
 adb devices 查看所有设备
 adb disconnect 断开所有设备
 adb connect 172.16.0.97:5555 连接设备。参数是设备的ip地址
+
+
 adb install xxx.apk 安装apk。参数是apk的绝对路径
 adb uninstall com.xxx.xxx 卸载apk。参数是包名
-pm clear 包名 清除缓存
-pm list packages -f 查看所有包名所在路径
-pm list packages -f | grep xxx  xxx是关键字，用来过滤，可以是包名。
-pm dump com.xxx.xxx | grep “versionName”  查看包名所在路径
-cat /sys/class/net/eth0/address 查看设备的mac地址
+adb shell pm clear 包名 清除缓存
+adb shell pm list packages -f 查看所有包名所在路径
+adb shell pm list packages -f | grep xxx  xxx是关键字，用来过滤，可以是包名。
+adb shell dumpsys package com.google.android.youtube.tv "| grep versionName" 查看应用版本号
 keytool -list -v -keystore xxx.jks 查看签名文件的签名信息。参数是签名的绝对路径
 keytool -printcert -file CERT.RSA 查看apk的签名信息。apk重命名zip，解压。进入META-INF目录，找到CERT.RSA文件
+
+
+cat /sys/class/net/eth0/address 查看设备的mac地址
 mount -o remount,rw /system 获取读取权限
 rm -rf xxx.apk 删除xxx.apk
 adb pull /system/app/xxx  拷贝系统目录文件到桌面
@@ -23,6 +27,8 @@ adb shell setprop xxx xxx 设置系统属性
 adb shell cat /proc/cpuinfo 查看cpu信息
 adb shell getprop ro.product.cpu.abi 查看cpu架构
 adb shell am force-stop 包名 杀死指定应用/进程
+adb shell cat /sys/class/net/wlan0/address 获取mac地址
+adb shell cat /sys/class/net/eth0/address 获取mac地址
 ```
 
 ```

@@ -1,7 +1,14 @@
 
 
-什么是LiveData？LiveData的数据发生改变时，会自动通知所有观察者。  
-LiveData注册观察者后是否需要解除注册？不需要
+什么是LiveData？
+- LiveData是一个可以被观察的数据持有类。LiveData的数据发生改变时，会自动通知所有观察者。
+- LiveData可以感知Activity、Fragment、Service等组件的生命周期。
+
+LiveData注册后是否需要解除注册？不需要。  
+LiveData 只会通知处于 Active 状态的观察者，如果一个观察者处于 Paused 或 Destroyed 状态，它将不会受到通知。
+所以 LiveData 不需要在 Activity/Fragment 的 onPause 或 onDestroy 中接触订阅。
+一旦观察者重新恢复 Resumed 状态，它将会重新收到 LiveData 的最新数据。
+
 LiveData如何实现事件总线？https://tech.meituan.com/2018/07/26/android-livedatabus.html
 
 
@@ -62,11 +69,4 @@ Transformations#map()
         val userNameObserver = Observer<String> { userName -> btn_test.text = userName }
         userNameLiveData.observe(this, userNameObserver)
 ```
-## 
 
-## Transformations#switchMap()
-
-## 无需解除订阅
-LiveData 只会通知处于 Active 状态的观察者，如果一个观察者处于 Paused 或 Destroyed 状态，它将不会受到通知。
-所以 LiveData 不需要在 Activity/Fragment 的 onPause 或 onDestroy 中接触订阅。
-一旦观察者重新恢复 Resumed 状态，它将会重新收到 LiveData 的最新数据。

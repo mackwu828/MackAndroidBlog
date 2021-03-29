@@ -99,7 +99,7 @@ public final class PackageUtil {
     }
 
 
-    /**
+    /*
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * 其他 * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
      */
     /**
@@ -173,7 +173,7 @@ public final class PackageUtil {
      * 注：需要系统权限。activityManager.killBackgroundProcesses not working
      * https://stackoverflow.com/questions/9886525/killbackgroundprocesses-is-not-working
      */
-    public static void killThirdPartyApp(Context context, String packageName) {
+    public static void killThirdPartyActivity(Context context, String packageName) {
         try {
             ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
             Method forceStopPackage = activityManager.getClass().getDeclaredMethod("forceStopPackage", String.class);

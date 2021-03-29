@@ -1,13 +1,14 @@
 package com.mackwu.component.ui;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 
-import com.mackwu.component.R;
-import com.mackwu.mvvm.BaseActivity;
-
-import butterknife.OnClick;
+import com.mackwu.base.util.LogUtil;
+import com.mackwu.base.viewmodel.BaseViewModel;
+import com.mackwu.component.databinding.ActivityTestBinding;
 
 /**
  * ===================================================
@@ -16,26 +17,28 @@ import butterknife.OnClick;
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-public class SecondActivity extends BaseActivity {
+public class SecondActivity extends TestActivity<BaseViewModel, ActivityTestBinding> {
 
-    @Override
-    public int getLayoutId() {
-        return R.layout.activity_main;
-    }
+    public static final String TAG = SecondActivity.class.getSimpleName();
 
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
-
+        super.initView(savedInstanceState);
+//        ActivityStartUtil.startActivity(this, ThirdActivity.class);
+//        binding.btnTest.setOnClickListener(v -> {
+//            ActivityStartUtil.startActivity(this, MainActivity.class);
+//            finish();
+//        });
     }
 
     @Override
-    public void initData(@Nullable Bundle savedInstanceState) {
-
+    protected void onDestroy() {
+        super.onDestroy();
+        LogUtil.d(TAG, "onDestroy...");
     }
 
-    @OnClick(R.id.btn_test)
-    public void onBtnTestClicked() {
-
+    public static void start(Context context) {
+        Intent intent = new Intent(context, SecondActivity.class);
+        context.startActivity(intent);
     }
-
 }
