@@ -1,4 +1,4 @@
-package com.mackwu.component.core;
+package com.mackwu.component.service;
 
 import android.app.Notification;
 import android.app.NotificationChannel;

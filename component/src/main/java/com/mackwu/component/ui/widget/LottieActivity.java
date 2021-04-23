@@ -28,10 +28,10 @@ public class LottieActivity extends BaseActivity<MainViewModel, LottieActivityBi
 //        });
 
         binding.btnStart.setOnClickListener(v -> {
-            startAnimation("listening.json");
+            startAnimation("error.json");
         });
         binding.btnStop.setOnClickListener(v -> {
-            startAnimation("thinking.json");
+            startAnimation("error.json");
         });
     }
 
@@ -40,8 +40,8 @@ public class LottieActivity extends BaseActivity<MainViewModel, LottieActivityBi
      */
     private void startAnimation(final String assetName) {
         binding.lottieAnimationView.setAnimation(assetName);
-//        binding.lottieAnimationView.setRepeatCount(LottieDrawable.INFINITE);
-        binding.lottieAnimationView.setRepeatCount(0);
+        binding.lottieAnimationView.setRepeatCount(LottieDrawable.INFINITE);
+//        binding.lottieAnimationView.setRepeatCount(0);
         binding.lottieAnimationView.playAnimation();
     }
 

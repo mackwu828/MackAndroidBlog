@@ -4,12 +4,14 @@ import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Bundle;
 import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import androidx.annotation.Nullable;
 
 import com.mackwu.base.BaseActivity;
 import com.mackwu.base.viewmodel.BaseViewModel;
-import com.mackwu.component.databinding.WdigetActivityWebBinding;
+import com.mackwu.component.databinding.WidgetActivityWebBinding;
 
 /**
  * ===================================================
@@ -18,7 +20,7 @@ import com.mackwu.component.databinding.WdigetActivityWebBinding;
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-public class WebActivity extends BaseActivity<BaseViewModel, WdigetActivityWebBinding> {
+public class WebActivity extends BaseActivity<BaseViewModel, WidgetActivityWebBinding> {
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -47,8 +49,14 @@ public class WebActivity extends BaseActivity<BaseViewModel, WdigetActivityWebBi
         // 设置布局算法
         webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING);
 
-//        binding.webView.loadUrl("https://www.amazon.com/gp/video/detail/B0892NW6PN/ref=atv_dl_rdr?tag=justwatch09-20");
-        binding.webView.loadUrl("https://www.baidu.com/");
+        binding.webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+                return true;
+            }
+        });
+        binding.webView.loadUrl("https://www.youtube.com/watch?v=XWhZDQkq0bw");
     }
 
 }

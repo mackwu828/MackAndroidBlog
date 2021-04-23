@@ -4,7 +4,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.tbruyelle.rxpermissions3.RxPermissions;
 
-import io.reactivex.rxjava3.functions.Consumer;
+import java.util.function.Consumer;
 
 /**
  * ===================================================
@@ -24,9 +24,9 @@ public final class PermissionUtil {
      * @param consumer   consumer
      */
     public static void requestPermission(FragmentActivity activity, String permission, Consumer<Boolean> consumer) {
-        RxPermissions rxPermissions = new RxPermissions(activity);
-        rxPermissions.request(permission)
-                .subscribe(consumer);
+//        RxPermissions rxPermissions = new RxPermissions(activity);
+//        rxPermissions.request(permission)
+//                .subscribe(consumer);
     }
 
     /**
@@ -40,9 +40,9 @@ public final class PermissionUtil {
      * });
      */
     public static void requestPermissions(FragmentActivity activity, Consumer<Boolean> consumer, String... permissions) {
-        RxPermissions rxPermissions = new RxPermissions(activity);
-        rxPermissions.request(permissions)
-                .subscribe(consumer);
+//        RxPermissions rxPermissions = new RxPermissions(activity);
+//        rxPermissions.request(permissions)
+//                .subscribe(consumer);
     }
 
 }

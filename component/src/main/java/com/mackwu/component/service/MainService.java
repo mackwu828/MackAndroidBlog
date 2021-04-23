@@ -1,11 +1,12 @@
-package com.mackwu.component.core;
+package com.mackwu.component.service;
 
-import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.LifecycleService;
 
 /**
  * ===================================================
@@ -14,11 +15,13 @@ import androidx.annotation.Nullable;
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-public class MyService extends Service {
+public class MainService extends LifecycleService {
 
     @Override
     public void onCreate() {
         super.onCreate();
+        MainObserver mainObserver = new MainObserver();
+        getLifecycle().addObserver(mainObserver);
     }
 
     @Override
@@ -33,7 +36,8 @@ public class MyService extends Service {
 
     @Nullable
     @Override
-    public IBinder onBind(Intent intent) {
+    public IBinder onBind(@NonNull Intent intent) {
+        super.onBind(intent);
         return new MyBinder();
     }
 
@@ -43,8 +47,8 @@ public class MyService extends Service {
     }
 
     public class MyBinder extends Binder {
-        public MyService getService() {
-            return MyService.this;
+        public MainService getService() {
+            return MainService.this;
         }
     }
 }

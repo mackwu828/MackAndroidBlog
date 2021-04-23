@@ -2,6 +2,9 @@ package com.mackwu.component.util;
 
 import android.util.Base64;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -116,4 +119,5 @@ public final class EncryptUtil {
     public static String hMacMd5(String key, String str) {
         return encrypt("HmacMD5", key, str);
     }
+
 }

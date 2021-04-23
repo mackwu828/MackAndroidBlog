@@ -1,11 +1,6 @@
 package com.mackwu.component.util;
 
-import com.mackwu.component.core.IotAction;
-
 import java.lang.reflect.Method;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-import java.util.Locale;
 
 /**
  * ===================================================
@@ -40,27 +35,27 @@ public final class AnnotationUtil {
     public void invokeMethod(String data) {
         Method[] methods = cls.getMethods();
         for (Method method : methods) {
-            if (method.isAnnotationPresent(IotAction.class)) {
-                IotAction annotation = method.getAnnotation(IotAction.class);
-//                try {
-//                    if (data.equals(annotation.value())) {
-//                        method.invoke(cls.newInstance(), "ni");
+//            if (method.isAnnotationPresent(IotAction.class)) {
+//                IotAction annotation = method.getAnnotation(IotAction.class);
+////                try {
+////                    if (data.equals(annotation.value())) {
+////                        method.invoke(cls.newInstance(), "ni");
+////                    }
+////                } catch (Throwable e) {
+////                    e.printStackTrace();
+////                }
+//                Class<?> subCls = cls.getSuperclass();
+//                Method[] subclassMethods = subCls.getMethods();
+//                for (Method subclassMethod : subclassMethods) {
+//                    try {
+//                        if (subclassMethod.getName().equals(method.getName())) {
+//                            subclassMethod.invoke(subCls.newInstance(), "xxxxx");
+//                        }
+//                    } catch (Throwable e) {
+//                        e.printStackTrace();
 //                    }
-//                } catch (Throwable e) {
-//                    e.printStackTrace();
 //                }
-                Class<?> subCls = cls.getSuperclass();
-                Method[] subclassMethods = subCls.getMethods();
-                for (Method subclassMethod : subclassMethods) {
-                    try {
-                        if (subclassMethod.getName().equals(method.getName())) {
-                            subclassMethod.invoke(subCls.newInstance(), "xxxxx");
-                        }
-                    } catch (Throwable e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
+//            }
         }
     }
 

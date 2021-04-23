@@ -9,7 +9,7 @@ import android.os.IBinder;
 
 import androidx.annotation.Nullable;
 
-import com.mackwu.component.core.MyService;
+import com.mackwu.component.service.MainService;
 
 /**
  * ===================================================
@@ -23,8 +23,8 @@ public class ServiceActivity extends BaseTestActivity {
     private final ServiceConnection serviceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-            MyService.MyBinder binder = (MyService.MyBinder) service;
-            MyService myService = binder.getService();
+            MainService.MyBinder binder = (MainService.MyBinder) service;
+            MainService mainService = binder.getService();
         }
 
         @Override
@@ -35,7 +35,7 @@ public class ServiceActivity extends BaseTestActivity {
 
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
-        Intent intent = new Intent(this, MyService.class);
+        Intent intent = new Intent(this, MainService.class);
         bindService(intent, serviceConnection, Service.BIND_AUTO_CREATE);
     }
 

@@ -1,13 +1,17 @@
 package com.mackwu.component.ui;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
 import com.mackwu.base.BaseActivity;
 import com.mackwu.base.viewmodel.BaseViewModel;
+import com.mackwu.component.R;
 import com.mackwu.component.databinding.WindowActivityBinding;
-import com.mackwu.component.ui.window.TestWindow;
+import com.mackwu.component.ui.window.Window;
 import com.mackwu.component.util.WindowUtil;
 
 /**
@@ -23,9 +27,23 @@ public class WindowActivity extends BaseActivity<BaseViewModel, WindowActivityBi
     public void initView(@Nullable Bundle savedInstanceState) {
         WindowUtil.requestSystemAlertWindow(this, () -> {
         });
-        binding.btnShow.setOnClickListener(v -> TestWindow.getInstance(this).show());
-        binding.btnHide.setOnClickListener(v -> TestWindow.getInstance(this).hide());
-        binding.btnUpdate.setOnClickListener(v -> TestWindow.getInstance(this).showRandom());
+
+
+        View view = LayoutInflater.from(this).inflate(R.layout.window_layout_test, null);
+        view.findViewById(R.id.iv_test).setOnClickListener(v -> Toast.makeText(this, "XXXXXXXXXXXXXXXXXXXXX", Toast.LENGTH_SHORT).show());
+
+        Window.with(this)
+                .tag("action")
+                .view(view)
+                .width(200)
+                .height(200)
+                .build();
+
+        binding.btnShow.setOnClickListener(v -> Window.get("action").show());
+        binding.btnHide.setOnClickListener(v -> Window.get("action").hide());
+        binding.btnUpdate.setOnClickListener(v -> {
+
+        });
     }
 
 }

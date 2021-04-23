@@ -1,5 +1,6 @@
 
-Activity启动方式有哪些？startActivity、startActivityForResult
+什么是Activity？
+Activity的启动方式？startActivity、startActivityForResult
 启动Activity的最佳方式？
 如何用命令行启动Activity？adb shell am start com.mackwu.component/.MainActivity
 如何通过包名启动Activity？
@@ -25,7 +26,7 @@ Activity生命周期？
 
 
 
-## Activity启动方式有哪些？
+## Activity的启动方式？
 - startActivity
 - startActivityForResult
 

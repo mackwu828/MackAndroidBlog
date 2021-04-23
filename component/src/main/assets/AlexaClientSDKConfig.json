@@ -1,0 +1,128 @@
+{
+	"alertsCapabilityAgent": {
+		"databaseFilePath": "/data/data/com.zeasn.tvappalexa/files/alerts.db"
+	},
+	"avsGatewayManager": {},
+	"bluetooth": {
+		"databaseFilePath": "/data/data/com.zeasn.tvappalexa/files/bluetooth.db"
+	},
+	"capabilitiesDelegate": {
+		"databaseFilePath": "/data/data/com.zeasn.tvappalexa/files/capabilitiesDelegate.db"
+	},
+	"cblAuthDelegate": {
+		"databaseFilePath": "/data/data/com.zeasn.tvappalexa/files/cblAuthDelegate.db"
+	},
+	"certifiedSender": {
+		"databaseFilePath": "/data/data/com.zeasn.tvappalexa/files/certifiedSender.db"
+	},
+	"communications": {
+		"deviceTypeId": "AOAY219MXH304",
+		"inputDevice": {
+			"deviceName": "audioproxy",
+			"driverName": "audioproxy"
+		},
+		"iotCertificateDirPath": "",
+		"iotHostAddress": "",
+		"outputDevice": {
+			"deviceName": "audioproxy",
+			"driverName": "audioproxy"
+		},
+		"sipCertificateFilePath": "/etc/ssl/certs/ca-certificates.crt"
+	},
+	"deviceInfo": {
+		"clientId": "amzn1.application-oa2-client.015082b825bc4bb1a1926a03e9e9db65",
+		"description": "SmartDisplay",
+		"deviceSerialNumber": "EE:3A:52:81:AE:04",
+		"manufacturerName": "Philips",
+		"productId": "SmartTVAOSPMTK8168Beta"
+	},
+	"deviceSettings": {
+		"databaseFilePath": "/data/data/com.zeasn.tvappalexa/files/deviceSettings.db",
+		"defaultLocale": "en-US",
+		"defaultTimezone": "America/Vancouver",
+		"defaultSoundCue": "open",
+		"localeCombinations": [
+			[
+				"en-CA",
+				"fr-CA"
+			],
+			[
+				"fr-CA",
+				"en-CA"
+			]
+		],
+		"locales": [
+			"en-US",
+			"en-GB",
+			"de-DE",
+			"en-IN",
+			"en-CA",
+			"ja-JP",
+			"en-AU",
+			"fr-FR",
+			"it-IT",
+			"es-ES",
+			"es-MX",
+			"fr-CA",
+			"es-US",
+			"hi-IN",
+			"pt-BR"
+		]
+	},
+	"diagnostics": {},
+	"externalMediaPlayer": {
+		"agentString": "CQCAFYNYDC"
+	},
+	"gstreamerMediaPlayer": {
+		"audioSink": "autoaudiosink",
+		"outputConversion": {
+			"channels": 2,
+			"format": "S16LE",
+			"rate": 48000
+		}
+	},
+	"libcurlUtils": {
+		"CURLOPT_CAPATH": "/data/data/com.zeasn.tvappalexa/files",
+		"CURLOPT_CAINFO": "/data/data/com.zeasn.tvappalexa/files/global_cacert.pem"
+	},
+	"logging": {
+		"logLevel": "INFO"
+	},
+	"androidSLESMediaPlayer": {
+		"logLevel": "DEBUG9"
+	},
+	"JvmEnv": {
+		"logLevel": "DEBUG9"
+	},
+	"smartScreenClient": {
+		"logLevel": "DEBUG9"
+	},
+	"speakerManager": {
+		"logLevel": "DEBUG9"
+	},
+	"androidUtilities": {
+		"logLevel": "DEBUG9"
+	},
+	"miscDatabase": {
+		"databaseFilePath": "/data/data/com.zeasn.tvappalexa/files/miscDatabase.db"
+	},
+	"notifications": {
+		"databaseFilePath": "/data/data/com.zeasn.tvappalexa/files/notifications.db"
+	},
+	"sampleApp": {
+		"displayCardsSupported": true,
+		"endpoint": "https://avs-alexa-na.amazon.com",
+		"logLevel": "DEBUG9"
+	},
+	"settings": {
+		"defaultAVSClientSettings": {
+			"locale": "en-US"
+		}
+	},
+	"profile": {
+		"isClientEnabled": 0,
+		"name": "",
+		"email": "",
+		"user_id": ""
+	}
+}

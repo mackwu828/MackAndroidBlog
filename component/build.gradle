@@ -72,32 +72,45 @@ dependencies {
     //
     implementation project(path: ':base-core')
 
+
     // base
     implementation 'com.jakewharton:butterknife:10.2.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
-    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation 'com.tencent:mmkv-static:1.2.6'
+    implementation 'com.jeremyliao:live-event-bus-x:1.7.3'
+    implementation 'com.github.tbruyelle:rxpermissions:0.12'
+    implementation 'com.getkeepsafe.relinker:relinker:1.4.1'
+
+    // http
+//    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
+//    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.14.9'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.14.9'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.14'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+
+    // image
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     implementation 'com.caverock:androidsvg-aar:1.4'
-    implementation 'com.google.code.gson:gson:2.8.6'
-    implementation 'com.tencent:mmkv-static:1.2.6'
-    implementation 'com.jeremyliao:live-event-bus-x:1.7.2'
-    implementation "io.reactivex.rxjava3:rxjava:3.0.4"
-    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
-    implementation 'com.github.tbruyelle:rxpermissions:0.12'
-
-    //
-    implementation 'com.thanosfisherman.wifiutils:wifiutils:1.6.4'
-    implementation 'com.thanosfisherman.elvis:elvis:3.0'
-    implementation 'com.getkeepsafe.relinker:relinker:1.4.1'
-    implementation 'com.github.zhaolewei:ZlwAudioRecorder:v1.07'
 
     // widget
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
-    implementation 'com.airbnb.android:lottie:3.4.1'
+    implementation 'com.airbnb.android:lottie:3.7.0'
     implementation 'com.ogaclejapan.smarttablayout:library:2.0.0@aar'
     implementation 'com.ogaclejapan.smarttablayout:utils-v4:2.0.0@aar'
     implementation 'com.kyleduo.switchbutton:library:2.0.2'
     implementation 'com.just.agentweb:agentweb:4.1.4'
     implementation 'com.youth.banner:banner:2.1.0'
+    implementation 'com.github.yhaolpz:FloatWindow:1.0.9'
+    implementation 'com.thanosfisherman.wifiutils:wifiutils:1.6.4'
+    implementation 'com.thanosfisherman.elvis:elvis:3.0'
+    implementation 'com.github.zhaolewei:ZlwAudioRecorder:v1.07'
 
+    // other
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
 }

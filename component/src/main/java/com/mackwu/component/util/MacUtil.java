@@ -1,5 +1,10 @@
 package com.mackwu.component.util;
 
+import android.content.Context;
+import android.net.wifi.WifiManager;
+
+import com.mackwu.base.util.LogUtil;
+
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.Collections;
@@ -48,6 +53,16 @@ public final class MacUtil {
     public static String getMac() {
         String ethMac = getMac("eth0");
         return ethMac.isEmpty() ? getMac("wlan0") : ethMac;
+    }
+
+    public static String getMacAddress(Context context) {
+        WifiManager mWifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        final String[] macAddresses = (String[]) ReflectionUtils.callMethod(mWifiManager, "getFactoryMacAddresses", new Object[]{}); //mWifiManager.getFactoryMacAddresses();
+        String macAddress = "";
+        if (macAddresses != null && macAddresses.length > 0) {
+            macAddress = macAddresses[0];
+        }
+        return macAddress;
     }
 
 }

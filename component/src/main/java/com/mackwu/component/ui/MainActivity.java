@@ -5,8 +5,11 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 
 import com.mackwu.base.BaseActivity;
+import com.mackwu.base.util.ActivityStartUtil;
 import com.mackwu.component.databinding.MainActivityBinding;
 import com.mackwu.component.ui.viewmodel.MainViewModel;
+import com.mackwu.component.ui.widget.DialogActivity;
+import com.yhao.floatwindow.FloatWindow;
 
 /**
  * ===================================================
@@ -19,9 +22,8 @@ public class MainActivity extends BaseActivity<MainViewModel, MainActivityBindin
 
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
-//        ActivityStartUtil.startActivity(this, SecondActivity.class);
         binding.btnTest.setOnClickListener(v -> {
-
+            ActivityStartUtil.startActivity(this, HttpActivity.class);
         });
     }
 

@@ -1,23 +1,24 @@
-package com.mackwu.component.ui.fragment;
+package com.mackwu.component.ui.dialog;
 
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentActivity;
 
-import com.mackwu.base.fragment.BaseFragment;
+import com.mackwu.base.fragment.BaseDialogFragment;
 import com.mackwu.base.viewmodel.BaseViewModel;
-import com.mackwu.component.databinding.FragmentHomeBinding;
+import com.mackwu.component.databinding.DialogLoadingBinding;
 
 /**
  * ===================================================
- * Created by MackWu on 2020/8/4 15:01
+ * Created by MackWu on 2021/4/22 15:10
  * <a href="mailto:wumengjiao828@163.com">Contact me</a>
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-public class HomeFragment extends BaseFragment<BaseViewModel, FragmentHomeBinding> {
+public class LoadingDialog extends BaseDialogFragment<BaseViewModel, DialogLoadingBinding> {
 
     @Override
     public void initView(@NonNull View view, @Nullable Bundle savedInstanceState) {

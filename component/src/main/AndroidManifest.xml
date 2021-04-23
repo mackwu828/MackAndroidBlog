@@ -14,7 +14,7 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-    <uses-permission android:name="android.permission.BATTERY_STATS"/>
+    <uses-permission android:name="android.permission.BATTERY_STATS" />
 
     <uses-feature
         android:name="android.hardware.usb.host"
@@ -43,7 +43,7 @@
                 android:resource="@xml/accessibilty_config" />
         </service>
         <service
-            android:name=".core.MyDreamService"
+            android:name=".service.MyDreamService"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
             android:label="Screensaver"
@@ -57,8 +57,6 @@
                 android:name="android.service.dream"
                 android:resource="@xml/dream_config" />
         </service>
-
-        <service android:name="com.zlw.main.recorderlib.recorder.RecordService" />
 
         <!-- receiver -->
         <!-- 静态注册，在Manifest中注册，广播会跟随程序的生命周期，直到程序被销毁 -->
@@ -104,6 +102,7 @@
         <activity android:name=".ui.widget.WebActivity" />
         <activity android:name=".ui.widget.AgentWebActivity" />
         <activity android:name=".ui.widget.LottieActivity" />
+        <activity android:name=".ui.widget.DialogActivity" />
 
         <!--    other    -->
         <activity android:name=".ui.WindowActivity" />

@@ -1,4 +1,4 @@
 include ':component', ':http', ':java_kt'
 
-include ':mvvm'
-project(':mvvm').projectDir = new File(settingsDir, '../MVVM/mvvm')
+include ':base-core'
+project(':base-core').projectDir = new File(settingsDir, '../BaseCore/base-core')

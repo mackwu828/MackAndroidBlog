@@ -22,7 +22,6 @@ public class ComponentApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        MMKV.initialize(this);
         LogUtil.d("ComponentApp onCreate");
     }
 

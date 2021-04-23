@@ -1,9 +1,12 @@
 
 
-如何添加悬浮窗？
-如何添加透明的悬浮窗？
-悬浮窗如何获取焦点？
-悬浮窗的层级？
+
+window的添加、移除和更新?
+
+
+window如何获取焦点？
+window的层级？https://www.jianshu.com/p/4077c1c4ff27
+window不同层级需要的权限？
 
 
 ## 如何添加悬浮窗
@@ -58,5 +61,3 @@
 ```
 
 android.view.WindowManager$BadTokenException: Unable to add window android.view.ViewRootImpl$W@5cfb873 -- permission denied for window type 2003
-
-## 如何设置透明的悬浮窗？

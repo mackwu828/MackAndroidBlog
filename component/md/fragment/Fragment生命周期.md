@@ -1,5 +1,6 @@
 
 ## replace
+replace layout
 ```
 2020-06-20 01:59:18.925 3554-3554/com.mackwu.component D/TAG: LifecycleFragment onAttach...
 2020-06-20 01:59:18.925 3554-3554/com.mackwu.component D/TAG: LifecycleFragment onCreate...
@@ -20,5 +21,12 @@
 2020-06-20 02:01:14.781 3554-3554/com.mackwu.component D/TAG: LifecycleFragment onDetach...
 ```
 
-## replace另一个Fragment。
+## replace另一个Fragment
+replace时如果在layout中已经有Fragment存在，则该Fragment会先被销毁，每次replace都会创建新的Fragment实例
+
+
+
+
+## add、hide、show
+
 
