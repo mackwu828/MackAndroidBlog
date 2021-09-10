@@ -6,38 +6,26 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 
+import androidx.annotation.Nullable;
+
 import com.mackwu.base.util.LogUtil;
 
-/**
- * ===================================================
- * Created by MackWu on 2021/2/19 18:55
- * <a href="mailto:wumengjiao828@163.com">Contact me</a>
- * <a href="https://github.com/mackwu828">Follow me</a>
- * ===================================================
- */
 public class GestureView extends View implements GestureDetector.OnGestureListener {
-
-    public static final int FLING_MIN_DISTANCE = 100;
-    public static final int FLING_MIN_VELOCITY = 200;
-    private Context context;
+    private static final int verticalMinDistance = 30;
+    private static final int minVelocity = 5;
     private GestureDetector gestureDetector;
 
     public GestureView(Context context) {
         this(context, null);
     }
 
-    public GestureView(Context context, AttributeSet attrs) {
+    public GestureView(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public GestureView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        this.context = context;
-        initView();
-    }
-
-    private void initView() {
-        gestureDetector = new GestureDetector(context.getApplicationContext(), this);
+    public GestureView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        gestureDetector = new GestureDetector(getContext().getApplicationContext(), this);
     }
 
     @Override
@@ -65,19 +53,28 @@ public class GestureView extends View implements GestureDetector.OnGestureListen
 
     }
 
-    /**
-     * 滑动屏幕
-     * @param e1        第一个 ACTION_DOWN 的 MotionEvent
-     * @param e2        最后一个 ACTION_MOVE 的 MotionEvent
-     * @param velocityX X轴上的移动速度，像素/秒
-     * @param velocityY Y轴上的移动速度，像素/秒
-     * @return
-     */
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+        LogUtil.d("onFling...  " + e1.getY());
+        if (e1.getY() - e2.getY() > verticalMinDistance && Math.abs(velocityY) > minVelocity) {
+            onFlingUp();
+        } else if (e2.getY() - e1.getY() > verticalMinDistance && Math.abs(velocityY) > minVelocity) {
+            onFlingDown();
+        }
+        return false;
+    }
 
-        LogUtil.d("onFling...  e1: " + e1.getX() + ", ");
-        return true;
+    private void onFlingUp() {
+    }
+
+    private void onFlingDown() {
+    }
+
+    public boolean handlerOnTouchEvent(MotionEvent event) {
+        if (gestureDetector == null) {
+            gestureDetector = new GestureDetector(getContext().getApplicationContext(), this);
+        }
+        return gestureDetector.onTouchEvent(event);
     }
 
 }

@@ -11,7 +11,7 @@ Https和Http的区别？Https协议需要CA申请证书，数据是使用SSL加�
 
 OkHttp?
 OkHttp版本历史记录？https://square.github.io/okhttp/changelog/
-
+OkHttp + DNS？https://github.com/square/okhttp/blob/858939f025068c6d3581338317bba03e63ebd909/okhttp-dnsoverhttps/README.md
 
 
 

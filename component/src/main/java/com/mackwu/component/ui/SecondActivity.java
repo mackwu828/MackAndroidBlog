@@ -6,9 +6,12 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 
-import com.mackwu.base.util.LogUtil;
+import com.mackwu.base.BaseActivity;
+import com.mackwu.base.util.ActivityStartUtil;
 import com.mackwu.base.viewmodel.BaseViewModel;
+import com.mackwu.component.databinding.ActivitySecondBinding;
 import com.mackwu.component.databinding.ActivityTestBinding;
+import com.mackwu.component.ui.livedata.StrLiveData;
 
 /**
  * ===================================================
@@ -17,24 +20,13 @@ import com.mackwu.component.databinding.ActivityTestBinding;
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-public class SecondActivity extends TestActivity<BaseViewModel, ActivityTestBinding> {
-
-    public static final String TAG = SecondActivity.class.getSimpleName();
+public class SecondActivity extends BaseActivity<BaseViewModel, ActivitySecondBinding> {
 
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
-        super.initView(savedInstanceState);
-//        ActivityStartUtil.startActivity(this, ThirdActivity.class);
-//        binding.btnTest.setOnClickListener(v -> {
-//            ActivityStartUtil.startActivity(this, MainActivity.class);
-//            finish();
-//        });
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        LogUtil.d(TAG, "onDestroy...");
+        binding.btnTest.setOnClickListener(v -> {
+            StrLiveData.getInstance().postValue("222");
+        });
     }
 
     public static void start(Context context) {

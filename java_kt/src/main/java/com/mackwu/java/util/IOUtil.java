@@ -19,7 +19,9 @@ import java.io.InputStream;
 public class IOUtil {
 
     /**
-     * 关闭IO
+     * 关闭IO流
+     *
+     * @param closeables Closeable
      */
     public static void close(Closeable... closeables) {
         for (Closeable closeable : closeables) {
@@ -33,33 +35,36 @@ public class IOUtil {
         }
     }
 
-    /**
-     * 文件读写。从源文件读取，写入目标文件。write(byte b[])，每次写入缓冲区大小。
-     *
-     * 比如读写一个1124字节的文件，缓冲区为1024个字节，每次都会读写1个缓冲区大小，则最终目标文件大小是2048个字节。
-     */
-    @Deprecated
-    public static void copy(File sourceFile, File destFile, boolean deprecated) {
-        FileInputStream fis = null;
-        FileOutputStream fos = null;
-        try {
-            fis = new FileInputStream(sourceFile);
-            fos = new FileOutputStream(destFile);
-            byte[] buf = new byte[1024];
-            while (fis.read(buf) > 0) {
-                fos.write(buf);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            close(fis, fos);
-        }
-    }
+//    /**
+//     * 拷贝文件。
+//     * 从源文件读取，写入目标文件。write(byte b[])，每次写入缓冲区大小。
+//     * 比如读写一个1124字节的文件，缓冲区为1024个字节，每次都会读写1个缓冲区大小，则最终目标文件大小是2048个字节。
+//     */
+//    @Deprecated
+//    public static void copy(File sourceFile, File destFile) {
+//        FileInputStream fis = null;
+//        FileOutputStream fos = null;
+//        try {
+//            fis = new FileInputStream(sourceFile);
+//            fos = new FileOutputStream(destFile);
+//            byte[] buf = new byte[1024];
+//            while (fis.read(buf) > 0) {
+//                fos.write(buf);
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } finally {
+//            close(fis, fos);
+//        }
+//    }
 
     /**
-     * 文件读写。从源文件读取，写入目标文件。write(byte b[], int off, int len)，每次写入[0~len]，len最大为缓冲区大小。
-     *
+     * 拷贝文件。
+     * 从源文件读取，写入目标文件。write(byte b[], int off, int len)，每次写入[0~len]，len最大为缓冲区大小。
      * 比如读写一个1124字节的文件，缓冲区为1024个字节，先读写1个缓存区大小，再读写时是100个字节，小于缓冲区大小，则最终目标文件大小是1124个字节。
+     *
+     * @param sourceFile 源文件
+     * @param destFile   目标文件
      */
     public static void copy(File sourceFile, File destFile) {
         FileInputStream fis = null;
@@ -73,7 +78,7 @@ public class IOUtil {
                 fos.write(buf, 0, len);
                 fos.flush();
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         } finally {
             close(fis, fos);
@@ -81,7 +86,10 @@ public class IOUtil {
     }
 
     /**
-     * copy input stream
+     * 拷贝文件。
+     * 从源输入流写入目标文件。
+     *
+     * @param inputStream 源输入流
      */
     public static void copy(InputStream inputStream, File destFile) {
         FileOutputStream fos = null;
@@ -93,7 +101,7 @@ public class IOUtil {
                 fos.write(buf, 0, len);
                 fos.flush();
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         } finally {
             close(inputStream, fos);
@@ -101,24 +109,20 @@ public class IOUtil {
     }
 
     /**
-     * copy asset file
+     * 拷贝文件
+     * @param context 上下文
+     * @param assetFileName asset文件名称
+     * @param destFile 目标文件
      */
     public static void copy(Context context, String assetFileName, File destFile) {
         InputStream inputStream = null;
-        FileOutputStream fos = null;
         try {
             inputStream = context.getAssets().open(assetFileName);
-            fos = new FileOutputStream(destFile);
-            byte[] buf = new byte[1024];
-            int len;
-            while ((len = inputStream.read(buf)) != -1) {
-                fos.write(buf, 0, len);
-                fos.flush();
-            }
-        } catch (Exception e) {
+            copy(inputStream, destFile);
+        } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            close(inputStream, fos);
+            close(inputStream);
         }
     }
 

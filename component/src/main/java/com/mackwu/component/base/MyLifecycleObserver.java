@@ -1,10 +1,10 @@
 package com.mackwu.component.base;
 
-import android.util.Log;
-
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
+
+import com.mackwu.base.util.LogUtil;
 
 /**
  * ===================================================
@@ -20,37 +20,37 @@ public class MyLifecycleObserver implements LifecycleObserver, ILifecycle {
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     @Override
     public void onCreate() {
-        Log.d("TAG", HEAD + " onCreate...");
+        LogUtil.d(HEAD + " onCreate...");
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     @Override
     public void onStart() {
-        Log.d("TAG", HEAD + " onStart...");
+        LogUtil.d(HEAD + " onStart...");
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     @Override
     public void onResume() {
-        Log.d("TAG", HEAD + " onResume...");
+        LogUtil.d(HEAD + " onResume...");
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     @Override
     public void onPause() {
-        Log.d("TAG", HEAD + " onPause...");
+        LogUtil.d(HEAD + " onPause...");
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     @Override
     public void onStop() {
-        Log.d("TAG", HEAD + " onStop...");
+        LogUtil.d(HEAD + " onStop...");
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     @Override
     public void onDestroy() {
-        Log.d("TAG", HEAD + " onDestroy...");
+        LogUtil.d(HEAD + " onDestroy...");
     }
 
 }

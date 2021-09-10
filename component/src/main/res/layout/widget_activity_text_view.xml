@@ -5,16 +5,8 @@
     android:orientation="horizontal">
 
     <TextClock
+        android:id="@+id/tc_test"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:format12Hour="HH:mm:ss"
-        android:format24Hour="HH:mm"
-        android:textSize="50sp" />
-
-    <TextClock
-        android:layout_width="wrap_content"
-        android:format12Hour="aa"
-        android:format24Hour=""
         android:layout_height="wrap_content" />
 
 </LinearLayout>

@@ -3,6 +3,7 @@ package com.mackwu.component.ui.widget;
 import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -10,6 +11,7 @@ import android.webkit.WebViewClient;
 import androidx.annotation.Nullable;
 
 import com.mackwu.base.BaseActivity;
+import com.mackwu.base.util.LogUtil;
 import com.mackwu.base.viewmodel.BaseViewModel;
 import com.mackwu.component.databinding.WidgetActivityWebBinding;
 
@@ -56,7 +58,12 @@ public class WebActivity extends BaseActivity<BaseViewModel, WidgetActivityWebBi
                 return true;
             }
         });
-        binding.webView.loadUrl("https://www.youtube.com/watch?v=XWhZDQkq0bw");
+        binding.webView.loadUrl("https://www.baidu.com/");
+
+        new Handler().post(() -> {
+            LogUtil.d("webview width: " + binding.webView.getWidth());
+            LogUtil.d("webview height: " + binding.webView.getHeight());
+        });
     }
 
 }

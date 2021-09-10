@@ -34,6 +34,7 @@ public final class SpUtil {
             editor.putString(key, (String) obj);
         }
         editor.apply();
+        editor.commit();
     }
 
     /**
@@ -61,6 +62,7 @@ public final class SpUtil {
         SharedPreferences.Editor editor = getSp(context).edit();
         editor.remove(key);
         editor.apply();
+        editor.commit();
     }
 
     /**
@@ -70,6 +72,7 @@ public final class SpUtil {
         SharedPreferences.Editor editor = getSp(context).edit();
         editor.clear();
         editor.apply();
+        editor.commit();
     }
 
 }

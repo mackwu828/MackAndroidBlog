@@ -7,20 +7,27 @@
     <Button
         android:id="@+id/btn_show"
         android:layout_width="wrap_content"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="显示悬浮窗" />
+        android:text="btn_show" />
 
     <Button
         android:id="@+id/btn_hide"
         android:layout_width="wrap_content"
-        android:layout_height="80dp"
-        android:text="隐藏悬浮窗" />
+        android:layout_height="wrap_content"
+        android:text="btn_hide" />
 
     <Button
-        android:id="@+id/btn_update"
+        android:id="@+id/btn_show_2"
         android:layout_width="wrap_content"
-        android:layout_height="80dp"
-        android:text="修改悬浮窗宽高" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="btn_show_2" />
+
+    <Button
+        android:id="@+id/btn_hide_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="btn_hide_2" />
 
 </LinearLayout>

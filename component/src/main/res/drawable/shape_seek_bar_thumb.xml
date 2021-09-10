@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <layer-list>
+            <!--            <item android:width="30dp" android:height="30dp" android:drawable="@mipmap/ic_launcher" />-->
+            <item>
+                <shape android:shape="oval" android:useLevel="false">
+                    <solid android:color="#33FFFFFF" />
+                    <size android:width="30dp" android:height="30dp" />
+                </shape>
+            </item>
+            <item android:bottom="12dp" android:left="12dp" android:right="12dp" android:top="12dp">
+                <shape android:shape="oval" android:useLevel="false">
+                    <solid android:color="@color/white" />
+                    <size android:width="20dp" android:height="20dp" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item>
+        <layer-list>
+            <item  android:bottom="12dp" android:left="12dp" android:right="12dp" android:top="12dp">
+                <shape android:shape="oval">
+                    <solid android:color="#ffffffff" />
+                    <size android:width="20dp" android:height="20dp" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

@@ -1,4 +1,12 @@
-include ':component', ':http', ':java_kt'
+include ':component'
+include ':http'
+include ':java_kt'
 
 include ':base-core'
+def file = new File(settingsDir, '../BaseCore/base-core')
+println settingsDir
+println file.getAbsolutePath()
 project(':base-core').projectDir = new File(settingsDir, '../BaseCore/base-core')
+
+include ':float-window'
+project(':float-window').projectDir = new File(settingsDir, '../FloatWindow/float-window')

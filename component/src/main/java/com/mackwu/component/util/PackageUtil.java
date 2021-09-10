@@ -93,6 +93,7 @@ public final class PackageUtil {
         for (ResolveInfo resolveInfo : resolveInfos) {
             if (resolveInfo != null) {
                 activityName = resolveInfo.activityInfo.name;
+                break;
             }
         }
         return activityName;

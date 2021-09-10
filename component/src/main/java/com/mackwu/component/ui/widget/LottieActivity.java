@@ -1,11 +1,16 @@
 package com.mackwu.component.ui.widget;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 
 import com.airbnb.lottie.LottieDrawable;
+import com.mackwu.base.util.LogUtil;
 import com.mackwu.component.databinding.LottieActivityBinding;
 import com.mackwu.component.ui.viewmodel.MainViewModel;
 import com.mackwu.base.BaseActivity;
@@ -23,26 +28,30 @@ public class LottieActivity extends BaseActivity<MainViewModel, LottieActivityBi
 
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
-        //        binding.lottieAnimationView.addAnimatorUpdateListener(animation -> {
-//            LogUtil.d("addAnimatorUpdateListener...  getAnimatedFraction: " + animation.getAnimatedFraction());
-//        });
+        binding.btnStart.setOnClickListener(v -> startAnimation("error.json"));
+        binding.btnStop.setOnClickListener(v -> stopAnimation());
 
-        binding.btnStart.setOnClickListener(v -> {
-            startAnimation("error.json");
-        });
-        binding.btnStop.setOnClickListener(v -> {
-            startAnimation("error.json");
-        });
+//        binding.lottieAnimationView.addAnimatorUpdateListener(animation -> {
+//            LogUtil.d("animation...  " + animation.getAnimatedFraction());
+//        });
     }
 
     /**
      * 启动动画
      */
     private void startAnimation(final String assetName) {
+        binding.lottieAnimationView.setVisibility(View.VISIBLE);
         binding.lottieAnimationView.setAnimation(assetName);
-        binding.lottieAnimationView.setRepeatCount(LottieDrawable.INFINITE);
-//        binding.lottieAnimationView.setRepeatCount(0);
+//        binding.lottieAnimationView.setRepeatCount(LottieDrawable.INFINITE);
+        binding.lottieAnimationView.setRepeatCount(0);
         binding.lottieAnimationView.playAnimation();
+        binding.lottieAnimationView.addAnimatorListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                LogUtil.d("onAnimationEnd...");
+                binding.lottieAnimationView.setVisibility(View.GONE);
+            }
+        });
     }
 
     /**

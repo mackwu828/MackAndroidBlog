@@ -7,6 +7,10 @@ import android.os.Message;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.mackwu.base.BaseActivity;
+import com.mackwu.base.viewmodel.BaseViewModel;
+import com.mackwu.component.databinding.ActivityTestBinding;
+
 /**
  * ===================================================
  * Created by MackWu on 2021/1/27 16:32
@@ -14,7 +18,7 @@ import androidx.annotation.Nullable;
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-public class HandlerActivity extends BaseTestActivity {
+public class HandlerActivity extends BaseActivity<BaseViewModel, ActivityTestBinding> {
 
     private Handler handler;
 

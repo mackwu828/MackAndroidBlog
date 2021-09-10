@@ -9,6 +9,9 @@ import android.os.IBinder;
 
 import androidx.annotation.Nullable;
 
+import com.mackwu.base.BaseActivity;
+import com.mackwu.base.viewmodel.BaseViewModel;
+import com.mackwu.component.databinding.ActivityTestBinding;
 import com.mackwu.component.service.MainService;
 
 /**
@@ -18,7 +21,7 @@ import com.mackwu.component.service.MainService;
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-public class ServiceActivity extends BaseTestActivity {
+public class ServiceActivity extends BaseActivity<BaseViewModel, ActivityTestBinding> {
 
     private final ServiceConnection serviceConnection = new ServiceConnection() {
         @Override

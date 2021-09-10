@@ -4,10 +4,10 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 
-import com.mackwu.component.databinding.WidgetActivityEditTextBinding;
-import com.mackwu.component.util.EditTextUtil;
 import com.mackwu.base.BaseActivity;
 import com.mackwu.base.viewmodel.BaseViewModel;
+import com.mackwu.component.databinding.WidgetActivityEditTextBinding;
+import com.mackwu.component.util.EditTextUtil;
 
 /**
  * ===================================================
@@ -21,6 +21,9 @@ public class EditTextActivity extends BaseActivity<BaseViewModel, WidgetActivity
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
 //        binding.etTest.requestFocus();
+
+        binding.etTest.setTransformationMethod(new MyPasswordTransformationMethod());
+        binding.etTest.setLetterSpacing(0.5f);
 
         binding.btnShowSoftInput.setOnClickListener(v -> EditTextUtil.showSoftInput(this, binding.etTest));
         binding.btnHideSoftInput.setOnClickListener(v -> EditTextUtil.hideSoftInput(this, binding.etTest));
