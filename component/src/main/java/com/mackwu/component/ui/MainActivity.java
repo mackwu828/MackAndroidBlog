@@ -5,7 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 
 import com.mackwu.base.BaseActivity;
-import com.mackwu.component.R;
+import com.mackwu.base.util.ActivityStartUtil;
 import com.mackwu.component.databinding.MainActivityBinding;
 import com.mackwu.component.ui.viewmodel.MainViewModel;
 
@@ -20,9 +20,9 @@ public class MainActivity extends BaseActivity<MainViewModel, MainActivityBindin
 
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
-//        ActivityStartUtil.startActivity(this, WindowActivity.class);
+        ActivityStartUtil.startActivity(this, RxActivity.class);
         binding.btnTest.setOnClickListener(v -> {
-            binding.btnTest.setText(R.string.hello);
+            ActivityStartUtil.startActivity(this, SecondActivity.class);
         });
 //        binding.btnTest2.setOnClickListener(v -> {
 //
@@ -33,4 +33,12 @@ public class MainActivity extends BaseActivity<MainViewModel, MainActivityBindin
     public void initData(@Nullable Bundle savedInstanceState) {
     }
 
+
+    /**
+     * See {@link System#loadLibrary(String)}
+     * See {@link Runtime#loadLibrary(String)}
+     */
+    private void a() {
+        System.loadLibrary("avsjni");
+    }
 }

@@ -51,7 +51,7 @@ layout_goneMarginEnd
 
 
 ## 例子
-居中
+居中。上下左右都约束到parent
 ```
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

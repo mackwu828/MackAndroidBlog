@@ -1,11 +1,12 @@
+package com.mackwu.component.pattern.builder;
 
-什么是建造者模式？用来封装复杂对象。实现链式调用，可读性高。
-如何实现builder模式？
-既是builder模式也是单例模式？
-
-
-## 如何实现建造者模式？
-```
+/**
+ * ===================================================
+ * Created by MackWu on 2021/9/15 14:48
+ * <a href="mailto:wumengjiao828@163.com">Contact me</a>
+ * <a href="https://github.com/mackwu828">Follow me</a>
+ * ===================================================
+ */
 public class Person {
     private String name;
     private int age;
@@ -17,26 +18,27 @@ public class Person {
     }
 
     // 1. 创建内部类builder, 添加相同属性同上
-    public static final class Builder{
+    public static final class Builder {
         private String name;
         private int age;
 
         // 2. 为每个属性添加对应的方法
-        public Builder name(String name){
+        public Builder name(String name) {
             this.name = name;
             return this;
         }
 
-        public Builder age(int age){
+        public Builder age(int age) {
             this.age = age;
             return this;
         }
 
         // 4. 将赋值后的builder对象传入，返回person的实例
-        public Person build(){
+        public Person build() {
             return new Person(this);
         }
     }
+
 
     public static void main(String[] args) {
         Person person = new Person.Builder()
@@ -45,7 +47,3 @@ public class Person {
                 .build();
     }
 }
-```
-
-
-## 既是builder模式也是单例模式？
