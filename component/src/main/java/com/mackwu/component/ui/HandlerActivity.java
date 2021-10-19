@@ -8,8 +8,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.mackwu.base.BaseActivity;
-import com.mackwu.base.viewmodel.BaseViewModel;
 import com.mackwu.component.databinding.ActivityTestBinding;
+import com.mackwu.component.ui.viewmodel.HandlerViewModel;
+
+import java.lang.ref.WeakReference;
 
 /**
  * ===================================================
@@ -18,23 +20,40 @@ import com.mackwu.component.databinding.ActivityTestBinding;
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-public class HandlerActivity extends BaseActivity<BaseViewModel, ActivityTestBinding> {
+public class HandlerActivity extends BaseActivity<HandlerViewModel, ActivityTestBinding> {
 
-    private Handler handler;
+    private static final Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+
+        }
+    };
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        MyHandler handler = new MyHandler(this);
+        handler.postDelayed(runnable, 5 * 60 * 1000);
+    }
 
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
 
-        new Thread(() -> {
-//            Looper.prepare();
-            handler = new Handler() {
-                @Override
-                public void handleMessage(@NonNull Message msg) {
-                    super.handleMessage(msg);
-                }
-            };
-//            Looper.loop();
-        }).start();
+    }
+
+    private static class MyHandler extends Handler {
+
+        private final WeakReference<HandlerActivity> weakReference;
+
+        public MyHandler(HandlerActivity activity) {
+            this.weakReference = new WeakReference<>(activity);
+        }
+
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            super.handleMessage(msg);
+            HandlerActivity handlerActivity = weakReference.get();
+        }
     }
 
 }

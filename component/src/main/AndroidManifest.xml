@@ -20,6 +20,8 @@
     <uses-permission android:name="android.permission.BATTERY_STATS" />
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
 
     <uses-feature
         android:name="android.hardware.usb.host"
@@ -64,14 +66,11 @@
 <!--                android:resource="@xml/dream_config" />-->
 <!--        </service>-->
         <!-- provider -->
-        <provider
-            android:name=".other.provider.student.StudentProvider"
-            android:authorities="com.mackwu.component.other.provider.student.StudentProvider" />
 
         <!--   activity   -->
         <activity
             android:name=".ui.MainActivity"
-            android:exported="false"
+            android:exported="true"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -113,6 +112,8 @@
         <activity android:name=".ui.LiveDataActivity" />
         <activity android:name=".ui.AudioRecordActivity" />
         <activity android:name=".ui.RxActivity" />
+        <activity android:name=".ui.LifecycleActivity" />
+        <activity android:name=".ui.SecurityActivity" />
 
     </application>
 

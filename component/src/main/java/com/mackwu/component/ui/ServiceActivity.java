@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 import com.mackwu.base.BaseActivity;
 import com.mackwu.base.viewmodel.BaseViewModel;
 import com.mackwu.component.databinding.ActivityTestBinding;
-import com.mackwu.component.service.MainService;
+import com.mackwu.component.core.service.MainService;
 
 /**
  * ===================================================

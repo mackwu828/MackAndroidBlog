@@ -2,6 +2,8 @@ package com.mackwu.component.util;
 
 import android.text.TextUtils;
 
+import com.mackwu.component.BuildConfig;
+
 /**
  * ===================================================
  * Created by MackWu on 2020/9/23 15:42
@@ -21,4 +23,5 @@ public final class SnUtil {
         }
         return sn;
     }
+
 }

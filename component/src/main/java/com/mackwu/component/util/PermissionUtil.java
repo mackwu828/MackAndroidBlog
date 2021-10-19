@@ -2,8 +2,6 @@ package com.mackwu.component.util;
 
 import androidx.fragment.app.FragmentActivity;
 
-import com.tbruyelle.rxpermissions3.RxPermissions;
-
 import java.util.function.Consumer;
 
 /**
@@ -13,7 +11,6 @@ import java.util.function.Consumer;
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-@SuppressWarnings("ResultOfMethodCallIgnored")
 public final class PermissionUtil {
 
     /**

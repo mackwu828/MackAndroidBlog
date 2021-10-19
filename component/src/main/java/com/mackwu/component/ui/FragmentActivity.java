@@ -6,9 +6,7 @@ import androidx.annotation.Nullable;
 
 import com.mackwu.base.BaseTransactionActivity;
 import com.mackwu.base.viewmodel.BaseViewModel;
-import com.mackwu.component.R;
 import com.mackwu.component.databinding.ActivityFragmentBinding;
-import com.mackwu.component.ui.fragment.HomeFragment;
 
 /**
  * ===================================================
@@ -21,6 +19,6 @@ public class FragmentActivity extends BaseTransactionActivity<BaseViewModel, Act
 
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
-        replaceFragment(R.id.fl_container, HomeFragment.class);
+//        replaceFragment(R.id.fl_container, HomeFragment.class);
     }
 }

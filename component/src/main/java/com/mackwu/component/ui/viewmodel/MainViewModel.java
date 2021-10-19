@@ -11,4 +11,5 @@ import com.mackwu.base.viewmodel.BaseViewModel;
  */
 public class MainViewModel extends BaseViewModel {
 
+
 }

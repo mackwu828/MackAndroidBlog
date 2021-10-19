@@ -1,15 +1,16 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+//apply plugin: Hello
 
 android {
-    compileSdkVersion 31
-    buildToolsVersion "31.0.0"
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.mackwu.component"
         minSdkVersion 21
-        targetSdkVersion 31
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
@@ -56,6 +57,12 @@ android {
         bbb
     }
 
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
     buildFeatures {
         viewBinding true
     }
@@ -78,17 +85,15 @@ dependencies {
     //
     implementation project(path: ':base-core')
 
-    // base
-    implementation 'com.jakewharton:butterknife:10.2.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
+    // mmkv
     implementation 'com.tencent:mmkv-static:1.2.6'
-    implementation 'com.github.tbruyelle:rxpermissions:0.12'
     implementation 'com.getkeepsafe.relinker:relinker:1.4.1'
 
-    // http
+    // okhttp3 4.0
 //    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
 //    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
 //    implementation "com.squareup.okhttp3:okhttp-dnsoverhttps:4.9.0"
+    // okhttp3 3.0
     implementation 'com.squareup.okhttp3:okhttp:3.14.9'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.14.9'
     implementation "com.squareup.okhttp3:okhttp-dnsoverhttps:3.14.9"
@@ -96,8 +101,6 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.14'
-    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
 
     // image
     implementation 'com.github.bumptech.glide:glide:4.12.0'
@@ -117,8 +120,6 @@ dependencies {
     implementation 'com.thanosfisherman.elvis:elvis:3.0'
     implementation 'com.github.zhaolewei:ZlwAudioRecorder:v1.07'
 
-    // other
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
-    implementation 'com.github.tbruyelle:rxpermissions:0.12'
-
+    // leakcanary
+//    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
 }

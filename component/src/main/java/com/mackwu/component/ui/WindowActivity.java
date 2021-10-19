@@ -9,7 +9,6 @@ import com.mackwu.base.viewmodel.BaseViewModel;
 import com.mackwu.component.databinding.WindowActivityBinding;
 import com.mackwu.component.ui.window.RedWindow;
 import com.mackwu.component.ui.window.YellowWindow;
-import com.zeasn.floatwindow.util.WindowPermission;
 
 /**
  * ===================================================

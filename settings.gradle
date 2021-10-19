@@ -1,5 +1,6 @@
 include ':component'
-include ':java_kt'
 
 include ':base-core'
 project(':base-core').projectDir = new File(settingsDir, '../BaseCore/base-core')
+include ':compiler'
+include ':plugin'

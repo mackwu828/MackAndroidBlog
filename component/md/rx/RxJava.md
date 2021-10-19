@@ -1,20 +1,22 @@
 
+被观察者：Observable、Flowable、
+观察者：Observer、Consumer
+
 创建操作符。create、just、defer、empty()/never()/error()
-转换操作符。map、flatMap、contactMap、buffer
+转换操作符。map、flatMap、contactMap、buffer、debounce
 过滤操作符。
 组合操作符。
 错误处理操作符。
+Subject。既是被观察者也是观察者
+RxJava导致内存泄漏？https://www.jianshu.com/p/65e8039ed755
+RxJava的Consumer用lambda写法为什么没有内存泄漏？https://github.com/square/leakcanary/issues/1108
 
-被观察者：Observable、Flowable、Subject既是被观察者也是观察者
-观察者：Observer、Consumer、
 
 
 
 rxJava中文文档：
 https://github.com/mcxiaoke/RxDocs
-https://mcxiaoke.gitbooks.io/rxdocs/content/
 https://www.kancloud.cn/luponu/rxjava_zh/974450
-
 操作符使用：https://juejin.cn/post/6844903617124630535#heading-68
 实战例子：https://www.jianshu.com/p/c935d0860186
     token自动刷新：https://www.jianshu.com/p/6a452d93363c
@@ -102,3 +104,56 @@ Subject实例需要用Subject.create()创建，否则会被转成Observable。
 ```
 
 - ReplaySubject
+
+
+## RxJava导致内存泄漏？
+RxJava在订阅后，当页面被finish，此时订阅逻辑还未完成，如果没有及时取消订阅，就会导致Activity/Fragment无法被回收，从而引起内存泄漏。
+```
+        Observable.interval(1000, TimeUnit.MILLISECONDS)
+                .subscribe(System.out::println)
+```
+
+- Disposable
+```
+    @Override
+    public void initView(@Nullable Bundle savedInstanceState) {
+        disposable = Observable.interval(1000, TimeUnit.MILLISECONDS)
+                .subscribe(i -> LogUtil.d("onNext: " + i));
+    }
+                    
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
+    }
+```
+
+- CompositeDisposable
+```
+    @Override
+    public void initView(@Nullable Bundle savedInstanceState) {
+        compositeDisposable = new CompositeDisposable();
+        Disposable disposable = Observable.interval(1000, TimeUnit.MILLISECONDS)
+                .subscribe(i -> LogUtil.d("onNext: " + i));
+        compositeDisposable.add(disposable);
+    }
+    
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        compositeDisposable.dispose();
+    }
+```
+
+- RxLifecycle
+https://github.com/trello/RxLifecycle
+
+- AutoDispose
+https://github.com/uber/AutoDispose
+
+
+
+
+

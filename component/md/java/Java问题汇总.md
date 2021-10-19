@@ -1,12 +1,18 @@
 
 
-什么是Java字节码？
+集合
+反射
+注解
+
+
+Java字节码？
+Java类加载器？
 Java类加载过程？https://zhuanlan.zhihu.com/p/73078336
-类加载器？
+class文件的加载？
 
-class文件的加载。
 
-## 什么是Java字节码？
+
+## Java字节码？
 .java源码 => 编译器 => .class字节码 => JVM
 
 .java文件转.class文件

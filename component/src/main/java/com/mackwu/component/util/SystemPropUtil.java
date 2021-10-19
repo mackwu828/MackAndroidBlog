@@ -20,11 +20,10 @@ public final class SystemPropUtil {
      * @param key          属性key
      * @param defaultValue 属性默认值
      */
-    @SuppressWarnings("unchecked")
     @SuppressLint("PrivateApi")
     public static String get(String key, String defaultValue) {
         try {
-            Class systemProperties = Class.forName("android.os.SystemProperties");
+            Class<?> systemProperties = Class.forName("android.os.SystemProperties");
             Method getProp = systemProperties.getDeclaredMethod("get", String.class, String.class);
             return (String) getProp.invoke(systemProperties, key, defaultValue);
         } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
@@ -39,13 +38,11 @@ public final class SystemPropUtil {
      *
      * @param key   属性key
      * @param value 属性值
-     * @return
      */
-    @SuppressWarnings("unchecked")
     @SuppressLint("PrivateApi, DiscouragedPrivateApi")
     public static void set(String key, String value) {
         try {
-            Class systemProperties = Class.forName("android.os.SystemProperties");
+            Class<?> systemProperties = Class.forName("android.os.SystemProperties");
             Method setProp = systemProperties.getDeclaredMethod("set", String.class, String.class);
             setProp.invoke(systemProperties, key, value);
         } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
