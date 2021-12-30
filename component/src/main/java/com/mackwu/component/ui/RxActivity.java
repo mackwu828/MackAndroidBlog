@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 
 import com.mackwu.base.BaseActivity;
+import com.mackwu.component.core.rx.token.TokenRequest;
 import com.mackwu.component.databinding.ActivityRxBinding;
 import com.mackwu.component.ui.viewmodel.RxViewModel;
 
@@ -26,7 +27,7 @@ public class RxActivity extends BaseActivity<RxViewModel, ActivityRxBinding> {
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
         binding.btnTest.setOnClickListener(v -> {
-
+            TokenRequest.getInstance().test();
         });
     }
 

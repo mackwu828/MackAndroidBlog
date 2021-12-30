@@ -1,16 +1,19 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-//apply plugin: Hello
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'org.greenrobot.greendao'
+//    id 'com.mackwu.trycatch'
+}
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    compileSdkVersion 31
+    buildToolsVersion "31.0.0"
 
     defaultConfig {
         applicationId "com.mackwu.component"
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
 
@@ -45,7 +48,7 @@ android {
         }
         debug {
 //            signingConfig signingConfigs.BndSystemKeystore
-//            signingConfig signingConfigs.WorldchipSystemKeystore
+            signingConfig signingConfigs.WorldchipSystemKeystore
 //            manifestPlaceholders = [SHARE_USER_ID: "android.uid.system"]
             manifestPlaceholders = [SHARE_USER_ID: ""]
         }
@@ -55,6 +58,10 @@ android {
     productFlavors {
         aaa
         bbb
+    }
+
+    greendao {
+        schemaVersion 1 // 当前数据库版本
     }
 
     sourceSets {
@@ -69,20 +76,21 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
     implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    implementation "androidx.core:core-ktx:1.5.0"
+    implementation "androidx.core:core-ktx:1.7.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.31"
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
+    implementation 'androidx.leanback:leanback:1.0.0'
 
-    //
+    // mackwu
     implementation project(path: ':base-core')
 
     // mmkv
@@ -101,11 +109,17 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
+    // dns
+    implementation 'com.alibaba.pdns:alidns-android-sdk:2.0.7'
+    implementation 'com.qiniu:happy-dns:1.0.0'
 
-    // image
+    // glide
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
     implementation 'com.caverock:androidsvg-aar:1.4'
+
+    // greendao
+    implementation 'org.greenrobot:greendao:3.3.0'
 
     // widget
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
@@ -121,5 +135,6 @@ dependencies {
     implementation 'com.github.zhaolewei:ZlwAudioRecorder:v1.07'
 
     // leakcanary
-//    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
+
 }

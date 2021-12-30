@@ -2,8 +2,11 @@ package com.mackwu.component.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
 
+import com.mackwu.component.R;
 import com.mackwu.component.databinding.MainActivityBinding;
 import com.mackwu.component.ui.MainActivity;
 
@@ -14,7 +17,9 @@ import com.mackwu.component.ui.MainActivity;
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-public class TestView extends View {
+public class TestView extends LinearLayout {
+
+    private final Context context;
 
     public TestView(Context context) {
         this(context, null);
@@ -26,9 +31,11 @@ public class TestView extends View {
 
     public TestView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        this.context = context;
         initView();
     }
 
     private void initView() {
+        View view = LayoutInflater.from(context).inflate(R.layout.layout_test, this);
     }
 }

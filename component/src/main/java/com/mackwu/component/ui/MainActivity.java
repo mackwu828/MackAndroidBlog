@@ -20,15 +20,10 @@ public class MainActivity extends BaseActivity<MainViewModel, MainActivityBindin
 
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
-        ActivityStartUtil.startActivity(this, SecurityActivity.class);
+        ActivityStartUtil.startActivity(this, AnimActivity.class);
         binding.btnTest.setOnClickListener(v -> {
-            ActivityStartUtil.startActivity(this, HandlerActivity.class);
+
         });
-
-    }
-
-    @Override
-    public void initData(@Nullable Bundle savedInstanceState) {
     }
 
 }

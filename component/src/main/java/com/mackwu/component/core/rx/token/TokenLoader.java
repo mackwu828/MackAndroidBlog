@@ -21,24 +21,9 @@ public class TokenLoader {
     private static TokenLoader instance;
     private final AtomicBoolean refreshing = new AtomicBoolean(false);
     private final PublishSubject<String> tokenPublishSubject;
-    private Observable<String> tokenObservable;
 
     private TokenLoader() {
         tokenPublishSubject = PublishSubject.create();
-        tokenObservable = Observable.create((ObservableOnSubscribe<String>) e -> {
-            Thread.sleep(1000);
-//            e.onNext(String.valueOf(System.currentTimeMillis()));
-            e.onNext("");
-        }).doOnNext(token -> {
-            LogUtil.d("doOnNext..." + token);
-            refreshing.set(false);
-            TokenHolder.getInstance().setToken(token);
-            if (token == null) {
-            }
-        }).doOnError(throwable -> {
-            LogUtil.d("doOnError..." + throwable);
-            refreshing.set(false);
-        }).subscribeOn(Schedulers.io());
     }
 
     public static TokenLoader getInstance() {
@@ -49,9 +34,21 @@ public class TokenLoader {
     }
 
     public Observable<String> getTokenLocked() {
+        LogUtil.d("getTokenLocked...");
         if (refreshing.compareAndSet(false, true)) {
             LogUtil.d("没有请求，发起一次新的token请求");
-            tokenObservable.subscribe(tokenPublishSubject);
+            Observable.create((ObservableOnSubscribe<String>) e -> {
+                Thread.sleep(1000);
+                e.onNext("XXX");
+            }).doOnNext(token -> {
+                LogUtil.d("doOnNext..." + token);
+                refreshing.set(false);
+                TokenHolder.getInstance().setToken(token);
+            }).doOnError(throwable -> {
+                LogUtil.d("doOnError..." + throwable);
+                refreshing.set(false);
+            }).subscribeOn(Schedulers.io())
+                    .subscribe(tokenPublishSubject);
         } else {
             LogUtil.d("已经有请求，直接返回等待");
         }

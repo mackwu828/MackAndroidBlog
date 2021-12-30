@@ -12,7 +12,6 @@ import android.view.View;
 
 import androidx.lifecycle.LifecycleOwner;
 
-import com.mackwu.base.util.LogUtil;
 import com.mackwu.component.R;
 import com.mackwu.component.ui.livedata.BatteryChangeLiveData;
 
@@ -36,6 +35,8 @@ public class BatteryView extends View {
     private int batteryPowerNormalColor;
     // 低电量时颜色
     private int batteryPowerLowColor;
+    // 电量充电时满电量颜色
+    private int batteryPowerFullColor;
     // 电量充电中颜色
     private int batteryPowerChargingColor;
     // 电池边框画笔
@@ -67,6 +68,7 @@ public class BatteryView extends View {
         batteryPowerLevel = typedArray.getColor(R.styleable.BatteryView_batteryPowerLevel, 50);
         batteryPowerNormalColor = typedArray.getInt(R.styleable.BatteryView_batteryPowerNormalColor, Color.WHITE);
         batteryPowerLowColor = typedArray.getInt(R.styleable.BatteryView_batteryPowerLowColor, Color.RED);
+        batteryPowerFullColor = typedArray.getInt(R.styleable.BatteryView_batteryPowerFullColor, Color.WHITE);
         batteryPowerChargingColor = typedArray.getInt(R.styleable.BatteryView_batteryPowerChargingColor, Color.GREEN);
         typedArray.recycle();
 
@@ -102,13 +104,12 @@ public class BatteryView extends View {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         width = getMeasuredWidth();
         height = getMeasuredHeight();
-        LogUtil.d("width: " + width + ", height: " + height);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        drawHorizontalBattery(canvas);
+        drawVerticalBattery(canvas);
     }
 
     /**
@@ -134,7 +135,31 @@ public class BatteryView extends View {
         strokeWidth = strokeWidth + innerOffset;
         float offset = (width - strokeWidth * 2) * batteryPowerLevel / 100.f;
         RectF r3 = new RectF(strokeWidth, strokeWidth, offset + innerOffset / 1.5f, height - strokeWidth);
-        LogUtil.d(r3.toString());
+        canvas.drawRoundRect(r3, radius, 0, batteryPowerPaint);
+    }
+
+    /**
+     * 绘制垂直电池
+     */
+    private void drawVerticalBattery(Canvas canvas) {
+        float strokeWidth = width / 10.f;
+        float radius = 3f;
+        float innerOffset = 2f;
+
+        // 画电池边框
+        batteryBorderPaint.setStrokeWidth(strokeWidth);
+        RectF r1 = new RectF(strokeWidth / 2, strokeWidth * 1.5f , width - strokeWidth / 2, height - strokeWidth / 2);
+        canvas.drawRoundRect(r1, radius, radius, batteryBorderPaint);
+
+        // 画电池头
+        batteryHeaderPaint.setStrokeWidth(strokeWidth);
+        RectF r2 = new RectF(width * 0.25f, 0, width * 0.75f, strokeWidth * 1.5f);
+        canvas.drawRect(r2, batteryHeaderPaint);
+
+        // 画电池电量
+        strokeWidth = strokeWidth + innerOffset;
+        float offset = height - (height - strokeWidth * 3) * batteryPowerLevel / 100.f;
+        RectF r3 = new RectF(strokeWidth, offset - strokeWidth - innerOffset / 1.5f, width - strokeWidth, height - strokeWidth);
         canvas.drawRoundRect(r3, radius, 0, batteryPowerPaint);
     }
 
@@ -147,7 +172,11 @@ public class BatteryView extends View {
         boolean isCharging = status == BatteryManager.BATTERY_STATUS_CHARGING || status == BatteryManager.BATTERY_STATUS_FULL;
         if (isCharging) {
             // 充电中
-            batteryPowerPaint.setColor(batteryPowerChargingColor);
+            if (level != 100) {
+                batteryPowerPaint.setColor(batteryPowerChargingColor);
+            } else {
+                batteryPowerPaint.setColor(batteryPowerFullColor);
+            }
         } else {
             // 非充电中
             if (level <= 10) {

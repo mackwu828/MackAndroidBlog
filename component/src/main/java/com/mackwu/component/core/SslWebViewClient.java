@@ -34,8 +34,11 @@ public class SslWebViewClient extends WebViewClient {
             // 私钥
             privateKey = SslUtil.getPrivateKey(keyStore, password);
             // 证书
-            cert = SslUtil.getX509Certificate(keyStore);
-            LogUtil.d("key: " + privateKey.getAlgorithm() + ", cert: " + cert.getType());
+            cert = SslUtil.getCert(keyStore);
+            LogUtil.d( " "  + "\n" +
+                    "privateKey: " + SslUtil.getPrivateKeyStr(privateKey) + "\n" +
+                    "x509Certificate: " + SslUtil.getCertStr(cert)
+            );
         } catch (Exception e) {
             e.printStackTrace();
         }

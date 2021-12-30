@@ -2,7 +2,15 @@ package com.mackwu.component.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
+import android.util.Base64;
+
+import com.mackwu.base.util.LogUtil;
+import com.mackwu.component.bean.User;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
 /**
  * ===================================================
@@ -14,7 +22,8 @@ import android.preference.PreferenceManager;
 public final class SpUtil {
 
     private static SharedPreferences getSp(Context context) {
-        return PreferenceManager.getDefaultSharedPreferences(context);
+//        return PreferenceManager.getDefaultSharedPreferences(context);
+        return context.getSharedPreferences("sp_file", Context.MODE_PRIVATE);
     }
 
     /**
@@ -33,7 +42,6 @@ public final class SpUtil {
         } else {
             editor.putString(key, (String) obj);
         }
-        editor.apply();
         editor.commit();
     }
 
@@ -58,21 +66,37 @@ public final class SpUtil {
     /**
      * 删除指定数据
      */
-    public static void remove(Context context, String key){
+    public static void remove(Context context, String key) {
         SharedPreferences.Editor editor = getSp(context).edit();
         editor.remove(key);
-        editor.apply();
         editor.commit();
     }
 
     /**
      * 删除所有数据
      */
-    public static void clear(Context context){
+    public static void clear(Context context) {
         SharedPreferences.Editor editor = getSp(context).edit();
         editor.clear();
-        editor.apply();
         editor.commit();
+    }
+
+    /**
+     * 保存数据
+     */
+    public static void put(String key, Serializable serializable) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ObjectOutputStream oos = null;
+        try {
+            oos = new ObjectOutputStream(baos);
+            oos.writeObject(serializable);
+            String objectStr = new String(Base64.encode(baos.toByteArray(), Base64.DEFAULT));
+            LogUtil.d("objectStr: " + objectStr);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            IOUtil.close(baos, oos);
+        }
     }
 
 }

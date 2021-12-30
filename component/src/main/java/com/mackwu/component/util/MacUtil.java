@@ -1,10 +1,5 @@
 package com.mackwu.component.util;
 
-import android.content.Context;
-import android.net.wifi.WifiManager;
-
-import com.mackwu.base.util.LogUtil;
-
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.Collections;
@@ -55,14 +50,40 @@ public final class MacUtil {
         return ethMac.isEmpty() ? getMac("wlan0") : ethMac;
     }
 
-    public static String getMacAddress(Context context) {
-        WifiManager mWifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-        final String[] macAddresses = (String[]) ReflectionUtils.callMethod(mWifiManager, "getFactoryMacAddresses", new Object[]{}); //mWifiManager.getFactoryMacAddresses();
-        String macAddress = "";
-        if (macAddresses != null && macAddresses.length > 0) {
-            macAddress = macAddresses[0];
+    private String getMacAddress() {
+        try {
+            List<NetworkInterface> all = Collections.list(NetworkInterface.getNetworkInterfaces());
+            for (NetworkInterface nif : all) {
+                if (!nif.getName().equalsIgnoreCase("wlan0")) {
+                    continue;
+                }
+                byte[] macBytes = nif.getHardwareAddress();
+                if (macBytes == null) {
+                    return "";
+                }
+                StringBuilder res1 = new StringBuilder();
+                for (byte b : macBytes) {
+                    res1.append(String.format("%02X:", b));
+                }
+                if (res1.length() > 0) {
+                    res1.deleteCharAt(res1.length() - 1);
+                }
+                return res1.toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return macAddress;
+        return null;
     }
+
+//    public static String getMacAddress(Context context) {
+//        WifiManager mWifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+//        final String[] macAddresses = (String[]) ReflectionUtils.callMethod(mWifiManager, "getFactoryMacAddresses", new Object[]{}); //mWifiManager.getFactoryMacAddresses();
+//        String macAddress = "";
+//        if (macAddresses != null && macAddresses.length > 0) {
+//            macAddress = macAddresses[0];
+//        }
+//        return macAddress;
+//    }
 
 }

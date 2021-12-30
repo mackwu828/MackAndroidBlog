@@ -1,7 +1,20 @@
 package com.mackwu.component;
 
 import android.app.Application;
-import android.content.Context;
+import android.app.Service;
+import android.content.ComponentName;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.Build;
+import android.os.IBinder;
+import android.os.RemoteException;
+import android.webkit.WebView;
+
+import com.mackwu.base.util.LogUtil;
+import com.mackwu.component.core.DbManager;
+import com.mackwu.component.core.http.AliDns;
+import com.mackwu.component.service.WebService;
+import com.mackwu.component.util.ProcessUtil;
 
 /**
  * ===================================================
@@ -12,26 +25,19 @@ import android.content.Context;
  */
 public class ComponentApp extends Application {
 
+    public static final String TAG = ComponentApp.class.getSimpleName();
     private static ComponentApp instance;
-
-    public ComponentApp() {
-        instance = this;
-//        LogUtil.d("ComponentApp constructor");
-    }
 
     @Override
     public void onCreate() {
         super.onCreate();
-//        LogUtil.d("ComponentApp onCreate");
-    }
+        instance = this;
 
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-//        LogUtil.d("ComponentApp attachBaseContext");
+        DbManager.getInstance().init(this);
     }
 
     public static ComponentApp getInstance() {
         return instance;
     }
+
 }

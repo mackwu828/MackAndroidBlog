@@ -70,7 +70,7 @@ public final class SslUtil {
      *
      * @param keyStore 密钥库
      */
-    public static X509Certificate getX509Certificate(KeyStore keyStore) throws Exception {
+    public static X509Certificate getCert(KeyStore keyStore) throws Exception {
         Enumeration<?> localEnumeration = keyStore.aliases();
         String alias = (String) localEnumeration.nextElement();
         return (X509Certificate) keyStore.getCertificate(alias);
@@ -79,8 +79,8 @@ public final class SslUtil {
     /**
      * 获取私钥字符串
      */
-    public static String getPrivateKeyString(PrivateKey privateKey) {
-        return encodeToString(privateKey.getEncoded());
+    public static String getPrivateKeyStr(PrivateKey privateKey) {
+        return encodeToStr(privateKey.getEncoded());
     }
 
     /**
@@ -88,11 +88,11 @@ public final class SslUtil {
      *
      * @param x509Certificate 证书
      */
-    public static String getX509CertificateString(X509Certificate x509Certificate) throws Exception {
-        return encodeToString(x509Certificate.getEncoded());
+    public static String getCertStr(X509Certificate x509Certificate) throws Exception {
+        return encodeToStr(x509Certificate.getEncoded());
     }
 
-    private static String encodeToString(byte[] bytes) {
+    private static String encodeToStr(byte[] bytes) {
         return Base64.encodeToString(bytes, Base64.NO_WRAP);
     }
 

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_parent_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_home"
+    android:clipChildren="false"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/view_status_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_160"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+<!--    <View-->
+<!--        android:layout_width="@dimen/dp_100"-->
+<!--        android:layout_height="@dimen/dp_258"-->
+<!--        android:background="@color/blue"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <androidx.leanback.widget.HorizontalGridView
+        android:id="@+id/horizontal_grid_view_main"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_160"
+        android:clipChildren="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_status_bar" />
+
+    <ImageView
+        android:id="@+id/iv_panel_bg_n"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_370"
+        app:layout_constraintBottom_toTopOf="@+id/cl_footer"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_panel_bg_f"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_746"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_panel_f"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+<!--    <View-->
+<!--        android:layout_width="@dimen/dp_100"-->
+<!--        android:layout_height="@dimen/dp_370"-->
+<!--        android:background="@color/blue"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/cl_footer"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
+
+    <FrameLayout
+        android:id="@+id/fl_sub_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:clipChildren="false"
+        app:layout_constraintBottom_toTopOf="@+id/cl_footer"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_footer"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_282"
+        android:paddingStart="@dimen/dp_108"
+        android:paddingEnd="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_40"
+            android:text="Greyhound"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_40"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

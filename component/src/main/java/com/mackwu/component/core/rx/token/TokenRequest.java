@@ -18,33 +18,45 @@ import io.reactivex.disposables.Disposable;
  */
 public class TokenRequest {
 
-    private void test(){
-        startRequest(0);
-//            try {
-//                Thread.sleep(500);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//            startRequest(1);
+    private static TokenRequest instance;
+
+    private TokenRequest() {
     }
 
-    @SuppressLint("CheckResult")
+    public static TokenRequest getInstance() {
+        if (instance == null) {
+            instance = new TokenRequest();
+        }
+        return instance;
+    }
+
+    public void test(){
+        new Thread(() -> startRequest(0)).start();
+        new Thread(() -> startRequest(1)).start();
+    }
+
     private void startRequest(final int index) {
+
+        // 现获取本地token，如果未空则请求远程token
         Observable.just(1)
                 .flatMap(i -> {
                     String token = TokenHolder.getInstance().getToken();
                     if (token == null || token.isEmpty()) {
-                        LogUtil.d("token is null!");
+                        LogUtil.d(index + "token is null!");
                         return Observable.error(new NullTokenException());
                     }
                     return Observable.just(token);
                 })
+
+                // token为空，请求
                 .retryWhen(observable -> observable.flatMap(throwable -> {
                     if (throwable instanceof NullTokenException) {
                         return TokenLoader.getInstance().getTokenLocked();
                     }
                     return Observable.error(throwable);
                 }))
+
+                //
                 .subscribe(new Observer<String>() {
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
@@ -58,12 +70,10 @@ public class TokenRequest {
 
                     @Override
                     public void onError(Throwable e) {
-                        LogUtil.d(index + ":" + "onError=" + e);
                     }
 
                     @Override
                     public void onComplete() {
-                        LogUtil.d(index + ":" + "onComplete");
                     }
                 });
     }

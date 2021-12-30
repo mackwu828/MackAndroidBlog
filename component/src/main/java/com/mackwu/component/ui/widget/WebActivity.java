@@ -1,19 +1,22 @@
 package com.mackwu.component.ui.widget;
 
-import android.annotation.SuppressLint;
-import android.os.Build;
+import android.app.Service;
+import android.content.ComponentName;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
-import android.os.Handler;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import android.os.IBinder;
 
 import androidx.annotation.Nullable;
 
 import com.mackwu.base.BaseActivity;
 import com.mackwu.base.util.LogUtil;
 import com.mackwu.base.viewmodel.BaseViewModel;
+import com.mackwu.component.IWebInterface;
+import com.mackwu.component.core.WebProcessManager;
 import com.mackwu.component.databinding.WidgetActivityWebBinding;
+import com.mackwu.component.service.WebService;
+import com.mackwu.component.ui.window.WebWindow;
 
 /**
  * ===================================================
@@ -24,46 +27,34 @@ import com.mackwu.component.databinding.WidgetActivityWebBinding;
  */
 public class WebActivity extends BaseActivity<BaseViewModel, WidgetActivityWebBinding> {
 
-    @SuppressLint("SetJavaScriptEnabled")
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
+        binding.btnShow.setOnClickListener(v -> {
+            WebWindow.getInstance().show();
+        });
+        binding.btnHide.setOnClickListener(v -> {
+            WebWindow.getInstance().hide();
+        });
+        binding.btnShowAcrossProcess.setOnClickListener(v -> WebProcessManager.getInstance().showAcrossProcess());
+        binding.btnHideAcrossProcess.setOnClickListener(v -> WebProcessManager.getInstance().hideAcrossProcess());
+        bindWebService();
+    }
 
-        // webSettings
-        WebSettings webSettings = binding.webView.getSettings();
-        // 允许JS代码
-        webSettings.setJavaScriptEnabled(true);
-        webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
-        // 设置自适应屏幕，两者合用
-//        webSettings.setUseWideViewPort(true);
-//        webSettings.setLoadWithOverviewMode(true);
-        // 设置5.0以上开启混合模式加载
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
-        }
-        // 允许Dom缓存
-        webSettings.setDomStorageEnabled(true);
-        // 允许App缓存
-        webSettings.setAppCacheEnabled(true);
-        // 允许访问File
-        webSettings.setAllowFileAccess(true);
-        // 允许自动加载图片
-        webSettings.setLoadsImagesAutomatically(true);
-        // 设置布局算法
-        webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING);
-
-        binding.webView.setWebViewClient(new WebViewClient() {
+    private void bindWebService() {
+        bindService(new Intent(this, WebService.class), new ServiceConnection() {
             @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
-                return true;
+            public void onServiceConnected(ComponentName name, IBinder service) {
+                LogUtil.d("onServiceConnected...");
+                IWebInterface iWebInterface = IWebInterface.Stub.asInterface(service);
+                WebProcessManager.getInstance().setWebInterface(iWebInterface);
+                WebProcessManager.getInstance().loadUrlAcrossProcess();
             }
-        });
-        binding.webView.loadUrl("https://www.baidu.com/");
 
-        new Handler().post(() -> {
-            LogUtil.d("webview width: " + binding.webView.getWidth());
-            LogUtil.d("webview height: " + binding.webView.getHeight());
-        });
+            @Override
+            public void onServiceDisconnected(ComponentName name) {
+                LogUtil.d("onServiceDisconnected...");
+            }
+        }, Service.BIND_AUTO_CREATE);
     }
 
 }

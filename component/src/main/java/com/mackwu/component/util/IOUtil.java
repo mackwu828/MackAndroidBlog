@@ -30,12 +30,12 @@ public class IOUtil {
     /**
      * 关闭IO流
      */
-    public static void close(Closeable... closeables) {
-        for (Closeable closeable : closeables) {
-            if (null != closeable) {
+    public static void close(AutoCloseable... autoCloseables) {
+        for (AutoCloseable autoCloseable : autoCloseables) {
+            if (null != autoCloseable) {
                 try {
-                    closeable.close();
-                } catch (IOException e) {
+                    autoCloseable.close();
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }

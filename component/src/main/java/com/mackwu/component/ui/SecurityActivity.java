@@ -1,7 +1,6 @@
 package com.mackwu.component.ui;
 
 import android.os.Bundle;
-import android.util.Base64;
 
 import androidx.annotation.Nullable;
 
@@ -9,8 +8,6 @@ import com.mackwu.base.BaseActivity;
 import com.mackwu.base.util.LogUtil;
 import com.mackwu.base.viewmodel.BaseViewModel;
 import com.mackwu.component.databinding.MainActivityBinding;
-import com.mackwu.component.util.ByteUtil;
-import com.mackwu.component.util.EncryptUtil;
 import com.mackwu.component.util.SslUtil;
 
 import java.security.KeyStore;
@@ -35,14 +32,14 @@ public class SecurityActivity extends BaseActivity<BaseViewModel, MainActivityBi
         try {
             KeyStore keyStore = SslUtil.getKeyStore(this, "test.keystore", "123456");
             PrivateKey privateKey = SslUtil.getPrivateKey(keyStore, "123456");
-            X509Certificate x509Certificate = SslUtil.getX509Certificate(keyStore);
+            X509Certificate x509Certificate = SslUtil.getCert(keyStore);
 
 //            KeyStore keyStore = SslUtil.getKeyStore(this, "client.p12", "zeasn123");
 //            PrivateKey privateKey = SslUtil.getPrivateKey(keyStore, "zeasn123");
 //            X509Certificate x509Certificate = SslUtil.getX509Certificate(keyStore);
 
-            LogUtil.d("privateKey: " + SslUtil.getPrivateKeyString(privateKey));
-            LogUtil.d("x509Certificate: " + SslUtil.getX509CertificateString(x509Certificate));
+            LogUtil.d("privateKey: " + SslUtil.getPrivateKeyStr(privateKey));
+            LogUtil.d("x509Certificate: " + SslUtil.getCertStr(x509Certificate));
         } catch (Exception e) {
             e.printStackTrace();
         }

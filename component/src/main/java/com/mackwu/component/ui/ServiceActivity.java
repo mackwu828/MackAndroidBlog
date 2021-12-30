@@ -1,18 +1,14 @@
 package com.mackwu.component.ui;
 
-import android.app.Service;
-import android.content.ComponentName;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.os.Bundle;
-import android.os.IBinder;
 
 import androidx.annotation.Nullable;
 
 import com.mackwu.base.BaseActivity;
 import com.mackwu.base.viewmodel.BaseViewModel;
-import com.mackwu.component.databinding.ActivityTestBinding;
-import com.mackwu.component.core.service.MainService;
+import com.mackwu.component.databinding.ActivityServiceBinding;
+import com.mackwu.component.service.MyService;
 
 /**
  * ===================================================
@@ -21,25 +17,16 @@ import com.mackwu.component.core.service.MainService;
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-public class ServiceActivity extends BaseActivity<BaseViewModel, ActivityTestBinding> {
-
-    private final ServiceConnection serviceConnection = new ServiceConnection() {
-        @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            MainService.MyBinder binder = (MainService.MyBinder) service;
-            MainService mainService = binder.getService();
-        }
-
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
-
-        }
-    };
+public class ServiceActivity extends BaseActivity<BaseViewModel, ActivityServiceBinding> {
 
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
-        Intent intent = new Intent(this, MainService.class);
-        bindService(intent, serviceConnection, Service.BIND_AUTO_CREATE);
+        startService(new Intent(this, MyService.class));
+
+        binding.btnStartService.setOnClickListener(v -> {
+        });
+        binding.btnStopService.setOnClickListener(v -> {
+        });
     }
 
 }

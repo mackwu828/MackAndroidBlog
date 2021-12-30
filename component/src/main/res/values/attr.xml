@@ -7,6 +7,11 @@
         <attr name="batteryPowerNormalColor" format="color" />
         <attr name="batteryPowerChargingColor" format="color" />
         <attr name="batteryPowerLowColor" format="color" />
+        <attr name="batteryPowerFullColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="BubbleLayout">
+
     </declare-styleable>
 
 </resources>

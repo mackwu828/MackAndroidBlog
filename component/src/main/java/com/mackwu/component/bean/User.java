@@ -1,5 +1,7 @@
 package com.mackwu.component.bean;
 
+import java.io.Serializable;
+
 /**
  * ===================================================
  * Created by MackWu on 2020/6/30 11:49
@@ -7,12 +9,16 @@ package com.mackwu.component.bean;
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-public class User {
+public class User implements Serializable {
 
     private String name;
     private int age;
 
     public User() {
+    }
+
+    public User(String name) {
+        this.name = name;
     }
 
     public User(final String name, final int age) {

@@ -3,18 +3,12 @@ package com.mackwu.component.ui;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.Transformations;
 
 import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.mackwu.base.BaseActivity;
 import com.mackwu.base.util.LogUtil;
 import com.mackwu.base.viewmodel.BaseViewModel;
-import com.mackwu.component.bean.User;
 import com.mackwu.component.databinding.ActivityLiveDataBinding;
-import com.mackwu.component.ui.livedata.Str2LiveData;
-import com.mackwu.component.ui.livedata.StrLiveData;
-import com.mackwu.component.ui.livedata.UserLiveData;
 
 /**
  * ===================================================

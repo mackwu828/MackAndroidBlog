@@ -83,7 +83,25 @@ public class BatteryChangeLiveData extends MutableLiveData<BatteryChangeLiveData
     public static class BatteryInfo {
         private int level;
         private int total;
+
+        /**
+         * 电池状态：
+         * {@link BatteryManager#BATTERY_STATUS_UNKNOWN} 1: 未知状态
+         * {@link BatteryManager#BATTERY_STATUS_CHARGING} 2: 充电中
+         * {@link BatteryManager#BATTERY_STATUS_DISCHARGING} 3: 取消充电
+         * {@link BatteryManager#BATTERY_STATUS_NOT_CHARGING} 4: 未充电
+         * {@link BatteryManager#BATTERY_STATUS_FULL} 5: 充满
+         */
         private int status;
+
+        /**
+         * 充电方式:
+         * 0: 未充电
+         * {@link BatteryManager#BATTERY_PLUGGED_AC} 1: AC充电。
+         * {@link BatteryManager#BATTERY_PLUGGED_USB} 2: USB充电
+         * {@link BatteryManager#BATTERY_PLUGGED_WIRELESS} 4: 无线充电
+         */
+        private int plugged;
 
         public int getLevel() {
             return level;
@@ -107,6 +125,14 @@ public class BatteryChangeLiveData extends MutableLiveData<BatteryChangeLiveData
 
         public void setStatus(int status) {
             this.status = status;
+        }
+
+        public int getPlugged() {
+            return plugged;
+        }
+
+        public void setPlugged(int plugged) {
+            this.plugged = plugged;
         }
     }
 
