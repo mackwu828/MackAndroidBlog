@@ -21,7 +21,7 @@ import com.mackwu.base.recycler.SpaceItemDecoration;
 import com.mackwu.base.util.LogUtil;
 import com.mackwu.base.viewmodel.BaseViewModel;
 import com.mackwu.component.R;
-import com.mackwu.component.base.BaseFocusQuickAdapter;
+import com.mackwu.component.ui.adapter.BaseFocusQuickAdapter;
 import com.mackwu.component.databinding.WidgetActivityLeanbackBinding;
 import com.mackwu.component.ui.fragment.HorizontalFragment;
 import com.mackwu.component.ui.fragment.VerticalFragment;

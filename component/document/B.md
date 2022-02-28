@@ -41,7 +41,6 @@ MqttService#init Mqtt初始化
 {"data":{"fileId":"10360595f9f0e540e7bcf44f811354c6da","fileSubject":"img_music.png",
 "fileUrl":"http://cache.zeasn.tv/prod/whale-photo-api/file/2021/10360595f9f0e540e7bcf44f811354c6da.jpg",
 "height":0,"mobileId":433680619860923112,"pivotX":0.5,"pivotY":0.5,"width":0},"msgType":2,"timeStamp":"2021-12-24 09:02:06.199"}
-
 DOWNLOAD_RES => MattService#onDownloadMsg 通知下载图片
     => NetRes不存在
         => RevokeRes不存在
@@ -51,11 +50,9 @@ DOWNLOAD_RES => MattService#onDownloadMsg 通知下载图片
             => RevokeRes#notifyResRevoked
             => RevokeResDao#deleteInTx 删除撤回图片数据库数据
             => RevokeResNotifyServer#startNotify 更新撤回文件结果
-            
     => NetRes存在
         => Res存在表示已经下载成功 => DownloadMgr#setFileSuccessState 更新文件状态
         => Res不存在表示正在下载，收到相同的图片。
-
 
 REVOKE_RES 通知撤回图片
         
@@ -93,4 +90,30 @@ IMessage:
 2021-12-24 10:04:21.904 3091-3091/com.zeasn.frame D/Frame: MqttService subscribeTopics onSuccess prod/whale/1/452542690526565320
 
 MqttGuardService mqtt守护服务，判断mqtt断开，重启Mqtt服务
+```
+
+
+
+## 数据备份
+```
+备份数据库：data/data/com.zeasn.frame/databases/whale_photo.db
+        => 外置sdcard/ZWhalePhoto/backup/TerminalId/DataTime/whale_photo.db
+
+备份图片和视频数据：内置sdcard/ZWhalePhoto/resource/...
+        => 外置sdcard/ZWhalePhoto/backup/TerminalId/DataTime/...
+
+保存备份信息Json：BackupInfo 
+        => 外置sdcard/ZWhalePhoto/backup/TerminalId/DataTime/BackupInfo.json
+```
+
+
+
+```
+
+
+
+
+1. 集成ABI库的Launcher。
+2. 集成ABI库单独做成一个apk。
+3. 集成WWA库的Launcher。
 ```

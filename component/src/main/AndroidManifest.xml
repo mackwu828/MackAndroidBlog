@@ -23,7 +23,8 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
 
     <application
         android:name=".ComponentApp"
@@ -34,6 +35,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
+        android:requestLegacyExternalStorage="true"
         tools:ignore="GoogleAppIndexingWarning">
 
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
@@ -66,6 +68,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
+
+        <!-- receiver -->
+        <receiver android:name=".core.alarm.AlarmReceiver" />
 
         <!-- provider -->
 
@@ -108,6 +113,8 @@
         <activity android:name=".ui.widget.ImageViewActivity" />
         <activity android:name=".ui.widget.RecyclerActivity" />
         <activity android:name=".ui.widget.LeanbackActivity" />
+        <activity android:name=".ui.widget.ViewPagerActivity" />
+        <activity android:name=".ui.widget.HeartViewActivity" />
 
         <!--    other    -->
         <activity android:name=".ui.WindowActivity" />
@@ -120,8 +127,8 @@
         <activity android:name=".ui.LifecycleActivity" />
         <activity android:name=".ui.SecurityActivity" />
         <activity android:name=".ui.AnimActivity" />
-        <activity android:name=".ui.GlideActivity" />
-        <activity android:name=".ui.SqlActivity" />
+        <activity android:name=".ui.DatabaseActivity" />
+        <activity android:name=".ui.AlarmActivity" />
 
     </application>
 

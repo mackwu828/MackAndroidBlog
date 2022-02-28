@@ -1,20 +1,8 @@
 package com.mackwu.component;
 
 import android.app.Application;
-import android.app.Service;
-import android.content.ComponentName;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.os.Build;
-import android.os.IBinder;
-import android.os.RemoteException;
-import android.webkit.WebView;
 
-import com.mackwu.base.util.LogUtil;
-import com.mackwu.component.core.DbManager;
-import com.mackwu.component.core.http.AliDns;
-import com.mackwu.component.service.WebService;
-import com.mackwu.component.util.ProcessUtil;
+import com.mackwu.component.core.db.DbManager;
 
 /**
  * ===================================================

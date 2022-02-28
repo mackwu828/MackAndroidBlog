@@ -4,9 +4,9 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 
-import com.mackwu.component.databinding.WidgetActivtiyViewBinding;
 import com.mackwu.base.BaseActivity;
 import com.mackwu.base.viewmodel.BaseViewModel;
+import com.mackwu.component.databinding.WidgetActivtiyViewBinding;
 
 /**
  * ===================================================

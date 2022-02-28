@@ -25,7 +25,7 @@ import java.security.MessageDigest;
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-public class IOUtil {
+public final class IOUtil {
 
     /**
      * 关闭IO流
@@ -50,7 +50,7 @@ public class IOUtil {
      * @param sourceFile 源文件
      * @param destFile   目标文件
      */
-    public static void copy(File sourceFile, File destFile) {
+    public static long copy(File sourceFile, File destFile) {
         FileInputStream fis = null;
         FileOutputStream fos = null;
         try {
@@ -62,11 +62,13 @@ public class IOUtil {
                 fos.write(buf, 0, len);
                 fos.flush();
             }
+            return destFile.length();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             close(fis, fos);
         }
+        return -1;
     }
 
     /**
@@ -75,7 +77,7 @@ public class IOUtil {
      * @param inputStream 源文件输入流
      * @param destFile    目标文件
      */
-    public static void copy(InputStream inputStream, File destFile) {
+    public static long copy(InputStream inputStream, File destFile) {
         FileOutputStream fos = null;
         try {
             fos = new FileOutputStream(destFile);
@@ -85,29 +87,32 @@ public class IOUtil {
                 fos.write(buf, 0, len);
                 fos.flush();
             }
+            return destFile.length();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             close(inputStream, fos);
         }
+        return -1;
     }
 
     /**
      * 拷贝文件。
      *
      * @param sourceStr 源文件字符串
-     * @param destFile    目标文件
+     * @param destFile  目标文件
      */
-    public static void copy(String sourceStr, File destFile) {
+    public static long copy(String sourceStr, File destFile) {
         ByteArrayInputStream bis = null;
         try {
             bis = new ByteArrayInputStream(sourceStr.getBytes());
-            copy(bis, destFile);
+           return copy(bis, destFile);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             close(bis);
         }
+        return -1;
     }
 
     /**
@@ -117,7 +122,7 @@ public class IOUtil {
      * @param assetFileName asset文件名称
      * @param destFile      目标文件
      */
-    public static void copy(Context context, String assetFileName, File destFile) {
+    public static long copy(Context context, String assetFileName, File destFile) {
         InputStream inputStream = null;
         FileOutputStream fos = null;
         try {
@@ -129,11 +134,13 @@ public class IOUtil {
                 fos.write(buf, 0, len);
                 fos.flush();
             }
+            return destFile.length();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             close(inputStream, fos);
         }
+        return -1;
     }
 
     /**
@@ -225,7 +232,7 @@ public class IOUtil {
             return toString(fis);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             close(fis);
         }
         return "";
@@ -252,12 +259,14 @@ public class IOUtil {
     }
 
     /**
-     * 获取md6
+     * 获取文件md5值
+     *
      * @param file 文件
      */
-    public static String getMd5(File file) {
+    public static String toMd5String(File file) {
+        FileInputStream fis = null;
         try {
-            FileInputStream fis = new FileInputStream(file);
+            fis = new FileInputStream(file);
             MappedByteBuffer byteBuffer = fis.getChannel().map(FileChannel.MapMode.READ_ONLY, 0, file.length());
             MessageDigest md5 = MessageDigest.getInstance("MD5");
             md5.update(byteBuffer);
@@ -265,6 +274,8 @@ public class IOUtil {
             return bi.toString(16);
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            close(fis);
         }
         return "";
     }

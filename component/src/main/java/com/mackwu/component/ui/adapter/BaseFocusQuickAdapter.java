@@ -1,4 +1,4 @@
-package com.mackwu.component.base;
+package com.mackwu.component.ui.adapter;
 
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;

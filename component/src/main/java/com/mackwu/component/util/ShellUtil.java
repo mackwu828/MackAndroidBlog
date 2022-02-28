@@ -15,27 +15,9 @@ import java.io.InputStreamReader;
  * ===================================================
  */
 public final class ShellUtil {
+
     public static void execCommand(String command) {
-//        Process process = null;
-//        BufferedReader bufferedReader = null;
-//        InputStreamReader inputStreamReader = null;
-//        try {
-//            process = Runtime.getRuntime().exec(command);
-//            bufferedReader = new BufferedReader();
-//            BufferedReader mReader = new BufferedReader());
-//            StringBuilder stringBuffer = new StringBuilder();
-//            char[] buff = new char[1024];
-//            int ch;
-//            while ((ch = mReader.read(buff)) != -1) {
-//                stringBuffer.append(buff, 0, ch);
-//            }
-//            mReader.close();
-//            Log.d("TAG", "execCommand...  " + stringBuffer.toString());
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        } finally {
-////            IOUtil.close(dos);
-//        }
+
     }
 
     public static void execCommand() {

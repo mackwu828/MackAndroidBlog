@@ -6,7 +6,11 @@ import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import javax.crypto.Cipher;
 import javax.crypto.Mac;
+import javax.crypto.SecretKey;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 
 /**
@@ -28,11 +32,23 @@ public final class EncryptUtil {
         try {
             MessageDigest digest = MessageDigest.getInstance(algorithm);
             byte[] result = digest.digest(str.getBytes());
-            return ByteUtil.bytesToHex(result);
+            return bytesToHex(result);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
         return "";
+    }
+
+    /**
+     * 字节数组转十六进制字符串
+     */
+    public static String bytesToHex(byte[] bytes) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (final byte b : bytes) {
+            String hex = Integer.toHexString(b & 0xFF);
+            stringBuilder.append((hex.length() == 1) ? "0" + hex : hex);
+        }
+        return stringBuilder.toString().trim();
     }
 
     /**

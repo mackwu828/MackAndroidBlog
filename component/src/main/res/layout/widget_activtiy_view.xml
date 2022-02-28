@@ -4,4 +4,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <com.mackwu.component.widget.TestView
+        android:id="@+id/test_view"
+        android:layout_width="@dimen/dp_200"
+        android:layout_height="@dimen/dp_200"
+        android:layout_margin="@dimen/dp_100"
+        android:background="@color/colorPrimary" />
+
 </LinearLayout>

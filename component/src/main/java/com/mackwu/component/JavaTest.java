@@ -1,12 +1,7 @@
 package com.mackwu.component;
 
 
-import com.google.gson.Gson;
-import com.mackwu.component.util.IOUtil;
-
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.Locale;
 
 /**
  * ===================================================
@@ -18,8 +13,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class JavaTest {
 
     public static void main(String[] args) {
-        AtomicBoolean refreshing = new AtomicBoolean(false);
-        System.out.println(refreshing.compareAndSet(false, true));
+
+        long space = 1398737;
+        System.out.println(String.format(Locale.getDefault(), "%.2f", space / 1024f /1024 / 1024));
     }
 
     public static void test() {

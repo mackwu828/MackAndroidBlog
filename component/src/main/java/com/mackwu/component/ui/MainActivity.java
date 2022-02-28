@@ -8,6 +8,9 @@ import com.mackwu.base.BaseActivity;
 import com.mackwu.base.util.ActivityStartUtil;
 import com.mackwu.component.databinding.MainActivityBinding;
 import com.mackwu.component.ui.viewmodel.MainViewModel;
+import com.mackwu.component.ui.widget.HeartViewActivity;
+import com.mackwu.component.ui.widget.RecyclerActivity;
+import com.mackwu.component.ui.widget.ViewActivity;
 
 /**
  * ===================================================
@@ -20,9 +23,8 @@ public class MainActivity extends BaseActivity<MainViewModel, MainActivityBindin
 
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
-        ActivityStartUtil.startActivity(this, AnimActivity.class);
+        ActivityStartUtil.startActivity(this, RecyclerActivity.class);
         binding.btnTest.setOnClickListener(v -> {
-
         });
     }
 

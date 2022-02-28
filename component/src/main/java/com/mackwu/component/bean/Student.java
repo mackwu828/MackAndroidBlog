@@ -19,15 +19,15 @@ public class Student {
     private String name;
     private int age;
 
+    @Generated(hash = 1556870573)
+    public Student() {
+    }
+
     @Generated(hash = 1156616942)
     public Student(long id, String name, int age) {
         this.id = id;
         this.name = name;
         this.age = age;
-    }
-
-    @Generated(hash = 1556870573)
-    public Student() {
     }
 
     public long getId() {
@@ -62,4 +62,5 @@ public class Student {
                 ", age=" + age +
                 '}';
     }
+
 }

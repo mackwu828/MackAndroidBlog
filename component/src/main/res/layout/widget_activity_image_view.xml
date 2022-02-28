@@ -2,19 +2,41 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
     android:gravity="center"
     android:orientation="vertical">
 
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:text="XXXX"
-        android:textColor="@color/white"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/iv_test"
+        <ImageView
+            android:id="@+id/iv_test_1"
+            android:layout_width="@dimen/dp_800"
+            android:background="@color/colorPrimary"
+            android:layout_height="@dimen/dp_400" />
+
+        <ImageView
+            android:id="@+id/iv_test_2"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_width="@dimen/dp_800"
+            android:layout_height="@dimen/dp_400" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_test_3"
+            android:layout_width="@dimen/dp_800"
+            android:layout_height="@dimen/dp_400" />
+
+        <ImageView
+            android:id="@+id/iv_test_4"
+            android:layout_width="@dimen/dp_800"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_height="@dimen/dp_400" />
+    </LinearLayout>
 
 </LinearLayout>

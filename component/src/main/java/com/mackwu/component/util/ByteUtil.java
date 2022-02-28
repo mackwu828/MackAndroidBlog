@@ -1,5 +1,7 @@
 package com.mackwu.component.util;
 
+import java.util.Locale;
+
 /**
  * ===================================================
  * Created by MackWu on 2021/10/19 16:38
@@ -34,6 +36,24 @@ public final class ByteUtil {
             bytes[i] = (byte) intVal;
         }
         return bytes;
+    }
+
+    /**
+     * 字节转化字符串
+     * 1GB=102mb
+     * 1MB=1024kb
+     * 1Kb=1024bytes
+     */
+    public static String bytesToStr(long bytes) {
+        if (bytes < 1024) {
+            return bytes + "bytes";
+        } else if (bytes < 1024 * 1024) {
+            return String.format(Locale.getDefault(), "%.2f", bytes / 1024f) + "KB";
+        } else if (bytes < 1024 * 1024 * 1024) {
+            return String.format(Locale.getDefault(), "%.2f", bytes / 1024f / 1024) + "MB";
+        } else {
+            return String.format(Locale.getDefault(), "%.2f", bytes / 1024f / 1024 / 1024) + "GB";
+        }
     }
 
 }
