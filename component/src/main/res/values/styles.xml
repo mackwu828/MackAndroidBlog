@@ -19,4 +19,32 @@
         <item name="android:windowIsFloating">true</item>
     </style>
 
+    <!--
+        透明的Activity
+    -->
+    <style name="Theme.TransparentActivity" parent="@style/Theme.AppCompat.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+    </style>
+
+    <!--  垂直进度条  -->
+    <style name="Widget.AppCompat.ProgressBar.Vertical">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:indeterminateDrawable">@android:drawable/progress_indeterminate_horizontal</item>
+    </style>
+
+    <!--  BarrageSubView  -->
+    <style name="BarrageSubView">
+        <item name="android:layout_width">@dimen/dp_455</item>
+        <item name="android:layout_height">@dimen/dp_80</item>
+        <item name="android:background">@drawable/shape_barrage</item>
+        <item name="android:gravity">center</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textSize">@dimen/sp_34</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:paddingStart">@dimen/dp_40</item>
+        <item name="android:paddingEnd">@dimen/dp_40</item>
+    </style>
+
 </resources>

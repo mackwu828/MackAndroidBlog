@@ -17,6 +17,9 @@ OkHttp + DNS？https://github.com/square/okhttp/blob/858939f025068c6d3581338317b
 后台返回不规范的数据如非json数据如何解析？修改ResponseBody？https://stackoverflow.com/questions/35773028/how-to-change-body-in-okhttp-response
 
 
+设备系统时间不对时请求https接口会报SSLHandshakeException？https://www.jianshu.com/p/29183f81286e?utm_campaign=maleskine...&utm_content=note&utm_medium=seo_notes&utm_source=recommendation
+javax.net.ssl.SSLHandshakeException: com.android.org.bouncycastle.jce.exception.ExtCertPathValidatorException: Could not validate certificate: Certificate not valid until Thu Jul 16 20:25:27 GMT+08:00 2020 (compared to Fri Mar 02 14:23:46 GMT+08:00 2018)
+
 
 ## 初始化
 ```

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.mackwu.component.widget.banner.BannerView
+    <com.mackwu.component.ui.view.banner.BannerView
         android:layout_width="match_parent"
         android:id="@+id/banner_view_pager"
         android:layout_height="match_parent" />

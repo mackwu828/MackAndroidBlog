@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -9,18 +11,35 @@
         android:id="@+id/btn_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="start" />
+        android:text="start"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:layout_width="@dimen/dp_200"
-        android:layout_height="@dimen/dp_200"
-        android:layout_marginBottom="@dimen/dp_100"
-        android:background="@drawable/shape_stroke" />
 
-    <ImageView
-        android:id="@+id/iv_test"
-        android:layout_width="@dimen/dp_200"
-        android:layout_height="@dimen/dp_200"
-        android:background="@color/colorPrimary" />
+    <LinearLayout
+        android:id="@+id/ll_greeting_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_110"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-</LinearLayout>
+        <ImageView
+            android:id="@+id/iv_greeting_card"
+            android:layout_width="@dimen/dp_700"
+            android:layout_height="@dimen/dp_438"
+            android:src="@drawable/bmg_christmas" />
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="@dimen/dp_48"
+            android:layout_height="@dimen/dp_48"
+            android:layout_marginTop="@dimen/dp_24"
+            android:src="@drawable/ic_close" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

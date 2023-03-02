@@ -1,7 +1,8 @@
 rootProject.name = "MackAndroidBlog"
+include ':base-core'
 include ':component'
 include ':compiler'
 include ':plugin'
-
-include ':base-core'
-project(':base-core').projectDir = new File(settingsDir, '../BaseCore/base-core')
+include ':video-compress'
+include ':storage'
+include ':fast-scroll'

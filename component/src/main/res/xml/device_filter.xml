@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <!-- VID_048D&PID_8951 / T1000 OTG -->
-    <usb-device vendor-id="1165" product-id="35153"/>
-
-</resources>

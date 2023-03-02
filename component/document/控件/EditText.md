@@ -5,6 +5,7 @@
 隐藏和显示密码？
 
 imeOptions设置了不起作用？
+windowSoftInputMode="stateAlwaysVisible"自动弹出软键盘不起作用？需要让editText获取到焦点
 
 ## 如何监听Action按钮？
 一、修改Enter按键样式

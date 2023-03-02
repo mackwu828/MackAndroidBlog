@@ -15,7 +15,7 @@
         android:maxHeight="30dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:progressDrawable="@drawable/shape_seek_bar_progress"
+        android:progressDrawable="@drawable/shape_seek_bar"
         android:thumb="@drawable/shape_seek_bar_thumb" />
 
 </LinearLayout>

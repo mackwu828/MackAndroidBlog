@@ -2,23 +2,25 @@
 <paths>
     <root-path
         name="root"
-        path="" />
+        path="/" />
+    <!-- context.getFilesDir()-->
     <files-path
         name="files"
-        path="." />
-
+        path="/" />
+    <!-- context.getCacheDir()-->
     <cache-path
         name="cache"
-        path="." />
-
+        path="/" />
+    <!-- Environment.getExternalStorageDirectory()-->
     <external-path
         name="external"
-        path="." />
-
+        path="/" />
+    <!-- context.getExternalFilesDirs() -->
     <external-files-path
-        name="external_file_path"
-        path="." />
+        name="name"
+        path="/" />
+    <!-- context.getExternalCacheDirs()-->
     <external-cache-path
-        name="external_cache_path"
-        path="." />
+        name="name"
+        path="/" />
 </paths>

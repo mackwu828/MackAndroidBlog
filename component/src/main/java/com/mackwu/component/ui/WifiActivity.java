@@ -13,13 +13,12 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.mackwu.base.BaseActivity;
 import com.mackwu.base.util.ActivityStartUtil;
-import com.mackwu.base.util.LogUtil;
+import com.mackwu.base.util.Logger;
 import com.mackwu.base.viewmodel.BaseViewModel;
 import com.mackwu.component.R;
 import com.mackwu.component.databinding.WifiActivityBinding;
-import com.mackwu.component.ui.widget.WebActivity;
 import com.mackwu.component.util.PermissionUtil;
-import com.mackwu.component.util.WifiUtil;
+import com.mackwu.component.func.wifi.WifiUtil;
 import com.thanosfisherman.wifiutils.WifiUtils;
 
 import org.jetbrains.annotations.NotNull;
@@ -51,7 +50,7 @@ public class WifiActivity extends BaseActivity<BaseViewModel, WifiActivityBindin
         adapter = new WifiAdapter();
         adapter.setOnItemClickListener((a, view, position) -> {
             String ssid = adapter.getItem(position);
-            LogUtil.d("connect...  ssid: " + ssid);
+            Logger.d("connect...  ssid: " + ssid);
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
 //                WifiNetworkSuggestion wifiNetworkSuggestion = new WifiNetworkSuggestion.Builder()
 //                        .setSsid(ssid)
@@ -121,17 +120,17 @@ public class WifiActivity extends BaseActivity<BaseViewModel, WifiActivityBindin
         });
 
         PermissionUtil.requestPermission(this, Manifest.permission.ACCESS_FINE_LOCATION, granted -> {
-            LogUtil.d("ACCESS_FINE_LOCATION permission granted...");
+            Logger.d("ACCESS_FINE_LOCATION permission granted...");
             if (!granted) return;
             WifiUtils.withContext(getApplicationContext())
                     .scanWifi(scanResults -> {
-                        LogUtil.d("onScanResults...  " + scanResults.size());
+                        Logger.d("onScanResults...  " + scanResults.size());
                         List<String> wifiItems = new ArrayList<>();
                         for (ScanResult scanResult : scanResults) {
-                            LogUtil.d("ssid:" + scanResult.SSID + ", bssid: " + scanResult.BSSID);
+                            Logger.d("ssid:" + scanResult.SSID + ", bssid: " + scanResult.BSSID);
                             wifiItems.add(scanResult.SSID);
                         }
-                        adapter.setList(wifiItems);
+                        adapter.setNewData(wifiItems);
                     })
                     .start();
         });

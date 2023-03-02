@@ -102,6 +102,7 @@ class JarInputProcessor {
             //
             transform.transformJar(entryName, jarOutputStream, IOUtils.toByteArray(inputStream))
 
+            inputStream.close()
             jarOutputStream.closeEntry()
         }
         jarOutputStream.close()

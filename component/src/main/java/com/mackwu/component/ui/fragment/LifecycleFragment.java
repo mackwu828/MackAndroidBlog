@@ -2,15 +2,17 @@ package com.mackwu.component.ui.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.viewbinding.ViewBinding;
 
 import com.mackwu.base.fragment.BaseFragment;
+import com.mackwu.base.util.Logger;
+import com.mackwu.base.viewmodel.BaseViewModel;
 
 
 /**
@@ -20,92 +22,92 @@ import com.mackwu.base.fragment.BaseFragment;
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-public abstract class LifecycleFragment extends BaseFragment {
+public abstract class LifecycleFragment<VM extends BaseViewModel, B extends ViewBinding> extends BaseFragment<VM, B> {
 
-    private static final String HEAD = LifecycleFragment.class.getSimpleName() + " ";
+    private final String HEAD = getClass().getSimpleName() + " ";
 
     @Override
     public void onAttach(@NonNull final Context context) {
         super.onAttach(context);
-        Log.d("TAG", HEAD + "onAttach...");
+        Logger.d(HEAD + "onAttach...");
     }
 
     @Override
     public void onCreate(@Nullable final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("TAG", HEAD + "onCreate...");
+        Logger.d(HEAD + "onCreate...");
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull final LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable final Bundle savedInstanceState) {
-        Log.d("TAG", HEAD + "onCreateView...");
+        Logger.d(HEAD + "onCreateView...");
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @Override
     public void onViewCreated(@NonNull final View view, @Nullable final Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Log.d("TAG", HEAD + "onViewCreated...");
+        Logger.d(HEAD + "onViewCreated...");
     }
 
     @Override
     public void onActivityCreated(@Nullable final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Log.d("TAG", HEAD + "onActivityCreated...");
+        Logger.d(HEAD + "onActivityCreated...");
     }
 
     @Override
     public void onViewStateRestored(@Nullable final Bundle savedInstanceState) {
         super.onViewStateRestored(savedInstanceState);
-        Log.d("TAG", HEAD + "onViewStateRestored...");
+        Logger.d(HEAD + "onViewStateRestored...");
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        Log.d("TAG", HEAD + "onStart...");
+        Logger.d(HEAD + "onStart...");
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        Log.d("TAG", HEAD + "onResume...");
+        Logger.d(HEAD + "onResume...");
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        Log.d("TAG", HEAD + "onPause...");
+        Logger.d(HEAD + "onPause...");
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        Log.d("TAG", HEAD + "onStop...");
+        Logger.d(HEAD + "onStop...");
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        Log.d("TAG", HEAD + "onDestroyView...");
+        Logger.d(HEAD + "onDestroyView...");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d("TAG", HEAD + "onDestroy...");
+        Logger.d(HEAD + "onDestroy...");
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        Log.d("TAG", HEAD + "onDetach...");
+        Logger.d(HEAD + "onDetach...");
     }
 
     @Override
     public void onHiddenChanged(final boolean hidden) {
         super.onHiddenChanged(hidden);
-        Log.d("TAG", HEAD + "onHiddenChanged...");
+        Logger.d(HEAD + "onHiddenChanged...");
     }
 }

@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 
 import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.mackwu.base.BaseActivity;
-import com.mackwu.base.util.LogUtil;
+import com.mackwu.base.util.Logger;
 import com.mackwu.base.viewmodel.BaseViewModel;
 import com.mackwu.component.databinding.ActivityLiveDataBinding;
 
@@ -21,7 +21,7 @@ public class LiveDataActivity extends BaseActivity<BaseViewModel, ActivityLiveDa
 
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
-        LiveEventBus.get("111", String.class).observeSticky(this, LogUtil::d);
+        LiveEventBus.get("111", String.class).observeSticky(this, Logger::d);
     }
 
 }

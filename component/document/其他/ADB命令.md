@@ -18,7 +18,7 @@ adb uninstall com.xxx.xxx 卸载apk。参数是包名
 
 adb shell pm clear 包名 清除缓存
 adb shell pm list packages -f 查看所有包名所在路径
-adb shell pm list packages -f | findStr com.android.webview  xxx是关键字，用来过滤，可以是包名。
+adb shell pm list packages -f | findstr com.android.webview  xxx是关键字，用来过滤，可以是包名。
 adb shell pm dump com.xxx.xxx | findstr "versionName" 查看应用版本号
 
 keytool -list -v -keystore xxx.jks 查看签名文件的签名信息。参数是签名的绝对路径
@@ -63,7 +63,8 @@ adb shell date "110110362019.00" 设置系统时间。如2019/11/1 10:36:00
 ## 查看cpu信息
 ```
 adb shell cat /proc/cpuinfo 查看cpu信息
-adb shell getprop ro.product.cpu.abi 查看cpu架构
+adb shell getprop ro.product.cpu.abi 查看cpu
+架构
 ```
 
 ```

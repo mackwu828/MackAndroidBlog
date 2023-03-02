@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_20">
+
+
+    <Button
+        android:id="@+id/btn_start_scan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="开始扫描" />
+
+    <Button
+        android:id="@+id/btn_open_document"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="选择文件" />
+
+    <Button
+        android:id="@+id/btn_open_document_tree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="选择文件夹" />
+
+</LinearLayout>

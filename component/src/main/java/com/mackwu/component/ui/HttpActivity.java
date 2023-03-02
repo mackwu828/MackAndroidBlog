@@ -5,27 +5,20 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 
 import com.mackwu.base.BaseActivity;
-import com.mackwu.base.util.LogUtil;
+import com.mackwu.base.util.Logger;
 import com.mackwu.base.viewmodel.BaseViewModel;
-import com.mackwu.component.core.http.AliDns;
-import com.mackwu.component.core.http.PublicDns;
 import com.mackwu.component.databinding.ActivtiyHttpBinding;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
 import okhttp3.Callback;
-import okhttp3.Dns;
-import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import okhttp3.dnsoverhttps.DnsOverHttps;
 import okhttp3.logging.HttpLoggingInterceptor;
 
 /**
@@ -46,20 +39,20 @@ public class HttpActivity extends BaseActivity<BaseViewModel, ActivtiyHttpBindin
     }
 
     private void get(String url) {
-        LogUtil.d("get...");
+        Logger.d("get...");
         Request request = new Request.Builder()
                 .url(url)
                 .build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(@NotNull Call call, @NotNull IOException e) {
-                LogUtil.d("onFailure...  " + e.getMessage());
+                Logger.d("onFailure...  " + e.getMessage());
             }
 
             @Override
             public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
                 if (response.isSuccessful()) {
-                    LogUtil.d("onResponse...  " + response.body().string());
+                    Logger.d("onResponse...  " + response.body().string());
                 }
             }
         });
@@ -80,9 +73,8 @@ public class HttpActivity extends BaseActivity<BaseViewModel, ActivtiyHttpBindin
                 .retryOnConnectionFailure(true)
                 .hostnameVerifier((hostname, session) -> true)
                 .addNetworkInterceptor(httpLoggingInterceptor)
-                .dns(new PublicDns())
+//                .dns(new HappyDns())
                 .build();
-
 
         return okHttpClient;
     }

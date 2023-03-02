@@ -14,4 +14,13 @@
 
     </declare-styleable>
 
+    <declare-styleable name="CheckView">
+        <attr name="checked_image_resource" format="reference" />
+        <attr name="unchecked_image_resource" format="reference" />
+        <attr name="checked" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="DynamicHeightImageView">
+        <attr name="height_ratio" format="float" />
+    </declare-styleable>
 </resources>

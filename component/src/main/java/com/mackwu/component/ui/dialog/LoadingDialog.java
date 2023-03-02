@@ -21,7 +21,7 @@ import com.mackwu.component.databinding.DialogLoadingBinding;
 public class LoadingDialog extends BaseDialogFragment<BaseViewModel, DialogLoadingBinding> {
 
     @Override
-    public void initView(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    public void initView(@Nullable Bundle savedInstanceState) {
 
     }
 

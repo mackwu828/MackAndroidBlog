@@ -2,11 +2,8 @@ package com.mackwu.component.util;
 
 import android.content.Context;
 
-import com.mackwu.base.util.LogUtil;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.Closeable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -27,12 +24,14 @@ import java.security.MessageDigest;
  */
 public final class IOUtil {
 
+    public static final int BUFFER_SIZE = 1024 * 4;
+
     /**
      * 关闭IO流
      */
     public static void close(AutoCloseable... autoCloseables) {
         for (AutoCloseable autoCloseable : autoCloseables) {
-            if (null != autoCloseable) {
+            if (autoCloseable != null) {
                 try {
                     autoCloseable.close();
                 } catch (Exception e) {
@@ -42,37 +41,59 @@ public final class IOUtil {
         }
     }
 
+//    /**
+//     * 文件拷贝到目标文件。
+//     * 从源文件读取，写入目标文件。write(byte b[], int off, int len)，每次写入[0~len]，len最大为缓冲区大小。
+//     * 比如读写一个1124字节的文件，缓冲区为1024个字节，先读写1个缓存区大小，再读写时是100个字节，小于缓冲区大小，则最终目标文件大小是1124个字节。
+//     *
+//     * @param sourceFile 源文件
+//     * @param destFile   目标文件
+//     */
+//    public static long copy(File sourceFile, File destFile) {
+//        FileInputStream fis = null;
+//        FileOutputStream fos = null;
+//        try {
+//            fis = new FileInputStream(sourceFile);
+//            fos = new FileOutputStream(destFile);
+//            byte[] buf = new byte[BUFFER_SIZE];
+//            int len;
+//            while ((len = fis.read(buf)) != -1) {
+//                fos.write(buf, 0, len);
+//                fos.flush();
+//            }
+//            return destFile.length();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        } finally {
+//            close(fis, fos);
+//        }
+//        return -1;
+//    }
+
     /**
      * 拷贝文件。
-     * 从源文件读取，写入目标文件。write(byte b[], int off, int len)，每次写入[0~len]，len最大为缓冲区大小。
-     * 比如读写一个1124字节的文件，缓冲区为1024个字节，先读写1个缓存区大小，再读写时是100个字节，小于缓冲区大小，则最终目标文件大小是1124个字节。
      *
      * @param sourceFile 源文件
      * @param destFile   目标文件
      */
     public static long copy(File sourceFile, File destFile) {
-        FileInputStream fis = null;
-        FileOutputStream fos = null;
+        FileChannel src = null;
+        FileChannel dst = null;
         try {
-            fis = new FileInputStream(sourceFile);
-            fos = new FileOutputStream(destFile);
-            byte[] buf = new byte[1024];
-            int len;
-            while ((len = fis.read(buf)) != -1) {
-                fos.write(buf, 0, len);
-                fos.flush();
-            }
+            src = new FileInputStream(sourceFile).getChannel();
+            dst = new FileOutputStream(destFile).getChannel();
+            dst.transferFrom(src, 0, src.size());
             return destFile.length();
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            close(fis, fos);
+            close(src, dst);
         }
         return -1;
     }
 
     /**
-     * 拷贝文件。
+     * 输入流拷贝到目标文件。
      *
      * @param inputStream 源文件输入流
      * @param destFile    目标文件
@@ -81,7 +102,7 @@ public final class IOUtil {
         FileOutputStream fos = null;
         try {
             fos = new FileOutputStream(destFile);
-            byte[] buf = new byte[1024];
+            byte[] buf = new byte[BUFFER_SIZE];
             int len;
             while ((len = inputStream.read(buf)) != -1) {
                 fos.write(buf, 0, len);
@@ -97,7 +118,7 @@ public final class IOUtil {
     }
 
     /**
-     * 拷贝文件。
+     * 字符串拷贝到目标文件。
      *
      * @param sourceStr 源文件字符串
      * @param destFile  目标文件
@@ -106,7 +127,7 @@ public final class IOUtil {
         ByteArrayInputStream bis = null;
         try {
             bis = new ByteArrayInputStream(sourceStr.getBytes());
-           return copy(bis, destFile);
+            return copy(bis, destFile);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -116,7 +137,7 @@ public final class IOUtil {
     }
 
     /**
-     * 拷贝文件。
+     * asset文件拷贝到目标文件。
      *
      * @param context       上下文
      * @param assetFileName asset文件名称
@@ -128,7 +149,7 @@ public final class IOUtil {
         try {
             inputStream = context.getAssets().open(assetFileName);
             fos = new FileOutputStream(destFile);
-            byte[] buf = new byte[1024];
+            byte[] buf = new byte[BUFFER_SIZE];
             int len;
             while ((len = inputStream.read(buf)) != -1) {
                 fos.write(buf, 0, len);
@@ -144,7 +165,7 @@ public final class IOUtil {
     }
 
     /**
-     * 转字节数组
+     * 文件转字节数组
      *
      * @param file 文件
      */
@@ -154,7 +175,7 @@ public final class IOUtil {
         try {
             fis = new FileInputStream(file);
             bos = new ByteArrayOutputStream();
-            byte[] buffer = new byte[1024];
+            byte[] buffer = new byte[BUFFER_SIZE];
             int len = 0;
             while ((len = fis.read(buffer)) != -1) {
                 bos.write(buffer, 0, len);
@@ -170,7 +191,7 @@ public final class IOUtil {
     }
 
     /**
-     * 转字节数组
+     * 输入流转字节数组
      *
      * @param inputStream 输入流
      */
@@ -178,7 +199,7 @@ public final class IOUtil {
         ByteArrayOutputStream bos = null;
         try {
             bos = new ByteArrayOutputStream();
-            byte[] buffer = new byte[1024];
+            byte[] buffer = new byte[BUFFER_SIZE];
             int len = 0;
             while ((len = inputStream.read(buffer)) != -1) {
                 bos.write(buffer, 0, len);
@@ -194,7 +215,7 @@ public final class IOUtil {
     }
 
     /**
-     * 转输入流
+     * 字节数组转输入流
      *
      * @param bytes 字节数组
      */
@@ -203,7 +224,7 @@ public final class IOUtil {
     }
 
     /**
-     * 转字符串
+     * 字节数组转字符串
      *
      * @param bytes 字节数组
      */
@@ -212,7 +233,7 @@ public final class IOUtil {
     }
 
     /**
-     * 转字符串
+     * 输入流转字符串
      *
      * @param inputStream 输入流
      */
@@ -221,7 +242,7 @@ public final class IOUtil {
     }
 
     /**
-     * 转字符串
+     * 文件转字符串
      *
      * @param file 文件
      */
@@ -239,7 +260,7 @@ public final class IOUtil {
     }
 
     /**
-     * 转字符串
+     * asset文件转字符串
      *
      * @param context       上下文
      * @param assetFileName asset文件名称
@@ -278,6 +299,43 @@ public final class IOUtil {
             close(fis);
         }
         return "";
+    }
+
+    /**
+     * 删除文件夹。如果是文件夹，则递归调用删除文件夹里所有文件。如果是文件，直接删除。
+     *
+     * @param file 文件夹
+     */
+    public static void deleteDir(File file) {
+        if (file.isDirectory()) {
+            File[] files = file.listFiles();
+            if (files != null && files.length > 0) {
+                for (File f : files) {
+                    deleteDir(f);
+                }
+            }
+        }
+        //noinspection ResultOfMethodCallIgnored
+        file.delete();
+    }
+
+    /**
+     * 获取文件夹大小
+     *
+     * @param file 文件夹
+     */
+    public static long getDirSize(File file) {
+        long length = 0;
+        if (file.isDirectory()) {
+            File[] files = file.listFiles();
+            if (files != null && files.length > 0) {
+                for (File f : files) {
+                    length += getDirSize(f);
+                }
+            }
+        }
+        length += file.length();
+        return length;
     }
 
 }

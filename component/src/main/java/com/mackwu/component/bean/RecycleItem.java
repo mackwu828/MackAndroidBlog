@@ -1,5 +1,7 @@
 package com.mackwu.component.bean;
 
+import com.chad.library.adapter.base.entity.JSectionEntity;
+
 /**
  * ===================================================
  * Created by MackWu on 2022/2/25 10:41
@@ -7,15 +9,13 @@ package com.mackwu.component.bean;
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-public class RecycleItem {
+public class RecycleItem extends JSectionEntity {
 
-    private RecycleItem.ItemType itemType = ItemType.IMAGE;
     private String date;
     private int resId;
+    private boolean isHeader;
 
-    public RecycleItem(ItemType itemType, String date) {
-        this.itemType = itemType;
-        this.date = date;
+    public RecycleItem() {
     }
 
     public RecycleItem(String date, int resId) {
@@ -23,12 +23,10 @@ public class RecycleItem {
         this.resId = resId;
     }
 
-    public ItemType getItemType() {
-        return itemType;
-    }
-
-    public void setItemType(ItemType itemType) {
-        this.itemType = itemType;
+    public RecycleItem(String date, int resId, boolean isHeader) {
+        this.date = date;
+        this.resId = resId;
+        this.isHeader = isHeader;
     }
 
     public String getDate() {
@@ -47,20 +45,8 @@ public class RecycleItem {
         this.resId = resId;
     }
 
-    public enum ItemType {
-        DATE(0),
-
-        IMAGE(1),
-
-        ;
-        private final int value;
-
-        ItemType(int value) {
-            this.value = value;
-        }
-
-        public int getValue() {
-            return value;
-        }
+    @Override
+    public boolean isHeader() {
+        return isHeader;
     }
 }

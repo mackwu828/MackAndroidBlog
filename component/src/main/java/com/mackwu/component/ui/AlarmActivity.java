@@ -6,7 +6,6 @@ import androidx.annotation.Nullable;
 
 import com.mackwu.base.BaseActivity;
 import com.mackwu.base.viewmodel.BaseViewModel;
-import com.mackwu.component.core.alarm.AlarmHelper;
 import com.mackwu.component.databinding.ActivityAlarmBinding;
 
 /**
@@ -20,6 +19,5 @@ public class AlarmActivity extends BaseActivity<BaseViewModel, ActivityAlarmBind
 
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
-
     }
 }

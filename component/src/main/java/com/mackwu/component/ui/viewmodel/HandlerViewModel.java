@@ -1,6 +1,6 @@
 package com.mackwu.component.ui.viewmodel;
 
-import com.mackwu.base.util.LogUtil;
+import com.mackwu.base.util.Logger;
 import com.mackwu.base.viewmodel.BaseViewModel;
 
 /**
@@ -13,7 +13,7 @@ import com.mackwu.base.viewmodel.BaseViewModel;
 public class HandlerViewModel extends BaseViewModel {
 
     public void getData() {
-        LogUtil.d("getData...");
+        Logger.d("getData...");
         new Thread(new Runnable() {
             @Override
             public void run() {

@@ -1,5 +1,6 @@
 package com.mackwu.component.ui;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -7,13 +8,12 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.LifecycleRegistry;
 import androidx.lifecycle.OnLifecycleEvent;
 
 import com.mackwu.base.BaseActivity;
-import com.mackwu.base.util.LogUtil;
+import com.mackwu.base.util.Logger;
 import com.mackwu.base.viewmodel.BaseViewModel;
-import com.mackwu.component.databinding.MainActivityBinding;
+import com.mackwu.component.databinding.ActivityMainBinding;
 
 /**
  * ===================================================
@@ -22,46 +22,71 @@ import com.mackwu.component.databinding.MainActivityBinding;
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-public class LifecycleActivity extends BaseActivity<BaseViewModel, MainActivityBinding> {
+public class LifecycleActivity extends BaseActivity<BaseViewModel, ActivityMainBinding> {
 
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
         MyLifecycleObserver observer = new MyLifecycleObserver();
         getLifecycle().addObserver(observer);
-        LogUtil.d("XXXXXXXXXXX");
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Logger.d("onSaveInstanceState...");
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Logger.d("onRestoreInstanceState...");
+    }
+
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        Logger.d("onConfigurationChanged...");
+        int orientation = newConfig.orientation;
+        // 竖屏
+        if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+
+        }
+        // 横屏
+        else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+
+        }
     }
 
     private static class MyLifecycleObserver implements LifecycleObserver {
-        public static final String TAG = MyLifecycleObserver.class.getSimpleName();
 
         @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
         void onCreate(@NonNull LifecycleOwner owner) {
-            LogUtil.d(TAG, "onCreate...");
+            Logger.d("onCreate...");
         }
 
         @OnLifecycleEvent(Lifecycle.Event.ON_START)
         void onStart() {
-            LogUtil.d(TAG, "onStart...");
+            Logger.d("onStart...");
         }
 
         @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
         void onResume() {
-            LogUtil.d(TAG, "onResume...");
+            Logger.d("onResume...");
         }
 
         @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
         void onPause() {
-            LogUtil.d(TAG, "onPause...");
+            Logger.d("onPause...");
         }
 
         @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
         void onStop() {
-            LogUtil.d(TAG, "onStop...");
+            Logger.d("onStop...");
         }
 
         @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
         void onDestroy(@NonNull LifecycleOwner owner) {
-            LogUtil.d(TAG, "onDestroy...");
+            Logger.d("onDestroy...");
         }
     }
 

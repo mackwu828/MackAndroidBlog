@@ -1,7 +1,15 @@
 package com.mackwu.component;
 
 
+import com.mackwu.base.util.Logger;
+import com.mackwu.component.util.DateUtil;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
+import java.util.TimeZone;
+import java.util.concurrent.CountDownLatch;
 
 /**
  * ===================================================
@@ -12,14 +20,11 @@ import java.util.Locale;
  */
 public class JavaTest {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
 
-        long space = 1398737;
-        System.out.println(String.format(Locale.getDefault(), "%.2f", space / 1024f /1024 / 1024));
-    }
-
-    public static void test() {
 
     }
+
+
 
 }

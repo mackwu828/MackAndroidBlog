@@ -4,11 +4,9 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Base64;
 
-import com.mackwu.base.util.LogUtil;
-import com.mackwu.component.bean.User;
+import com.mackwu.base.util.Logger;
 
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
@@ -91,7 +89,7 @@ public final class SpUtil {
             oos = new ObjectOutputStream(baos);
             oos.writeObject(serializable);
             String objectStr = new String(Base64.encode(baos.toByteArray(), Base64.DEFAULT));
-            LogUtil.d("objectStr: " + objectStr);
+            Logger.d("objectStr: " + objectStr);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

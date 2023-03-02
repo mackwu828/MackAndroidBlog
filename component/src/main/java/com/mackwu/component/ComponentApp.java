@@ -2,7 +2,7 @@ package com.mackwu.component;
 
 import android.app.Application;
 
-import com.mackwu.component.core.db.DbManager;
+import com.mackwu.component.func.database.GreenDaoManager;
 
 /**
  * ===================================================
@@ -21,7 +21,7 @@ public class ComponentApp extends Application {
         super.onCreate();
         instance = this;
 
-        DbManager.getInstance().init(this);
+        GreenDaoManager.getInstance().init(this);
     }
 
     public static ComponentApp getInstance() {

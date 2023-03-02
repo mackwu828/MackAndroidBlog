@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btn_test1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="111" />
+
+            <Button
+                android:id="@+id/btn_test2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="222" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/dp_320"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@color/colorAccent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="XXX" />
+
+        </LinearLayout>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</FrameLayout>

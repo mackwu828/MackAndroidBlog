@@ -15,30 +15,39 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.Manifest.permission.DEVICE_POWER" />
+
+    <!--    -->
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+
+    <!--  Permission is only granted to system apps  -->
     <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.BATTERY_STATS" />
     <uses-permission android:name="android.permission.READ_LOGS" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
     <application
         android:name=".ComponentApp"
         android:banner="@mipmap/ic_launcher"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        android:requestLegacyExternalStorage="true"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
 
         <!-- service -->
         <service android:name=".service.MyService" />
@@ -69,10 +78,35 @@
             </intent-filter>
         </service>
 
+        <service
+            android:name=".func.binder.GradeService"
+            android:exported="true"
+            android:process=":remote" />
+
         <!-- receiver -->
-        <receiver android:name=".core.alarm.AlarmReceiver" />
+        <receiver android:name=".func.sleep.SleepAlarmReceiver" />
+        <receiver
+            android:name=".func.screen.MyDeviceAdminReceiver"
+            android:exported="true"
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/lock_screen" />
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+        </receiver>
 
         <!-- provider -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
 
         <!--   activity   -->
         <activity
@@ -87,34 +121,49 @@
                 <!--                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />-->
             </intent-filter>
         </activity>
+        <!--
+            orientation: 屏幕方向改变
+            screenSize: 屏幕大小改变
+            -->
         <activity
-            android:name=".ui.SecondActivity"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.zeasn.avscore.action.AVS_LOGIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".ui.ThirdActivity" />
-        <activity android:name=".ui.FragmentActivity" />
+            android:name=".ui.LifecycleActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity android:name=".ui.view_base.FragmentActivity" />
         <activity android:name=".ui.ServiceActivity" />
 
-        <!--    widget    -->
-        <activity android:name=".ui.widget.ViewActivity" />
-        <activity android:name=".ui.widget.TextViewActivity" />
+        <!--    view    -->
+        <activity android:name=".ui.TextViewActivity" />
         <activity
-            android:name=".ui.widget.EditTextActivity"
+            android:name=".ui.EditTextActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-        <activity android:name=".ui.widget.WebActivity" />
-        <activity android:name=".ui.widget.AgentWebActivity" />
-        <activity android:name=".ui.widget.LottieActivity" />
-        <activity android:name=".ui.widget.DialogActivity" />
-        <activity android:name=".ui.widget.SeekBarActivity" />
-        <activity android:name=".ui.widget.ImageViewActivity" />
-        <activity android:name=".ui.widget.RecyclerActivity" />
-        <activity android:name=".ui.widget.LeanbackActivity" />
-        <activity android:name=".ui.widget.ViewPagerActivity" />
-        <activity android:name=".ui.widget.HeartViewActivity" />
+        <activity android:name=".ui.WebActivity" />
+        <activity android:name=".ui.DialogActivity" />
+        <activity android:name=".ui.SeekBarActivity" />
+        <activity android:name=".ui.ProgressBarActivity" />
+        <activity android:name=".ui.ImageViewActivity" />
+        <activity
+            android:name=".ui.recycler.RecyclerActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity android:name=".ui.recycler.RecyclerGridActivity" />
+        <activity android:name=".ui.ViewPagerActivity" />
+        <activity android:name=".ui.VideoViewActivity" />
+        <activity android:name=".ui.HeartViewActivity" />
+        <activity android:name=".ui.recycler.VerticalGridViewActivity" />
+        <activity android:name=".ui.AgentWebActivity" />
+        <activity android:name=".ui.LottieActivity" />
+        <activity android:name=".ui.recycler.FastScrollActivity" />
+        <activity android:name=".ui.BarrageActivity" />
+        <activity android:name=".ui.recycler.SmartRefreshActivity" />
+        <activity android:name=".ui.GlideActivity" />
+        <activity android:name=".ui.recycler.BrvActivity" />
+        <activity android:name=".ui.StickyHeaderActivity" />
+        <activity android:name=".ui.ViewActivity" />
+        <activity android:name=".ui.DrawerActivity" />
+        <activity android:name=".ui.share_element.ShareElementActivity" />
+        <activity android:name=".ui.share_element.ShareElement2Activity" />
+        <activity android:name=".ui.share_element.ShareElement3Activity" />
+        <activity android:name=".ui.share_element.ShareElement4Activity" />
+        <activity android:name=".ui.FragmentActivity" />
 
         <!--    other    -->
         <activity android:name=".ui.WindowActivity" />
@@ -124,11 +173,41 @@
         <activity android:name=".ui.LiveDataActivity" />
         <activity android:name=".ui.AudioRecordActivity" />
         <activity android:name=".ui.RxActivity" />
-        <activity android:name=".ui.LifecycleActivity" />
         <activity android:name=".ui.SecurityActivity" />
         <activity android:name=".ui.AnimActivity" />
         <activity android:name=".ui.DatabaseActivity" />
         <activity android:name=".ui.AlarmActivity" />
+        <activity
+            android:name=".ui.AuthActivity"
+            android:exported="true">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="whalephoto.zeasn.tv"
+                    android:pathPrefix="/skill/link"
+                    android:scheme="https" />
+            </intent-filter>
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.VIEW" />-->
+
+            <!--                <category android:name="android.intent.category.DEFAULT" />-->
+            <!--                <category android:name="android.intent.category.BROWSABLE" />-->
+
+            <!--                <data-->
+            <!--                    android:host="dev-app-h5.govee.com"-->
+            <!--                    android:pathPrefix="/share/alexa-link"-->
+            <!--                    android:scheme="https" />-->
+            <!--            </intent-filter>-->
+        </activity>
+        <activity android:name=".ui.CacheActivity" />
+        <activity android:name=".ui.StorageActivity" />
+        <activity android:name=".ui.recycler.VLayoutActivity" />
+        <activity android:name=".ui.BinderActivity" />
+        <activity android:name=".ui.VideoActivity" />
 
     </application>
 

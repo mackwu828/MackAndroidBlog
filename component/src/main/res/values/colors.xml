@@ -11,6 +11,9 @@
     <!--  white  -->
     <color name="white">#FFFFFF</color>
 
+    <!--  grey  -->
+    <color name="grey">#CCCCCC</color>
+
     <!--  black  -->
     <color name="black">#000000</color>
 

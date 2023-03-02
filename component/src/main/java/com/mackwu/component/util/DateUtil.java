@@ -1,11 +1,19 @@
 package com.mackwu.component.util;
 
 import android.content.Context;
+import android.os.Build;
 import android.provider.Settings;
 import android.text.format.DateFormat;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.nio.file.attribute.FileTime;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.ZonedDateTime;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -45,14 +53,14 @@ public final class DateUtil {
     /**
      * 获取星期几
      */
-    public static int getWeek() {
+    public static int getDayOfWeek() {
         return getCalendar().get(Calendar.DAY_OF_WEEK);
     }
 
     /**
      * 获取日
      */
-    public static int getDay() {
+    public static int getDayOfMonth() {
         return getCalendar().get(Calendar.DAY_OF_MONTH);
     }
 
@@ -155,8 +163,13 @@ public final class DateUtil {
 
     /**
      * 时间戳转日期字符串。
-     * 例子：stampToDateStr(System.currentTimeMillis(), "yyyy-MM-dd HH:mm:ss")
-     * 结果：2020-11-18 15:24:07
+     * yyyy-MM-dd HH:mm:ss => 2020-11-18 15:24:07
+     * EEE, d MMM yyyy HH:mm:ss 'GMT'Wed => 12 Oct 2022 07:26:07 GMT
+     * <p>
+     * 月份：如当前是11月
+     * MM => 11
+     * MMM => Nov
+     * MMMM => November
      *
      * @param time    时间戳。如System.currentTimeMillis()
      * @param pattern 时间戳格式。如 yyyy-MM-dd HH:mm:ss
@@ -187,16 +200,14 @@ public final class DateUtil {
 
     /**
      * 日期字符串格式转换。
-     * 例子：dateStrFormat("21:03", "HH:mm", Locale.getDefault(), "hh:mm aa", Locale.ENGLISH)
-     * 结果：09:05 PM
      *
-     * @param sourceDateStr 源时间字符串。如21:03
-     * @param sourcePattern 源时间格式
+     * @param sourceDateStr 源时间字符串
+     * @param sourcePattern 源时间格式。如yyyy-MM-dd HH:mm:ss
      * @param sourceLocale  源语言
      * @param destPattern   目标时间格式
      * @param destLocale    目标语言
      */
-    public static String dateStrFormat(String sourceDateStr, String sourcePattern, Locale sourceLocale, String destPattern, Locale destLocale) {
+    public static String dateStrToDateStr(String sourceDateStr, String sourcePattern, Locale sourceLocale, String destPattern, Locale destLocale) {
         try {
             SimpleDateFormat sourceFormat = new SimpleDateFormat(sourcePattern, sourceLocale);
             SimpleDateFormat destFormat = new SimpleDateFormat(destPattern, destLocale);
@@ -208,6 +219,63 @@ public final class DateUtil {
             e.printStackTrace();
         }
         return "";
+    }
+
+    public static String dateStrToDateStr(String sourceDateStr, String sourcePattern, String destPattern) {
+        return dateStrToDateStr(sourceDateStr, sourcePattern, Locale.getDefault(), destPattern, Locale.getDefault());
+    }
+
+    /**
+     * 时区转化
+     * @param sourceStamp 源时间戳
+     * @param sourceTimeZone 源时区
+     * @param destTimeZone 目标时区
+     * @return 目标时间戳
+     */
+    public static long timeZoneToTimeZone(long sourceStamp, TimeZone sourceTimeZone, TimeZone destTimeZone) {
+        try {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+            // sourceDate
+            simpleDateFormat.setTimeZone(sourceTimeZone);
+            Date sourceDate = simpleDateFormat.parse(simpleDateFormat.format(new Date(sourceStamp)));
+            // destDate
+            if (sourceDate != null) {
+                simpleDateFormat.setTimeZone(destTimeZone);
+                Date destDate = simpleDateFormat.parse(simpleDateFormat.format(sourceDate));
+                if (destDate != null) {
+                    return destDate.getTime();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    /**
+     * 获取文件修改时间。
+     *
+     * @param path 文件路径
+     * @return 文件修改时间戳
+     */
+    public static long getLastModifiedTime(String path) {
+        try {
+            long lastModifiedTime;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                BasicFileAttributes attributes = Files.readAttributes(Paths.get(path), BasicFileAttributes.class);
+                // Android8.0包括8.0后虽然可以获取文件创建时间，但是测试发现获取的时间和修改时间是一样的。
+//                creationTime = attributes.creationTime().toMillis();
+                lastModifiedTime = attributes.lastModifiedTime().toMillis();
+            } else {
+                File file = new File(path);
+                lastModifiedTime = file.lastModified();
+            }
+            // 文件时间是东八区时间
+            return timeZoneToTimeZone(lastModifiedTime, TimeZone.getTimeZone("Asia/Shanghai"), TimeZone.getDefault());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return System.currentTimeMillis();
     }
 
 //    public static void main(String[] args) {

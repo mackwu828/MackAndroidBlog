@@ -5,9 +5,9 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 
 import com.mackwu.base.BaseActivity;
-import com.mackwu.base.util.LogUtil;
+import com.mackwu.base.util.Logger;
 import com.mackwu.base.viewmodel.BaseViewModel;
-import com.mackwu.component.databinding.MainActivityBinding;
+import com.mackwu.component.databinding.ActivityMainBinding;
 import com.mackwu.component.util.SslUtil;
 
 import java.security.KeyStore;
@@ -21,14 +21,10 @@ import java.security.cert.X509Certificate;
  * <a href="https://github.com/mackwu828">Follow me</a>
  * ===================================================
  */
-public class SecurityActivity extends BaseActivity<BaseViewModel, MainActivityBinding> {
+public class SecurityActivity extends BaseActivity<BaseViewModel, ActivityMainBinding> {
 
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
-        binding.btnTest.setOnClickListener(v -> {
-
-        });
-
         try {
             KeyStore keyStore = SslUtil.getKeyStore(this, "test.keystore", "123456");
             PrivateKey privateKey = SslUtil.getPrivateKey(keyStore, "123456");
@@ -38,8 +34,8 @@ public class SecurityActivity extends BaseActivity<BaseViewModel, MainActivityBi
 //            PrivateKey privateKey = SslUtil.getPrivateKey(keyStore, "zeasn123");
 //            X509Certificate x509Certificate = SslUtil.getX509Certificate(keyStore);
 
-            LogUtil.d("privateKey: " + SslUtil.getPrivateKeyStr(privateKey));
-            LogUtil.d("x509Certificate: " + SslUtil.getCertStr(x509Certificate));
+            Logger.d("privateKey: " + SslUtil.getPrivateKeyStr(privateKey));
+            Logger.d("x509Certificate: " + SslUtil.getCertStr(x509Certificate));
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -87,6 +87,6 @@ abstract class BaseTransform extends Transform {
 
     abstract void transformFile(File file)
 
-    abstract void transformJar(String entryName, JarOutputStream jarOutputStream, byte[] sourceBytes)
+    abstract void transformJar(String name, JarOutputStream jarOutputStream, byte[] sourceBytes)
 
 }

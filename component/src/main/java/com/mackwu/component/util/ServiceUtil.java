@@ -4,7 +4,7 @@ import android.accessibilityservice.AccessibilityService;
 import android.content.Context;
 import android.provider.Settings;
 
-import com.mackwu.base.util.LogUtil;
+import com.mackwu.base.util.Logger;
 
 import java.util.Objects;
 
@@ -33,7 +33,7 @@ public class ServiceUtil {
         // 判断辅助功能是否开启
         String enableAccessibilityService = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES);
         String accessibilityEnabled = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED);
-        LogUtil.d("accessibilityServiceName: " + accessibilityServiceName + ", enableAccessibilityService: " + enableAccessibilityService + ", accessibilityEnabled: " + accessibilityEnabled);
+        Logger.d("accessibilityServiceName: " + accessibilityServiceName + ", enableAccessibilityService: " + enableAccessibilityService + ", accessibilityEnabled: " + accessibilityEnabled);
         if (enableAccessibilityService.equals(accessibilityServiceName) && accessibilityEnabled.equals("1")) {
             return;
         }

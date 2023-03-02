@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mackwu.component.ui.view.focus.FocusableLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/dp_10">
+
+    <ImageView
+        android:id="@+id/iv_image"
+        android:layout_width="@dimen/dp_400"
+        android:layout_height="@dimen/dp_300"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/tv_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_20"
+        android:text="XXX"
+        android:textSize="@dimen/sp_36" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="#196743E7" />
+
+</com.mackwu.component.ui.view.focus.FocusableLinearLayout>

@@ -8,7 +8,7 @@ import android.net.ConnectivityManager;
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.mackwu.base.util.LogUtil;
+import com.mackwu.base.util.Logger;
 import com.mackwu.component.util.NetworkUtil;
 
 /**
@@ -40,13 +40,13 @@ public class NetworkLiveData extends MutableLiveData<Boolean> {
 
     @Override
     protected void onActive() {
-        LogUtil.d("onActive...");
+        Logger.d("onActive...");
         context.registerReceiver(networkReceiver, intentFilter);
     }
 
     @Override
     protected void onInactive() {
-        LogUtil.d("onInactive...");
+        Logger.d("onInactive...");
         context.unregisterReceiver(networkReceiver);
     }
 
@@ -64,14 +64,14 @@ public class NetworkLiveData extends MutableLiveData<Boolean> {
                     if (isFirstFlag) {
                         // 首次收到广播，直接发送通知。
                         isFirstFlag = false;
-                        lastNetworkAvailable = NetworkUtil.isNetworkAvailable(context);
-                        LogUtil.d("first lastNetworkAvailable: " + lastNetworkAvailable);
+                        lastNetworkAvailable = NetworkUtil.isNetworkConnected(context);
+                        Logger.d("first lastNetworkAvailable: " + lastNetworkAvailable);
                         getInstance(context).setValue(lastNetworkAvailable);
                     } else {
                         // 非首次收到广播，判断如果上一次网络状态是已连接且当前网络状态是已连接，则不发送通知。
-                        boolean networkAvailable = NetworkUtil.isNetworkAvailable(context);
+                        boolean networkAvailable = NetworkUtil.isNetworkConnected(context);
                         if (!(lastNetworkAvailable && networkAvailable)) {
-                            LogUtil.d("lastNetworkAvailable: " + lastNetworkAvailable + ", networkAvailable: " + networkAvailable);
+                            Logger.d("lastNetworkAvailable: " + lastNetworkAvailable + ", networkAvailable: " + networkAvailable);
                             getInstance(context).setValue(networkAvailable);
                         }
                         lastNetworkAvailable = networkAvailable;

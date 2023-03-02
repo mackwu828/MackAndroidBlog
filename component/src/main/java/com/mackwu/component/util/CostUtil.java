@@ -1,6 +1,6 @@
 package com.mackwu.component.util;
 
-import com.mackwu.base.util.LogUtil;
+import com.mackwu.base.util.Logger;
 
 /**
  * ===================================================
@@ -17,7 +17,7 @@ public class CostUtil {
         if (startTime == 0) {
             startTime = System.currentTimeMillis();
         } else {
-            LogUtil.d("cost==" + (System.currentTimeMillis() - startTime));
+            Logger.d("cost==" + (System.currentTimeMillis() - startTime));
             startTime = 0;
         }
     }

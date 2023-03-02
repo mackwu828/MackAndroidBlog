@@ -2,10 +2,9 @@ package com.mackwu.component.service;
 
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
-import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.OnLifecycleEvent;
 
-import com.mackwu.base.util.LogUtil;
+import com.mackwu.base.util.Logger;
 import com.mackwu.component.ui.livedata.TestLiveData;
 
 /**
@@ -20,7 +19,7 @@ public class MyObserver implements LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     void onCreate() {
         new TestLiveData().observeForever(s -> {
-            LogUtil.d("TestLiveData...  s: " + s);
+            Logger.d("TestLiveData...  s: " + s);
         });
     }
 

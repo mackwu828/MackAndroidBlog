@@ -1,5 +1,8 @@
 package com.mackwu.component.util;
 
+import android.graphics.Bitmap;
+import android.os.Build;
+
 import java.util.Locale;
 
 /**
@@ -20,7 +23,7 @@ public final class ByteUtil {
             String hex = Integer.toHexString(b & 0xFF);
             stringBuilder.append((hex.length() == 1) ? "0" + hex : hex);
         }
-        return stringBuilder.toString().trim();
+        return stringBuilder.toString().trim().toUpperCase(Locale.ENGLISH);
     }
 
     /**
@@ -43,17 +46,40 @@ public final class ByteUtil {
      * 1GB=102mb
      * 1MB=1024kb
      * 1Kb=1024bytes
+     *
+     * @param bytes 字节数
+     * @param unit  单位。1024、或者1000
      */
-    public static String bytesToStr(long bytes) {
-        if (bytes < 1024) {
+    private static String bytesToStr(long bytes, long unit) {
+        if (bytes < unit) {
             return bytes + "bytes";
-        } else if (bytes < 1024 * 1024) {
-            return String.format(Locale.getDefault(), "%.2f", bytes / 1024f) + "KB";
-        } else if (bytes < 1024 * 1024 * 1024) {
-            return String.format(Locale.getDefault(), "%.2f", bytes / 1024f / 1024) + "MB";
+        } else if (bytes < unit * unit) {
+            return String.format(Locale.getDefault(), "%.2f", bytes / unit * 1.0f) + "KB";
+        } else if (bytes < unit * unit * unit) {
+            return String.format(Locale.getDefault(), "%.2f", bytes / unit * 1.0f / unit) + "MB";
         } else {
-            return String.format(Locale.getDefault(), "%.2f", bytes / 1024f / 1024 / 1024) + "GB";
+            return String.format(Locale.getDefault(), "%.2f", bytes / unit * 1.0f / unit / unit) + "GB";
         }
+    }
+
+    public static String bytesToStr(long bytes) {
+        return bytesToStr(bytes, 1024);
+    }
+
+    public static String bytesToStrByAndroidVersion(long bytes) {
+        return bytesToStr(bytes, Build.VERSION.SDK_INT >= Build.VERSION_CODES.O ? 1000 : 1024);
+    }
+
+    /**
+     * 获取 bitmap 内存大小。如 getByteCount=8294400(7.91MB)
+     *
+     * @param bitmap bitmap
+     */
+    public static String getByteCount(Bitmap bitmap) {
+        if (bitmap != null) {
+            return "getByteCount=" + bitmap.getByteCount() + "(" + bytesToStr(bitmap.getByteCount()) + ")";
+        }
+        return "bitmap is null";
     }
 
 }

@@ -21,7 +21,11 @@ public class TryCatchClassVisitor extends ClassVisitor {
     @Override
     public MethodVisitor visitMethod(int access, String name, String descriptor, String signature, String[] exceptions) {
         MethodVisitor mv = super.visitMethod(access, name, descriptor, signature, exceptions);
-        return new TryCatchMethodVisitor(mv, access, name, descriptor);
+        System.out.println("visitMethod...  name=" + name);
+        if (name.contains("addNetworkInterceptor")) {
+            return new TryCatchMethodVisitor(mv, access, name, descriptor);
+        }
+        return mv;
     }
 
 }

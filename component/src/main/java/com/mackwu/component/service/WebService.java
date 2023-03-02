@@ -2,15 +2,13 @@ package com.mackwu.component.service;
 
 import android.content.Intent;
 import android.os.IBinder;
-import android.os.RemoteException;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.LifecycleService;
 
-import com.mackwu.base.util.LogUtil;
-import com.mackwu.component.IWebInterface;
-import com.mackwu.component.ui.window.WebWindow;
+import com.mackwu.base.util.Logger;
+import com.mackwu.component.func.window.test.WebWindow;
 import com.mackwu.component.util.ProcessUtil;
 
 /**
@@ -22,12 +20,10 @@ import com.mackwu.component.util.ProcessUtil;
  */
 public class WebService extends LifecycleService {
 
-    public static final String TAG = WebService.class.getSimpleName();
-
     @Override
     public void onCreate() {
         super.onCreate();
-        LogUtil.d(TAG, "onCreate...  " + ProcessUtil.getProcessInfo(this));
+        Logger.d("onCreate...  " + ProcessUtil.getProcessInfo(this));
         WebWindow.getInstance();
     }
 
@@ -35,24 +31,8 @@ public class WebService extends LifecycleService {
     @Override
     public IBinder onBind(@NonNull Intent intent) {
         super.onBind(intent);
-        return new MyBinder();
+//        return new MyBinder();
+        return null;
     }
 
-    private static class MyBinder extends IWebInterface.Stub {
-
-        @Override
-        public void show() throws RemoteException {
-            WebWindow.getInstance().show();
-        }
-
-        @Override
-        public void hide() throws RemoteException {
-            WebWindow.getInstance().hide();
-        }
-
-        @Override
-        public void loadUrl() throws RemoteException {
-            WebWindow.getInstance().loadUrl();
-        }
-    }
 }

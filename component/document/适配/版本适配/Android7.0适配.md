@@ -15,7 +15,7 @@ Android7.0需要使用 `content://` 格式的 URI 访问文件，并授予 URI �
 1. 在 AndroidManifest 声明provider
 ```
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">

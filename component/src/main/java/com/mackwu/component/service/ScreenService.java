@@ -3,7 +3,7 @@ package com.mackwu.component.service;
 import android.service.dreams.DreamService;
 
 import com.mackwu.component.R;
-import com.mackwu.base.util.LogUtil;
+import com.mackwu.base.util.Logger;
 
 /**
  * ===================================================
@@ -23,13 +23,13 @@ public class ScreenService extends DreamService {
     @Override
     public void onCreate() {
         super.onCreate();
-        LogUtil.d("onCreate...");
+        Logger.d("onCreate...");
     }
 
     @Override
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        LogUtil.d("onAttachedToWindow...");
+        Logger.d("onAttachedToWindow...");
         // 是否与用户交互。默认false，用户触摸时Daydream会退出。如果你希望与用户交互，则设置为true。
         setInteractive(false);
         // 是否全屏
@@ -41,25 +41,25 @@ public class ScreenService extends DreamService {
     @Override
     public void onDreamingStarted() {
         super.onDreamingStarted();
-        LogUtil.d("onDreamingStarted...");
+        Logger.d("onDreamingStarted...");
     }
 
     @Override
     public void onDreamingStopped() {
         super.onDreamingStopped();
-        LogUtil.d("onDreamingStopped...");
+        Logger.d("onDreamingStopped...");
     }
 
     @Override
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        LogUtil.d("onDetachedFromWindow...");
+        Logger.d("onDetachedFromWindow...");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        LogUtil.d("onDestroy...");
+        Logger.d("onDestroy...");
     }
 
 }

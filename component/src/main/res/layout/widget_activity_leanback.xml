@@ -43,7 +43,6 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_746"
         android:scaleType="fitXY"
-        android:src="@drawable/bg_panel_f"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

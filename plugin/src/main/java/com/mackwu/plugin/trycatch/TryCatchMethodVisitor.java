@@ -4,7 +4,7 @@ import com.mackwu.plugin.AsmConstant;
 
 import org.objectweb.asm.Label;
 import org.objectweb.asm.MethodVisitor;
-import org.objectweb.asm.Opcodes;
+import org.objectweb.asm.Type;
 import org.objectweb.asm.commons.AdviceAdapter;
 
 /**
@@ -16,59 +16,88 @@ import org.objectweb.asm.commons.AdviceAdapter;
  */
 public class TryCatchMethodVisitor extends AdviceAdapter {
 
-    private Label handlerLabel;
+    private final Label label0 = new Label();
+    private final Label label1 = new Label();
+    private final Label label2 = new Label();
+    private final String descriptor;
 
-    TryCatchMethodVisitor(MethodVisitor methodVisitor, int access, String name, String descriptor) {
+    protected TryCatchMethodVisitor(MethodVisitor methodVisitor, int access, String name, String descriptor) {
         super(AsmConstant.ASM_API_VERSION, methodVisitor, access, name, descriptor);
+        this.descriptor = descriptor;
     }
 
+    /**
+     * 刚进入方法
+     */
     @Override
-    public void visitTryCatchBlock(Label start, Label end, Label handler, String type) {
-        super.visitTryCatchBlock(start, end, handler, type);
-        this.handlerLabel = handler;
+    protected void onMethodEnter() {
+        visitTryCatchBlock(label0, label1, label2, "java/lang/Exception");
+        visitLabel(label0);
     }
 
     @Override
     public void visitMaxs(int maxStack, int maxLocals) {
+        visitLabel(label1);
+        visitLabel(label2);
+        int local = newLocal(Type.getType("Ljava/lang/Exception;"));
+        visitVarInsn(ASTORE, local);
+        visitVarInsn(ALOAD, local);
+        visitMethodInsn(INVOKEVIRTUAL, "java/lang/Exception", "printStackTrace", "()V", false);
+        visitInsn(getReturnCode());
         super.visitMaxs(maxStack, maxLocals);
-        if (handlerLabel != null) {
-            visitLabel(handlerLabel);
+    }
 
-            // Exception
-            visitInsn(DUP);
-            visitVarInsn(ASTORE, 1);
+    /**
+     * 刚出方法
+     */
+    @Override
+    protected void onMethodExit(int opcode) {
+    }
 
-            // StringWriter sw = new StringWriter();
-            visitTypeInsn(NEW, "java/io/StringWriter");
-            visitInsn(DUP);
-            visitMethodInsn(INVOKESPECIAL, "java/io/StringWriter", "<init>", "()V", false);
-            visitVarInsn(Opcodes.ASTORE, 2);
-
-            //  PrintWriter pw = new PrintWriter(sw);
-            visitTypeInsn(NEW, "java/io/PrintWriter");
-            visitInsn(DUP);
-            visitVarInsn(ALOAD, 2);
-            visitMethodInsn(INVOKESPECIAL, "java/io/PrintWriter", "<init>", "(Ljava/io/Writer;)V", false);
-            visitVarInsn(ASTORE, 3);
-
-            // e.printStackTrace(pw);
-            visitVarInsn(ALOAD, 1);
-            visitVarInsn(ALOAD, 3);
-            visitMethodInsn(INVOKEVIRTUAL, "java/lang/Exception", "printStackTrace", "(Ljava/io/PrintWriter;)V", false);
-
-            // String stackTrace = sw.toString();
-            visitVarInsn(ALOAD, 2);
-            visitMethodInsn(INVOKEVIRTUAL, "java/io/StringWriter", "toString", "()Ljava/lang/String;", false);
-            visitVarInsn(ASTORE, 4);
-
-            // System.out.println(stackTrace);
-            visitFieldInsn(GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
-            visitVarInsn(ALOAD, 4);
-            visitMethodInsn(INVOKEVIRTUAL, "java/io/PrintStream", "println", "(Ljava/lang/String;)V", false);
-
-            // RETURN
-            visitInsn(RETURN);
+    /**
+     * 获取返回值
+     */
+    private int getReturnCode() {
+        int returnCode;
+        // V: void
+        if (descriptor.endsWith("V")) {
+            returnCode = RETURN;
         }
+        // I: int
+        // Z: boolean
+        // B: byte
+        // C: char
+        // S: short
+        else if (descriptor.endsWith("I") ||
+                descriptor.endsWith("Z") ||
+                descriptor.endsWith("B") ||
+                descriptor.endsWith("C") ||
+                descriptor.endsWith("S")) {
+            visitInsn(ICONST_0);
+            returnCode = IRETURN;
+        }
+        // J: long
+        else if (descriptor.endsWith("J")) {
+            visitInsn(LCONST_0);
+            returnCode = LRETURN;
+        }
+        // F: float
+        else if (descriptor.endsWith("F")) {
+            visitInsn(FCONST_0);
+            returnCode = FRETURN;
+        }
+        // D: double
+        else if (descriptor.endsWith("D")) {
+            visitInsn(DCONST_0);
+            returnCode = DRETURN;
+        }
+        // String、Object
+        else {
+            visitInsn(ACONST_NULL);
+            returnCode = ARETURN;
+        }
+        System.out.println("returnCode: " + returnCode);
+        return returnCode;
     }
 
 }

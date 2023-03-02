@@ -1,0 +1,48 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    namespace 'com.mackwu.video_compress'
+    compileSdk 32
+
+    defaultConfig {
+        minSdk 21
+        targetSdk 32
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    //
+//    implementation 'com.github.wseemann:FFmpegMediaMetadataRetriever-core:1.0.19'
+//    implementation 'com.github.wseemann:FFmpegMediaMetadataRetriever-native:1.0.19'
+
+    // ffmpeg-kit
+//    implementation 'com.arthenica:ffmpeg-kit-full:5.1'
+//    implementation 'com.arthenica:ffmpeg-kit-min-gpl:5.1'
+    // ffmpeg-kit LTS
+    // LTS releases are customized to support a wider range of devices. They are built using older API/SDK versions.
+//    implementation 'com.arthenica:ffmpeg-kit-full:5.1.LTS'
+    implementation 'com.arthenica:ffmpeg-kit-min-gpl:5.1.LTS'
+
+}

@@ -1,12 +1,12 @@
 package com.mackwu.component.util;
 
-import android.app.usage.NetworkStatsManager;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.Network;
+import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
+import android.os.Build;
 
 /**
  * ===================================================
@@ -17,19 +17,11 @@ import android.net.wifi.WifiManager;
  */
 public final class NetworkUtil {
 
-    private static ConnectivityManager getConnectivityManager(Context context) {
-        return (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-    }
-
-    private static NetworkInfo getActiveNetworkInfo(Context context) {
-        return getConnectivityManager(context).getActiveNetworkInfo();
-    }
-
     /**
-     * 网络是否可用
+     * 网络是否连接
      */
-    public static boolean isNetworkAvailable(Context context) {
-        ConnectivityManager connectivityManager = getConnectivityManager(context);
+    public static boolean isNetworkConnected(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo[] networkInfos = connectivityManager.getAllNetworkInfo();
         if (networkInfos != null) {
             for (NetworkInfo networkInfo : networkInfos) {
@@ -40,31 +32,40 @@ public final class NetworkUtil {
         }
         return false;
     }
-    /**
-     * 是否是wifi
-     */
-    public static boolean isWifi(Context context) {
-        return getActiveNetworkInfo(context).getType() == ConnectivityManager.TYPE_WIFI;
-    }
 
     /**
-     * 是否是移动网络
+     * 网络是否有访问能力
      */
-    public static boolean isMobile(Context context) {
-        return getActiveNetworkInfo(context).getType() == ConnectivityManager.TYPE_MOBILE;
+    @TargetApi(Build.VERSION_CODES.M)
+    public static boolean isNetworkCapabilityValidated(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        Network activeNetwork = connectivityManager.getActiveNetwork();
+        NetworkCapabilities networkCapabilities = connectivityManager.getNetworkCapabilities(activeNetwork);
+        return networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED);
     }
 
-    /**
-     * 获取ip地址
-     */
-    public static String getIpAddress(Context context) {
-        WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-        WifiInfo wifiInfo = wifiManager.getConnectionInfo();
-        int ipAddress = wifiInfo.getIpAddress();
-        return (ipAddress & 0xFF) + "." +
-                ((ipAddress >> 8) & 0xFF) + "." +
-                ((ipAddress >> 16) & 0xFF) + "." +
-                ((ipAddress >> 24) & 0xFF);
+    public static boolean isWifiConnected(Context context) {
+        ConnectivityManager connMgr = (ConnectivityManager) context.getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        boolean isWifiConn = false;
+        for (Network network : connMgr.getAllNetworks()) {
+            NetworkInfo networkInfo = connMgr.getNetworkInfo(network);
+            if (networkInfo.getType() == ConnectivityManager.TYPE_WIFI) {
+                isWifiConn = networkInfo.isConnected();
+            }
+        }
+        return isWifiConn;
+    }
+
+    public static boolean isPingSuccess() {
+        try {
+            Runtime runtime = Runtime.getRuntime();
+            Process exec = runtime.exec("ping -c 3 www.baidu.com");
+            int result = exec.waitFor();
+            return result == 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
 }

@@ -16,7 +16,8 @@ class TryCatchTransform extends BaseTransform {
     @Override
     void transformFile(File file) {
         def name = file.name
-        if (name.endsWith(".class") && name == "MainActivity.class") {
+        println 'transformFile...  name=' + name
+        if (name.endsWith("JavaTest.class") || name.endsWith("KTest.class") ) {
             def destBytes = visitSource(file.bytes)
             def fileOutputStream = new FileOutputStream(file.parentFile.absolutePath + File.separator + name)
             fileOutputStream.write(destBytes)
@@ -26,6 +27,11 @@ class TryCatchTransform extends BaseTransform {
 
     @Override
     void transformJar(String entryName, JarOutputStream jarOutputStream, byte[] sourceBytes) {
+        if (entryName.endsWith("OkHttpClient\$Builder.class")) {
+            println 'transformJar...  entryName=' + entryName
+            def destBytes = visitSource(sourceBytes)
+            jarOutputStream.write(destBytes)
+        }
         jarOutputStream.write(sourceBytes)
     }
 

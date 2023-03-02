@@ -2,7 +2,7 @@ package com.mackwu.component.ui.viewmodel;
 
 import android.annotation.SuppressLint;
 
-import com.mackwu.base.util.LogUtil;
+import com.mackwu.base.util.Logger;
 import com.mackwu.base.viewmodel.BaseViewModel;
 
 /**
@@ -16,7 +16,7 @@ public class RxViewModel extends BaseViewModel {
 
     @SuppressLint("AutoDispose")
     public void getData() {
-        LogUtil.d("getData...");
+        Logger.d("getData...");
 //        Observable.timer(15000, TimeUnit.MILLISECONDS)
 ////                .as(AutoDispose.autoDisposable(this))
 //                .subscribe(new Observer<Long>() {

@@ -8,21 +8,21 @@
         android:id="@+id/btn_show_soft_input"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:text="显示软键盘"/>
+        android:text="显示软键盘" />
 
     <Button
         android:id="@+id/btn_hide_soft_input"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:text="隐藏软键盘"/>
+        android:text="隐藏软键盘" />
 
     <EditText
         android:id="@+id/et_test"
         android:layout_width="300dp"
+        android:layout_height="100dp"
         android:layout_marginStart="50dp"
         android:imeOptions="actionDone"
-        android:inputType="textPassword"
-        android:textSize="30sp"
-        android:layout_height="100dp" />
+        android:inputType="text"
+        android:textSize="30sp" />
 
 </LinearLayout>

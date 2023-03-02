@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal" 水平进度条
+        android:max="100" 进度最大值
+        android:progress="50" 当前进度
+        android:thumb 进度条背景颜色、进度条颜色
+    -->
+    <ProgressBar
+        android:id="@+id/progress_bar_horizontal"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_10"
+        android:layout_margin="@dimen/dp_40"
+        android:max="100"
+        android:progress="50"
+        android:progressDrawable="@drawable/shape_progress_bar_horizontal" />
+
+    <!--
+        style="@style/Widget.AppCompat.ProgressBar.Vertical" 垂直进度条
+    -->
+    <ProgressBar
+        android:id="@+id/progress_bar_vertical"
+        style="@style/Widget.AppCompat.ProgressBar.Vertical"
+        android:layout_width="@dimen/dp_10"
+        android:layout_height="@dimen/dp_200"
+        android:layout_marginStart="@dimen/dp_40"
+        android:indeterminateBehavior="repeat"
+        android:indeterminateDuration="3500"
+        android:indeterminateOnly="false"
+        android:max="100"
+        android:progress="50"
+        android:progressDrawable="@drawable/shape_progress_bar_vertical" />
+
+</LinearLayout>

@@ -6,11 +6,8 @@ import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.PixelFormat;
 import android.os.Build;
 import android.os.IBinder;
-import android.view.Gravity;
-import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
@@ -28,7 +25,6 @@ public class NotificationService extends Service {
 
     private NotificationManager notificationManager;
     private Notification notification;
-    private NotificationBar notificationBar;
 
     @Override
     public void onCreate() {
@@ -50,17 +46,17 @@ public class NotificationService extends Service {
         startForeground(1, notification);
 
         // notificationBar
-        notificationBar = new NotificationBar(this);
-        WindowManager windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
-        WindowManager.LayoutParams windowLayoutParams = new WindowManager.LayoutParams();
-        windowLayoutParams.gravity = Gravity.START | Gravity.TOP;
-        windowLayoutParams.type = WindowManager.LayoutParams.TYPE_PHONE;
-        windowLayoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
-        windowLayoutParams.format = PixelFormat.TRANSLUCENT;
-        notificationBar.measure(0, 0);
-        windowLayoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
-        windowLayoutParams.height = notificationBar.getMeasuredHeight();
-        windowManager.addView(notificationBar, windowLayoutParams);
+//        notificationBar = new NotificationBar(this);
+//        WindowManager windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+//        WindowManager.LayoutParams windowLayoutParams = new WindowManager.LayoutParams();
+//        windowLayoutParams.gravity = Gravity.START | Gravity.TOP;
+//        windowLayoutParams.type = WindowManager.LayoutParams.TYPE_PHONE;
+//        windowLayoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
+//        windowLayoutParams.format = PixelFormat.TRANSLUCENT;
+//        notificationBar.measure(0, 0);
+//        windowLayoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
+//        windowLayoutParams.height = notificationBar.getMeasuredHeight();
+//        windowManager.addView(notificationBar, windowLayoutParams);
     }
 
     @Nullable

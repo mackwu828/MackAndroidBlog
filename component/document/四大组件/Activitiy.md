@@ -23,6 +23,7 @@ Android8.0以下包括8.0用ApplicationContext.startActivity为什么可以启�
 如何设置无标题的Activity？
 如何设置非全屏的Activity？
 如何隐藏状态栏？
+透明的Activity？https://stackoverflow.com/questions/4650246/how-to-cancel-an-dialog-themed-like-activity-when-touched-outside-the-window
 
 
 

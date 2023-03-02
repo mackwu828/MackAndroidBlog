@@ -3,7 +3,7 @@ package com.mackwu.component.util;
 import android.app.ActivityManager;
 import android.content.Context;
 
-import com.mackwu.base.util.LogUtil;
+import com.mackwu.base.util.Logger;
 
 /**
  * ===================================================
@@ -19,7 +19,7 @@ public class MemoryUtil {
         ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         int memoryClass = activityManager.getMemoryClass();
         int largeMemoryClass = activityManager.getLargeMemoryClass();
-        LogUtil.d("memoryClass: " + memoryClass + ", largeMemoryClass: " + largeMemoryClass);
+        Logger.d("memoryClass: " + memoryClass + ", largeMemoryClass: " + largeMemoryClass);
         return memoryClass;
     }
 

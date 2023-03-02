@@ -1,14 +1,8 @@
 package com.mackwu.component.ui.viewmodel;
 
 import android.content.Context;
-import android.net.wifi.ScanResult;
 
-import com.mackwu.base.util.LogUtil;
 import com.mackwu.base.viewmodel.BaseViewModel;
-import com.thanosfisherman.wifiutils.WifiUtils;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * ===================================================
