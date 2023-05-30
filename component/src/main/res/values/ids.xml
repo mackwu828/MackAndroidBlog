@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <item name="test_animator" type="id" />
+    <item name="focus_animator" type="id" />
 
 </resources>

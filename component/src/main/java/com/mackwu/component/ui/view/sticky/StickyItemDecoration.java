@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.entity.SectionEntity;
 import com.mackwu.base.util.Logger;
-import com.mackwu.component.ui.view.util.RecyclerViewPositionHelper;
+import com.mackwu.component.func.scroll.RecyclerViewPositionHelper;
 
 /**
  * @author MackWu

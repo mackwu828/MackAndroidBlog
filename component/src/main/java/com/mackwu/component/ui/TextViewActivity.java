@@ -58,4 +58,19 @@ public class TextViewActivity extends BaseActivity<BaseViewModel, ActivityTextVi
     }
 
 
+
+    private void a(){
+        // sp30=34, height=46, measuredHeight=46, lineHeight=40, lineCount=1
+        // includeFontPadding="false"
+        // sp30=34, height=40, measuredHeight=40, lineHeight=40, lineCount=1
+        // sp30=34, height=80, measuredHeight=80, lineHeight=40, lineCount=2
+        Logger.d("sp30=" + getResources().getDimensionPixelSize(R.dimen.sp_30)
+                + ", height=" + binding.tvTest.getHeight()
+                + ", measuredHeight=" + binding.tvTest.getMeasuredHeight()
+                + ", lineHeight=" + binding.tvTest.getLineHeight()
+                + ", lineCount=" + binding.tvTest.getLineCount()
+                + ", lineSpacingExtra=" + binding.tvTest.getLineSpacingExtra()
+        );
+    }
+
 }

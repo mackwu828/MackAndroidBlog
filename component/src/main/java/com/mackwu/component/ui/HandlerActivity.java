@@ -36,6 +36,7 @@ public class HandlerActivity extends BaseActivity<HandlerViewModel, ActivityTest
             @Override
             public void handleMessage(@NonNull Message msg) {
                 // 在子线程中处理消息
+                Logger.d("handleMessage=" + Thread.currentThread().getName());
             }
         };
 

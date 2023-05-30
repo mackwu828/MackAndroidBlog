@@ -128,7 +128,6 @@
         <activity
             android:name=".ui.LifecycleActivity"
             android:configChanges="orientation|screenSize" />
-        <activity android:name=".ui.view_base.FragmentActivity" />
         <activity android:name=".ui.ServiceActivity" />
 
         <!--    view    -->
@@ -140,13 +139,11 @@
         <activity android:name=".ui.DialogActivity" />
         <activity android:name=".ui.SeekBarActivity" />
         <activity android:name=".ui.ProgressBarActivity" />
-        <activity android:name=".ui.ImageViewActivity" />
+        <activity android:name=".ui.ImageCompressActivity" />
         <activity
-            android:name=".ui.recycler.RecyclerActivity"
+            android:name=".ui.recycler.MyRecyclerActivity"
             android:configChanges="orientation|screenSize" />
-        <activity android:name=".ui.recycler.RecyclerGridActivity" />
         <activity android:name=".ui.ViewPagerActivity" />
-        <activity android:name=".ui.VideoViewActivity" />
         <activity android:name=".ui.HeartViewActivity" />
         <activity android:name=".ui.recycler.VerticalGridViewActivity" />
         <activity android:name=".ui.AgentWebActivity" />
@@ -155,7 +152,7 @@
         <activity android:name=".ui.BarrageActivity" />
         <activity android:name=".ui.recycler.SmartRefreshActivity" />
         <activity android:name=".ui.GlideActivity" />
-        <activity android:name=".ui.recycler.BrvActivity" />
+        <activity android:name=".ui.recycler.RecyclerViewActivity" />
         <activity android:name=".ui.StickyHeaderActivity" />
         <activity android:name=".ui.ViewActivity" />
         <activity android:name=".ui.DrawerActivity" />
@@ -169,7 +166,7 @@
         <activity android:name=".ui.WindowActivity" />
         <activity android:name=".ui.WifiActivity" />
         <activity android:name=".ui.HandlerActivity" />
-        <activity android:name=".ui.HttpActivity" />
+        <activity android:name=".ui.OkHttpActivity" />
         <activity android:name=".ui.LiveDataActivity" />
         <activity android:name=".ui.AudioRecordActivity" />
         <activity android:name=".ui.RxActivity" />
@@ -208,6 +205,12 @@
         <activity android:name=".ui.recycler.VLayoutActivity" />
         <activity android:name=".ui.BinderActivity" />
         <activity android:name=".ui.VideoActivity" />
+        <activity android:name=".ui.opengl.OpenGLESActivity" />
+        <activity android:name=".ui.GPUImageActivity" />
+        <activity android:name=".ui.OverlapActivity" />
+        <activity android:name=".ui.DockActivity" />
+        <activity android:name=".ui.ImageRotateActivity" />
+        <activity android:name=".ui.HttpActivity" />
 
     </application>
 

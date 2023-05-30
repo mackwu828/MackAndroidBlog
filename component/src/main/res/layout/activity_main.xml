@@ -5,6 +5,7 @@
     android:background="@color/white"
     android:orientation="vertical">
 
+
     <Button
         android:id="@+id/btn_test"
         android:layout_width="@dimen/dp_200"
@@ -22,5 +23,10 @@
         android:background="@color/colorPrimary"
         android:gravity="center"
         android:text="test2" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
 </LinearLayout>

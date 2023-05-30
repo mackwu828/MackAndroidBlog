@@ -15,7 +15,7 @@ import com.mackwu.base.util.Logger;
 import com.mackwu.component.R;
 import com.mackwu.component.bean.RecycleItem;
 import com.mackwu.component.databinding.FragmentShareElement2Binding;
-import com.mackwu.component.ui.view.recycler.QuickViewHolder;
+import com.mackwu.component.ui.view.QuickViewHolder;
 import com.mackwu.component.ui.viewmodel.RecyclerViewModel;
 
 /**
@@ -68,7 +68,7 @@ public class ShareElement2Fragment extends BaseFragment<RecyclerViewModel, Fragm
 
     private static class MyAdapter extends BaseQuickAdapter<RecycleItem, QuickViewHolder> {
         public MyAdapter() {
-            super(R.layout.layout_item_linear);
+            super(R.layout.item_test_1);
         }
 
         @Override

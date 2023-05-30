@@ -29,3 +29,9 @@ C:\Users\wumengjiao\.gradle\wrapper\dists\gradle-6.1.1-all\cfmwm155h49vnt3hynmlr
         <option name="modules">
 ...
 ```
+
+修改.idea下的workspace.xml
+找到<component name="PropertiesComponent">标签节点并在之下添加一行
+```
+<property name="dynamic.classpath" value="true" />
+```

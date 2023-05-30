@@ -47,7 +47,7 @@ public class SmartRefreshActivity extends BaseActivity<RecyclerViewModel, Activi
     static class MyAdapter extends BaseQuickAdapter<RecycleItem, BaseViewHolder> {
 
         public MyAdapter(List<RecycleItem> data) {
-            super(R.layout.layout_item_linear, data);
+            super(R.layout.item_test_1, data);
         }
 
         @Override

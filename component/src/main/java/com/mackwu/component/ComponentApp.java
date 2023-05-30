@@ -21,7 +21,7 @@ public class ComponentApp extends Application {
         super.onCreate();
         instance = this;
 
-        GreenDaoManager.getInstance().init(this);
+        GreenDaoManager.getInstance().setupDatabase(this);
     }
 
     public static ComponentApp getInstance() {

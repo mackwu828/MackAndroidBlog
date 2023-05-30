@@ -5,11 +5,11 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.view.MotionEvent;
 
 import androidx.appcompat.widget.AppCompatImageView;
 
 import com.mackwu.base.util.Logger;
+import com.mackwu.component.R;
 
 
 /**
@@ -22,7 +22,6 @@ import com.mackwu.base.util.Logger;
 public class MyView extends AppCompatImageView {
 
     Paint paint;
-    int screenWidth;
 
     public MyView(Context context) {
         this(context, null);
@@ -43,9 +42,6 @@ public class MyView extends AppCompatImageView {
         paint.setColor(Color.BLACK);
         paint.setStrokeWidth(10f);
         paint.setStyle(Paint.Style.STROKE);
-
-        //
-        screenWidth = getResources().getDisplayMetrics().widthPixels;
     }
 
     @Override
@@ -53,17 +49,4 @@ public class MyView extends AppCompatImageView {
         super.onDraw(canvas);
     }
 
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent event) {
-        Logger.d("dispatchTouchEvent...");
-        return super.dispatchTouchEvent(event);
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_UP) {
-            Logger.d("onTouchEvent...  ACTION_UP");
-        }
-        return super.onTouchEvent(event);
-    }
 }

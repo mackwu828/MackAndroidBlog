@@ -6,12 +6,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.mackwu.base.BaseActivity;
-import com.mackwu.base.util.Logger;
 import com.mackwu.component.R;
 import com.mackwu.component.bean.RecycleItem;
 import com.mackwu.component.databinding.ActivityLeanbackBinding;
-import com.mackwu.component.ui.view.focus.BaseFocusQuickAdapter;
-import com.mackwu.component.ui.view.recycler.QuickViewHolder;
+import com.mackwu.component.func.focus.BaseFocusQuickAdapter;
+import com.mackwu.component.ui.view.QuickViewHolder;
 import com.mackwu.component.ui.viewmodel.RecyclerViewModel;
 
 import java.util.List;
@@ -28,17 +27,15 @@ public class VerticalGridViewActivity extends BaseActivity<RecyclerViewModel, Ac
     public void initView(@Nullable Bundle savedInstanceState) {
         // adapter
         adapter = new MyAdapter(viewModel.getData());
-        adapter.setOnItemClickListener((adapter, view, position) -> {
-            Logger.d("setOnItemClickListener...  position=" + position);
-        });
-        adapter.setOnItemFocusChangeListener((view, hasFocus, position) -> {
-            Logger.d("setOnItemFocusChangeListener...  hasFocus=" + hasFocus +", position=" + position);
-            view.setActivated(hasFocus);
-        });
 
         // verticalGridView
-        binding.verticalGridView.setAdapter(adapter);
+//        binding.verticalGridView.setWindowAlignment(HorizontalGridView.WINDOW_ALIGN_LOW_EDGE);
+//        binding.verticalGridView.setWindowAlignmentOffset(0);
+//        binding.verticalGridView.setWindowAlignmentOffsetPercent(HorizontalGridView.WINDOW_ALIGN_OFFSET_PERCENT_DISABLED);
+//        binding.verticalGridView.setItemAlignmentOffset(getResources().getDimensionPixelOffset(R.dimen.dp_50) * -1);
+//        binding.verticalGridView.setItemAlignmentOffsetPercent(0);
 
+        binding.verticalGridView.setAdapter(adapter);
 
 
 //        binding.verticalGridView.getViewTreeObserver().addOnGlobalFocusChangeListener((oldFocus, newFocus) -> {
@@ -57,7 +54,6 @@ public class VerticalGridViewActivity extends BaseActivity<RecyclerViewModel, Ac
             helper.setText(R.id.tv_test, item.getDate());
             helper.setImageResource(R.id.iv_image, item.getResId());
         }
-
     }
 
 }

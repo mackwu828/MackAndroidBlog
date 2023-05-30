@@ -1,0 +1,7 @@
+Executable : C:\Android\SDK\cmake\3.18.1\bin\ninja.exe
+arguments : 
+-C
+C:\Android\workspace\mackwu\MackAndroidBlog\image-transition\.cxx\Debug\11d6r423\armeabi-v7a
+image-transition
+jvmArgs : 
+

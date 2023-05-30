@@ -1,22 +1,17 @@
 package com.mackwu.component.ui.share_element;
 
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.ViewCompat;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.mackwu.base.fragment.BaseFragment;
-import com.mackwu.base.viewmodel.BaseViewModel;
 import com.mackwu.component.R;
 import com.mackwu.component.bean.RecycleItem;
 import com.mackwu.component.databinding.FragmentShareElementBinding;
-import com.mackwu.component.ui.view.recycler.QuickViewHolder;
+import com.mackwu.component.ui.view.QuickViewHolder;
 import com.mackwu.component.ui.viewmodel.RecyclerViewModel;
 
 /**

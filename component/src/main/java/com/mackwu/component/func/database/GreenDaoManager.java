@@ -39,11 +39,15 @@ public class GreenDaoManager {
         return instance;
     }
 
-    public void init(Context context) {
-        GreenDaoOpenHelper openHelper = new GreenDaoOpenHelper(context, "component.db", null);
-        daoMaster = new DaoMaster(openHelper.getWritableDatabase());
-        daoSession = daoMaster.newSession();
-        studentDao = daoSession.getStudentDao();
+    public void setupDatabase(Context context) {
+        try {
+            GreenDaoOpenHelper openHelper = new GreenDaoOpenHelper(context, "component.db", null);
+            daoMaster = new DaoMaster(openHelper.getWritableDatabase());
+            daoSession = daoMaster.newSession();
+            studentDao = daoSession.getStudentDao();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -128,7 +132,7 @@ public class GreenDaoManager {
     /**
      * 按年分组。
      * SELECT * from Student GROUP BY strftime('%Y', TIME_STAMP/1000, 'unixepoch')
-     *
+     * <p>
      * SELECT * from Student
      * where TIME_STAMP in (select max(TIME_STAMP) from STUDENT where VISIBLE=1 group by strftime('%Y', TIME_STAMP/1000, 'unixepoch'))
      * order by TIME_STAMP desc

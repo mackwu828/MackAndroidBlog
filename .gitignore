@@ -14,3 +14,6 @@
 .externalNativeBuild
 /gradle.properties
 /component/src/main/java/com/mackwu/component/core/dao/
+/image-compress/.gitignore
+/image-transition/.gitignore
+/image-transition/.cxx/

@@ -1,11 +1,7 @@
 package com.mackwu.component.ui.share_element;
 
 import android.os.Bundle;
-import android.transition.ChangeBounds;
 import android.transition.Scene;
-import android.transition.Transition;
-import android.transition.TransitionManager;
-import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,7 +13,7 @@ import com.mackwu.base.BaseActivity;
 import com.mackwu.component.R;
 import com.mackwu.component.bean.RecycleItem;
 import com.mackwu.component.databinding.ActivityShareElement3Binding;
-import com.mackwu.component.ui.view.recycler.QuickViewHolder;
+import com.mackwu.component.ui.view.QuickViewHolder;
 import com.mackwu.component.ui.viewmodel.RecyclerViewModel;
 
 /**
@@ -88,7 +84,7 @@ public class ShareElement3Activity extends BaseActivity<RecyclerViewModel, Activ
 
     private static class MyAdapter extends BaseQuickAdapter<RecycleItem, QuickViewHolder> {
         public MyAdapter() {
-            super(R.layout.layout_item_linear);
+            super(R.layout.item_test_1);
         }
 
         @Override

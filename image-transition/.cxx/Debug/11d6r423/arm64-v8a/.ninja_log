@@ -1,0 +1,6 @@
+# ninja log v5
+0	383	699537772	CMakeFiles/image-transition.dir/native-lib.cpp.o	7ae4404cf4f3793f
+385	473	699537772	C:/Android/workspace/mackwu/MackAndroidBlog/image-transition/build/intermediates/cxx/Debug/11d6r423/obj/arm64-v8a/libimage-transition.so	f35bfec5a99ab701
+0	10	0	clean	a22618289047c5d8
+5	497	699539889	CMakeFiles/image-transition.dir/native-lib.cpp.o	7ae4404cf4f3793f
+498	576	699539890	C:/Android/workspace/mackwu/MackAndroidBlog/image-transition/build/intermediates/cxx/Debug/11d6r423/obj/arm64-v8a/libimage-transition.so	f35bfec5a99ab701

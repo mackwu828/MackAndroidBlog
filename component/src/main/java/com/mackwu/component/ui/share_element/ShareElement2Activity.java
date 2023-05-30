@@ -12,7 +12,7 @@ import com.mackwu.base.BaseActivity;
 import com.mackwu.component.R;
 import com.mackwu.component.bean.RecycleItem;
 import com.mackwu.component.databinding.ActivityShareElement2Binding;
-import com.mackwu.component.ui.view.recycler.QuickViewHolder;
+import com.mackwu.component.ui.view.QuickViewHolder;
 import com.mackwu.component.ui.viewmodel.RecyclerViewModel;
 
 /**
@@ -51,7 +51,7 @@ public class ShareElement2Activity extends BaseActivity<RecyclerViewModel, Activ
 
     private static class MyAdapter extends BaseQuickAdapter<RecycleItem, QuickViewHolder> {
         public MyAdapter() {
-            super(R.layout.layout_item_linear);
+            super(R.layout.item_test_1);
         }
 
         @Override

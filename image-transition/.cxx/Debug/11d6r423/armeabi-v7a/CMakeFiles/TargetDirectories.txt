@@ -1,0 +1,3 @@
+C:/Android/workspace/mackwu/MackAndroidBlog/image-transition/.cxx/Debug/11d6r423/armeabi-v7a/CMakeFiles/image-transition.dir
+C:/Android/workspace/mackwu/MackAndroidBlog/image-transition/.cxx/Debug/11d6r423/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Android/workspace/mackwu/MackAndroidBlog/image-transition/.cxx/Debug/11d6r423/armeabi-v7a/CMakeFiles/rebuild_cache.dir

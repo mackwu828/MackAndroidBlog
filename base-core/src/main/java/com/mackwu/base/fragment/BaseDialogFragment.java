@@ -146,28 +146,24 @@ public abstract class BaseDialogFragment<VM extends BaseViewModel, B extends Vie
 
     @SuppressWarnings("unchecked")
     private void initViewModel() {
-        Class<VM> vmCls = (Class<VM>) ReflectUtil.getActualTypeArgument(getClass(), 0);
-        viewModel = new ViewModelProvider(this, new ViewModelFactory(requireActivity().getApplication())).get(vmCls != null ? vmCls : (Class<VM>) BaseViewModel.class);
-        getLifecycle().addObserver(viewModel);
+        try {
+            Class<VM> vmCls = (Class<VM>) ReflectUtil.getActualTypeArgument(getClass(), 0);
+            viewModel = new ViewModelProvider(this, new ViewModelFactory(requireActivity().getApplication())).get(vmCls != null ? vmCls : (Class<VM>) BaseViewModel.class);
+            getLifecycle().addObserver(viewModel);
+        } catch (Exception e) {
+            // ignored
+        }
     }
 
     @SuppressWarnings({"unchecked"})
     private void initViewBinding(@Nullable final ViewGroup container) {
-        Class<B> vbClass = (Class<B>) ReflectUtil.getActualTypeArgument(getClass(), 1);
         try {
-            Method inflate = (vbClass != null ? vbClass : getViewBindingCls()).getMethod("inflate", LayoutInflater.class, ViewGroup.class, boolean.class);
+            Class<B> vbClass = (Class<B>) ReflectUtil.getActualTypeArgument(getClass(), 1);
+            Method inflate = vbClass.getMethod("inflate", LayoutInflater.class, ViewGroup.class, boolean.class);
             binding = (B) inflate.invoke(null, getLayoutInflater(), container, false);
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-            e.printStackTrace();
+            // ignored
         }
-    }
-
-    /**
-     * 获取ViewBinding。
-     * 如果子类没有使用泛型，{@link #initViewBinding}通过反射会获取不到ViewBinding对象，需要主动设置。
-     */
-    protected Class<B> getViewBindingCls() {
-        return null;
     }
 
     public void setOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {

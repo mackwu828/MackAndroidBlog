@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.widget.ListView;
 
 import androidx.annotation.Nullable;
 import androidx.documentfile.provider.DocumentFile;
@@ -12,13 +11,9 @@ import androidx.documentfile.provider.DocumentFile;
 import com.mackwu.base.BaseActivity;
 import com.mackwu.base.viewmodel.BaseViewModel;
 import com.mackwu.component.databinding.ActivityStorageBinding;
-import com.mackwu.storage.StorageManager;
-import com.mackwu.storage.bean.Storage;
 import com.mackwu.storage.scan.StorageScanListener;
 import com.mackwu.storage.scan.StorageScanner;
 import com.mackwu.storage.util.Logger;
-
-import java.util.List;
 
 /**
  * ===================================================
@@ -32,20 +27,11 @@ public class StorageActivity extends BaseActivity<BaseViewModel, ActivityStorage
     @SuppressLint("SetTextI18n")
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
-        // bindStorageObserver
-        StorageManager.getInstance().bindStorageObserver(this);
-        Logger.d("initView...  main pid=" + android.os.Process.myPid());
 
         binding.btnStartScan.setOnClickListener(v -> {
-            List<Storage> mountedExternalStorages = StorageManager.getInstance().getMountedExternalStorages(this);
-            if (mountedExternalStorages == null || mountedExternalStorages.isEmpty()) {
-                return;
-            }
-            Storage storage = mountedExternalStorages.get(0);
-            startScan(storage.getPath());
         });
 
-        binding.btnOpenDocument.setOnClickListener(v-> {
+        binding.btnOpenDocument.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
             startActivity(intent);
         });
@@ -55,7 +41,7 @@ public class StorageActivity extends BaseActivity<BaseViewModel, ActivityStorage
         });
     }
 
-    private void startScan(String path){
+    private void startScan(String path) {
         StorageScanner storageScanner = new StorageScanner.Builder(this)
                 .rootPath(path)
                 .build();

@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseDelegateMultiAdapter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -43,11 +44,18 @@ public class FastScrollActivity extends BaseActivity<RecyclerViewModel, WidgetAc
         binding.recyclerView.setAdapter(adapter);
 
 
+        binding.recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                if (newState == RecyclerView.SCROLL_STATE_SETTLING) {
+                    Logger.d("computeVerticalScrollRange=" + binding.recyclerView.computeVerticalScrollRange());
+                }
+            }
+        });
+
         binding.recyclerView.post(() -> {
-            Logger.d("computeVerticalScrollRange=" + binding.recyclerView.computeVerticalScrollRange());
             Logger.d("dp_80=" + getResources().getDimensionPixelSize(R.dimen.dp_80));
             Logger.d("dp_400=" + getResources().getDimensionPixelSize(R.dimen.dp_400));
-
             int i = getResources().getDimensionPixelSize(R.dimen.dp_80) * 3
                     + getResources().getDimensionPixelSize(R.dimen.dp_400) * 7;
             Logger.d("XXX=" + i);

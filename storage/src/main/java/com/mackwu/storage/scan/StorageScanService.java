@@ -2,6 +2,7 @@ package com.mackwu.storage.scan;
 
 import android.app.Service;
 import android.content.Intent;
+import android.os.Binder;
 import android.os.IBinder;
 import android.os.RemoteException;
 
@@ -9,7 +10,6 @@ import androidx.annotation.Nullable;
 
 import com.mackwu.storage.bean.StorageScanParam;
 import com.mackwu.storage.util.ByteUtil;
-import com.mackwu.storage.util.UriUtil;
 import com.mackwu.storage.util.Logger;
 
 import java.io.File;
@@ -26,38 +26,50 @@ public class StorageScanService extends Service {
     boolean isScanCancelled;
     // 过滤隐藏文件
     private final FileFilter hiddenFilter = pathname -> !pathname.isHidden();
+    private final Binder binder = new IStorageScanService.Stub() {
+        @Override
+        public void startScan(StorageScanParam p, IStorageScanListener listener) throws RemoteException {
+            linkToClientDeath();
+            new Thread(() -> {
+                try {
+                    Logger.d("startScan in service...  pid=" + android.os.Process.myPid());
+                    isScanCancelled = false;
+                    param = p;
+                    if (listener != null) {
+                        listener.onScanStart();
+                    }
+                    onScan(new File(param.getRootPath()), listener);
+                    if (listener != null) {
+                        listener.onScanComplete();
+                    }
+                    Logger.d("startScan in service completed...  pid=" + android.os.Process.myPid());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }).start();
+        }
+
+        @Override
+        public void cancelScan() throws RemoteException {
+            isScanCancelled = true;
+        }
+    };
 
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        return new IStorageScanService.Stub() {
-            @Override
-            public void startScan(StorageScanParam p, IStorageScanListener listener) throws RemoteException {
-                new Thread(() -> {
-                    try {
-                        Logger.d("startScan in service...  pid=" + android.os.Process.myPid());
-                        isScanCancelled = false;
-                        param = p;
-                        if (listener != null) {
-                            listener.onScanStart();
-                        }
-                        onScan(new File(param.getRootPath()), listener);
-                        if (listener != null) {
-                            listener.onScanComplete();
-                        }
-                        Logger.d("startScan in service completed...  pid=" + android.os.Process.myPid());
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }).start();
-            }
-
-            @Override
-            public void cancelScan() throws RemoteException {
-                isScanCancelled = true;
-            }
-        };
+        return binder;
 //        return null;
+    }
+
+    private void linkToClientDeath(){
+        binder.linkToDeath(new IBinder.DeathRecipient() {
+            @Override
+            public void binderDied() {
+                Logger.d("binderDied...  client is dead");
+                binder.unlinkToDeath(this, 0);
+            }
+        }, 0);
     }
 
     /**

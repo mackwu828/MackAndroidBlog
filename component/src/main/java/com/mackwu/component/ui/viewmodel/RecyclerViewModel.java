@@ -18,6 +18,11 @@ public class RecyclerViewModel extends BaseViewModel {
 
     public List<RecycleItem> getData() {
         List<RecycleItem> data = new ArrayList<>();
+        data.add(new RecycleItem("2022-1-3", R.drawable.home_bg_3));
+        data.add(new RecycleItem("2022-1-1", R.drawable.home_bg_1));
+        data.add(new RecycleItem("2022-1-2", R.drawable.home_bg_2));
+        data.add(new RecycleItem("2022-1-3", R.drawable.home_bg_3));
+        data.add(new RecycleItem("2022-1-3", R.drawable.home_bg_3));
         data.add(new RecycleItem("2022-1-1", R.drawable.home_bg_1));
         data.add(new RecycleItem("2022-1-2", R.drawable.home_bg_2));
         data.add(new RecycleItem("2022-1-3", R.drawable.home_bg_3));

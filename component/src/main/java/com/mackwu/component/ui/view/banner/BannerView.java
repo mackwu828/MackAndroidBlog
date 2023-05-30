@@ -2,11 +2,8 @@ package com.mackwu.component.ui.view.banner;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
-
-import com.mackwu.component.R;
 
 import java.util.List;
 
@@ -19,14 +16,14 @@ import java.util.List;
  */
 public class BannerView extends FrameLayout {
 
-    // viewPager
-    private BannerViewPager viewPager;
+    // banner
+    private BannerViewPager banner;
     // adapter
     private BannerPagerAdapter adapter;
     // 自动轮播线程
     private Runnable loopRunnable;
     // 轮播间隔
-    private long loopDuration = 3000;
+    private final long loopDuration = 3000;
     // 当前位置
     private int currentPosition;
 
@@ -47,18 +44,24 @@ public class BannerView extends FrameLayout {
         // adapter
         adapter = new BannerPagerAdapter();
 
-        // viewPager
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.layout_banner_view, this, true);
-        viewPager = view.findViewById(R.id.banner_view_pager);
-        viewPager.setAdapter(adapter);
+        // banner
+        banner = new BannerViewPager(getContext());
+        addView(banner);
+        banner.setAdapter(adapter);
 
-        // loopRunnable
-        loopRunnable = () -> {
-            currentPosition = viewPager.getCurrentItem();
-            currentPosition++;
-            viewPager.setCurrentItem(currentPosition);
-            postDelayed(loopRunnable, loopDuration);
-        };
+        // startLoop
+        startLoop();
+    }
+
+    private void startLoop() {
+        if (loopRunnable == null) {
+            loopRunnable = () -> {
+                currentPosition = banner.getCurrentItem();
+                currentPosition++;
+                banner.setCurrentItem(currentPosition);
+                postDelayed(loopRunnable, loopDuration);
+            };
+        }
         postDelayed(loopRunnable, loopDuration);
     }
 

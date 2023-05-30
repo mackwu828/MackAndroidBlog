@@ -1,0 +1,7 @@
+[
+{
+  "directory": "C:/Android/workspace/mackwu/MackAndroidBlog/image-transition/.cxx/Debug/11d6r423/armeabi-v7a",
+  "command": "C:\\Android\\SDK\\ndk\\21.4.7075529\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=armv7-none-linux-androideabi21 --gcc-toolchain=C:/Android/SDK/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Android/SDK/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dimage_transition_EXPORTS -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC -o CMakeFiles\\image-transition.dir\\native-lib.cpp.o -c C:\\Android\\workspace\\mackwu\\MackAndroidBlog\\image-transition\\src\\main\\cpp\\native-lib.cpp",
+  "file": "C:\\Android\\workspace\\mackwu\\MackAndroidBlog\\image-transition\\src\\main\\cpp\\native-lib.cpp"
+}
+]

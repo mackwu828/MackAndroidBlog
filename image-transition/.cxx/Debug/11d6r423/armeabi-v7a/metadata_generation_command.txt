@@ -1,0 +1,23 @@
+                    Executable : C:\Android\SDK\cmake\3.18.1\bin\cmake.exe
+arguments : 
+-HC:\Android\workspace\mackwu\MackAndroidBlog\image-transition\src\main\cpp
+-DCMAKE_SYSTEM_NAME=Android
+-DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+-DCMAKE_SYSTEM_VERSION=21
+-DANDROID_PLATFORM=android-21
+-DANDROID_ABI=armeabi-v7a
+-DCMAKE_ANDROID_ARCH_ABI=armeabi-v7a
+-DANDROID_NDK=C:\Android\SDK\ndk\21.4.7075529
+-DCMAKE_ANDROID_NDK=C:\Android\SDK\ndk\21.4.7075529
+-DCMAKE_TOOLCHAIN_FILE=C:\Android\SDK\ndk\21.4.7075529\build\cmake\android.toolchain.cmake
+-DCMAKE_MAKE_PROGRAM=C:\Android\SDK\cmake\3.18.1\bin\ninja.exe
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=C:\Android\workspace\mackwu\MackAndroidBlog\image-transition\build\intermediates\cxx\Debug\11d6r423\obj\armeabi-v7a
+-DCMAKE_RUNTIME_OUTPUT_DIRECTORY=C:\Android\workspace\mackwu\MackAndroidBlog\image-transition\build\intermediates\cxx\Debug\11d6r423\obj\armeabi-v7a
+-DCMAKE_BUILD_TYPE=Debug
+-BC:\Android\workspace\mackwu\MackAndroidBlog\image-transition\.cxx\Debug\11d6r423\armeabi-v7a
+-GNinja
+jvmArgs : 
+
+
+                    Build command args: []
+                    Version: 2

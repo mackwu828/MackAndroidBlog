@@ -1,57 +1,52 @@
 package com.mackwu.component.func.http;
 
+import androidx.annotation.NonNull;
+
 import com.qiniu.android.dns.DnsManager;
-import com.qiniu.android.dns.Domain;
 import com.qiniu.android.dns.IResolver;
 import com.qiniu.android.dns.NetworkInfo;
+import com.qiniu.android.dns.Record;
 import com.qiniu.android.dns.dns.DnsUdpResolver;
 
-import org.jetbrains.annotations.NotNull;
-
-import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.Dns;
 
 /**
- * ===================================================
- * Created by MackWu on 2021/4/23 15:51
- * <a href="mailto:wumengjiao828@163.com">Contact me</a>
- * <a href="https://github.com/mackwu828">Follow me</a>
- * ===================================================
- * 国外：
- * Google Public DNS （8.8.8.8， 8.8.4.4）
- * <p>
- * 国内：
- * 114DNS （114.114.114.114， 114.114.115.115）
+ * @author MackWu
+ * @since 2021/4/23 15:51
  */
 public class HappyDns implements Dns {
 
     private final DnsManager dnsManager;
 
     public HappyDns() {
-        IResolver[] resolvers = new IResolver[2];
+        IResolver[] resolvers = new IResolver[4];
         resolvers[0] = new DnsUdpResolver("8.8.8.8");
-        resolvers[1] = new DnsUdpResolver("114.114.114.114");
+        resolvers[1] = new DnsUdpResolver("8.8.4.4");
+        resolvers[2] = new DnsUdpResolver("114.114.114.114");
+        resolvers[3] = new DnsUdpResolver("114.114.114.115");
         dnsManager = new DnsManager(NetworkInfo.normal, resolvers);
     }
 
-    @NotNull
     @Override
-    public List<InetAddress> lookup(@NotNull String hostname) throws UnknownHostException {
+    public List<InetAddress> lookup(@NonNull String hostname) throws UnknownHostException {
+        List<InetAddress> inetAddresses = new ArrayList<>();
         try {
-            Domain domain = new Domain(hostname);
-            InetAddress[] inetAddresses = dnsManager.queryInetAdress(domain);
-            if (inetAddresses != null) {
-                return Arrays.asList(inetAddresses);
+            Record[] records = dnsManager.queryRecords(hostname);
+            if (records != null && records.length > 0) {
+                for (Record record : records) {
+                    inetAddresses.add(InetAddress.getByName(record.value));
+                }
             }
-        } catch (IOException e) {
+        } catch (Throwable e) {
             e.printStackTrace();
         }
-        return Dns.SYSTEM.lookup(hostname);
+        inetAddresses.addAll(Dns.SYSTEM.lookup(hostname));
+        return inetAddresses;
     }
 
 }

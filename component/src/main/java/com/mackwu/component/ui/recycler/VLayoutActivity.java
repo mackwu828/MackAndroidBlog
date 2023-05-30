@@ -109,13 +109,12 @@ public class VLayoutActivity extends BaseActivity<RecyclerViewModel, WidgetActiv
         @NonNull
         @Override
         public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.layout_item_linear, parent, false));
+            return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.item_test_1, parent, false));
         }
 
         @Override
         public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
             RecycleItem recycleItem = data.get(position);
-            holder.tvTest.setText(recycleItem.getDate());
             holder.ivTest.setImageResource(recycleItem.getResId());
         }
 

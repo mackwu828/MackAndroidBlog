@@ -6,6 +6,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import org.greenrobot.greendao.database.Database;
+
 /**
  * ===================================================
  * Created by MackWu on 2022/1/5 10:46
@@ -21,10 +23,23 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        createTable(db, false);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+
+    private void createTable(SQLiteDatabase db, boolean ifNotExists) {
+        String constraint = ifNotExists ? "IF NOT EXISTS " : "";
+        db.execSQL("CREATE TABLE " + constraint + "\"STUDENT\" (" + //
+                "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
+                "\"STUDENT_ID\" INTEGER NOT NULL UNIQUE ," + // 1: studentId
+                "\"NAME\" TEXT," + // 2: name
+                "\"AGE\" INTEGER NOT NULL ," + // 3: age
+                "\"TIME_STAMP\" INTEGER NOT NULL ," + // 4: timeStamp
+                "\"VISIBLE\" INTEGER NOT NULL );"); // 5: visible
+    }
+
 }

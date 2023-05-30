@@ -3,6 +3,7 @@ package com.mackwu.component.func.screen;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
+import android.os.Build;
 import android.os.PowerManager;
 
 import com.mackwu.base.util.Logger;
@@ -59,11 +60,15 @@ public final class ScreenUtil {
      */
     public static boolean isScreenOn(Context context) {
         PowerManager powerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-        boolean isScreenOn = powerManager.isInteractive();
+        boolean isScreenOn;
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH) {
+            isScreenOn = powerManager.isInteractive();
+        } else {
+            isScreenOn = powerManager.isScreenOn();
+        }
         Logger.d("isScreenOn...  " + isScreenOn);
         return isScreenOn;
     }
-
 
     /**
      * 锁屏

@@ -1,0 +1,3 @@
+ninja: Entering directory `C:\Android\workspace\mackwu\MackAndroidBlog\image-transition\.cxx\Debug\11d6r423\x86_64'
+[1/2] Building CXX object CMakeFiles/image-transition.dir/native-lib.cpp.o
+[2/2] Linking CXX shared library C:\Android\workspace\mackwu\MackAndroidBlog\image-transition\build\intermediates\cxx\Debug\11d6r423\obj\x86_64\libimage-transition.so

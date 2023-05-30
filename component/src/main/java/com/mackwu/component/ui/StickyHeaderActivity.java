@@ -14,7 +14,7 @@ import com.mackwu.component.R;
 import com.mackwu.component.bean.RecycleItem;
 import com.mackwu.component.bean.RecycleSectionItem;
 import com.mackwu.component.databinding.ActivityStickyHeaderBinding;
-import com.mackwu.component.ui.view.recycler.QuickViewHolder;
+import com.mackwu.component.ui.view.QuickViewHolder;
 import com.mackwu.component.ui.view.sticky.StickyItemDecoration;
 import com.mackwu.component.ui.viewmodel.RecyclerViewModel;
 

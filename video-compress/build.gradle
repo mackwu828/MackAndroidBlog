@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace 'com.mackwu.video_compress'
+    namespace 'com.mackwu.video.compress'
     compileSdk 32
 
     defaultConfig {

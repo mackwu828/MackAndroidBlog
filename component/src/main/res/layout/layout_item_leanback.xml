@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.mackwu.component.ui.view.focus.FocusableLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.mackwu.component.func.focus.FocusableLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -24,4 +24,4 @@
         android:layout_height="@dimen/dp_1"
         android:background="#196743E7" />
 
-</com.mackwu.component.ui.view.focus.FocusableLinearLayout>
+</com.mackwu.component.func.focus.FocusableLinearLayout>

@@ -126,8 +126,8 @@ public class VolumeControl {
      * 是否静音
      */
     public boolean isMute() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && audioManager != null) {
-            return audioManager.isStreamMute(streamType);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            return audioManager != null && audioManager.isStreamMute(streamType);
         }
         return false;
     }
@@ -140,6 +140,10 @@ public class VolumeControl {
             if (!isMute() && audioManager != null) {
                 audioManager.adjustStreamVolume(streamType, AudioManager.ADJUST_MUTE, flags);
             }
+        } else {
+            if (audioManager != null) {
+                audioManager.setStreamMute(streamType, true);
+            }
         }
     }
 
@@ -150,6 +154,10 @@ public class VolumeControl {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (isMute() && audioManager != null) {
                 audioManager.adjustStreamVolume(streamType, AudioManager.ADJUST_UNMUTE, flags);
+            }
+        } else {
+            if (audioManager != null) {
+                audioManager.setStreamMute(streamType, false);
             }
         }
     }
