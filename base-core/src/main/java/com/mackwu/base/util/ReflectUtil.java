@@ -4,13 +4,8 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
 /**
- * ===================================================
- * Created by MackWu on 2021/4/21 19:26
- * <a href="mailto:wumengjiao828@163.com">Contact me</a>
- * <a href="https://github.com/mackwu828">Follow me</a>
- * ===================================================
- * Reflect Util
- * 反射工具类。
+ * @author MackWu
+ * @since 2021/4/21 19:26
  */
 public final class ReflectUtil {
 

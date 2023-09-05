@@ -1,8 +1,6 @@
 package com.mackwu.component.ui;
 
 import android.os.Bundle;
-import android.text.method.HideReturnsTransformationMethod;
-import android.text.method.PasswordTransformationMethod;
 import android.view.inputmethod.EditorInfo;
 
 import androidx.annotation.Nullable;
@@ -11,7 +9,7 @@ import com.mackwu.base.BaseActivity;
 import com.mackwu.base.util.Logger;
 import com.mackwu.base.viewmodel.BaseViewModel;
 import com.mackwu.component.databinding.WidgetActivityEditTextBinding;
-import com.mackwu.component.util.SoftInputUtil;
+import com.mackwu.component.util.EditTextUtil;
 
 /**
  * ===================================================
@@ -35,16 +33,8 @@ public class EditTextActivity extends BaseActivity<BaseViewModel, WidgetActivity
             return false;
         });
 
-        binding.btnShowSoftInput.setOnClickListener(v -> SoftInputUtil.showSoftInput(this, binding.etTest));
-        binding.btnHideSoftInput.setOnClickListener(v -> SoftInputUtil.hideSoftInput(this, binding.etTest));
-    }
-
-
-    private void a() {
-        // 显示密码
-        binding.etTest.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-        // 隐藏密码
-        binding.etTest.setTransformationMethod(PasswordTransformationMethod.getInstance());
+        binding.btnShowSoftInput.setOnClickListener(v -> EditTextUtil.showSoftInput(binding.etTest));
+        binding.btnHideSoftInput.setOnClickListener(v -> EditTextUtil.hideSoftInput( binding.etTest));
     }
 
 }

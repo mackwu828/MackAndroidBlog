@@ -25,6 +25,9 @@ public final class MacUtil {
             for (final NetworkInterface networkInterface : networkInterfaces) {
                 if (networkInterface.getName().toLowerCase().equals(type)) {
                     byte[] bytes = networkInterface.getHardwareAddress();
+                    if (bytes == null) {
+                        return "";
+                    }
                     StringBuilder stringBuilder = new StringBuilder();
                     for (final byte b : bytes) {
                         stringBuilder.append(String.format("%02X:", b));
@@ -35,7 +38,7 @@ public final class MacUtil {
                     return stringBuilder.toString();
                 }
             }
-        } catch (SocketException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return "";

@@ -4,13 +4,12 @@ import android.content.Context;
 import android.media.AudioManager;
 import android.os.Build;
 
+import com.mackwu.component.ComponentApp;
+
 
 /**
- * ===================================================
- * Created by MackWu on 2020/11/6 16:11
- * <a href="mailto:wumengjiao828@163.com">Contact me</a>
- * <a href="https://github.com/mackwu828">Follow me</a>
- * ===================================================
+ * @author MackWu
+ * @since 2023/7/11 17:13
  */
 public class VolumeControl {
 
@@ -18,69 +17,25 @@ public class VolumeControl {
     private final AudioManager audioManager;
     private final int streamType;
     private final int flags;
-    private final AudioFocus audioFocus;
     private final int step;
 
-    public VolumeControl(Builder builder) {
-        if (instance == null) {
-            instance = this;
+    public VolumeControl() {
+        Context context = ComponentApp.getInstance();
+        audioManager = (AudioManager) context.getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
+        streamType = AudioManager.STREAM_MUSIC;
+        flags = AudioManager.FLAG_SHOW_UI;
+        if (getMaxVolume() == 100) {
+            step = 10;
+        } else {
+            step = 1;
         }
-        Context context = builder.context;
-        this.audioManager = (AudioManager) context.getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
-        this.streamType = builder.streamType;
-        this.flags = builder.flags;
-        this.audioFocus = builder.audioFocus;
-        this.step = builder.step;
     }
 
     public static VolumeControl getInstance() {
+        if (instance == null) {
+            instance = new VolumeControl();
+        }
         return instance;
-    }
-
-    public static class Builder {
-        private final Context context;
-        private int streamType;
-        private int flags;
-        private AudioFocus audioFocus;
-        private int step;
-
-        public Builder(Context context) {
-            this.context = context;
-            this.streamType = AudioManager.STREAM_MUSIC;
-            this.flags = AudioManager.FLAG_SHOW_UI;
-            this.audioFocus = new AudioFocus.AudioDuckFocus(context);
-            this.step = 5;
-        }
-
-        public Builder streamType(int streamType) {
-            this.streamType = streamType;
-            return this;
-        }
-
-        public Builder flags(int flags) {
-            this.flags = flags;
-            return this;
-        }
-
-        /**
-         * 语音焦点。
-         */
-        public Builder audioFocus(AudioFocus audioFocus) {
-            this.audioFocus = audioFocus;
-            return this;
-        }
-
-        /**
-         * 每次增加或减小的音量值。
-         */
-        public Builder step(int step) {
-            this.step = step;
-            return this;
-        }
-
-        public VolumeControl build() {
-            return new VolumeControl(this);
-        }
     }
 
     /**
@@ -160,20 +115,6 @@ public class VolumeControl {
                 audioManager.setStreamMute(streamType, false);
             }
         }
-    }
-
-    /**
-     * 获取语音焦点
-     */
-    public void requestAudioFocus() {
-        audioFocus.requestAudioFocus();
-    }
-
-    /**
-     * 丢弃语音焦点
-     */
-    public void abandonAudioFocus() {
-        audioFocus.abandonAudioFocus();
     }
 
     /**

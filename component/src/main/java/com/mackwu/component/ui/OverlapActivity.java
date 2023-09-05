@@ -39,7 +39,7 @@ public class OverlapActivity extends BaseActivity<OverlapViewModel, ActivityOver
 
         // recyclerView
         SpaceItemDecoration spaceItemDecoration = new SpaceItemDecoration();
-        spaceItemDecoration.setRect(0, 0, 0, 0, 0);
+        spaceItemDecoration.setRect(0, 0, 0, 0);
         spaceItemDecoration.setRect(-getResources().getDimensionPixelOffset(R.dimen.dp_125), 0, 0, 0);
         binding.recyclerView.addItemDecoration(spaceItemDecoration);
         binding.recyclerView.setAdapter(adapter);

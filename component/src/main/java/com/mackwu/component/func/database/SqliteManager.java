@@ -7,8 +7,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.mackwu.component.dao.StudentDao;
-
 /**
  * @author MackWu
  * @since 2023/3/22 17:18
@@ -47,12 +45,6 @@ public class SqliteManager {
 //            cursor.moveToNext();
 //        }
 //        cursor.close();
-
-        while (cursor.moveToNext()) {
-            long studentId = cursor.getLong(cursor.getColumnIndex(StudentDao.Properties.StudentId.columnName));
-        }
-        cursor.close();
-
 
         // Cursor对象常用方法如下：
 //        c.move( int offset); //以当前位置为参考,移动到指定行

@@ -1,11 +1,8 @@
 package com.mackwu.component.jbase.pattern.decorator;
 
 /**
- * ===================================================
- * Created by MackWu on 2021/2/24 15:21
- * <a href="mailto:wumengjiao828@163.com">Contact me</a>
- * <a href="https://github.com/mackwu828">Follow me</a>
- * ===================================================
+ * @author MackWu
+ * @since 2023/8/28 14:23
  */
 public class Decorator implements Component {
 
@@ -16,7 +13,8 @@ public class Decorator implements Component {
     }
 
     @Override
-    public void operate() {
-        component.operate();
+    public void funA() {
+        component.funA();
     }
+
 }

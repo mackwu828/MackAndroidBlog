@@ -113,15 +113,11 @@ public class FloatWindow {
         /**
          * 悬浮窗flags。用来确定悬浮窗的行为。
          *
-         * @param flags {@link WindowManager.LayoutParams#FLAG_NOT_FOCUSABLE} 窗口无法获取焦点，焦点传递给下层窗口。窗口、窗口内部区域和窗口外部区域都可以被点击。
-         *              {@link WindowManager.LayoutParams#FLAG_ALT_FOCUSABLE_IM}
-         *
-         *              {@link WindowManager.LayoutParams#FLAG_NOT_TOUCHABLE} 窗口无法点击。焦点在窗口上，下层窗口无法获取焦点。
-         *              {@link WindowManager.LayoutParams#FLAG_NOT_TOUCH_MODAL} 窗口、窗口内部区域和窗口外部区域都可以被点击。默认是设置的。
-         *              {@link WindowManager.LayoutParams#FLAG_WATCH_OUTSIDE_TOUCH} 窗口可以收到窗口外部区域的点击事件。
-         *
-         *              {@link WindowManager.LayoutParams#FLAG_LAYOUT_NO_LIMITS} 窗口的坐标可以设置在屏幕之外。
-         *              {@link WindowManager.LayoutParams#FLAG_LAYOUT_IN_SCREEN}
+         * @param flags WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS 允许将x,y坐标设置在屏幕之外
+         *              WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM 窗口有触摸和焦点。底部无触摸和焦点。
+         *              WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE 窗口无触摸和焦点。底部有触摸和焦点。
+         *              WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL 窗口外部可以获取到触摸事件。
+         *              WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
          *
          */
         public Builder flags(int flags) {

@@ -1,5 +1,4 @@
 *.iml
-.gradle
 /local.properties
 /.idea
 /.idea/caches
@@ -12,8 +11,11 @@
 /build
 /captures
 .externalNativeBuild
-/gradle.properties
 /component/src/main/java/com/mackwu/component/core/dao/
 /image-compress/.gitignore
 /image-transition/.gitignore
 /image-transition/.cxx/
+/image-transition/build/
+/image-compress/build/intermediates/
+/.gradle/
+/image-compress/build/

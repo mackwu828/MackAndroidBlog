@@ -4,10 +4,9 @@ import android.content.Context;
 import android.text.method.ScrollingMovementMethod;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.view.ViewGroup;
 
 import androidx.appcompat.widget.AppCompatTextView;
-
-import com.mackwu.base.util.Logger;
 
 /**
  * @author MackWu
@@ -15,16 +14,17 @@ import com.mackwu.base.util.Logger;
  */
 public class AutoScrollTextView extends AppCompatTextView {
 
+    private static final String TAG = AutoScrollTextView.class.getSimpleName();
     // 滚动线程
-    Runnable scrollRunnable;
+    private Runnable scrollRunnable;
     // 当前文本的纵坐标
-    int currentY;
+    private int currentY;
     // 每次滚动的间距
-    int scrollY = 1;
+    private static final int SCROLL_Y = 1;
     // 每次滚动间隔。单位毫秒
-    int scrollInterval = 5;
+    private static final int SCROLL_INTERVAL = 80;
     // 是否可以自动滚动
-    boolean canAutoScroll = true;
+    private boolean canAutoScroll = true;
 
     public AutoScrollTextView(Context context) {
         this(context, null);
@@ -40,6 +40,8 @@ public class AutoScrollTextView extends AppCompatTextView {
     }
 
     private void initView() {
+        // setIncludeFontPadding
+        setIncludeFontPadding(false);
         // setMovementMethod
         setMovementMethod(ScrollingMovementMethod.getInstance());
         // setOnScrollChangeListener
@@ -52,22 +54,26 @@ public class AutoScrollTextView extends AppCompatTextView {
             if (!canAutoScroll) {
                 return;
             }
-            // currentY=1001, getTextHeight=1276, getMeasuredHeight=441, getLineHeight=116
-//            LogUtil.d("currentY=" + currentY + ", getTextHeight=" + getTextHeight() + ", getMeasuredHeight=" + getMeasuredHeight()
-//                    + ", getLineHeight=" + getLineHeight());
+//            Logger.debugWithTag(TAG, "currentY=" + currentY
+//                    + ", getTextHeight=" + getTextHeight()
+//                    + ", getMeasuredHeight=" + getMeasuredHeight()
+//                    + ", getLineHeight=" + getLineHeight()
+//                    + ", getLineCount=" + getLineCount()
+//                    + ", getLineSpacingExtra=" + getLineSpacingExtra()
+//            );
             // 如果文本高度小于控件高度，则不滚动。
-            if (getTextHeight() <= getMeasuredHeight()) {
-                Logger.d("Text height is less than view height.");
+            if (getTextHeight() <= getActualHeight()) {
+//                Logger.debugWithTag(TAG, "Text height is less than view height.");
                 return;
             }
             // 如果滚动到底部，则不再滚动。
-            if (currentY >= getTextHeight() - getMeasuredHeight() * 0.8f) {
-                Logger.d("View has scrolled to the bottom.");
+            if (currentY > getTextHeight() - getActualHeight()) {
+//                Logger.debugWithTag(TAG, "View has scrolled to the bottom.");
                 return;
             }
-            currentY += scrollY;
+            currentY += SCROLL_Y;
             scrollTo(0, currentY);
-            postDelayed(scrollRunnable, scrollInterval);
+            postDelayed(scrollRunnable, SCROLL_INTERVAL);
         };
     }
 
@@ -85,7 +91,12 @@ public class AutoScrollTextView extends AppCompatTextView {
         super.setText(text, type);
         // 重置位置
         scrollTo(0, 0);
-        post(this::startAutoScroll);
+        postDelayed(this::startAutoScroll, 2000);
+    }
+
+    private int getActualHeight() {
+//        return ((ViewGroup) getParent()).getMeasuredHeight();
+        return getMeasuredHeight();
     }
 
     /**
@@ -94,7 +105,7 @@ public class AutoScrollTextView extends AppCompatTextView {
     public void startAutoScroll() {
         stopAutoScroll();
         canAutoScroll = true;
-        postDelayed(scrollRunnable, scrollInterval);
+        postDelayed(scrollRunnable, SCROLL_INTERVAL);
     }
 
     /**
@@ -109,7 +120,7 @@ public class AutoScrollTextView extends AppCompatTextView {
      * 获取文本总高度
      */
     private int getTextHeight() {
-        return getLineHeight() * getLineCount();
+        return (int) ((getLineHeight() + getLineSpacingExtra()) * getLineCount());
     }
 
 }

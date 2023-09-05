@@ -56,8 +56,6 @@ public abstract class BaseActivity<VM extends BaseViewModel, B extends ViewBindi
     private void initViewModel() {
         Class<VM> vmCls = (Class<VM>) ReflectUtil.getActualTypeArgument(getClass(), 0);
         viewModel = new ViewModelProvider(this, new ViewModelFactory(getApplication())).get(vmCls != null ? vmCls : (Class<VM>) BaseViewModel.class);
-        getLifecycle().addObserver(viewModel);
-//        viewModel.onCreate(this);
     }
 
     @SuppressWarnings({"unchecked"})
@@ -85,6 +83,14 @@ public abstract class BaseActivity<VM extends BaseViewModel, B extends ViewBindi
      */
     protected boolean isOrientationLandscape() {
         return getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
+    }
+
+    protected int getScreenWidth() {
+        return getResources().getDisplayMetrics().widthPixels;
+    }
+
+    protected int getScreenHeight() {
+        return getResources().getDisplayMetrics().heightPixels;
     }
 
 }

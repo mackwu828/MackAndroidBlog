@@ -149,7 +149,6 @@ public abstract class BaseDialogFragment<VM extends BaseViewModel, B extends Vie
         try {
             Class<VM> vmCls = (Class<VM>) ReflectUtil.getActualTypeArgument(getClass(), 0);
             viewModel = new ViewModelProvider(this, new ViewModelFactory(requireActivity().getApplication())).get(vmCls != null ? vmCls : (Class<VM>) BaseViewModel.class);
-            getLifecycle().addObserver(viewModel);
         } catch (Exception e) {
             // ignored
         }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.mackwu.component"
     android:sharedUserId="${SHARE_USER_ID}">
 
     <!--    android:sharedUserId="android.uid.system"-->
@@ -77,11 +76,11 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
-
         <service
             android:name=".func.binder.GradeService"
             android:exported="true"
             android:process=":remote" />
+        <service android:name=".service.MessengerService" />
 
         <!-- receiver -->
         <receiver android:name=".func.sleep.SleepAlarmReceiver" />
@@ -107,6 +106,10 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+        <provider
+            android:authorities="${applicationId}.testprovider"
+            android:exported="true"
+            android:name=".service.TestProvider" />
 
         <!--   activity   -->
         <activity
@@ -202,7 +205,6 @@
         </activity>
         <activity android:name=".ui.CacheActivity" />
         <activity android:name=".ui.StorageActivity" />
-        <activity android:name=".ui.recycler.VLayoutActivity" />
         <activity android:name=".ui.BinderActivity" />
         <activity android:name=".ui.VideoActivity" />
         <activity android:name=".ui.opengl.OpenGLESActivity" />
@@ -211,6 +213,9 @@
         <activity android:name=".ui.DockActivity" />
         <activity android:name=".ui.ImageRotateActivity" />
         <activity android:name=".ui.HttpActivity" />
+        <activity android:name=".ui.MessengerActivity" />
+        <activity android:name=".ui.ChatActivity" />
+        <activity android:name=".ui.PhotoViewActivity" />
 
     </application>
 

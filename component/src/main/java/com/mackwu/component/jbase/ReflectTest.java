@@ -1,6 +1,6 @@
 package com.mackwu.component.jbase;
 
-import com.mackwu.component.bean.Person;
+import com.mackwu.component.jbase.bean.Person;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -155,7 +155,7 @@ public class ReflectTest {
 //        Class<? extends Person> personClass = person.getClass();
 //        // 通过Class.forName("包名.类名")
 //        try {
-//            Class<Person> personClass = (Class<Person>) Class.forName("com.mackwu.component.bean.Person");
+//            Class<Person> personClass = (Class<Person>) Class.forName("com.mackwu.component.jbase.bean.Person");
 //        } catch (ClassNotFoundException e) {
 //            e.printStackTrace();
 //        }

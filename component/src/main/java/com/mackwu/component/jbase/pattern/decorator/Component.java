@@ -1,13 +1,10 @@
 package com.mackwu.component.jbase.pattern.decorator;
 
 /**
- * ===================================================
- * Created by MackWu on 2021/2/24 15:20
- * <a href="mailto:wumengjiao828@163.com">Contact me</a>
- * <a href="https://github.com/mackwu828">Follow me</a>
- * ===================================================
+ * @author MackWu
+ * @since 2023/8/28 14:31
  */
 public interface Component {
 
-    void operate();
+    void funA();
 }

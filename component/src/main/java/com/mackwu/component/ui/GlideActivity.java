@@ -20,7 +20,6 @@ import com.mackwu.base.util.Logger;
 import com.mackwu.base.viewmodel.BaseViewModel;
 import com.mackwu.component.R;
 import com.mackwu.component.databinding.ActivityGlideBinding;
-import com.mackwu.component.util.svg.GlideApp;
 
 /**
  * @author MackWu
@@ -41,7 +40,6 @@ public class GlideActivity extends BaseActivity<BaseViewModel, ActivityGlideBind
                     .into(binding.ivTest);
         });
         binding.btnTest2.setOnClickListener(v -> {
-            new Thread(() -> GlideApp.get(this).clearDiskCache()).start();
         });
 
         Logger.d("width=" + getResources().getDimensionPixelSize(R.dimen.dp_400) + ", height=" + getResources().getDimensionPixelSize(R.dimen.dp_300));

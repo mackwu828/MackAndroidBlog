@@ -25,19 +25,7 @@ public class SeekBarActivity extends BaseActivity<BaseViewModel, WidgetActivityS
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
 
-        Drawable drawable = getNewDrawable();
-        binding.seekBarBrightness.setThumb(drawable);
     }
 
-    public BitmapDrawable getNewDrawable( ){
-        Bitmap Bmp = BitmapFactory. decodeResource(getResources(), R.mipmap.ic_launcher);
-        Bitmap bmp = Bmp.createScaledBitmap(Bmp, 50, 50, true);
-        BitmapDrawable d = new BitmapDrawable(bmp);
-        Bitmap bitmap = d.getBitmap();
-        if (bitmap.getDensity() == Bitmap.DENSITY_NONE) {
-            d.setTargetDensity(getResources().getDisplayMetrics());
-        }
-        return d;
-    }
 
 }

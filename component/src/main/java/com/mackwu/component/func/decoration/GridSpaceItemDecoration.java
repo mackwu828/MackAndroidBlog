@@ -22,9 +22,9 @@ public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
     // 列间距
     private final int spanSpacing;
     // 第一行间距。指上间距。
-    private int firstRowSpacing;
+    private int firstRowSpacing = -1;
     // 最后一行间距。指下间距
-    private int lastRowSpacing;
+    private int lastRowSpacing = -1;
 
     /**
      * @param spanCount   列数
@@ -51,10 +51,9 @@ public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
         outRect.left = spanIndex * spanSpacing / spanCount;
         // 右间距
         outRect.right = spanSpacing - (spanIndex + 1) * spanSpacing / spanCount;
-        // 行间距。如果位置大于列数，说明不是在第一行。非第一行时设置行间距
-        if (position >= spanCount) {
-            outRect.top = rowSpacing;
-        }
+        // 行间距
+        outRect.bottom = rowSpacing;
+        // 第一行上间距、最后一行下间距
         if (parent.getLayoutManager() != null) {
             int itemCount = parent.getLayoutManager().getItemCount();
             // 行数
@@ -62,11 +61,11 @@ public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
             // 当前行
             int currentRow = position / spanCount;
             // 设置第一行上间距
-            if (currentRow == 0) {
+            if (currentRow == 0 && firstRowSpacing != -1) {
                 outRect.top = firstRowSpacing;
             }
             // 设置最后一行下间距
-            else if (currentRow == rows - 1) {
+            else if (currentRow == rows - 1 && lastRowSpacing != -1) {
                 outRect.bottom = lastRowSpacing;
             }
         }
@@ -83,13 +82,14 @@ public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
         if (layoutManager instanceof GridLayoutManager) {
             GridLayoutManager.SpanSizeLookup spanSizeLookup = ((GridLayoutManager) layoutManager).getSpanSizeLookup();
             if (spanSizeLookup.getSpanSize(position) == spanCount) {
-                if (position == 0) {
+                // 行间距
+                outRect.bottom = rowSpacing;
+                // 设置第一行上间距
+                if (position == 0 && firstRowSpacing != -1) {
                     outRect.top = firstRowSpacing;
-                } else {
-                    outRect.top = rowSpacing;
                 }
-                int itemCount = layoutManager.getItemCount();
-                if (position == itemCount - 1) {
+                // 设置最后一行下间距
+                else if (position == layoutManager.getItemCount() - 1 && lastRowSpacing != -1) {
                     outRect.bottom = lastRowSpacing;
                 }
                 return true;

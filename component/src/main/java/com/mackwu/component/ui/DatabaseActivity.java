@@ -7,7 +7,6 @@ import androidx.annotation.Nullable;
 import com.mackwu.base.BaseActivity;
 import com.mackwu.base.util.Logger;
 import com.mackwu.base.viewmodel.BaseViewModel;
-import com.mackwu.component.func.database.GreenDaoManager;
 import com.mackwu.component.databinding.ActivityDatabaseBinding;
 
 
@@ -24,7 +23,6 @@ public class DatabaseActivity extends BaseActivity<BaseViewModel, ActivityDataba
     public void initView(@Nullable Bundle savedInstanceState) {
         binding.btnInsert.setOnClickListener(v -> {
             Logger.d("btnInsert...");
-            GreenDaoManager.getInstance().insert();
         });
         binding.btnDelete.setOnClickListener(v -> {
         });
@@ -32,8 +30,6 @@ public class DatabaseActivity extends BaseActivity<BaseViewModel, ActivityDataba
         });
         binding.btnQuery.setOnClickListener(v -> {
             Logger.d("btnQuery...");
-//          GreenDaoManager.getInstance().queryAll();
-            GreenDaoManager.getInstance().query();
         });
     }
 

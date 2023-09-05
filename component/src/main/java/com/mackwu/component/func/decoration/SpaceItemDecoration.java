@@ -2,25 +2,31 @@ package com.mackwu.component.func.decoration;
 
 import android.graphics.Rect;
 import android.text.TextUtils;
-import android.util.ArrayMap;
 import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.mackwu.base.util.Logger;
-
 import java.util.Locale;
 
 public class SpaceItemDecoration extends RecyclerView.ItemDecoration {
 
-    // 从右到左
+    private Rect rect;
+    private Rect firstRect;
+    private Rect lastRect;
     private final boolean isRlt;
-    private static final int OTHER_POSITION = -1;
-    private static final int LAST_POSITION = -2;
-    private final ArrayMap<Integer, Rect> rectMap = new ArrayMap<>();
 
     public SpaceItemDecoration() {
+        this.isRlt = isRlt();
+    }
+
+    public SpaceItemDecoration(Rect rect) {
+        this.rect = rect;
+        this.isRlt = isRlt();
+    }
+
+    public SpaceItemDecoration(int left, int top, int right, int bottom) {
+        this.rect = new Rect(left, top, right, bottom);
         this.isRlt = isRlt();
     }
 
@@ -28,36 +34,24 @@ public class SpaceItemDecoration extends RecyclerView.ItemDecoration {
     public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, RecyclerView parent, @NonNull RecyclerView.State state) {
         // 位置
         int position = parent.getChildAdapterPosition(view);
-        // 根据position获取间距
-        Rect rect = rectMap.get(position);
-        // 获取最后一个位置的间距
-        if (position == getLastPosition(parent)) {
-            Rect lastRect = rectMap.get(LAST_POSITION);
-            if (lastRect != null) {
-                rect = lastRect;
+        // 第一个位置
+        if (firstRect != null && position == 0) {
+            updateItemOffsets(outRect, firstRect);
+            return;
+        }
+        // 最后一个位置
+        if (lastRect != null) {
+            RecyclerView.LayoutManager layoutManager = parent.getLayoutManager();
+            if (layoutManager != null) {
+                int itemCount = layoutManager.getItemCount();
+                if (position == itemCount - 1) {
+                    updateItemOffsets(outRect, lastRect);
+                    return;
+                }
             }
         }
-        // 获取其他位置的间距
-        if (rect == null) {
-            rect = rectMap.get(OTHER_POSITION);
-        }
-        if (rect != null) {
-            updateItemOffsets(outRect, rect);
-        }
-    }
-
-    /**
-     * 获取最后一个位置
-     *
-     * @param parent RecyclerView
-     */
-    private int getLastPosition(RecyclerView parent) {
-        RecyclerView.LayoutManager layoutManager = parent.getLayoutManager();
-        if (layoutManager == null) {
-            return 0;
-        }
-        int itemCount = layoutManager.getItemCount();
-        return itemCount - 1;
+        // 其他位置
+        updateItemOffsets(outRect, rect);
     }
 
     /**
@@ -89,21 +83,21 @@ public class SpaceItemDecoration extends RecyclerView.ItemDecoration {
      * 设置间距
      */
     public void setRect(int left, int top, int right, int bottom) {
-        rectMap.put(OTHER_POSITION, new Rect(left, top, right, bottom));
+        this.rect = new Rect(left, top, right, bottom);
     }
 
     /**
-     * 设置间距
+     * 设置第一个位置间距
      */
-    public void setRect(int left, int top, int right, int bottom, int position) {
-        rectMap.put(position, new Rect(left, top, right, bottom));
+    public void setFirstRect(int left, int top, int right, int bottom) {
+        this.firstRect = new Rect(left, top, right, bottom);
     }
 
     /**
      * 设置最后一个位置间距
      */
     public void setLastRect(int left, int top, int right, int bottom) {
-        rectMap.put(LAST_POSITION, new Rect(left, top, right, bottom));
+        this.lastRect = new Rect(left, top, right, bottom);
     }
 
 }

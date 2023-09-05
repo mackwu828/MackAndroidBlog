@@ -4,28 +4,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_show"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="show" />
-
-    <Button
-        android:id="@+id/btn_hide"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="hide" />
-
-    <Button
-        android:id="@+id/btn_show_across_process"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="show_across_process" />
-
-    <Button
-        android:id="@+id/btn_hide_across_process"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="hide_across_process" />
+    <WebView
+        android:id="@+id/web_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_400" />
 
 </LinearLayout>

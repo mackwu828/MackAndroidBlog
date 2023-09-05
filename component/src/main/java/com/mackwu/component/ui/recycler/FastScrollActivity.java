@@ -75,12 +75,12 @@ public class FastScrollActivity extends BaseActivity<RecyclerViewModel, WidgetAc
             throw new IllegalArgumentException(
                     "Trying to set fast scroller without both required drawables.");
         }
-        new FastScroller(binding.recyclerView, verticalThumbDrawable, verticalTrackDrawable,
-                horizontalThumbDrawable, horizontalTrackDrawable,
-                null,
-                getResources().getDimensionPixelSize(R.dimen.fastscroll_default_thickness),
-                getResources().getDimensionPixelSize(R.dimen.fastscroll_minimum_range),
-                getResources().getDimensionPixelOffset(R.dimen.fastscroll_margin));
+//        new FastScroller(binding.recyclerView, verticalThumbDrawable, verticalTrackDrawable,
+//                horizontalThumbDrawable, horizontalTrackDrawable,
+//                null,
+//                getResources().getDimensionPixelSize(R.dimen.fastscroll_default_thickness),
+//                getResources().getDimensionPixelSize(R.dimen.fastscroll_minimum_range),
+//                getResources().getDimensionPixelOffset(R.dimen.fastscroll_margin));
     }
 
     private static class FastScrollAdapter extends BaseQuickAdapter<RecycleItem, BaseViewHolder> {

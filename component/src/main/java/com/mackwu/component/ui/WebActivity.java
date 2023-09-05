@@ -6,6 +6,10 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import androidx.annotation.Nullable;
 
@@ -27,32 +31,16 @@ public class WebActivity extends BaseActivity<BaseViewModel, WidgetActivityWebBi
 
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
-        binding.btnShow.setOnClickListener(v -> {
-            WebWindow.getInstance().show();
-        });
-        binding.btnHide.setOnClickListener(v -> {
-            WebWindow.getInstance().hide();
-        });
-//        binding.btnShowAcrossProcess.setOnClickListener(v -> WebProcessManager.getInstance().showAcrossProcess());
-//        binding.btnHideAcrossProcess.setOnClickListener(v -> WebProcessManager.getInstance().hideAcrossProcess());
-        bindWebService();
-    }
-
-    private void bindWebService() {
-        bindService(new Intent(this, WebService.class), new ServiceConnection() {
+        WebSettings settings = binding.webView.getSettings();
+        settings.setJavaScriptEnabled(true);
+        binding.webView.setWebViewClient(new WebViewClient(){
             @Override
-            public void onServiceConnected(ComponentName name, IBinder service) {
-                Logger.d("onServiceConnected...");
-//                IWebInterface iWebInterface = IWebInterface.Stub.asInterface(service);
-//                WebProcessManager.getInstance().setWebInterface(iWebInterface);
-//                WebProcessManager.getInstance().loadUrlAcrossProcess();
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+                return true;
             }
-
-            @Override
-            public void onServiceDisconnected(ComponentName name) {
-                Logger.d("onServiceDisconnected...");
-            }
-        }, Service.BIND_AUTO_CREATE);
+        });
+        binding.webView.loadUrl("https://www.google.com/maps/place/San+Francisco%2C+CA%2C+USA");
     }
 
 }

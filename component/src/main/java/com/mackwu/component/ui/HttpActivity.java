@@ -28,7 +28,6 @@ public class HttpActivity extends BaseActivity<BaseViewModel, ActivityHttpBindin
             try {
                 socket= new DatagramSocket();
 
-                DatagramPacket packet = new DatagramPacket()
             } catch (SocketException e) {
                 throw new RuntimeException(e);
             }finally {

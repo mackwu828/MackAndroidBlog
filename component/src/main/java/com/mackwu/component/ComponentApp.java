@@ -2,7 +2,11 @@ package com.mackwu.component;
 
 import android.app.Application;
 
-import com.mackwu.component.func.database.GreenDaoManager;
+import com.airbnb.lottie.BuildConfig;
+import com.mackwu.component.util.WebViewUtil;
+
+import timber.log.Timber;
+
 
 /**
  * ===================================================
@@ -19,9 +23,8 @@ public class ComponentApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        WebViewUtil.hookWebView();
         instance = this;
-
-        GreenDaoManager.getInstance().setupDatabase(this);
     }
 
     public static ComponentApp getInstance() {

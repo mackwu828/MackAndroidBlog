@@ -5,11 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 
 /**
- * ===================================================
- * Created by MackWu on 2020/7/8 15:59
- * <a href="mailto:wumengjiao828@163.com">Contact me</a>
- * <a href="https://github.com/mackwu828">Follow me</a>
- * ===================================================
+ * @author MackWu
+ * @since 2020/7/8 15:59
  */
 public interface IActivity {
 
