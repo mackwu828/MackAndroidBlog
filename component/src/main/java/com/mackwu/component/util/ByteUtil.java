@@ -77,7 +77,7 @@ public final class ByteUtil {
      */
     public static String getByteCount(Bitmap bitmap) {
         if (bitmap != null) {
-            return "getByteCount=" + bitmap.getByteCount() + "(" + bytesToStr(bitmap.getByteCount()) + ")";
+            return bitmap.getByteCount() + "(" + bytesToStr(bitmap.getByteCount()) + ")";
         }
         return "bitmap is null";
     }

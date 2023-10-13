@@ -76,6 +76,7 @@ public final class StorageUtil {
                     storage.setName(userLabel);
                     storage.setUsb(isUsb);
                     storages.add(storage);
+                    Logger.d(storage.toString());
                 }
                 return storages;
             }

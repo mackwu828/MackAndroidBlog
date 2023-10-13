@@ -1,6 +1,5 @@
 package com.mackwu.component;
 
-import com.mackwu.component.func.excel.ExcelManager;
 
 import org.junit.Test;
 
@@ -13,7 +12,7 @@ public class JavaTest {
     @Test
     public void a() {
 //        Utils.excelToXml("C:\\Users\\MSI-NB\\Desktop\\Whale Photo 相框端.xlsx");
-        ExcelManager.getInstance().excelToXml("C:\\Users\\MSI-NB\\Desktop\\test.xlsx");
+//        ExcelManager.getInstance().excelToXml("C:\\Users\\MSI-NB\\Desktop\\test.xlsx");
     }
 
 }

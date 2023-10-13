@@ -4,21 +4,39 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_test"
-        android:layout_width="@dimen/dp_200"
-        android:layout_height="@dimen/dp_100"
-        android:layout_marginTop="@dimen/dp_20"
-        android:background="@color/colorPrimary"
-        android:gravity="center"
-        android:text="test" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20">
 
-    <Button
-        android:id="@+id/btn_test2"
+        <Button
+            android:id="@+id/btn_test"
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="@dimen/dp_100"
+            android:gravity="center"
+            android:text="test" />
+
+        <Button
+            android:id="@+id/btn_test2"
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="@dimen/dp_100"
+            android:gravity="center"
+            android:text="test2" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello"
+        android:textSize="@dimen/sp_60" />
+
+    <ImageView
+        android:id="@+id/iv_test"
         android:layout_width="@dimen/dp_200"
-        android:layout_height="@dimen/dp_100"
-        android:layout_marginTop="@dimen/dp_20"
-        android:background="@color/colorPrimary"
-        android:gravity="center"
-        android:text="test2" />
+        android:layout_height="@dimen/dp_200" />
+
+    <ImageView
+        android:id="@+id/iv_test2"
+        android:layout_width="@dimen/dp_200"
+        android:layout_height="@dimen/dp_200" />
 </LinearLayout>

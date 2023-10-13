@@ -16,17 +16,6 @@ import java.util.List;
  */
 public class BannerView extends FrameLayout {
 
-    // banner
-    private BannerViewPager banner;
-    // adapter
-    private BannerPagerAdapter adapter;
-    // 自动轮播线程
-    private Runnable loopRunnable;
-    // 轮播间隔
-    private final long loopDuration = 3000;
-    // 当前位置
-    private int currentPosition;
-
     public BannerView(Context context) {
         this(context, null);
     }
@@ -41,37 +30,7 @@ public class BannerView extends FrameLayout {
     }
 
     private void initView() {
-        // adapter
-        adapter = new BannerPagerAdapter();
 
-        // banner
-        banner = new BannerViewPager(getContext());
-        addView(banner);
-        banner.setAdapter(adapter);
-
-        // startLoop
-        startLoop();
-    }
-
-    private void startLoop() {
-        if (loopRunnable == null) {
-            loopRunnable = () -> {
-                currentPosition = banner.getCurrentItem();
-                currentPosition++;
-                banner.setCurrentItem(currentPosition);
-                postDelayed(loopRunnable, loopDuration);
-            };
-        }
-        postDelayed(loopRunnable, loopDuration);
-    }
-
-    /**
-     * 设置数据
-     *
-     * @param views views
-     */
-    public void setData(List<View> views) {
-        adapter.setViews(views);
     }
 
 }

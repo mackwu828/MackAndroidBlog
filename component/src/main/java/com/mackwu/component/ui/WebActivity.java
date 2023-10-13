@@ -1,12 +1,6 @@
 package com.mackwu.component.ui;
 
-import android.app.Service;
-import android.content.ComponentName;
-import android.content.Intent;
-import android.content.ServiceConnection;
 import android.os.Bundle;
-import android.os.IBinder;
-import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -14,11 +8,8 @@ import android.webkit.WebViewClient;
 import androidx.annotation.Nullable;
 
 import com.mackwu.base.BaseActivity;
-import com.mackwu.base.util.Logger;
 import com.mackwu.base.viewmodel.BaseViewModel;
 import com.mackwu.component.databinding.WidgetActivityWebBinding;
-import com.mackwu.component.func.window.test.WebWindow;
-import com.mackwu.component.service.WebService;
 
 /**
  * ===================================================

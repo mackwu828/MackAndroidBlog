@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.mackwu.image.scale.FrameView
+        android:id="@+id/frame_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="text" />
+
+        <Button
+            android:id="@+id/btn_test2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="text2" />
+
+
+        <Button
+            android:id="@+id/btn_test3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="text3" />
+
+        <Button
+            android:id="@+id/btn_test4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="text4" />
+    </LinearLayout>
+
+</FrameLayout>

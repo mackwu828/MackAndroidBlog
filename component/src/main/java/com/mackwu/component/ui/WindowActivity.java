@@ -7,8 +7,6 @@ import androidx.annotation.Nullable;
 import com.mackwu.base.BaseActivity;
 import com.mackwu.base.viewmodel.BaseViewModel;
 import com.mackwu.component.databinding.ActivityWindowBinding;
-import com.mackwu.component.func.window.test.RedWindow;
-import com.mackwu.component.func.window.test.YellowWindow;
 
 /**
  * ===================================================
@@ -25,16 +23,12 @@ public class WindowActivity extends BaseActivity<BaseViewModel, ActivityWindowBi
 //        });
 
         binding.btnShow.setOnClickListener(v -> {
-            RedWindow.getInstance().show();
         });
         binding.btnHide.setOnClickListener(v -> {
-            RedWindow.getInstance().hide();
         });
         binding.btnShow2.setOnClickListener(v -> {
-            YellowWindow.getInstance().show();
         });
         binding.btnHide2.setOnClickListener(v -> {
-            YellowWindow.getInstance().hide();
         });
 
 //        FloatWindow

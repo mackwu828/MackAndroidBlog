@@ -11,9 +11,13 @@ import androidx.documentfile.provider.DocumentFile;
 import com.mackwu.base.BaseActivity;
 import com.mackwu.base.viewmodel.BaseViewModel;
 import com.mackwu.component.databinding.ActivityStorageBinding;
+import com.mackwu.storage.bean.Storage;
 import com.mackwu.storage.scan.StorageScanListener;
 import com.mackwu.storage.scan.StorageScanner;
 import com.mackwu.storage.util.Logger;
+import com.mackwu.storage.util.StorageUtil;
+
+import java.util.List;
 
 /**
  * ===================================================
@@ -39,6 +43,13 @@ public class StorageActivity extends BaseActivity<BaseViewModel, ActivityStorage
             Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
             startActivityForResult(intent, 0x01);
         });
+
+        // 528E-716A
+        // content://com.android.externalstorage.documents/tree/528E-716A%3Aphotos/document/528E-716A%3Aphotos%2Fphoto%20(1).bmp
+        StorageUtil.getStorages(this);
+
+        Uri parse = Uri.parse("/storage/SDcard");
+        Logger.d("" + parse.getPath());
     }
 
     private void startScan(String path) {

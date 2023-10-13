@@ -107,9 +107,9 @@
                 android:resource="@xml/file_paths" />
         </provider>
         <provider
+            android:name=".service.TestProvider"
             android:authorities="${applicationId}.testprovider"
-            android:exported="true"
-            android:name=".service.TestProvider" />
+            android:exported="true" />
 
         <!--   activity   -->
         <activity
@@ -216,6 +216,10 @@
         <activity android:name=".ui.MessengerActivity" />
         <activity android:name=".ui.ChatActivity" />
         <activity android:name=".ui.PhotoViewActivity" />
+        <activity
+            android:name=".ui.FrameViewActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity android:name=".ui.VideoViewActivity" />
 
     </application>
 

@@ -8,7 +8,6 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.LifecycleService;
 
 import com.mackwu.base.util.Logger;
-import com.mackwu.component.func.window.test.WebWindow;
 import com.mackwu.component.util.ProcessUtil;
 
 /**
@@ -24,7 +23,6 @@ public class WebService extends LifecycleService {
     public void onCreate() {
         super.onCreate();
         Logger.d("onCreate...  " + ProcessUtil.getProcessInfo(this));
-        WebWindow.getInstance();
     }
 
     @Nullable

@@ -3,6 +3,7 @@ package com.mackwu.component.ui;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,6 +12,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.target.Target;
@@ -20,6 +22,8 @@ import com.mackwu.base.util.Logger;
 import com.mackwu.base.viewmodel.BaseViewModel;
 import com.mackwu.component.R;
 import com.mackwu.component.databinding.ActivityGlideBinding;
+import com.mackwu.image.scale.FitCenterDownsample;
+import com.mackwu.image.scale.FitCenterTransformation;
 
 /**
  * @author MackWu
@@ -27,23 +31,34 @@ import com.mackwu.component.databinding.ActivityGlideBinding;
  */
 public class GlideActivity extends BaseActivity<BaseViewModel, ActivityGlideBinding> {
 
-    String url = "http://cache.zeasn.tv/dev/whale-photo-mgr-api/mgr/file/1663743232999_7fecb606-7f81-4282-9dc8-8591d85deb16.png";
+    //    String url = "http://cache.zeasn.tv/dev/whale-photo-mgr-api/mgr/file/1663743232999_7fecb606-7f81-4282-9dc8-8591d85deb16.png";
+    String url = "https://www.baidu.com/img/bd_logo1.png";
 
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
-
         binding.btnTest.setOnClickListener(v -> {
-            Glide.with(this)
-                    .load(url)
-                    .skipMemoryCache(true)
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .into(binding.ivTest);
+
         });
         binding.btnTest2.setOnClickListener(v -> {
         });
+        binding.ivTest.setScaleType(ImageView.ScaleType.CENTER);
+        Glide.with(this)
+                .load(url)
+                .skipMemoryCache(true)
+//                .transform(new FitCenterTransformation())
+                .listener(new RequestListener<Drawable>() {
+                    @Override
+                    public boolean onLoadFailed(@Nullable GlideException e, @Nullable Object model, @NonNull Target<Drawable> target, boolean isFirstResource) {
+                        return false;
+                    }
 
-        Logger.d("width=" + getResources().getDimensionPixelSize(R.dimen.dp_400) + ", height=" + getResources().getDimensionPixelSize(R.dimen.dp_300));
-
+                    @Override
+                    public boolean onResourceReady(@NonNull Drawable resource, @NonNull Object model, Target<Drawable> target, @NonNull DataSource dataSource, boolean isFirstResource) {
+                        Logger.d(String.format("onResourceReady...  %s, %s", resource.getIntrinsicWidth(), resource.getIntrinsicHeight()));
+                        return false;
+                    }
+                })
+                .into(binding.ivTest);
     }
 
     private void a() {

@@ -3,15 +3,12 @@ package com.mackwu.base.util;
 import android.util.Log;
 
 /**
- * ===================================================
- * Created by MackWu on 2020/6/21 2:49
- * <a href="mailto:wumengjiao828@163.com">Contact me</a>
- * <a href="https://github.com/mackwu828">Follow me</a>
- * ===================================================
+ * @author MackWu
+ * @since 2020/6/21 2:49
  */
 public final class Logger {
 
-    public static String TAG = "mack_wu";
+    public static String TAG = "mack-wu";
     public static boolean LOG_DEBUG = true;
 
     public static void d(String msg) {
